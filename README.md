@@ -7,6 +7,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 If you are importing this project for the first time, you will need to install the dependencies.
 Run `npm install` or `npm i`.
 
+Run `npm install -g @compodoc/compodoc` if you haven't already and want to use it.
+
 ## Memo Compodoc
 
 Compodoc is a documentation tool. It will build files based on certain comments.

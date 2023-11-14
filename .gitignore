@@ -40,3 +40,9 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Compodoc
+documentation
+doc
+.tmp-compodoc-test/
+test/dist/

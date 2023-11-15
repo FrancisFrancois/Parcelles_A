@@ -14,7 +14,7 @@ export class AccountManagementService {
   constructor(private _httpClient: HttpClient) { }
 
   getAll() : Observable<RegisterAccount[]> {
-    return this._httpClient.get<RegisterAccount[]>(`${this._url}/get`);	
+    return this._httpClient.get<RegisterAccount[]>(`${this._url}/all`);	
   }
   getById(id : number) : Observable<RegisterAccount> {
     return this._httpClient.get<RegisterAccount>(`${this._url}/${id}`);

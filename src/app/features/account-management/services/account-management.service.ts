@@ -9,24 +9,24 @@ import { RegisterAccount } from '../models/registerAccount';
 })
 export class AccountManagementService {
 
-  private _url: string = '';
+  private _url: string = 'http://localhost:8080/user';
 
   constructor(private _httpClient: HttpClient) { }
 
   getAll() : Observable<RegisterAccount[]> {
-    return this._httpClient.get<RegisterAccount[]>(this._url);
+    return this._httpClient.get<RegisterAccount[]>(`${this._url}/get`);	
   }
   getById(id : number) : Observable<RegisterAccount> {
-    return this._httpClient.get<RegisterAccount>(this._url+id);
+    return this._httpClient.get<RegisterAccount>(`${this._url}/${id}`);
   }
   create(registerAccount : RegisterAccount): Observable<RegisterAccount> {
-    return this._httpClient.post<RegisterAccount>(this._url, registerAccount);
+    return this._httpClient.post<RegisterAccount>(`${this._url}/create`, registerAccount);
   }
   update(id : number, registerAccount : RegisterAccount) : Observable<RegisterAccount> {
-    return this._httpClient.put<RegisterAccount>(this._url+id, registerAccount);
+    return this._httpClient.put<RegisterAccount>(`${this._url}/${id}`, registerAccount);
   }
   delete(id : number) : Observable<RegisterAccount> {
-    return this._httpClient.delete<RegisterAccount>(this._url+id);
+    return this._httpClient.delete<RegisterAccount>(`${this._url}/${id}`);
   }
 
 }

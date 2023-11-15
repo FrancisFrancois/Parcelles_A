@@ -12,6 +12,7 @@ export class CreateAccountComponent {
 
   registerForm: FormGroup;
 
+  
   constructor(
     private _fb : FormBuilder,
     private _accountManagementService: AccountManagementService,
@@ -34,29 +35,29 @@ export class CreateAccountComponent {
     const confirmPasswordControl = group.get('confirmpassword');
 
     if (!passwordControl || !confirmPasswordControl) {
-      return null; // Si l'un des contrôles est absent, retournez null (pas d'erreur).
+      return null; 
     }
     const password = passwordControl.value;
     const confirmPassword = confirmPasswordControl.value;
-    // Vérifie si les mots de passe correspondent, sinon retourne une erreur.
+
     return password === confirmPassword ? null : { 'passwordMismatch': true };
   }
 
-  createUser() {
-    if (this.registerForm.valid) {  
-      this._accountManagementService.create(this.registerForm.value).subscribe({
-        complete: () => {
-          this._router.navigateByUrl('/'); // Redirige vers la page d'acceuil
-        }
-      });
-      console.log(this.registerForm.value); // Affiche les valeurs du formulaire dans la console.
-      console.log("FORMULAIRE VALIDE");
-    } else {
-      // Marque tous les champs du formulaire comme "touched" pour afficher les erreurs.
-      this.registerForm.markAllAsTouched();
-      console.log("FORMULAIRE INVALIDE");
-    }
-  }
+  // createUser() {
+  //   if (this.registerForm.valid) {  
+  //     this._accountManagementService.create(this.registerForm.value).subscribe({
+  //       complete: () => {
+  //         this._router.navigateByUrl('/'); 
+  //       }
+  //     });
+  //     console.log(this.registerForm.value); 
+  //     console.log("FORMULAIRE VALIDE");
+  //   } else {
+
+  //     this.registerForm.markAllAsTouched();
+  //     console.log("FORMULAIRE INVALIDE");
+  //   }
+  // }
 
 
 }

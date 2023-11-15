@@ -6,8 +6,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AccountManagementService {
 
-  private _url: string = 'http://localhost:3000/api/account-management';
+  // private _url: string = 'http://localhost:3000/api/account-management';
 
-  constructor(private _httpClient: HttpClient) { }
-  
+  // constructor(private _httpClient: HttpClient) { }
+
 }

@@ -1,7 +1,9 @@
 export interface RegisterAccount {
+    id: number | undefined;
+    username : string;
     firstName : string;
     lastName : string;
-    username : string;
     email : string;
     password : string;
+    roles : string[];
 }

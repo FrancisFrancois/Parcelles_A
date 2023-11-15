@@ -1,18 +1,18 @@
 <div class="container">
-    <form [formGroup]="registerForm">
+    <form [formGroup]="registerForm" (ngSubmit)="createUser()">
         <div class="mb-3">
-           <label for="lastname" class="form-label">Nom</label>
+           <label for="lastName" class="form-label">Nom</label>
            <br>
-           <input id="lastname" type="text" class="form-control-sm" required formControlName="lastname">
+           <input id="lastName" type="text" class="form-control-sm" required formControlName="lastName">
            <br>
-           <span class="text-danger" *ngIf="registerForm.get('lastname')?.touched && registerForm.get('lastname')?.errors?.['required']">Champs requis</span>
+           <span class="text-danger" *ngIf="registerForm.get('lastName')?.touched && registerForm.get('lastName')?.errors?.['required']">Champs requis</span>
         </div>
         <div class="mb-3">
-            <label for="firstname" class="form-label">Prénom</label>
+            <label for="firstName" class="form-label">Prénom</label>
             <br>
-            <input id="firstname" type="text" class="form-control-sm" required formControlName="firstname">
+            <input id="firstName" type="text" class="form-control-sm" required formControlName="firstName">
             <br>
-            <span class="text-danger" *ngIf="registerForm.get('firstname')?.touched && registerForm.get('firstname')?.errors?.['required']">Champs requis</span>
+            <span class="text-danger" *ngIf="registerForm.get('firstName')?.touched && registerForm.get('firstName')?.errors?.['required']">Champs requis</span>
          </div>
         <div class="mb-3">
             <label for="username" class="form-label">Pseudo</label>
@@ -46,6 +46,6 @@
             <br>
             <span class="text-danger" *ngIf="registerForm.hasError('passwordMismatch') && registerForm.get('confirmpassword')?.touched">Les mots de passe ne correspondent pas</span>
         </div>
-        <button type="button" class="btn btn-primary">Enregistrer</button>
+        <button type="submit" class="btn btn-primary">Enregistrer</button>
     </form>
 </div>

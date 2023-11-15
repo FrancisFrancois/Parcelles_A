@@ -13,9 +13,20 @@ export class AccountManagementService {
 
   constructor(private _httpClient: HttpClient) { }
 
-  create(registerAccount : RegisterAccount): Observable<any> {
-    return this._httpClient.post(this._url, registerAccount);
-    
+  getAll() : Observable<RegisterAccount[]> {
+    return this._httpClient.get<RegisterAccount[]>(this._url);
+  }
+  getById(id : number) : Observable<RegisterAccount> {
+    return this._httpClient.get<RegisterAccount>(this._url+id);
+  }
+  create(registerAccount : RegisterAccount): Observable<RegisterAccount> {
+    return this._httpClient.post<RegisterAccount>(this._url, registerAccount);
+  }
+  update(id : number, registerAccount : RegisterAccount) : Observable<RegisterAccount> {
+    return this._httpClient.put<RegisterAccount>(this._url+id, registerAccount);
+  }
+  delete(id : number) : Observable<RegisterAccount> {
+    return this._httpClient.delete<RegisterAccount>(this._url+id);
   }
 
 }

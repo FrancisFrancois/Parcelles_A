@@ -19,8 +19,8 @@ export class CreateAccountComponent {
     private _router: Router
     ) {
     this.registerForm = this._fb.group({
-      lastname: [null, [Validators.required, Validators.pattern(/^[\D]*$/)]],
-      firstname: [null, [Validators.required, Validators.pattern(/^[\D]*$/)]],
+      lastName: [null, [Validators.required, Validators.pattern(/^[\D]*$/)]],
+      firstName: [null, [Validators.required, Validators.pattern(/^[\D]*$/)]],
       username: [null, [Validators.required, Validators.pattern(/^[\D]*$/)]],
       email: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required, Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/)]],

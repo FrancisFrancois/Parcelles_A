@@ -3,32 +3,36 @@
         <div class="mb-3">
            <label for="lastname" class="form-label">Nom</label>
            <br>
-           <input type="text" class="form-control-sm" required formControlName="lastname">
+           <input id="lastname" type="text" class="form-control-sm" required formControlName="lastname">
+           <br>
            <span class="text-danger" *ngIf="registerForm.get('lastname')?.touched && registerForm.get('lastname')?.errors?.['required']">Champs requis</span>
         </div>
         <div class="mb-3">
-            <label for="text-firstname" class="form-label">Prénom</label>
+            <label for="firstname" class="form-label">Prénom</label>
             <br>
-            <input type="text" class="form-control-sm" required formControlName="firstname">
-            <span class="danger" *ngIf="registerForm.get('firstame')?.touched && registerForm.get('firstname')?.errors?.['required']">Champs requis</span>
-        </div>
+            <input id="firstname" type="text" class="form-control-sm" required formControlName="firstname">
+            <br>
+            <span class="text-danger" *ngIf="registerForm.get('firstname')?.touched && registerForm.get('firstname')?.errors?.['required']">Champs requis</span>
+         </div>
         <div class="mb-3">
             <label for="username" class="form-label">Pseudo</label>
             <br>
-            <input type="text" class="form-control-sm" required formControlName="username">
+            <input id="username" type="text" class="form-control-sm" required formControlName="username">
+            <br>
             <span class="text-danger" *ngIf="registerForm.get('username')?.touched && registerForm.get('username')?.errors?.['required']">Champs requis</span>
         </div>
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
             <br>
-            <input type="email" class="form-control-sm"  required formControlName="email">
+            <input id="email" type="email" class="form-control-sm"  required formControlName="email">
+            <br>
             <span class="text-danger" *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.errors?.['required']">Champs requis</span>
             <span class="text-danger" *ngIf="registerForm.get('email')?.errors?.['email']">Format de mail invalide</span>
         </div>
         <div class="mb-3">
             <label for="password" class="form-label">Mot de passe</label>
             <br>
-            <input type="password" class="form-control-sm" required formControlName="password">
+            <input id="password" type="password" class="form-control-sm" required formControlName="password">
             <br>
             <span class="text-danger" *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.errors?.['required']">Champs requis</span>
             <span class="text-danger" *ngIf="registerForm.get('password')?.errors?. ['pattern']">Votre mot de passe doit contenir au moins 8 caractères dont une minuscule, une majuscule et un chiffre</span>
@@ -36,9 +40,10 @@
         <div class="mb-3">
             <label for="confirmpassword" class="form-label">Confirmer le mot de passe</label>
             <br>
-            <input type="password" class="form-control-sm" required formControlName="confirmpassword">
+            <input id="confirmpassword" type="password" class="form-control-sm" required formControlName="confirmpassword">
             <br>
             <span class="text-danger" *ngIf="registerForm.get('confirmpassword')?.touched && registerForm.get('confirmpassword')?.hasError('required')">Champ requis</span>
+            <br>
             <span class="text-danger" *ngIf="registerForm.hasError('passwordMismatch') && registerForm.get('confirmpassword')?.touched">Les mots de passe ne correspondent pas</span>
         </div>
         <button type="button" class="btn btn-primary">Enregistrer</button>

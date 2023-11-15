@@ -8,6 +8,8 @@ import { CreateAccountComponent } from './features/account-management/components
 import { ReadAccountComponent } from './features/account-management/components/read-account/read-account.component';
 import { UpdateAccountComponent } from './features/account-management/components/update-account/update-account.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import {  HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

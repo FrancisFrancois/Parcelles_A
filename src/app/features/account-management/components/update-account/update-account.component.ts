@@ -19,11 +19,11 @@ export class UpdateAccountComponent {
     private _router: Router
     ) {
     this.registerForm = this._fb.group({
-      lastName: [null, [Validators.required, Validators.pattern(/^[\D]*$/)]],
-      firstName: [null, [Validators.required, Validators.pattern(/^[\D]*$/)]],
-      username: [null, [Validators.required, Validators.pattern(/^[\D]*$/)]],
-      email: [null, [Validators.required, Validators.email]],
-      password: [null, [Validators.required, Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/)]],
+      lastName: [null, [Validators.required, Validators.maxLength(45), Validators.pattern(/^[\D]*$/)]],
+      firstName: [null, [Validators.required, Validators.maxLength(45), Validators.pattern(/^[\D]*$/)]],
+      username: [null, [Validators.required, Validators.maxLength(45), Validators.pattern(/^[\D]*$/)]],
+      email: [null, [Validators.required,Validators.maxLength(250), Validators.email]],
+      password: [null, [Validators.required, Validators.maxLength(150), Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/)]],
       confirmpassword: [null, [Validators.required]]
     }, {
       validators: this.passwordMatchValidator

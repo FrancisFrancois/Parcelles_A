@@ -6,6 +6,7 @@
            <input id="lastName" type="text" class="form-control-sm" required formControlName="lastName">
            <br>
            <span class="text-danger" *ngIf="registerForm.get('lastName')?.touched && registerForm.get('lastName')?.errors?.['required']">Champs requis</span>
+           <span class="text-danger" *ngIf="registerForm.get('lastName')?.errors?.['maxlength']">Maximum 45 caractères</span>
         </div>
         <div class="mb-3">
             <label for="firstName" class="form-label">Prénom</label>
@@ -13,6 +14,7 @@
             <input id="firstName" type="text" class="form-control-sm" required formControlName="firstName">
             <br>
             <span class="text-danger" *ngIf="registerForm.get('firstName')?.touched && registerForm.get('firstName')?.errors?.['required']">Champs requis</span>
+            <span class="text-danger" *ngIf="registerForm.get('firstName')?.errors?.['maxlength']">Maximum 45 caractères</span>
          </div>
         <div class="mb-3">
             <label for="username" class="form-label">Pseudo</label>
@@ -20,6 +22,7 @@
             <input id="username" type="text" class="form-control-sm" required formControlName="username">
             <br>
             <span class="text-danger" *ngIf="registerForm.get('username')?.touched && registerForm.get('username')?.errors?.['required']">Champs requis</span>
+            <span class="text-danger" *ngIf="registerForm.get('username')?.errors?.['maxlength']">Maximum 45 caractères</span>
         </div>
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
@@ -28,6 +31,7 @@
             <br>
             <span class="text-danger" *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.errors?.['required']">Champs requis</span>
             <span class="text-danger" *ngIf="registerForm.get('email')?.errors?.['email']">Format de mail invalide</span>
+            <span class="text-danger" *ngIf="registerForm.get('email')?.errors?.['maxlength']">Maximum 250 caractères</span>
         </div>
         <div class="mb-3">
             <label for="password" class="form-label">Mot de passe</label>
@@ -36,6 +40,7 @@
             <br>
             <span class="text-danger" *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.errors?.['required']">Champs requis</span>
             <span class="text-danger" *ngIf="registerForm.get('password')?.errors?. ['pattern']">Votre mot de passe doit contenir au moins 8 caractères dont une minuscule, une majuscule et un chiffre</span>
+            <span class="text-danger" *ngIf="registerForm.get('password')?.errors?.['maxlength']">Maximum 150 caractères</span>
         </div>
         <div class="mb-3">
             <label for="confirmpassword" class="form-label">Confirmer le mot de passe</label>

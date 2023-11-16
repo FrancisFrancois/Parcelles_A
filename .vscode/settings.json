@@ -1,0 +1,16 @@
+{
+    "folder-color.pathColors": [
+        {
+            "folderPath": "Parcelles-Frontend\\src\\app\\features\\account-management\\components\\create-account\\",
+            "color": "foldercolorizer.LightSalmon"
+        },
+        {
+            "folderPath": "Parcelles-Frontend\\src\\app\\features\\account-management\\components\\read-account\\",
+            "color": "foldercolorizer.PureGold"
+        },
+        {
+            "folderPath": "Parcelles-Frontend\\src\\app\\features\\account-management\\components\\update-account\\",
+            "color": "foldercolorizer.GreenYellow"
+        }
+    ]
+}

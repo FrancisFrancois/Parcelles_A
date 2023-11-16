@@ -46,14 +46,20 @@ export class CreateAccountComponent {
   createUser() {
     if (this.registerForm.valid) {  
       this._accountManagementService.create(this.registerForm.value).subscribe({
+        next: (response) => {
+          console.log("Utilisateur créé avec succès:", response);
+          this._router.navigateByUrl('/');
+        },
+        error: (error) => {
+          console.error("Une erreur s'est produite lors de la création de l'utilisateur:", error);
+        },
         complete: () => {
-          this._router.navigateByUrl('/'); 
+          console.log("Création de l'utilisateur terminée.");
         }
       });
       console.log(this.registerForm.value); 
       console.log("FORMULAIRE VALIDE");
     } else {
-
       this.registerForm.markAllAsTouched();
       console.log("FORMULAIRE INVALIDE");
     }

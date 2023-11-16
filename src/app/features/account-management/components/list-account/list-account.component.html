@@ -1,19 +1,21 @@
 <div class="container">
     <h2>Mes Utilisateurs</h2>
-    <div div class="mb-3">
-        <button class="btn btn-primary" routerLink="/create-account">Ajouter un nouvel Utilisateur</button>
-        <table>
-            <thead>
-                <tr>
-                    <td>Nom</td>
-                    <td>Prénom</td>
-                    <td>Username</td>
-                    <td>Email</td>
-                    <td>Actions</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let registerAccount of registerAccountList">
+    <br>
+    <button class="btn btn-primary" routerLink="/create-account">Ajouter un nouvel Utilisateur</button>
+    <br>
+    <br>
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Nom</th>
+            <th scope="col">Prénom</th>
+            <th scope="col">Username</th>
+            <th scope="col">Email</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let registerAccount of registerAccountList">
                     <td>{{ registerAccount.lastName }}</td>
                     <td>{{ registerAccount.firstName }}</td>
                     <td>{{ registerAccount.username }}</td>
@@ -23,9 +25,7 @@
                         <button class="btn btn-primary" routerLink="/update-account/{{registerAccount.id}}">📝</button>
                         <button class="btn btn-primary">❌</button>
                     </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+            </tr>
+        </tbody>
+     </table>
 </div>
-

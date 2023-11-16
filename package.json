@@ -7,10 +7,10 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "compodoc":"compodoc -p tsconfig.doc.json -s",
+    "compodoc":"compodoc -p tsconfig.doc.json -s -r 4201",
     "compodoc:build": "compodoc -p tsconfig.doc.json",
-    "compodoc:build-and-serve": "compodoc -p tsconfig.doc.json -s",
-    "compodoc:serve": "compodoc -s"
+    "compodoc:build-and-serve": "compodoc -p tsconfig.doc.json -s -r 4201",
+    "compodoc:serve": "compodoc -s -r 4201"
   },
   "private": true,
   "dependencies": {

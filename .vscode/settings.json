@@ -11,6 +11,10 @@
         {
             "folderPath": "Parcelles-Frontend\\src\\app\\features\\account-management\\components\\update-account\\",
             "color": "foldercolorizer.GreenYellow"
+        },
+        {
+            "folderPath": "Parcelles-Frontend\\src\\app\\features\\account-management\\components\\list-account\\",
+            "color": "foldercolorizer.Purple"
         }
     ]
 }

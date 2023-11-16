@@ -28,4 +28,13 @@ export class AccountManagementService {
   delete(id : number) : Observable<RegisterAccount> {
     return this._httpClient.delete<RegisterAccount>(`${this._url}/${id}`);
   }
+};
+
+const accountData = {
+  lastName: 'Doe',
+  firstName: 'John',
+  username: 'johndoe',
+  email: 'johndoe@example.com',
+  password: 'Password123',
+  confirmpassword: 'Password123'
 }

@@ -9,6 +9,7 @@ import { ReadAccountComponent } from './features/account-management/components/r
 import { UpdateAccountComponent } from './features/account-management/components/update-account/update-account.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {  HttpClientModule } from '@angular/common/http';
+import { ListAccountComponent } from './features/account-management/components/list-account/list-account.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import {  HttpClientModule } from '@angular/common/http';
     AuthComponent,
     CreateAccountComponent,
     ReadAccountComponent,
-    UpdateAccountComponent
+    UpdateAccountComponent,
+    ListAccountComponent
   ],
   imports: [
     BrowserModule,

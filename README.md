@@ -39,7 +39,7 @@ This situation discribes the function have an input _parameter_ named _username_
 
 Run `compodoc -p tsconfig.doc.json -s` will build and Serve the documentation on localhost (8080 by default).
 
-In Package.json, you can define a command in _scripts_. 
+In [Package.json](https://github.com/RobinPecheurTechnobel/Parcelles-Frontend/blob/dev/package.json), you can define a command in _scripts_. 
 
 **For this project, you can run** `npm run compodoc`. **It will run this command** `compodoc -p tsconfig.doc.json -s -r 4201`, **so documentation will be available on localhost:4201**
 

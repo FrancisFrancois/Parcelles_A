@@ -29,12 +29,3 @@ export class AccountManagementService {
     return this._httpClient.delete<RegisterAccount>(`${this._url}/delete${id}`);
   }
 };
-
-const accountData = {
-  lastName: 'Doe',
-  firstName: 'John',
-  username: 'johndoe',
-  email: 'johndoe@example.com',
-  password: 'Password123',
-  confirmpassword: 'Password123'
-}

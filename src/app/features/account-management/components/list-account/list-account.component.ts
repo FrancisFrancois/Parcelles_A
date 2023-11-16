@@ -15,18 +15,23 @@ export class ListAccountComponent {
   constructor(
     private _accountManagementService : AccountManagementService,
     private _router : Router) { 
+  }
 
+  ngOnInit(): void {
     this._accountManagementService.getAll().subscribe({
-      next: (res: RegisterAccount[]) => {
-        this.registerAccountList = res;
+      next: (response) => {
+        this.registerAccountList = response;
+        console.log("Recuperation de la liste des utilisateurs avec succes:", response);
       },
-      error: (err) => {
-        console.log(err);
-        this._router.navigateByUrl('/notfound');
+      error: (error) => {
+        console.error("Une erreur s'est produite lors de la recuperation de la liste des utilisateurs:", error);
+      },
+      complete: () => {
+        console.log("Recuperation de la liste des utilisateurs terminée.");
       }
     });
   }
-
+  
   deleteUser(id : number) {
     this._accountManagementService.delete(id).subscribe({
       next: (response) => {

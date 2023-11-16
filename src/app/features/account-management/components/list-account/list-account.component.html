@@ -16,14 +16,14 @@
         </thead>
         <tbody>
             <tr *ngFor="let registerAccount of registerAccountList">
-                    <td>{{ registerAccount.lastName }}</td>
+                    <td>Francis</td>
                     <td>{{ registerAccount.firstName }}</td>
                     <td>{{ registerAccount.username }}</td>
                     <td>{{ registerAccount.email }}</td>
                     <td>
                         <button class="btn btn-primary" routerLink="/read-account/{{registerAccount.id}}">🔎</button>
                         <button class="btn btn-primary" routerLink="/update-account/{{registerAccount.id}}">📝</button>
-                        <button class="btn btn-primary">❌</button>
+                        <button class="btn btn-primary" (click)="deleteUser(registerAccount.id ?? 0)">❌</button>
                     </td>
             </tr>
         </tbody>

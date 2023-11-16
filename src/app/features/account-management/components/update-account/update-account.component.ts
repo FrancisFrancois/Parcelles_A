@@ -13,7 +13,6 @@ export class UpdateAccountComponent {
   registerForm: FormGroup;
   accountId : number;
 
-  
   constructor(
     private _fb : FormBuilder,
     private _accountManagementService: AccountManagementService,

@@ -9,8 +9,11 @@ import { CreateAccountComponent } from './features/account-management/components
 import { ReadAccountComponent } from './features/account-management/components/read-account/read-account.component';
 import { UpdateAccountComponent } from './features/account-management/components/update-account/update-account.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { OwnerManagementComponent } from './features/owner-management/components/owner-management.component';
+import { OwnerManagementComponent } from './features/owner-management/components/owner-management/owner-management.component';
 import {  HttpClientModule } from '@angular/common/http';
+import { ReadOwnerComponent } from './features/owner-management/components/read-owner/read-owner.component';
+import { ListOwnerComponent } from './features/owner-management/components/list-owner/list-owner.component';
+import { UpdateOwnerComponent } from './features/owner-management/components/update-owner/update-owner.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +21,10 @@ import {  HttpClientModule } from '@angular/common/http';
     CreateAccountComponent,
     ReadAccountComponent,
     UpdateAccountComponent,
-    OwnerManagementComponent
+    OwnerManagementComponent,
+    ReadOwnerComponent,
+    ListOwnerComponent,
+    UpdateOwnerComponent
   ],
   imports: [
     BrowserModule,

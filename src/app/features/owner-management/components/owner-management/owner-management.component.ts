@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { OwnerManagementService } from '../services/owner-management.service';
+import { OwnerManagementService } from '../../services/owner-management.service';
 @Component({
   selector: 'app-owner-management',
   templateUrl: './owner-management.component.html',
@@ -17,13 +17,11 @@ export class OwnerManagementComponent {
     private _router: Router
   ) {
     
-
-    // Revoir les validators
     this.registerForm = this._fb.group({
       lname: [null, [Validators.required, Validators.maxLength(100), Validators.pattern(/^[\D]*$/)]],
       fname: [null, [Validators.required, Validators.maxLength(100), Validators.pattern(/^[\D]*$/)]],
       adress: [null, [Validators.required, Validators.maxLength(200)]],
-      zip: [null, [Validators.required]], // Ne pas limiter à 4 chiffres
+      zip: [null, [Validators.required,Validators.maxLength(10)]],
       city: [null, [Validators.required, Validators.maxLength(100)]],
       state: [null, [Validators.required, Validators.maxLength(20)]],
       country: [null, [Validators.required, Validators.maxLength(45)]],
@@ -52,20 +50,20 @@ export class OwnerManagementComponent {
   //   return password === confirmPassword ? null : { 'passwordMismatch': true };
   // }
 
-  // createUser() {
-  //   if (this.registerForm.valid) {  
-  //     this._accountManagementService.create(this.registerForm.value).subscribe({
-  //       complete: () => {
-  //         this._router.navigateByUrl('/'); 
-  //       }
-  //     });
-  //     console.log(this.registerForm.value); 
-  //     console.log("FORMULAIRE VALIDE");
-  //   } else {
+  createOwner() {
+    if (this.registerForm.valid) {  
+      this._ownerManagementService.create(this.registerForm.value).subscribe({
+        complete: () => {
+          this._router.navigateByUrl('http://localhost:8080/owner/create'); 
+        }
+      });
+      console.log(this.registerForm.value); 
+      console.log("FORMULAIRE VALIDE");
+    } else {
 
-  //     this.registerForm.markAllAsTouched();
-  //     console.log("FORMULAIRE INVALIDE");
-  //   }
-  // }
+      this.registerForm.markAllAsTouched();
+      console.log("FORMULAIRE INVALIDE");
+    }
+  }
 
 }

@@ -12,12 +12,28 @@ export class OwnerManagementService {
 
   constructor(private _httpClient: HttpClient) { }
 
-  create(Owner: Owner): Observable<any>{
-    let updateUrl: string = `${this._url}/create`;
-    return this._httpClient.post(updateUrl, Owner);
+  getAll(): Observable<Owner[]>{
+    let updateUrl: string = `${this._url}/all`
+    return this._httpClient.get<Owner[]>(updateUrl);
+  }
+  
+  getById(id: number): Observable<Owner> {
+    let updateUrl: string = `${this._url}/${id}`
+    return this._httpClient.get<Owner>(updateUrl);
+  }
+
+
+  create(Owner: Owner): Observable<Owner>{
+    let updateUrl: string = `${this._url}/create`
+    return this._httpClient.post<Owner>(updateUrl, Owner);
   }
   update(id: number, Owner: Owner): Observable<Owner>{
-    let updateUrl: string = `${this._url}/update/${id}`;
+    let updateUrl: string = `${this._url}/update/${id}`
     return this._httpClient.put<Owner>(updateUrl, Owner)
+  }
+
+  delete(id: number): Observable<Owner>{
+    let updateUrl: string = `${this._url}/delete/${id}`
+    return this._httpClient.delete<Owner>(updateUrl)
   }
 }

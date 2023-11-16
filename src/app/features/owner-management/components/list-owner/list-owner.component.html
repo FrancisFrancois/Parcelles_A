@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="mb-3">
+        <p>Liste des propriétaires :</p>
+        <ul>
+            <li *ngFor="let o of owners">
+                {{ o?.lname }} {{ o?.fname }}    <button>Details</button>
+
+            </li>
+        </ul>
+    </div>
+</div>

@@ -34,6 +34,7 @@ export class UpdateOwnerComponent implements OnInit {
       contact: [null, [Validators.required, Validators.maxLength(1)]],
       comment: [null, [Validators.required, Validators.maxLength(1)]],
       reunion: [null, [Validators.required, Validators.maxLength(1)]],
+      manifeste: [null, [Validators.required, Validators.maxLength(1)]]
     });
     this.ownerID = +this
   }
@@ -44,7 +45,11 @@ export class UpdateOwnerComponent implements OnInit {
       }
     })
   }
-  updateUser(): void {
+
+  // Modifier/Supprimer un propriétaire
+
+  //modification du propriétaire
+  updateOwner(): void {
     this._ownerManagementService.update(this.ownerID, this.registerForm.value).subscribe({
       next: () => {
         console.log('L\'utilisateur a été mis à jour');
@@ -59,7 +64,8 @@ export class UpdateOwnerComponent implements OnInit {
       
     });
   }
-    deleteUser(id : number) {
+  // Supprimer un propriétaire
+    deleteOwner(id : number) {
       this._ownerManagementService.delete(id).subscribe({
         next: (response) => {
           console.log("Propriétaire supprimé avec succès:", response);

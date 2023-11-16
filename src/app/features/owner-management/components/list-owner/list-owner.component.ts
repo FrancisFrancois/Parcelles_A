@@ -15,15 +15,19 @@ export class ListOwnerComponent implements OnInit {
   constructor(private _ownerManagementService: OwnerManagementService,
     private _router : Router)
   
-  {}
+  { }
+  // afficher en priorité la liste de owners
   ngOnInit() {
     this.AfficherOwners();
   }
+  //Afficher tous les owners
   AfficherOwners() {
-    this._ownerManagementService.getAll().subscribe({
+    // On s'abonne à notre observable venant du service pour mettre owners dans table Owner puis les afficher
+    this._ownerManagementService.getAll().subscribe({ 
       next: (res: Owner[]) => {
         this.owners = res;
       },
+      //si erreur on redirige sur une autre page
       error: (error) => {
         console.error('Une erreur s\'est produite lors de la récupération des propriétaires.', error);
         this._router.navigateByUrl('/notfound');

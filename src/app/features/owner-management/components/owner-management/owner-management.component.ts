@@ -17,6 +17,7 @@ export class OwnerManagementComponent {
     private _router: Router
   ) {
     
+    // Des contraintes sont appliquées aux champs
     this.registerForm = this._fb.group({
       lname: [null, [Validators.required, Validators.maxLength(100), Validators.pattern(/^[\D]*$/)]],
       fname: [null, [Validators.required, Validators.maxLength(100), Validators.pattern(/^[\D]*$/)]],
@@ -32,29 +33,16 @@ export class OwnerManagementComponent {
       contact: [null, [Validators.required, Validators.maxLength(1)]],
       comment: [null, [Validators.required, Validators.maxLength(1)]],
       reunion: [null, [Validators.required, Validators.maxLength(1)]],
+      manifeste: [null, [Validators.required, Validators.maxLength(1)]]
     });
   }
 
-
-  // Pas de mot de passe ici
-  // passwordMatchValidator(group: FormGroup): ValidationErrors | null {
-  //   const passwordControl = group.get('password');
-  //   const confirmPasswordControl = group.get('confirmpassword');
-
-  //   if (!passwordControl || !confirmPasswordControl) {
-  //     return null; 
-  //   }
-  //   const password = passwordControl.value;
-  //   const confirmPassword = confirmPasswordControl.value;
-
-  //   return password === confirmPassword ? null : { 'passwordMismatch': true };
-  // }
-
+  //Création d'un propriétaire
   createOwner() {
     if (this.registerForm.valid) {  
       this._ownerManagementService.create(this.registerForm.value).subscribe({
         complete: () => {
-          this._router.navigateByUrl('http://localhost:8080/owner/create'); 
+          this._router.navigateByUrl('/'); 
         }
       });
       console.log(this.registerForm.value); 

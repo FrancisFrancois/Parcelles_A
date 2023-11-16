@@ -16,9 +16,11 @@ export class ReadOwnerComponent {
     private _activeRoute : ActivatedRoute, 
     private _OwnerManagementService : OwnerManagementService,
     private _router : Router
-    ) {
+  ) {
+    // Récupère l'identifiant de la route active
     let ownerId = +this._activeRoute.snapshot.params['id'];
-
+    
+    // On récupère l'ID du owner pour l'afficher
     this._OwnerManagementService.getById(ownerId).subscribe({
       next: (res) => {
         this.owner = res;

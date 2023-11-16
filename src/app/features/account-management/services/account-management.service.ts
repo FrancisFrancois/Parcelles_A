@@ -17,7 +17,7 @@ export class AccountManagementService {
     return this._httpClient.get<RegisterAccount[]>(`${this._url}/all`);	
   }
   getById(id : number) : Observable<RegisterAccount> {
-    return this._httpClient.get<RegisterAccount>(`${this._url}/${id}`);
+    return this._httpClient.get<RegisterAccount>(`${this._url}/user${id}`);
   }
   create(registerAccount : RegisterAccount): Observable<RegisterAccount> {
     return this._httpClient.post<RegisterAccount>(`${this._url}/create`, registerAccount);

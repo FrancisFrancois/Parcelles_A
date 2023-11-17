@@ -17,20 +17,31 @@ export class ListOwnerComponent implements OnInit {
   
   { }
   // afficher en priorité la liste de owners
-  ngOnInit() {
-    this.AfficherOwners();
-  }
-  //Afficher tous les owners
-  AfficherOwners() {
-    // On s'abonne à notre observable venant du service pour mettre owners dans table Owner puis les afficher
-    this._ownerManagementService.getAll().subscribe({ 
-      next: (res: Owner[]) => {
-        this.owners = res;
+  ngOnInit(): void {
+    this._ownerManagementService.getAll().subscribe({
+      next: (response) => {
+        this.owners = response;
+        console.log("Recuperation de la liste des propriétaires avec succès:", response);
       },
-      //si erreur on redirige sur une autre page
       error: (error) => {
-        console.error('Une erreur s\'est produite lors de la récupération des propriétaires.', error);
-        this._router.navigateByUrl('/notfound');
+        console.error("Une erreur s'est produite lors de la recuperation de la liste des utilisateurs:", error);
+      },
+      complete: () => {
+        console.log("Recuperation de la liste des utilisateurs terminée.");
+      }
+    });
+  }
+  deleteOwner(id : number) {
+    this._ownerManagementService.delete(id).subscribe({
+      next: (response) => {
+        console.log("Propriétaire supprimé avec succès:", response);
+        this._router.navigateByUrl('/');
+      },
+      error: (error) => {
+        console.error("Une erreur s'est produite lors de la suppression de l'utilisateur:", error);
+      },
+      complete: () => {
+        console.log("Suppression de l'utilisateur terminée.");
       }
     });
   }

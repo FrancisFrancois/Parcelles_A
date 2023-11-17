@@ -1,21 +1,24 @@
 <div class="container">
-    <button type="button" class="btn btn-primary" (click)="deleteOwner()">Supprimer</button>
-    <form [formGroup]="registerForm" (ngSubmit)="updateOwner">
+    <form [formGroup]="registerForm" (ngSubmit)="updateOwner()">
         <br>
         <!--lname-->
         <div class="mb-3">
-           <label for="lastname" class="form-label">Nom</label>
-           <br>
-           <input id="lname" type="text" class="form-control-sm" required formControlName="lname">
-           <span class="text-danger" *ngIf="registerForm.get('lname')?.touched && registerForm.get('lname')?.errors?.['required']">Champs requis</span>
+            <label for="lastname" class="form-label">Nom</label>
+            <br>
+            <input id="lname" type="text" class="form-control-sm" required formControlName="lname">
+            <span class="text-danger"
+                *ngIf="registerForm.get('lname')?.touched && registerForm.get('lname')?.errors?.['required']">Champs
+                requis</span>
         </div>
-        
+
         <!--fname-->
         <div class="mb-3">
             <label for="text-firstname" class="form-label">Prénom</label>
             <br>
             <input id="fname" type="text" class="form-control-sm" required formControlName="fname">
-            <span class="danger" *ngIf="registerForm.get('fname')?.touched && registerForm.get('fname')?.errors?.['required']">Champs requis</span>
+            <span class="danger"
+                *ngIf="registerForm.get('fname')?.touched && registerForm.get('fname')?.errors?.['required']">Champs
+                requis</span>
         </div>
 
         <!--adress-->
@@ -23,7 +26,9 @@
             <label for="adress" class="form-label">Adresse</label>
             <br>
             <input type="text" class="form-control-sm" required formControlName="adress">
-            <span class="text-danger" *ngIf="registerForm.get('adress')?.touched && registerForm.get('adress')?.errors?.['required']">Champs requis</span>
+            <span class="text-danger"
+                *ngIf="registerForm.get('adress')?.touched && registerForm.get('adress')?.errors?.['required']">Champs
+                requis</span>
         </div>
         <!--Zip-->
         <div class="mb-3">
@@ -31,7 +36,9 @@
             <br>
             <input type="text" class="form-control-sm" required formControlName="zip">
             <br>
-            <span class="text-danger" *ngIf="registerForm.get('zip')?.touched && registerForm.get('zip')?.errors?.['required']">Champs requis</span>
+            <span class="text-danger"
+                *ngIf="registerForm.get('zip')?.touched && registerForm.get('zip')?.errors?.['required']">Champs
+                requis</span>
         </div>
 
 
@@ -41,7 +48,9 @@
             <br>
             <input type="text" class="form-control-sm" required formControlName="city">
             <br>
-            <span class="text-danger" *ngIf="registerForm.get('city')?.touched && registerForm.get('city')?.hasError('required')">Champ requis</span>
+            <span class="text-danger"
+                *ngIf="registerForm.get('city')?.touched && registerForm.get('city')?.hasError('required')">Champ
+                requis</span>
             <span class="text-danger" *ngIf="registerForm.hasError('city') && registerForm.get('city')?.touched"></span>
         </div>
 
@@ -51,8 +60,11 @@
             <br>
             <input type="text" class="form-control-sm" required formControlName="state">
             <br>
-            <span class="text-danger" *ngIf="registerForm.get('state')?.touched && registerForm.get('state')?.hasError('required')">Champ requis</span>
-            <span class="text-danger" *ngIf="registerForm.hasError('state') && registerForm.get('state')?.touched"></span>
+            <span class="text-danger"
+                *ngIf="registerForm.get('state')?.touched && registerForm.get('state')?.hasError('required')">Champ
+                requis</span>
+            <span class="text-danger"
+                *ngIf="registerForm.hasError('state') && registerForm.get('state')?.touched"></span>
         </div>
 
         <!--Country-->
@@ -61,17 +73,23 @@
             <br>
             <input type="text" class="form-control-sm" required formControlName="country">
             <br>
-            <span class="text-danger" *ngIf="registerForm.get('country')?.touched && registerForm.get('country')?.hasError('required')">Champ requis</span>
-            <span class="text-danger" *ngIf="registerForm.hasError('country') && registerForm.get('country')?.touched"></span>
+            <span class="text-danger"
+                *ngIf="registerForm.get('country')?.touched && registerForm.get('country')?.hasError('required')">Champ
+                requis</span>
+            <span class="text-danger"
+                *ngIf="registerForm.hasError('country') && registerForm.get('country')?.touched"></span>
         </div>
 
         <!--Email-->
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
             <br>
-            <input type="email" class="form-control-sm"  required formControlName="email">
-            <span class="text-danger" *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.errors?.['required']">Champs requis</span>
-            <span class="text-danger" *ngIf="registerForm.get('email')?.errors?.['email']">Format de mail invalide</span>
+            <input type="email" class="form-control-sm" required formControlName="email">
+            <span class="text-danger"
+                *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.errors?.['required']">Champs
+                requis</span>
+            <span class="text-danger" *ngIf="registerForm.get('email')?.errors?.['email']">Format de mail
+                invalide</span>
         </div>
 
 
@@ -81,17 +99,22 @@
             <br>
             <input type="text" class="form-control-sm" required formControlName="phone">
             <br>
-            <span class="text-danger" *ngIf="registerForm.get('phone')?.touched && registerForm.get('phone')?.hasError('required')">Champ requis</span>
-            <span class="text-danger" *ngIf="registerForm.hasError('phone') && registerForm.get('phone')?.touched"></span>
+            <span class="text-danger"
+                *ngIf="registerForm.get('phone')?.touched && registerForm.get('phone')?.hasError('required')">Champ
+                requis</span>
+            <span class="text-danger"
+                *ngIf="registerForm.hasError('phone') && registerForm.get('phone')?.touched"></span>
         </div>
-  
+
         <!--Fax-->
         <div class="mb-3">
             <label for="fax" class="form-label">Numéro de fax</label>
             <br>
             <input type="text" class="form-control-sm" required formControlName="fax">
             <br>
-            <span class="text-danger" *ngIf="registerForm.get('fax')?.touched && registerForm.get('fax')?.hasError('required')">Champ requis</span>
+            <span class="text-danger"
+                *ngIf="registerForm.get('fax')?.touched && registerForm.get('fax')?.hasError('required')">Champ
+                requis</span>
             <span class="text-danger" *ngIf="registerForm.hasError('fax') && registerForm.get('fax')?.touched"></span>
         </div>
 
@@ -101,51 +124,65 @@
             <br>
             <input type="text" class="form-control-sm" required formControlName="gsm">
             <br>
-            <span class="text-danger" *ngIf="registerForm.get('gsm')?.touched && registerForm.get('gsm')?.hasError('required')">Champ requis</span>
+            <span class="text-danger"
+                *ngIf="registerForm.get('gsm')?.touched && registerForm.get('gsm')?.hasError('required')">Champ
+                requis</span>
             <span class="text-danger" *ngIf="registerForm.hasError('gsm') && registerForm.get('gsm')?.touched"></span>
         </div>
 
-       <!--contact-->
-       <div class="mb-3">
-        <label for="contact" class="form-label">Contact</label>
-        <br>
-        <input type="text" class="form-control-sm" required formControlName="contact">
-        <br>
-        <span class="text-danger" *ngIf="registerForm.get('contact')?.touched && registerForm.get('contact')?.hasError('required')">Champ requis</span>
-        <span class="text-danger" *ngIf="registerForm.hasError('contact') && registerForm.get('contact')?.touched"></span>
-    </div>
+        <!--contact-->
+        <div class="mb-3">
+            <label for="contact" class="form-label">Contact</label>
+            <br>
+            <input type="text" class="form-control-sm" required formControlName="contact">
+            <br>
+            <span class="text-danger"
+                *ngIf="registerForm.get('contact')?.touched && registerForm.get('contact')?.hasError('required')">Champ
+                requis</span>
+            <span class="text-danger"
+                *ngIf="registerForm.hasError('contact') && registerForm.get('contact')?.touched"></span>
+        </div>
 
 
-       <!--comment-->
-       <div class="mb-3">
-        <label for="comment" class="form-label">Commentaire</label>
-        <br>
-        <input type="text" class="form-control-sm" required formControlName="comment">
-        <br>
-        <span class="text-danger" *ngIf="registerForm.get('comment')?.touched && registerForm.get('comment')?.hasError('required')">Champ requis</span>
-        <span class="text-danger" *ngIf="registerForm.hasError('comment') && registerForm.get('comment')?.touched"></span>
-    </div>
+        <!--comment-->
+        <div class="mb-3">
+            <label for="comment" class="form-label">Commentaire</label>
+            <br>
+            <input type="text" class="form-control-sm" required formControlName="comment">
+            <br>
+            <span class="text-danger"
+                *ngIf="registerForm.get('comment')?.touched && registerForm.get('comment')?.hasError('required')">Champ
+                requis</span>
+            <span class="text-danger"
+                *ngIf="registerForm.hasError('comment') && registerForm.get('comment')?.touched"></span>
+        </div>
 
-       <!--reunion-->
-       <div class="mb-3">
-        <label for="reunion" class="form-label">Reunion</label>
-        <br>
-        <input type="text" class="form-control-sm" required formControlName="reunion">
-        <br>
-        <span class="text-danger" *ngIf="registerForm.get('reunion')?.touched && registerForm.get('reunion')?.hasError('required')">Champ requis</span>
-        <span class="text-danger" *ngIf="registerForm.hasError('reunion') && registerForm.get('reunion')?.touched"></span>
-    </div>
+        <!--reunion-->
+        <div class="mb-3">
+            <label for="reunion" class="form-label">Reunion</label>
+            <br>
+            <input type="text" class="form-control-sm" required formControlName="reunion">
+            <br>
+            <span class="text-danger"
+                *ngIf="registerForm.get('reunion')?.touched && registerForm.get('reunion')?.hasError('required')">Champ
+                requis</span>
+            <span class="text-danger"
+                *ngIf="registerForm.hasError('reunion') && registerForm.get('reunion')?.touched"></span>
+        </div>
 
-    
-       <!--manifeste-->
-       <div class="mb-3">
-        <label for="manifeste" class="form-label">Manifeste</label>
-        <br>
-        <input type="text" class="form-control-sm" required formControlName="manifeste">
-        <br>
-        <span class="text-danger" *ngIf="registerForm.get('manifeste')?.touched && registerForm.get('manifeste')?.hasError('required')">Champ requis</span>
-        <span class="text-danger" *ngIf="registerForm.hasError('manifeste') && registerForm.get('manifeste')?.touched"></span>
-    </div>
-    <button type="button" class="btn btn-primary" (click)="updateOwner()">Mettre à jour</button>    </form>
+
+        <!--manifeste-->
+        <div class="mb-3">
+            <label for="manifeste" class="form-label">Manifeste</label>
+            <br>
+            <input type="text" class="form-control-sm" required formControlName="manifeste">
+            <br>
+            <span class="text-danger"
+                *ngIf="registerForm.get('manifeste')?.touched && registerForm.get('manifeste')?.hasError('required')">Champ
+                requis</span>
+            <span class="text-danger"
+                *ngIf="registerForm.hasError('manifeste') && registerForm.get('manifeste')?.touched"></span>
+        </div>
+        <button type="button" class="btn btn-primary" (click)="updateOwner()">Mettre à jour</button>
+    </form>
 </div>
-

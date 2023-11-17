@@ -65,18 +65,18 @@ export class UpdateOwnerComponent implements OnInit {
     });
   }
   // Supprimer un propriétaire
-    deleteOwner(id : number) {
-      this._ownerManagementService.delete(id).subscribe({
-        next: (response) => {
-          console.log("Propriétaire supprimé avec succès:", response);
-          this._router.navigateByUrl('/');
-        },
-        error: (error) => {
-          console.error("Une erreur s'est produite lors de la suppression de l'utilisateur:", error);
-        },
-        complete: () => {
-          console.log("Suppression de l'utilisateur terminée.");
-        }
-      });
-    }
+    // deleteOwner(id : number) {
+    //   this._ownerManagementService.delete(id).subscribe({
+    //     next: (response) => {
+    //       console.log("Propriétaire supprimé avec succès:", response);
+    //       this._router.navigateByUrl('/');
+    //     },
+    //     error: (error) => {
+    //       console.error("Une erreur s'est produite lors de la suppression de l'utilisateur:", error);
+    //     },
+    //     complete: () => {
+    //       console.log("Suppression de l'utilisateur terminée.");
+    //     }
+    //   });
+    // }
   }

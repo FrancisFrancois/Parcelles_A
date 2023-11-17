@@ -1,10 +1,52 @@
 <div class="container">
-    <div class="mb-3">
-        <p>Liste des propriétaires :</p>
-        <ul>
-            <li *ngFor="let o of owners">
-                {{ o?.lname }} {{ o?.fname }}    <button>Details</button>
-            </li>
-        </ul>
-    </div>
+    <h2>Les propriétaires</h2>
+    <br>
+    <button class="btn btn-primary" routerLink="/owner-management">Ajouter un propriétaire </button>
+    <br>
+    <br>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Nom</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Adresse</th>
+                <th scope="col">Zip</th>
+                <th scope="col">Ville</th>
+                <th scope="col">Province/Région</th>
+                <th scope="col">Pays</th>
+                <th scope="col">Email</th>
+                <th scope="col">Téléphone</th>
+                <th scope="col">Fax</th>
+                <th scope="col">GSM</th>
+                <th scope="col">Contact</th>
+                <th scope="col">Commentaire</th>
+                <th scope="col">Réunion</th>
+                <th scope="col">Manifeste</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let owner of owners">
+                <td>{{ owner.lname }}</td>
+                <td>{{ owner.fname }}</td>
+                <td>{{ owner.adress }}</td>
+                <td>{{ owner.zip }}</td>
+                <td>{{ owner.city }}</td>
+                <td>{{ owner.state }}</td>
+                <td>{{ owner.country }}</td>
+                <td>{{ owner.email }}</td>
+                <td>{{ owner.phone }}</td>
+                <td>{{ owner.fax }}</td>
+                <td>{{ owner.gsm }}</td>
+                <td>{{ owner.contact }}</td>
+                <td>{{ owner.comment }}</td>
+                <td>{{ owner.reunion }}</td>
+                <td>{{ owner.manifeste }}</td>
+                <td>
+                    <button class="btn btn-primary" routerLink="/owner-management/{{ owner.id }}">🔎</button>
+                    <button class="btn btn-primary" routerLink="/update-owner/{{ owner.id }}">📝</button>
+                    <button class="btn btn-danger" (click)="deleteOwner(owner.id)">❌</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>

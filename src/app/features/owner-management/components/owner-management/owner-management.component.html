@@ -1,0 +1,202 @@
+<div class="container">
+    <h3> Création du propriétaire</h3>
+    <form [formGroup]="registerForm" (ngSubmit)="createOwner()">
+        <!--lname-->
+        <div class="mb-3">
+            <label for="lastname" class="form-label">Nom</label>
+            <br>
+            <!--On vérifie la longueur du champs et s'il est laissé vide -->
+            <input id="lname" type="text" class="form-control-sm" required formControlName="lname">
+            <span class="text-danger" *ngIf="registerForm.get('lname')?.touched && 
+           (registerForm.get('lname')?.errors?.['required'] || 
+            registerForm.get('lname')?.errors?.['maxlength'])">
+                {{ registerForm.get('lname')?.errors?.['required'] ? 'Champs requis' : 'Longueur maximale atteinte' }}
+            </span>
+        </div>
+
+        <!--fname-->
+        <div class="mb-3">
+            <label for="text-firstname" class="form-label">Prénom</label>
+            <br>
+            <input id="fname" type="text" class="form-control-sm" required formControlName="fname">
+            <span class="text-danger" *ngIf="registerForm.get('fname')?.touched && 
+            (registerForm.get('fname')?.errors?.['required'] || 
+             registerForm.get('fname')?.errors?.['maxlength'])">
+                {{ registerForm.get('fname')?.errors?.['required'] ? 'Champs requis' : 'Longueur maximale atteinte' }}
+            </span>
+        </div>
+
+        <!--adress-->
+        <div class="mb-3">
+            <label for="adress" class="form-label">Adresse</label>
+            <br>
+            <input type="text" class="form-control-sm" required formControlName="adress">
+            <span class="text-danger" *ngIf="registerForm.get('adress')?.touched && 
+            (registerForm.get('adress')?.errors?.['required'] || 
+             registerForm.get('adress')?.errors?.['maxlength'])">
+                {{ registerForm.get('adress')?.errors?.['required'] ? 'Champs requis' : 'Longueur maximale atteinte' }}
+            </span>
+        </div>
+
+        <!--Zip-->
+        <div class="mb-3">
+            <label for="zip" class="form-label">Code Postal</label>
+            <br>
+            <input type="text" class="form-control-sm" required formControlName="zip">
+            <br>
+            <span class="text-danger" *ngIf="registerForm.get('zip')?.touched && 
+            (registerForm.get('zip')?.errors?.['required'] || 
+             registerForm.get('zip')?.errors?.['maxlength'])">
+                {{ registerForm.get('zip')?.errors?.['required'] ? 'Champs requis' : 'Longueur maximale atteinte' }}
+            </span>
+        </div>
+
+
+        <!--City-->
+        <div class="mb-3">
+            <label for="city" class="form-label">Ville</label>
+            <br>
+            <input type="text" class="form-control-sm" required formControlName="city">
+            <br>
+            <span class="text-danger" *ngIf="registerForm.get('city')?.touched && 
+            (registerForm.get('city')?.errors?.['required'] || 
+             registerForm.get('city')?.errors?.['maxlength'])">
+                {{ registerForm.get('city')?.errors?.['required'] ? 'Champs requis' : 'Longueur maximale atteinte' }}
+            </span>
+        </div>
+
+        <!--State-->
+        <div class="mb-3">
+            <label for="state" class="form-label">Province/Region</label>
+            <br>
+            <input type="text" class="form-control-sm" required formControlName="state">
+            <br>
+            <span class="text-danger" *ngIf="registerForm.get('state')?.touched && 
+            (registerForm.get('state')?.errors?.['required'] || 
+             registerForm.get('state')?.errors?.['maxlength'])">
+                {{ registerForm.get('state')?.errors?.['required'] ? 'Champs requis' : 'Longueur maximale atteinte' }}
+            </span>
+        </div>
+
+        <!--Country-->
+        <div class="mb-3">
+            <label for="country" class="form-label">Pays</label>
+            <br>
+            <input type="text" class="form-control-sm" required formControlName="country">
+            <br>
+            <span class="text-danger" *ngIf="registerForm.get('country')?.touched && 
+            (registerForm.get('country')?.errors?.['required'] || 
+             registerForm.get('country')?.errors?.['maxlength'])">
+                {{ registerForm.get('country')?.errors?.['required'] ? 'Champs requis' : 'Longueur maximale atteinte' }}
+            </span>
+        </div>
+
+        <!--Email-->
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <br>
+            <input type="email" class="form-control-sm" required formControlName="email">
+            <span class="text-danger"
+                *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.errors?.['required']">Champs
+                requis</span>
+            <span class="text-danger" *ngIf="registerForm.get('email')?.errors?.['email']">Format de mail
+                invalide</span>
+        </div>
+
+
+        <!--Phone-->
+        <div class="mb-3">
+            <label for="phone" class="form-label">Numéro de téléhone</label>
+            <br>
+            <input type="text" class="form-control-sm" required formControlName="phone">
+            <br>
+            <span class="text-danger" *ngIf="registerForm.get('phone')?.touched && 
+            (registerForm.get('phone')?.errors?.['required'] || 
+             registerForm.get('phone')?.errors?.['maxlength'])">
+                {{ registerForm.get('phone')?.errors?.['required'] ? 'Champs requis' : 'Longueur maximale atteinte' }}
+            </span>
+        </div>
+
+        <!--Fax-->
+        <div class="mb-3">
+            <label for="fax" class="form-label">Numéro de fax</label>
+            <br>
+            <input type="text" class="form-control-sm" required formControlName="fax">
+            <br>
+            <span class="text-danger" *ngIf="registerForm.get('fax')?.touched && 
+            (registerForm.get('fax')?.errors?.['required'] || 
+             registerForm.get('fax')?.errors?.['maxlength'])">
+                {{ registerForm.get('fax')?.errors?.['required'] ? 'Champs requis' : 'Longueur maximale atteinte' }}
+            </span>
+        </div>
+
+        <!--gsm-->
+        <div class="mb-3">
+            <label for="gsm" class="form-label">Numéro de GSM</label>
+            <br>
+            <input type="text" class="form-control-sm" required formControlName="gsm">
+            <br>
+            <span class="text-danger" *ngIf="registerForm.get('gsm')?.touched && 
+            (registerForm.get('gsm')?.errors?.['required'] || 
+             registerForm.get('gsm')?.errors?.['maxlength'])">
+                {{ registerForm.get('gsm')?.errors?.['required'] ? 'Champs requis' : 'Longueur maximale atteinte' }}
+            </span>
+        </div>
+
+        <!--contact-->
+        <div class="mb-3">
+            <label for="contact" class="form-label">Contact</label>
+            <br>
+            <input type="text" class="form-control-sm" required formControlName="contact">
+            <br>
+            <span class="text-danger" *ngIf="registerForm.get('contact')?.touched && 
+        (registerForm.get('contact')?.errors?.['required'] || 
+         registerForm.get('contact')?.errors?.['maxlength'])">
+                {{ registerForm.get('contact')?.errors?.['required'] ? 'Champs requis' : 'Longueur maximale atteinte' }}
+            </span>
+        </div>
+
+
+        <!--comment-->
+        <div class="mb-3">
+            <label for="comment" class="form-label">Commentaire</label>
+            <br>
+            <input type="text" class="form-control-sm" required formControlName="comment">
+            <br>
+            <span class="text-danger" *ngIf="registerForm.get('comment')?.touched && 
+        (registerForm.get('comment')?.errors?.['required'] || 
+         registerForm.get('comment')?.errors?.['maxlength'])">
+                {{ registerForm.get('comment')?.errors?.['required'] ? 'Champs requis' : 'Longueur maximale atteinte' }}
+            </span>
+        </div>
+
+        <!--reunion-->
+        <div class="mb-3">
+            <label for="reunion" class="form-label">Reunion</label>
+            <br>
+            <input type="text" class="form-control-sm" required formControlName="reunion">
+            <br>
+            <span class="text-danger" *ngIf="registerForm.get('reunion')?.touched && 
+        (registerForm.get('reunion')?.errors?.['required'] || 
+         registerForm.get('reunion')?.errors?.['maxlength'])">
+                {{ registerForm.get('reunion')?.errors?.['required'] ? 'Champs requis' : 'Longueur maximale atteinte' }}
+            </span>
+        </div>
+
+
+        <!--manifeste-->
+        <div class="mb-3">
+            <label for="manifeste" class="form-label">Manifeste</label>
+            <br>
+            <input type="text" class="form-control-sm" required formControlName="manifeste">
+            <br>
+            <span class="text-danger" *ngIf="registerForm.get('manifeste')?.touched && 
+        (registerForm.get('manifeste')?.errors?.['required'] || 
+         registerForm.get('manifeste')?.errors?.['maxlength'])">
+                {{ registerForm.get('manifeste')?.errors?.['required'] ? 'Champs requis' : 'Longueur maximale atteinte'
+                }}
+            </span>
+        </div>
+        <button type="submit" class="btn btn-primary">Enregistrer</button>
+    </form>
+</div>

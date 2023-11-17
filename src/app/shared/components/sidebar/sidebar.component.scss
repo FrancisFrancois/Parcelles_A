@@ -1,0 +1,35 @@
+/* The side navigation menu */
+.sidebar {
+    padding: 0;
+    width: 200px;
+    background-color: #555;
+    position: absolute;
+    height: 100%;
+    overflow: auto;
+    border-radius: 0.3em;
+  }
+  
+  .sidebar a {
+    display: block;
+    color: black;
+    padding: 10px;
+    text-decoration: none;
+    margin: 2em;
+  }
+  
+  .sidebar a.active {
+    background-color: #04AA6D;
+    color: white;
+  }
+  
+  .sidebar a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+  }
+  
+  div.content {
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 1000px;
+  }
+  

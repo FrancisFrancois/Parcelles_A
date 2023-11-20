@@ -1,4 +1,10 @@
 <app-navbar></app-navbar>
 <app-sidebar></app-sidebar>
-<router-outlet></router-outlet>
+<div class="container">
+    <a class="btn btn-secondary btn-sm m-2" href="/create-account">Créer un User</a>
+    <a class="btn btn-secondary btn-sm m-2" href="/update-account">Modifier un User</a>
+    <a class="btn btn-secondary btn-sm m-2" href="/read-account">Afficher un User</a>
+    <a class="btn btn-secondary btn-sm m-2" href="/list-account">Liste des Users</a>
+</div>
+<router-outlet class="vue"></router-outlet>
 

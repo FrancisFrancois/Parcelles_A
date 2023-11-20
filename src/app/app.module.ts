@@ -15,6 +15,8 @@ import { ReadOwnerComponent } from './features/owner-management/components/read-
 import { ListOwnerComponent } from './features/owner-management/components/list-owner/list-owner.component';
 import { UpdateOwnerComponent } from './features/owner-management/components/update-owner/update-owner.component';
 import { OwnerManagementComponent } from './features/owner-management/components/owner-management/owner-management.component';
+import { NavbarComponent } from './shared/components/navbar/navbar.component';
+import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { OwnerManagementComponent } from './features/owner-management/components
     OwnerManagementComponent,
     ReadOwnerComponent,
     ListOwnerComponent,
-    UpdateOwnerComponent
+    UpdateOwnerComponent,
+    NavbarComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,

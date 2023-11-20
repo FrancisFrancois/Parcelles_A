@@ -16,10 +16,10 @@ const routes: Routes = [
   { path : "list-account", component: ListAccountComponent },
   { path : "read-account", component: ReadAccountComponent },
   { path : "update-account", component: UpdateAccountComponent },
-  { path: "owner-management", component: OwnerManagementComponent },
-  { path: "read-owner", component: ReadOwnerComponent },
-  { path: "list-owner", component: ListOwnerComponent },
-  { path: "update-owner", component: UpdateOwnerComponent }
+  { path : "owner-management", component: OwnerManagementComponent },
+  { path : "read-owner", component: ReadOwnerComponent },
+  { path : "list-owner", component: ListOwnerComponent },
+  { path : "update-owner", component: UpdateOwnerComponent }
 ];
 
 @NgModule({

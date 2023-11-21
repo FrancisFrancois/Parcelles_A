@@ -4,13 +4,21 @@
     <button class="btn btn-primary" routerLink="/create-account">Ajouter un nouvel Utilisateur</button>
     <br>
     <br>
+    <form class="d-flex">
+      <input class="form-control me-2 w-25" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+    <br>
+    <br>
     <table class="table">
         <thead class="thead-dark">
           <tr>
             <th scope="col">Nom</th>
             <th scope="col">Prénom</th>
-            <th scope="col">Username</th>
+            <th scope="col">Pseudo</th>
             <th scope="col">Email</th>
+            <th scope="col">Téléphone</th>
+            <th scope="col">Actif</th>
             <th scope="col">Actions</th>
           </tr>
         </thead>
@@ -20,6 +28,8 @@
                     <td>{{ registerAccount.firstName }}</td>
                     <td>{{ registerAccount.username }}</td>
                     <td>{{ registerAccount.email }}</td>
+                    <td>{{ registerAccount.phone }}</td>
+                    <td>{{ registerAccount.actif }}</td>
                     <td>
                         <button class="btn btn-primary" routerLink="/read-account/{{registerAccount.id}}">🔎</button>
                         <button class="btn btn-primary" routerLink="/update-account/{{registerAccount.id}}">📝</button>

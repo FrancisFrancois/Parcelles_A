@@ -1,10 +1,15 @@
-<app-navbar></app-navbar>
-<app-sidebar></app-sidebar>
-<div class="container">
-    <a class="btn btn-secondary btn-sm m-2" href="/create-account">Créer un User</a>
-    <a class="btn btn-secondary btn-sm m-2" href="/update-account">Modifier un User</a>
-    <a class="btn btn-secondary btn-sm m-2" href="/read-account">Afficher un User</a>
-    <a class="btn btn-secondary btn-sm m-2" href="/list-account">Liste des Users</a>
-</div>
-<router-outlet class="vue"></router-outlet>
-
+<div class="container-fluid g-0">
+    <div class="row">
+        <div class="col">
+            <app-navbar class="navBarTop m-0 col-auto"></app-navbar> 
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2">
+          <app-sidebar class="col"></app-sidebar>
+        </div>
+        <div class="col">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+  </div>

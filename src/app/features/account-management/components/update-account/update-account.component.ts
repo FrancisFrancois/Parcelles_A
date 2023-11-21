@@ -56,7 +56,7 @@ updateUser(): void {
   this._accountManagementService.update(this.accountId, this.registerForm.value).subscribe({
     next: () => {
       console.log('L\'utilisateur a été mis à jour');
-      this._router.navigate(['/']);
+      this._router.navigate(['/list-account']);
     },
     error: (error) => {
       console.error('Une erreur s\'est produite lors de la mise à jour de l\'utilisateur:', error);

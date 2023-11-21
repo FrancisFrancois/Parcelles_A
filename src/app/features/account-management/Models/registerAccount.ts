@@ -4,6 +4,8 @@ export interface RegisterAccount {
     firstName : string;
     lastName : string;
     email : string;
+    phone : string;
+    actif : boolean;
     password : string;
     roles : string[];
 }

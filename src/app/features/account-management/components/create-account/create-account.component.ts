@@ -23,6 +23,8 @@ export class CreateAccountComponent {
       firstName: [null, [Validators.required, Validators.maxLength(45), Validators.pattern(/^[\D]*$/)]],
       username: [null, [Validators.required, Validators.maxLength(45), Validators.pattern(/^[\D]*$/)]],
       email: [null, [Validators.required,Validators.maxLength(250), Validators.email]],
+      phone: [null, [Validators.required,Validators.maxLength(45)]],
+      actif: [null, [Validators.required]],
       password: [null, [Validators.required, Validators.maxLength(150), Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/)]],
       confirmpassword: [null, [Validators.required]]
     }, {
@@ -48,7 +50,7 @@ export class CreateAccountComponent {
       this._accountManagementService.create(this.registerForm.value).subscribe({
         next: (response) => {
           console.log("Utilisateur créé avec succès:", response);
-          this._router.navigateByUrl('/');
+          this._router.navigateByUrl('/list-account');
         },
         error: (error) => {
           console.error("Une erreur s'est produite lors de la création de l'utilisateur:", error);

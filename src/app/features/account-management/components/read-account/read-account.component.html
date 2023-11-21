@@ -4,5 +4,30 @@
         <p> {{registerAccount?.firstName}} </p>
         <p> {{registerAccount?.username}} </p>
         <p> {{registerAccount?.email}} </p>
+        <p> {{registerAccount?.phone}} </p>
+        <p> {{registerAccount?.actif}} </p>
     </div>
 </div>
+
+<div class="card" style="width: 28rem;">
+    <img src="../../../../../assets/images/image-profil.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Nom : {{registerAccount?.lastName}}</h5>
+      <br>
+      <h5 class="card-title">Prénom : {{registerAccount?.firstName}}</h5>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Email : {{registerAccount?.email}}</li>
+        <li class="list-group-item">Téléphone : {{registerAccount?.phone}}</li>
+        <li class="list-group-item">Pseudo : {{registerAccount?.username}}</li>
+    </ul>
+    <div class="card-body">
+        <button class="btn btn-primary" routerLink="/update-account">Modifier Utilisateur</button>
+        <br>
+        <br>
+        <button class="btn btn-danger" (click)="deleteUser(registerAccount?.id ?? 0)">Supprimer l'utilisateur</button>
+        <br>
+        <br>
+        <button class="btn btn-warning" routerLink="">Reset Mot de passe</button>
+    </div>
+  </div>

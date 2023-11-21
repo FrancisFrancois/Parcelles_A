@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { RegisterAccount } from '../models/registerAccount';
+import { RegisterAccount } from '../Models/registerAccount';
 
 
 @Injectable({
@@ -28,4 +28,5 @@ export class AccountManagementService {
   delete(id : number) : Observable<RegisterAccount> {
     return this._httpClient.delete<RegisterAccount>(`${this._url}/delete${id}`);
   }
+  
 };

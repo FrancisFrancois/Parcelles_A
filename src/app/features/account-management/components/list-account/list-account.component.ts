@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { RegisterAccount } from '../../Models/registerAccount';
-import { AccountManagementService } from '../../services/account-management.service';
+import { RegisterAccount } from '../../models/registerAccount';
+import { AccountManagementService } from '../../../../shared/services/account-management.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,11 +11,11 @@ import { Router } from '@angular/router';
 export class ListAccountComponent {
 
   registerAccountList : RegisterAccount[] = [];
-  
 
   constructor(
     private _accountManagementService : AccountManagementService,
-    private _router : Router) { 
+    private _router : Router,
+    ) { 
   }
 
   ngOnInit(): void {

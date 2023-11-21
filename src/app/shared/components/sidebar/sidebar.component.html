@@ -1,13 +1,13 @@
 <div class="sidebar">
-    <a class="btn btn-secondary btn-sm" href="#">Rendez-vous</a>
-    <a class="btn btn-secondary btn-sm" href="#">Parcelle</a>
-    <a class="btn btn-secondary btn-sm" href="#">Propriétaire</a>
-    <a class="btn btn-secondary btn-sm" href="#">Intervenant</a>
-    <a class="btn btn-secondary btn-sm" href="#">Massif</a>
-    <a class="btn btn-secondary btn-sm" href="list-account">Employé</a>
-    <a class="btn btn-secondary btn-sm" href="#">Appel</a>
-    <a class="btn btn-secondary btn-sm" href="#">Visite</a>
-    <a class="btn btn-secondary btn-sm" href="#">Action</a>
-  </div>
+    <a class="btn btn-secondary btn-sm" routerLink="#">Rendez-vous</a>
+    <a class="btn btn-secondary btn-sm" routerLink="#">Parcelle</a>
+    <a class="btn btn-secondary btn-sm" routerLink="list-owner" (click)="onLinkClick('Propriétaire')">Propriétaire</a>
+    <a class="btn btn-secondary btn-sm" routerLink="#">Intervenant</a>
+    <a class="btn btn-secondary btn-sm" routerLink="#">Massif</a>
+    <a class="btn btn-secondary btn-sm" routerLink="list-account" (click)="onLinkClick('Employé')">Employé</a>
+    <a class="btn btn-secondary btn-sm" routerLink="#">Appel</a>
+    <a class="btn btn-secondary btn-sm" routerLink="#">Visite</a>
+    <a class="btn btn-secondary btn-sm" routerLink="#">Action</a>
+</div>
   
 

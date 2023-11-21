@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { RegisterAccount } from '../../Models/registerAccount';
+import { RegisterAccount } from '../../models/registerAccount';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AccountManagementService } from '../../services/account-management.service';
+import { AccountManagementService } from '../../../../shared/services/account-management.service';
 
 @Component({
   selector: 'app-read-account',

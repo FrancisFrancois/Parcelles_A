@@ -9,7 +9,6 @@ import { ReadAccountComponent } from './features/account-management/components/r
 import { UpdateAccountComponent } from './features/account-management/components/update-account/update-account.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ListAccountComponent } from './features/account-management/components/list-account/list-account.component';
-
 import {  HttpClientModule } from '@angular/common/http';
 import { ReadOwnerComponent } from './features/owner-management/components/read-owner/read-owner.component';
 import { ListOwnerComponent } from './features/owner-management/components/list-owner/list-owner.component';

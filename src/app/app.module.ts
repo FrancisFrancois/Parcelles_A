@@ -40,7 +40,9 @@ import { SidebarComponent } from './shared/components/sidebar/sidebar.component'
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide : "urlBackend", useValue : "http://localhost:8081"}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

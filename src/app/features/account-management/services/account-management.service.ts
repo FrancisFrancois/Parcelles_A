@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { RegisterAccount } from '../models/registerAccount';
@@ -9,9 +9,10 @@ import { RegisterAccount } from '../models/registerAccount';
 })
 export class AccountManagementService {
 
-  private _url: string = 'http://localhost:8080/user';
+  private _url: string = this._urlBase+'/user';
 
-  constructor(private _httpClient: HttpClient) { }
+  constructor(private _httpClient: HttpClient,
+    @Inject('urlBackend') private _urlBase : string) { }
 
   getAll() : Observable<RegisterAccount[]> {
     return this._httpClient.get<RegisterAccount[]>(`${this._url}/all`);	

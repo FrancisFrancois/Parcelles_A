@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OwnerManagementService } from '../../services/owner-management.service';
+import { OwnerManagementService } from '../../../../shared/services/owner-management.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 

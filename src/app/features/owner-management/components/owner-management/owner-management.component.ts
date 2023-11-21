@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { OwnerManagementService } from '../../services/owner-management.service';
+import { OwnerManagementService } from '../../../../shared/services/owner-management.service';
 @Component({
   selector: 'app-owner-management',
   templateUrl: './owner-management.component.html',

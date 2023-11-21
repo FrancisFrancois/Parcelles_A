@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Owner } from '../../Models/owner';
+import { Owner } from '../../models/owner';
 import { ActivatedRoute, Router } from '@angular/router';
-import { OwnerManagementService } from '../../services/owner-management.service';
+import { OwnerManagementService } from '../../../../shared/services/owner-management.service';
 
 @Component({
   selector: 'app-read-owner',

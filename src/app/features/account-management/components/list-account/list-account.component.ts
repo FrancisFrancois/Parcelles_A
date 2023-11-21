@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RegisterAccount } from '../../models/registerAccount';
-import { AccountManagementService } from '../../services/account-management.service';
+import { AccountManagementService } from '../../../../shared/services/account-management.service';
 import { Router } from '@angular/router';
 
 @Component({

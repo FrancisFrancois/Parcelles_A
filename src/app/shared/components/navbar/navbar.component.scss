@@ -2,29 +2,27 @@
 .navbar {
     width: 100%;
     background-color: grey;
-    margin-bottom: 0.8em;
-
   }
 
-  .navbar a {
-    float: left;
-    text-align: center;
-    padding: 12px;
-    margin-right: 3em;;
-    color: white;
-    text-decoration: none;
-    font-size: 17px;
-  }
-  
-  .navbar a:hover {
-    background-color: #000;
-  }
+.navbar a {
+  float: left;
+  text-align: center;
+  padding: 12px;
+  margin-right: 3em;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+}
 
-  .navbar img {
-    margin-left: 0.5em;;
-    height: 6em;
-  }
-  
-  .active {
-    background-color: #04AA6D;
-  }
+.navbar a:hover {
+  background-color: #000;
+}
+
+.navbar img {
+  margin-left: 0.5em;;
+  height: 6em;
+}
+
+.active {
+  background-color: #04AA6D;
+}

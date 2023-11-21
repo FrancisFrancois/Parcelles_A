@@ -6,21 +6,18 @@
     </main>
 </div> -->
 
-<div class="container">
+<div class="container-fluid g-0">
     <div class="row">
         <div class="col">
-            <app-navbar class="col-auto"></app-navbar> 
+            <app-navbar class="navBarTop m-0 col-auto"></app-navbar> 
         </div>
     </div>
     <div class="row">
-        <div class="col">
-          Column
+        <div class="col-sm-2">
+          <app-sidebar class="col"></app-sidebar>
         </div>
         <div class="col">
-          Column
-        </div>
-        <div class="col">
-          Column
+          <router-outlet></router-outlet>
         </div>
       </div>
   </div>

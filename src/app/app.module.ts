@@ -20,6 +20,8 @@ import { SidebarComponent } from './shared/components/sidebar/sidebar.component'
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { AppointmentComponent } from './features/appointment-management/component/appointment/appointment.component';
 import { CalendarComponent } from './features/appointment-management/component/calendar/calendar.component';
+import { OwnerWidgetComponent } from './features/appointment-management/component/owner-widget/owner-widget.component';
+import { AccountWidgetComponent } from './features/appointment-management/component/account-widget/account-widget.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { CalendarComponent } from './features/appointment-management/component/c
     SidebarComponent,
     AppointmentComponent,
     CalendarComponent,
+    OwnerWidgetComponent,
+    AccountWidgetComponent,
   ],
   imports: [
     BrowserModule,

@@ -22,6 +22,8 @@ export class UpdateAccountComponent {
       lastName: [null, [Validators.required, Validators.maxLength(45), Validators.pattern(/^[\D]*$/)]],
       firstName: [null, [Validators.required, Validators.maxLength(45), Validators.pattern(/^[\D]*$/)]],
       username: [null, [Validators.required, Validators.maxLength(45), Validators.pattern(/^[\D]*$/)]],
+      phoneNumber: [null, [Validators.required,Validators.maxLength(45)]],
+      actif: [null, [Validators.required]],
       email: [null, [Validators.required,Validators.maxLength(250), Validators.email]],
       password: [null, [Validators.required, Validators.maxLength(150), Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/)]],
       confirmpassword: [null, [Validators.required]]

@@ -12,6 +12,7 @@ export class CreateAccountComponent {
 
   registerForm: FormGroup;
 
+
   constructor(
     private _fb : FormBuilder,
     private _accountManagementService: AccountManagementService,
@@ -22,7 +23,7 @@ export class CreateAccountComponent {
       firstName: [null, [Validators.required, Validators.maxLength(45), Validators.pattern(/^[\D]*$/)]],
       username: [null, [Validators.required, Validators.maxLength(45), Validators.pattern(/^[\D]*$/)]],
       email: [null, [Validators.required,Validators.maxLength(250), Validators.email]],
-      phone: [null, [Validators.required,Validators.maxLength(45)]],
+      phoneNumber: [null, [Validators.required,Validators.maxLength(45)]],
       actif: [null, [Validators.required]],
       password: [null, [Validators.required, Validators.maxLength(150), Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/)]],
       confirmpassword: [null, [Validators.required]]

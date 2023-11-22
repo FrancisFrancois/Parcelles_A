@@ -28,12 +28,12 @@
              <span class="text-danger" *ngIf="registerForm.get('email')?.errors?.['maxlength']">Maximum 250 caractères</span>
          </div>
          <div class="mb-3">
-            <label for="firstName" class="form-label">Téléphone</label>
+            <label for="phoneNumber" class="form-label">Téléphone</label>
             <br>
-            <input id="firstName" type="tel" class="form-control-sm" required formControlName="firstName">
+            <input id="phoneNumber" type="tel" class="form-control-sm" required formControlName="phoneNumber">
             <br>
-            <span class="text-danger" *ngIf="registerForm.get('phone')?.touched && registerForm.get('phone')?.errors?.['required']">Champs requis</span>
-            <span class="text-danger" *ngIf="registerForm.get('phone')?.errors?.['maxlength']">Maximum 45 caractères</span>
+            <span class="text-danger" *ngIf="registerForm.get('phoneNumber')?.touched && registerForm.get('phoneNumber')?.errors?.['required']">Champs requis</span>
+            <span class="text-danger" *ngIf="registerForm.get('phoneNumber')?.errors?.['maxlength']">Maximum 45 caractères</span>
          </div>
          <br>
          <div class="form-check form-switch">

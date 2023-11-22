@@ -1,7 +1,8 @@
 <div class="container">
-    <h2 class="text-decoration-underline">Modifier un Utilisateur</h2>
+        <h2 class="text-decoration-underline">Modifier un Utilisateur</h2>
     <form [formGroup]="registerForm" (ngSubmit)="updateUser()">
         <div class="mb-3">
+            <br>
             <label for="lastName" class="form-label">Nom</label>
             <br>
             <input id="lastName" type="text" class="form-control-sm" required formControlName="lastName">
@@ -66,6 +67,6 @@
              <br>
              <span class="text-danger" *ngIf="registerForm.hasError('passwordMismatch') && registerForm.get('confirmpassword')?.touched">Les mots de passe ne correspondent pas</span>
          </div>
-        <button type="submit" class="btn btn-primary">Modifier</button>
+        <button type="submit" class="btn btn-primary">Enregistrer</button>
     </form>
 </div>

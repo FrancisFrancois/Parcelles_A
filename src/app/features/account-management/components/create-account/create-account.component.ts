@@ -12,7 +12,6 @@ export class CreateAccountComponent {
 
   registerForm: FormGroup;
 
-
   constructor(
     private _fb : FormBuilder,
     private _accountManagementService: AccountManagementService,

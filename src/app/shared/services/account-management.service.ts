@@ -28,5 +28,4 @@ export class AccountManagementService {
   delete(id : number) : Observable<RegisterAccount> {
     return this._httpClient.delete<RegisterAccount>(`${this._url}/delete${id}`);
   }
-  
 };

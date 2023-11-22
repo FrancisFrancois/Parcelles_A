@@ -16,4 +16,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.navbarText$ = this._navbarService.navbarText$;
   }
+  onLinkClick(linkText: string): void {
+    this._navbarService.updateNavbarText(linkText);
+  }
 }

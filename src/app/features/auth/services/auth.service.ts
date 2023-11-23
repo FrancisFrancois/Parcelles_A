@@ -3,6 +3,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { ReadAccount, RegisterAccount } from '../../account-management/models/registerAccount';
 import { HttpClient } from '@angular/common/http';
 import { Auth } from '../models/auth';
+import { AccountManagementService } from 'src/app/shared/services/account-management.service';
 
 @Injectable({
   providedIn: 'root'
@@ -21,14 +22,15 @@ export class AuthService {
     return this._connectedUser;
   }
   constructor(@Inject('urlBackend') private _urlBase : string,
-    private _httpClient: HttpClient) { }
+    private _httpClient: HttpClient,
+    private _accountManagmentService :AccountManagementService) { }
 
   login(authForm : Auth) :Observable<ReadAccount | undefined>{
     this._httpClient.post<any>(this._urlUser, authForm).subscribe({
       next : (response) => {
         //gestion de l'objet user reçu TODO A changer
         let temp : ReadAccount = {
-          id:-1,
+          id: response.id,
           username : response.login,
           firstName:'temp',
           lastName:'temp',
@@ -37,13 +39,22 @@ export class AuthService {
           roles: ['ADMIN'],
           blocked : false
         }
+
         localStorage.setItem("parcelleUserId",temp.username);
         //Token
-        localStorage.setItem("parcelleToken", response.token);
-        //Revoit de l'observable
-        this._$connectedUser.next(temp);
+        localStorage.setItem("parcelleToken", response.token.replace('Bearer ',''));
+
+        this._accountManagmentService.getById(Number(temp.id)).subscribe({
+          next : (response) => {
+            temp = response;
+            
+            //Envoit le changment d'information
+            this._$connectedUser.next(temp);
+          }
+        })
       }
     })
+    //Revoit de l'observable
     return this.$connectedUser;
   }
 

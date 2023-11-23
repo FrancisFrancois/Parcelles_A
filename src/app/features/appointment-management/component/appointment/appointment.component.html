@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row border border-3">
     <!-- !!!!!!!!!!!!!!!!!! COLONNE 1 !!!!!!!!!!!!!!!!!! -->
     <div class="col border border-5">
@@ -46,20 +46,20 @@
       <div class="container">
         <div class="container text-center">
           <div class="row">
-            <div class="col">
-              startDate
+            <div class="col-3">
+              Date de début
+            </div>
+            <div class="col-3">
+              Date de fin
             </div>
             <div class="col">
-              endDate
+              Propriétaire
             </div>
             <div class="col">
-              owner
+              Employé
             </div>
             <div class="col">
-              user
-            </div>
-            <div class="col">
-              parcel
+              Parcelle
             </div>
           </div>
         </div>
@@ -67,11 +67,11 @@
     <!-- !!!!!!!!!!!!!!!!!! COLONNE 2 CONTENT !!!!!!!!!!!!!!!!!! -->
         <div class="container text-center">
           <div class="row">
-            <div class="col">
-              <div *ngFor="let event of showedEventList">{{event.startDate}}</div>
+            <div class="col-3">
+              <div *ngFor="let event of showedEventList">{{event.startDate | date:'dd/MM/yy, à HH:mm'}}</div>
             </div>
-            <div class="col">
-              <div *ngFor="let event of showedEventList">{{event.endDate}}</div>
+            <div class="col-3">
+              <div *ngFor="let event of showedEventList">{{event.endDate | date:'dd/MM/yy, à HH:mm'}}</div>
             </div>
             <div class="col">
               <div *ngFor="let event of showedEventList">{{event.owner}}</div>

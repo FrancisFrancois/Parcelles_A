@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Owner } from '../models/owner';
 
@@ -8,9 +8,10 @@ import { Owner } from '../models/owner';
 })
 export class OwnerManagementService {
 
-  private _url: string = 'http://localhost:8080/owner';
+  private _url: string = this._urlBase+'/owner';
 
-  constructor(private _httpClient: HttpClient) { }
+  constructor(private _httpClient: HttpClient,
+    @Inject('urlBackend') private _urlBase : string) { }
 
   getAll(): Observable<Owner[]>{
     let updateUrl: string = `${this._url}/all`

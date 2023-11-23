@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { ReadAccount, RegisterAccount } from '../../account-management/models/registerAccount';
 import { HttpClient } from '@angular/common/http';
@@ -9,7 +9,7 @@ import { Auth } from '../models/auth';
 })
 export class AuthService {
 
-  private _urlUser : string = 'http://localhost:8081/auth/login'
+  private _urlUser : string = this._urlBase+'/auth/login'
 
   private _$connectedUser : BehaviorSubject<ReadAccount | undefined> = new BehaviorSubject<ReadAccount|undefined>(this.getUser());
   
@@ -20,7 +20,8 @@ export class AuthService {
   private getUser(): ReadAccount|undefined{
     return this._connectedUser;
   }
-  constructor(private _httpClient: HttpClient) { }
+  constructor(@Inject('urlBackend') private _urlBase : string,
+    private _httpClient: HttpClient) { }
 
   login(authForm : Auth) :Observable<ReadAccount | undefined>{
     this._httpClient.post<any>(this._urlUser, authForm).subscribe({

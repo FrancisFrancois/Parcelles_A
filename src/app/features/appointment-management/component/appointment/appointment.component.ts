@@ -43,9 +43,15 @@ export class AppointmentComponent {
     const selectedStartDateObj = this.appointmentForm.get('startDate')?.value;
     const selectedEndDateObj = this.appointmentForm.get('endDate')?.value;
 
-    const selectedStartDate = new Date(selectedStartDateObj.year, selectedStartDateObj.month - 1, selectedStartDateObj.day);
-    const selectedEndDate = new Date(selectedEndDateObj.year, selectedEndDateObj.month - 1, selectedEndDateObj.day);
+    console.log(selectedStartDateObj);
+    console.log(selectedEndDateObj);
+    
+    const selectedStartDate = new Date(selectedStartDateObj.year, selectedStartDateObj.month, selectedStartDateObj.day);
+    const selectedEndDate = new Date(selectedEndDateObj.year, selectedEndDateObj.month, selectedEndDateObj.day);
 
+    console.log(selectedStartDate);
+    console.log(selectedEndDate);
+    
     this.showedEventList = this.hiddenEventList.filter(event => {
       const eventStartDate = new Date(event.startDate);
       const eventEndDate = new Date(event.endDate);
@@ -55,7 +61,4 @@ export class AppointmentComponent {
 
     console.log(this.showedEventList);
   }
-
-
-  
 }

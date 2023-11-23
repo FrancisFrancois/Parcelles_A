@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
  * Inceptor used to add jwtToken in http request header
  */
 @Injectable()
-export class AuthTokenInterceptorInterceptor implements HttpInterceptor {
+export class AuthTokenInterceptor implements HttpInterceptor {
 
   /**
    * Handles a given http request and check if there is a token to add in it

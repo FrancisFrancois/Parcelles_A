@@ -10,13 +10,14 @@ import { UpdateAccountComponent } from './features/account-management/components
 import { ReactiveFormsModule } from '@angular/forms';
 import { ListAccountComponent } from './features/account-management/components/list-account/list-account.component';
 
-import {  HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ReadOwnerComponent } from './features/owner-management/components/read-owner/read-owner.component';
 import { ListOwnerComponent } from './features/owner-management/components/list-owner/list-owner.component';
 import { UpdateOwnerComponent } from './features/owner-management/components/update-owner/update-owner.component';
 import { OwnerManagementComponent } from './features/owner-management/components/owner-management/owner-management.component';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
+import { AuthTokenInterceptor } from './shared/interceptors/auth-token.interceptor';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { SidebarComponent } from './shared/components/sidebar/sidebar.component'
     HttpClientModule
   ],
   providers: [
-    { provide : "urlBackend", useValue : "http://localhost:8081"}
+    { provide : "urlBackend", useValue : "http://localhost:8081"},
+    { provide : HTTP_INTERCEPTORS, useClass : AuthTokenInterceptor, multi : true },
   ],
   bootstrap: [AppComponent]
 })

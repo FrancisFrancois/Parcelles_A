@@ -1,15 +1,48 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { RegisterAccount } from '../../account-management/models/registerAccount';
+import { ReadAccount, RegisterAccount } from '../../account-management/models/registerAccount';
 import { HttpClient } from '@angular/common/http';
+import { Auth } from '../models/auth';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private _urlUser : string = 'http://localhost:8080/auth/login'
+  private _urlUser : string = 'http://localhost:8081/auth/login'
 
+  private _$connectedUser : BehaviorSubject<ReadAccount | undefined> = new BehaviorSubject<ReadAccount|undefined>(this.getUser());
+  
+  $connectedUser : Observable< ReadAccount | undefined> = this._$connectedUser.asObservable();
+  
+  private _connectedUser : ReadAccount|undefined;
+
+  private getUser(): ReadAccount|undefined{
+    return this._connectedUser;
+  }
   constructor(private _httpClient: HttpClient) { }
 
+  login(authForm : Auth) :Observable<ReadAccount | undefined>{
+    this._httpClient.post<any>(this._urlUser, authForm).subscribe({
+      next : (response) => {
+        //gestion de l'objet user reçu TODO A changer
+        let temp : ReadAccount = {
+          id:-1,
+          username : response.login,
+          firstName:'temp',
+          lastName:'temp',
+          email:'temp@a.changer',
+          phoneNumber: 'nepasderanger',
+          roles: ['ADMIN'],
+          blocked : false
+        }
+        localStorage.setItem("parcelleUserId",temp.username);
+        //Token
+        localStorage.setItem("parcelleToken", response.token);
+        //Revoit de l'observable
+        this._$connectedUser.next(temp);
+      }
+    })
+    return this.$connectedUser;
+  }
 }

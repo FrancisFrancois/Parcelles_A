@@ -17,11 +17,7 @@ import { UpdateOwnerComponent } from './features/owner-management/components/upd
 import { OwnerManagementComponent } from './features/owner-management/components/owner-management/owner-management.component';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
-import { FullCalendarModule } from '@fullcalendar/angular';
 import { AppointmentComponent } from './features/appointment-management/component/appointment/appointment.component';
-import { CalendarComponent } from './features/appointment-management/component/calendar/calendar.component';
-import { OwnerWidgetComponent } from './features/appointment-management/component/owner-widget/owner-widget.component';
-import { AccountWidgetComponent } from './features/appointment-management/component/account-widget/account-widget.component';
 
 @NgModule({
   declarations: [
@@ -37,10 +33,7 @@ import { AccountWidgetComponent } from './features/appointment-management/compon
     UpdateOwnerComponent,
     NavbarComponent,
     SidebarComponent,
-    AppointmentComponent,
-    CalendarComponent,
-    OwnerWidgetComponent,
-    AccountWidgetComponent,
+    AppointmentComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +41,6 @@ import { AccountWidgetComponent } from './features/appointment-management/compon
     NgbModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FullCalendarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

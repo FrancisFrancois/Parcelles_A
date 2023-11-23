@@ -1,16 +1,92 @@
 <div class="container">
-  <div class="row">
-    <div class="col-6 border border-3 border-primary" >
-      <app-calendar></app-calendar>
+  <div class="row border border-3">
+    <!-- !!!!!!!!!!!!!!!!!! COLONNE 1 !!!!!!!!!!!!!!!!!! -->
+    <div class="col border border-5">
+      <form [formGroup]="appointmentForm" (ngSubmit)="searchAppointment()">
+        <div class="mb-3">
+          <!-- Doc datepicker https://ng-bootstrap.github.io/#/components/datepicker/overview 
+          https://ng-bootstrap.github.io/#/components/datepicker/api#NgbInputDatepicker-->
+          <label for="startDate" class="form-label">Date début</label>
+          <br>
+          <input id="startDate" formControlName="startDate" type="date" class="form-control-sm" ngbDatepicker #dpStart="ngbDatepicker" (focus)="dpStart.toggle()" (dateSelect)="dpStart.close()" required/>
+          <br>
+        </div>
+        <div class="mb-3">
+          <!-- Doc datepicker https://ng-bootstrap.github.io/#/components/datepicker/overview
+          https://ng-bootstrap.github.io/#/components/datepicker/api#NgbInputDatepicker -->
+          <label for="endDate" class="form-label">Date fin</label>
+          <br>
+          <input id="endDate" formControlName="endDate" type="date" class="form-control-sm" ngbDatepicker #dpEnd="ngbDatepicker" (focus)="dpEnd.toggle()" (dateSelect)="dpEnd.close()" required/>
+          <br>
+        </div>
+        <div class="mb-3">
+          <label for="owner" class="form-label">Propriétaire</label>
+          <br>
+          <input id="owner" formControlName="owner" type="text" class="form-control-sm">
+          <br>
+        </div>
+        <div class="mb-3">
+          <label for="user" class="form-label">Employé</label>
+          <br>
+          <input id="user" formControlName="user" type="text" class="form-control-sm">
+          <br>
+        </div>
+        <div class="mb-3">
+          <label for="parcel" class="form-label">Parcelle</label>
+          <br>
+          <input id="parcel" formControlName="parcel" type="text" class="form-control-sm">
+          <br>
+        </div> 
+        <button type="submit" class="btn btn-primary">Enregistrer</button>
+      </form>
     </div>
-
-    <div class="col-6 border border-3 border-danger">
-        <div class="container">
+    <!-- !!!!!!!!!!!!!!!!!! COLONNE 1 !!!!!!!!!!!!!!!!!! -->
+    <!-- !!!!!!!!!!!!!!!!!! COLONNE 2 HEADER !!!!!!!!!!!!!!!!!! -->
+    <div class="col border border-1 border-primary">
+      <div class="container">
+        <div class="container text-center">
           <div class="row">
-            <div class="col"><app-owner-widget></app-owner-widget></div>
-            <div class="col"><app-owner-widget></app-owner-widget></div>
+            <div class="col">
+              startDate
+            </div>
+            <div class="col">
+              endDate
+            </div>
+            <div class="col">
+              owner
+            </div>
+            <div class="col">
+              user
+            </div>
+            <div class="col">
+              parcel
+            </div>
           </div>
         </div>
+    <!-- !!!!!!!!!!!!!!!!!! COLONNE 2 HEADER !!!!!!!!!!!!!!!!!! -->
+    <!-- !!!!!!!!!!!!!!!!!! COLONNE 2 CONTENT !!!!!!!!!!!!!!!!!! -->
+        <div class="container text-center">
+          <div class="row">
+            <div class="col">
+              <div *ngFor="let event of showedEventList">{{event.startDate}}</div>
+            </div>
+            <div class="col">
+              <div *ngFor="let event of showedEventList">{{event.endDate}}</div>
+            </div>
+            <div class="col">
+              <div *ngFor="let event of showedEventList">{{event.owner}}</div>
+            </div>
+            <div class="col">
+              <div *ngFor="let event of showedEventList">{{event.user}}</div>
+            </div>
+            <div class="col">
+              <div *ngFor="let event of showedEventList">{{event.parcel}}</div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
     </div>
-  </div>
+    <!-- !!!!!!!!!!!!!!!!!! COLONNE 2 CONTENT !!!!!!!!!!!!!!!!!! -->
+  </div>  
 </div>

@@ -45,4 +45,13 @@ export class AuthService {
     })
     return this.$connectedUser;
   }
+
+  logout():void{
+    //clean localstorage
+    localStorage.removeItem('parcelleUserId');
+    localStorage.removeItem('parcelleToken');
+
+    //clean l'objet user connecté
+    this._$connectedUser.next(undefined);
+  }
 }

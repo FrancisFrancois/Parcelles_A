@@ -24,10 +24,8 @@
                 <option value="admin">Admin</option>
                 <option value="invité">Invité</option>
             </select>
-            <br>
             <span class="text-danger" *ngIf="registerForm.get('roles')?.touched && registerForm.get('roles')?.errors?.['required']">Champs requis</span>
         </div>
-        <br>
          <div class="mb-3">
              <label for="email" class="form-label">Email</label>
              <br>
@@ -45,7 +43,6 @@
             <span class="text-danger" *ngIf="registerForm.get('phoneNumber')?.touched && registerForm.get('phoneNumber')?.errors?.['required']">Champs requis</span>
             <span class="text-danger" *ngIf="registerForm.get('phoneNumber')?.errors?.['maxlength']">Maximum 45 caractères</span>
          </div>
-         <br>
          <div class="mb-3">
              <label for="password" class="form-label">Mot de passe</label>
              <br>

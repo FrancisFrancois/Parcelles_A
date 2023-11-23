@@ -22,7 +22,7 @@ export class AuthTokenInterceptor implements HttpInterceptor {
    */
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     
-    let token : string | null = localStorage.getItem("tokenParcelle");
+    let token : string | null = localStorage.getItem("parcelleToken");
 
     if(token && token != '')
     {

@@ -1,30 +1,32 @@
 <div class="container">
     <h2 class="text-decoration-underline">Détail Utilisateur</h2>
     <div class="mb-3">
-        <p> {{registerAccount?.lastName}} </p>
-        <p> {{registerAccount?.firstName}} </p>
-        <p> {{registerAccount?.username}} </p>
-        <p> {{registerAccount?.email}} </p>
-        <p> {{registerAccount?.phoneNumber}} </p>
-        <p> {{registerAccount?.actif}} </p>
+        <p> {{readAccount?.id}} </p>
+        <p> {{readAccount?.username}} </p>
+        <p> {{readAccount?.firstName}} </p>
+        <p> {{readAccount?.lastName}} </p>
+        <p> {{readAccount?.email}} </p>
+        <p> {{readAccount?.roles}} </p>
+        <p> {{readAccount?.phoneNumber}} </p>
+        <p> {{readAccount?.blocked}} </p>
     </div>
     <div class="card" style="width: 20rem;">
         <img src="../../../../../assets/images/image-profil.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Nom : {{registerAccount?.lastName}}</h5>
-          <br>
-          <h5 class="card-title">Prénom : {{registerAccount?.firstName}}</h5>
-        </div>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">Email : {{registerAccount?.email}}</li>
-            <li class="list-group-item">Téléphone : {{registerAccount?.phoneNumber}}</li>
-            <li class="list-group-item">Pseudo : {{registerAccount?.username}}</li>
+            <li class="list-group-item">ID : {{readAccount?.id}}</li>
+            <li class="list-group-item">Login : {{readAccount?.username}}</li>
+            <li class="list-group-item">Prénom : {{readAccount?.firstName}}</li>
+            <li class="list-group-item">Nom : {{readAccount?.lastName}}</li>
+            <li class="list-group-item">Email : {{readAccount?.email}}</li>
+            <li class="list-group-item">Roles : {{readAccount?.roles}}</li>
+            <li class="list-group-item">Téléphone : {{readAccount?.phoneNumber}}</li>
+            <li class="list-group-item">Status : {{readAccount?.blocked}}</li>
         </ul>
         <div class="card-body">
             <button class="btn btn-primary" routerLink="/update-account">Modifier Utilisateur</button>
             <br>
             <br>
-            <button class="btn btn-danger" (click)="deleteUser(registerAccount?.id ?? 0)">Supprimer l'utilisateur</button>
+            <button class="btn btn-danger" (click)="deleteUser(readAccount?.id ?? 0)">Supprimer l'utilisateur</button>
             <br>
             <br>
             <button class="btn btn-warning" routerLink="">Reset Mot de passe</button>

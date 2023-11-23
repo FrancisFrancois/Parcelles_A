@@ -1,26 +1,23 @@
 export interface RegisterAccount {
-    id: number | undefined;
-    username : string;
-    firstName : string;
     lastName : string;
+    firstName : string;
+    roles : string[];
+    password : string;
+    passwordVerified : string;
     email : string;
     phoneNumber : string;
-    actif : boolean;
-    password : string;
-    roles : string[];
 }
 
 export interface UpdateAccount {
-    id: number | undefined;
-    firstName : string;
     lastName : string;
+    firstName : string;
     roles : string[];
     email : string;
     phoneNumber : string;
     blocked : boolean;
 }
 
-export interface listAccount {
+export interface ListAccount {
     id: number | undefined;
     username : string;
     firstName : string;

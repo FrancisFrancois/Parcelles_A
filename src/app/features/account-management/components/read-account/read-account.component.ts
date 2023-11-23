@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RegisterAccount } from '../../models/registerAccount';
+import { ReadAccount} from '../../models/registerAccount';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AccountManagementService } from '../../../../shared/services/account-management.service';
 
@@ -10,7 +10,7 @@ import { AccountManagementService } from '../../../../shared/services/account-ma
 })
 export class ReadAccountComponent {
 
-  registerAccount : RegisterAccount | undefined;
+  readAccount : ReadAccount | undefined;
 
   constructor(
     private _activeRoute : ActivatedRoute, 
@@ -21,7 +21,7 @@ export class ReadAccountComponent {
 
     this._accountManagementService.getById(accoundId).subscribe({
       next: (res) => {
-        this.registerAccount = res;
+        this.readAccount = res;
       },
       error: (err) => {
         console.log(err);

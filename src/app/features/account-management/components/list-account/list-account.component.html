@@ -1,29 +1,46 @@
 <div class="container">
-    <h2>Mes Utilisateurs</h2>
+    <h2 class="text-decoration-underline">Liste des Utilisateurs</h2>
     <br>
-    <button class="btn btn-primary" routerLink="/create-account">Ajouter un nouvel Utilisateur</button>
+    <button class="btn btn-primary" routerLink="/create-account">Ajouter un Utilisateur</button>
+    <br>
+    <br>
+    <button class="btn btn-warning" routerLink="/update-account">Modifier un Utilisateur</button>
+    <br>
+    <br>
+    <button class="btn btn-secondary" routerLink="/read-account">Voir un Utilisateur</button>
+    <br>
+    <br>
+    <form class="d-flex">
+      <input class="form-control me-2 w-25" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
     <br>
     <br>
     <table class="table">
         <thead class="thead-dark">
           <tr>
-            <th scope="col">Nom</th>
+            <th scope="col">ID</th>
+            <th scope="col">Login</th>
             <th scope="col">Prénom</th>
-            <th scope="col">Username</th>
+            <th scope="col">Nom</th>
             <th scope="col">Email</th>
+            <th scope="col">Téléphone</th>
+            <th scope="col">Roles</th>
+            <th scope="col">Actif</th>
             <th scope="col">Actions</th>
           </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let registerAccount of registerAccountList">
-                    <td>{{ registerAccount.lastName }}</td>
-                    <td>{{ registerAccount.firstName }}</td>
-                    <td>{{ registerAccount.username }}</td>
-                    <td>{{ registerAccount.email }}</td>
+            <tr *ngFor="let listAccountRegister of listAccount">
+                    <td>{{ listAccountRegister.lastName }}</td>
+                    <td>{{ listAccountRegister.firstName }}</td>
+                    <td>{{ listAccountRegister.email }}</td>
+                    <td>{{ listAccountRegister.phoneNumber }}</td>
+                    <td>{{ listAccountRegister.blocked }}</td>
                     <td>
-                        <button class="btn btn-primary" routerLink="/read-account/{{registerAccount.id}}">🔎</button>
-                        <button class="btn btn-primary" routerLink="/update-account/{{registerAccount.id}}">📝</button>
-                        <button class="btn btn-primary" (click)="deleteUser(registerAccount.id ?? 0)">❌</button>
+                        <button class="btn btn-primary" routerLink="/read-account/{{listAccountRegister.id}}">🔎</button>
+                        <button class="btn btn-primary" routerLink="/update-account/{{listAccountRegister.id}}">📝</button>
+                        <button class="btn btn-primary" (click)="deleteUser(listAccountRegister.id ?? 0)">❌</button>
                     </td>
             </tr>
         </tbody>

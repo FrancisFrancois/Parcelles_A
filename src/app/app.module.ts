@@ -9,7 +9,6 @@ import { ReadAccountComponent } from './features/account-management/components/r
 import { UpdateAccountComponent } from './features/account-management/components/update-account/update-account.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ListAccountComponent } from './features/account-management/components/list-account/list-account.component';
-
 import {  HttpClientModule } from '@angular/common/http';
 import { ReadOwnerComponent } from './features/owner-management/components/read-owner/read-owner.component';
 import { ListOwnerComponent } from './features/owner-management/components/list-owner/list-owner.component';
@@ -17,6 +16,7 @@ import { UpdateOwnerComponent } from './features/owner-management/components/upd
 import { OwnerManagementComponent } from './features/owner-management/components/owner-management/owner-management.component';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
+import { NotfoundComponent } from './shared/components/notfound/notfound.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +31,8 @@ import { SidebarComponent } from './shared/components/sidebar/sidebar.component'
     ListOwnerComponent,
     UpdateOwnerComponent,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    NotfoundComponent,
   ],
   imports: [
     BrowserModule,

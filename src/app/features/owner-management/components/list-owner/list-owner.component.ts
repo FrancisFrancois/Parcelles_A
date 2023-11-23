@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OwnerManagementService } from '../../services/owner-management.service';
-import { Owner } from '../../Models/owner';
+import { Owner } from '../../models/owner';
 import { Router } from '@angular/router';
 
 @Component({

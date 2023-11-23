@@ -1,4 +1,5 @@
 <div class="navbar">
     <img src="../../../../assets/images/celluleappui.png" alt="">
-    <a class="btn btn-secondary btn-sm"><i class="fa fa-fw fa-user"></i> Login</a>
+    <h1>{{ navbarText$ | async }}</h1>
+    <a class="btn btn-secondary btn-sm" routerLink="auth" (click)="onLinkClick('Login')"><i class="fa fa-fw fa-user"></i> Login</a>
 </div>

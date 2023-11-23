@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { RegisterAccount } from '../../models/registerAccount';
-import { AccountManagementService } from '../../services/account-management.service';
+import { ListAccount } from '../../models/registerAccount';
+import { AccountManagementService } from '../../../../shared/services/account-management.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,17 +10,18 @@ import { Router } from '@angular/router';
 })
 export class ListAccountComponent {
 
-  registerAccountList : RegisterAccount[] = [];
+  listAccount : ListAccount[] = [];
 
   constructor(
     private _accountManagementService : AccountManagementService,
-    private _router : Router) { 
+    private _router : Router,
+    ) { 
   }
 
   ngOnInit(): void {
     this._accountManagementService.getAll().subscribe({
       next: (response) => {
-        this.registerAccountList = response;
+        this.listAccount = response;
         console.log("Recuperation de la liste des utilisateurs avec succes:", response);
       },
       error: (error) => {

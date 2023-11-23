@@ -8,15 +8,20 @@
           https://ng-bootstrap.github.io/#/components/datepicker/api#NgbInputDatepicker-->
           <label for="startDate" class="form-label">Date début</label>
           <br>
-          <input id="startDate" formControlName="startDate" type="" class="form-control-sm" ngbDatepicker #dpStart="ngbDatepicker" (focus)="dpStart.toggle()" (dateSelect)="dpStart.close()" required/>
+          <!-- <input id="startDate" formControlName="startDate" type="" class="form-control-sm" ngbDatepicker #dpStart="ngbDatepicker" placeholder="Date début" (focus)="dpStart.toggle()" (dateSelect)="dpStart.close()" required/> -->
+          <!-- <ngb-datepicker #dp (dateSelect)="onDateSelection($event)" [displayMonths]="2" outsideDays="hidden" /> -->
+          <!-- <ngb-datepicker [(ngModel)]="range" #dp (dateSelect)="onDateSelection($event)" [displayMonths]="2" outsideDays="hidden" /> -->
+          <ngb-date-range-picker formControlName="dateRange">Choisissez ddate</ngb-date-range-picker>
+
           <br>
+
         </div>
         <div class="mb-3">
           <!-- Doc datepicker https://ng-bootstrap.github.io/#/components/datepicker/overview
           https://ng-bootstrap.github.io/#/components/datepicker/api#NgbInputDatepicker -->
           <label for="endDate" class="form-label">Date fin</label>
           <br>
-          <input id="endDate" formControlName="endDate" type="" class="form-control-sm" ngbDatepicker #dpEnd="ngbDatepicker" (focus)="dpEnd.toggle()" (dateSelect)="dpEnd.close()" required/>
+          <!-- <input id="endDate" formControlName="endDate" type="" class="form-control-sm" ngbDatepicker #dpEnd="ngbDatepicker" placeholder="Date fin" (focus)="dpEnd.toggle()" (dateSelect)="dpEnd.close()" required/> -->
           <br>
         </div>
         <div class="mb-3">

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { EventList } from '../../models/event-list';
+
+
 @Component({
   selector: 'app-appointment',
   templateUrl: './appointment.component.html',
@@ -9,6 +11,7 @@ import { EventList } from '../../models/event-list';
 export class AppointmentComponent {
   constructor(private _fb : FormBuilder){
     this.appointmentForm = this._fb.group({
+      dateRange: [],
       startDate : [],
       endDate : [],
       owner : [],
@@ -20,13 +23,16 @@ export class AppointmentComponent {
   showedEventList : EventList[] = [];
   hiddenEventList : EventList[] = [
     { 
+      dateRange : [],
       startDate : new Date(2023,11,22),
       endDate : new Date(2023,11,22),
       owner : "Mime",
       user : "Jean-Luc",
       parcel : "1283"
     },
-    { startDate : new Date(2023,12,6),
+    { 
+      dateRange : [],
+      startDate : new Date(2023,12,6),
       endDate : new Date(2023,12,6),
       owner : "John",
       user : "Doe",
@@ -61,4 +67,16 @@ export class AppointmentComponent {
 
     console.log(this.showedEventList);
   }
+
+
+
+
+  onDateSelection(event: any){
+
+  }
+
+
+
+
+
 }

@@ -8,7 +8,7 @@
     <div class="col-md-3">
         <!--lname-->
         <div class="mb-3">
-            <label for="lastname" class="form-label">Nom</label>
+            <label for="lname" class="form-label">Nom</label>
             <br>
             <!--On vérifie la longueur du champs et s'il est laissé vide -->
             <input id="lname" type="text" class="form-control-sm" required formControlName="lname">
@@ -21,7 +21,7 @@
 
         <!--fname-->
         <div class="mb-3">
-            <label for="text-firstname" class="form-label">Prénom</label>
+            <label for="fname" class="form-label">Prénom</label>
             <br>
             <input id="fname" type="text" class="form-control-sm" required formControlName="fname">
             <span class="text-danger" *ngIf="registerForm.get('fname')?.touched && 

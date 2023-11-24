@@ -19,7 +19,6 @@
     <table class="table">
         <thead class="thead-dark">
           <tr>
-            <th scope="col">ID</th>
             <th scope="col">Login</th>
             <th scope="col">Prénom</th>
             <th scope="col">Nom</th>
@@ -32,7 +31,6 @@
         </thead>
         <tbody>
             <tr *ngFor="let listAccountRegister of listAccount">
-                    <td>{{ listAccountRegister.id }}</td>
                     <td>{{ listAccountRegister.username }}</td>
                     <td>{{ listAccountRegister.firstName }}</td>
                     <td>{{ listAccountRegister.lastName }}</td>

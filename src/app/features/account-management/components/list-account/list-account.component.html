@@ -32,10 +32,12 @@
         </thead>
         <tbody>
             <tr *ngFor="let listAccountRegister of listAccount">
+                    <td>{{ listAccountRegister.id }}</td>
                     <td>{{ listAccountRegister.lastName }}</td>
                     <td>{{ listAccountRegister.firstName }}</td>
                     <td>{{ listAccountRegister.email }}</td>
                     <td>{{ listAccountRegister.phoneNumber }}</td>
+                    <td>{{ listAccountRegister.roles }}</td>
                     <td>{{ listAccountRegister.blocked }}</td>
                     <td>
                         <button class="btn btn-primary" routerLink="/read-account/{{listAccountRegister.id}}">🔎</button>

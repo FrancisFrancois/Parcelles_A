@@ -18,8 +18,8 @@ export class CreateAccountComponent {
     private _router: Router
     ) {
     this.registerForm = this._fb.group({
-      lastName: [null, [Validators.required, Validators.maxLength(45), Validators.pattern(/^[\D]*$/)]],
-      firstName: [null, [Validators.required, Validators.maxLength(45), Validators.pattern(/^[\D]*$/)]],
+      lastname: [null, [Validators.required, Validators.maxLength(45), Validators.pattern(/^[\D]*$/)]],
+      firstname: [null, [Validators.required, Validators.maxLength(45), Validators.pattern(/^[\D]*$/)]],
       roles : [null, [Validators.required, Validators.maxLength(45)]],
       password: [null, [Validators.required, Validators.maxLength(150), Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/)]],
       passwordVerified: [null, [Validators.required]],

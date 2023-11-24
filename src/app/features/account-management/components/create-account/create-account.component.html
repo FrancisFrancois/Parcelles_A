@@ -2,20 +2,20 @@
     <h2 class="text-decoration-underline">Ajouter un Utilisateur</h2>
     <form [formGroup]="registerForm" (ngSubmit)="createUser()">
         <div class="mb-3">
-            <label for="lastName" class="form-label">Nom</label>
+            <label for="lastname" class="form-label">Nom</label>
             <br>
-            <input id="lastName" type="text" class="form-control-sm" required formControlName="lastName">
+            <input id="lastname" type="text" class="form-control-sm" required formControlName="lastname">
             <br>
-            <span class="text-danger" *ngIf="registerForm.get('lastName')?.touched && registerForm.get('lastName')?.errors?.['required']">Champs requis</span>
-            <span class="text-danger" *ngIf="registerForm.get('lastName')?.errors?.['maxlength']">Maximum 45 caractères</span>
+            <span class="text-danger" *ngIf="registerForm.get('lastname')?.touched && registerForm.get('lastname')?.errors?.['required']">Champs requis</span>
+            <span class="text-danger" *ngIf="registerForm.get('lastname')?.errors?.['maxlength']">Maximum 45 caractères</span>
          </div>
          <div class="mb-3">
-             <label for="firstName" class="form-label">Prénom</label>
+             <label for="firstname" class="form-label">Prénom</label>
              <br>
-             <input id="firstName" type="text" class="form-control-sm" required formControlName="firstName">
+             <input id="firstname" type="text" class="form-control-sm" required formControlName="firstname">
              <br>
-             <span class="text-danger" *ngIf="registerForm.get('firstName')?.touched && registerForm.get('firstName')?.errors?.['required']">Champs requis</span>
-             <span class="text-danger" *ngIf="registerForm.get('firstName')?.errors?.['maxlength']">Maximum 45 caractères</span>
+             <span class="text-danger" *ngIf="registerForm.get('firstname')?.touched && registerForm.get('firstname')?.errors?.['required']">Champs requis</span>
+             <span class="text-danger" *ngIf="registerForm.get('firstname')?.errors?.['maxlength']">Maximum 45 caractères</span>
           </div>
           <div class="mb-3">
             <label for="roles" class="form-label">Roles</label>

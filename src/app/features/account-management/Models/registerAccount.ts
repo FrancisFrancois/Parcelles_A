@@ -1,6 +1,6 @@
 export interface RegisterAccount {
-    lastName : string;
-    firstName : string;
+    lastname : string;
+    firstname : string;
     roles : string[];
     password : string;
     passwordVerified : string;
@@ -9,8 +9,8 @@ export interface RegisterAccount {
 }
 
 export interface UpdateAccount {
-    lastName : string;
-    firstName : string;
+    lastname : string;
+    firstname : string;
     roles : string[];
     email : string;
     phoneNumber : string;
@@ -20,8 +20,8 @@ export interface UpdateAccount {
 export interface ListAccount {
     id: number | undefined;
     username : string;
-    firstName : string;
-    lastName : string;
+    firstname : string;
+    lastname : string;
     email : string;
     roles : string[];
     phoneNumber : string;
@@ -31,8 +31,8 @@ export interface ListAccount {
 export interface ReadAccount {
     id: number | undefined;
     username : string;
-    firstName : string;
-    lastName : string;
+    firstname : string;
+    lastname : string;
     email : string;
     roles : string[];
     phoneNumber : string;

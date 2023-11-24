@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { AccountManagementService } from '../../../../shared/services/account-management.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-update-account',
@@ -14,20 +14,22 @@ export class UpdateAccountComponent {
   accountId : number;
 
 constructor(
+  private _activeRoute : ActivatedRoute,
   private _fb: FormBuilder,
   private _accountManagementService: AccountManagementService,
   private _router: Router
 ) {
+  this.accountId = +this._activeRoute.snapshot.params['id'];
+
   this.registerForm = this._fb.group({
-    lastName: [null, [Validators.required, Validators.maxLength(45), Validators.pattern(/^[\D]*$/)]],
-    firstName: [null, [Validators.required, Validators.maxLength(45), Validators.pattern(/^[\D]*$/)]],
+    lastname: [null, [Validators.required, Validators.maxLength(45), Validators.pattern(/^[\D]*$/)]],
+    firstname: [null, [Validators.required, Validators.maxLength(45), Validators.pattern(/^[\D]*$/)]],
     roles: [null, [Validators.required, Validators.maxLength(45)]],
     email: [null, [Validators.required, Validators.maxLength(250), Validators.email]],
     phoneNumber: [null, [Validators.required, Validators.maxLength(45)]],
     blocked: [null, [Validators.required]]
   });
 
-  this.accountId = +this;
 }
 
   ngOnInit(): void {

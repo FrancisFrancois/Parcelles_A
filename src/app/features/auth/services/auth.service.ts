@@ -29,11 +29,11 @@ export class AuthService {
         let temp : ReadAccount = {
           id: response.id,
           username : response.login,
-          firstName:'temp',
-          lastName:'temp',
-          email:'temp@a.changer',
-          phoneNumber: 'nepasderanger',
-          roles: ['ADMIN'],
+          firstname:'',
+          lastname:'',
+          email:'',
+          phoneNumber: '',
+          roles: [],
           blocked : false
         }
 

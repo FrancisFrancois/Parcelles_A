@@ -32,7 +32,6 @@ export class AuthComponent {
     if(this.loginForm.valid) {
       this._authService.login(this.loginForm.value).subscribe({
         next : (response) => {
-          console.log(response)
           //Action si ça se passe bien
           this._router.navigateByUrl('');
         },

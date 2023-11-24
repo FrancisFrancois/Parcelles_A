@@ -11,13 +11,10 @@ import { AccountManagementService } from 'src/app/shared/services/account-manage
 export class AuthService {
 
   private _urlUser : string = this._urlBase+'/auth/login'
-
   private _$connectedUser : BehaviorSubject<ReadAccount | undefined> = new BehaviorSubject<ReadAccount|undefined>(this.getUser());
-  
+  private _connectedUser : ReadAccount|undefined;
   $connectedUser : Observable< ReadAccount | undefined> = this._$connectedUser.asObservable();
   
-  private _connectedUser : ReadAccount|undefined;
-
   private getUser(): ReadAccount|undefined{
     return this._connectedUser;
   }

@@ -16,7 +16,6 @@ export class NavbarComponent implements OnInit {
   connectedUser : ReadAccount | undefined;
   userSub : Subscription = new Subscription();
 
-
   constructor(
     private _navbarService: NavbarService,
     private _authService : AuthService

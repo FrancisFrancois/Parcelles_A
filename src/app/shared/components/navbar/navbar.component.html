@@ -1,5 +1,12 @@
 <div class="navbar">
     <img src="../../../../assets/images/celluleappui.png" alt="">
     <h1>{{ navbarText$ | async }}</h1>
-    <a class="btn btn-secondary btn-sm" routerLink="auth" (click)="onLinkClick('Login')"><i class="fa fa-fw fa-user"></i> Login</a>
+    <div>
+        <span *ngIf="connectedUser">{{ connectedUser.firstName }}</span>
+        <span *ngIf="!connectedUser"></span>
+    </div>
+    <div>
+        <a *ngIf="!connectedUser" class="btn btn-secondary btn-sm" routerLink="auth" (click)="onLinkClick('Login')">Login</a>
+        <a *ngIf="connectedUser" class="btn btn-secondary btn-sm" routerLink="auth" (click)="logout()"><i class="fa fa-fw fa-user"></i>Lougout</a>
+    </div>
 </div>

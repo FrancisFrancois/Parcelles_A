@@ -66,4 +66,5 @@ export class AuthService {
     //clean l'objet user connecté
     this._$connectedUser.next(undefined);
   }
+  
 }

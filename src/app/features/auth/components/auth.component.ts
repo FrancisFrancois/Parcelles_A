@@ -1,8 +1,9 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { ReadAccount } from '../../account-management/models/registerAccount';
 
 @Component({
   selector: 'app-auth',
@@ -12,6 +13,8 @@ import { Router } from '@angular/router';
 export class AuthComponent {
 
   loginForm : FormGroup;
+  connectedUser : ReadAccount | undefined;
+  userSub : Subscription = new Subscription();
 
   constructor(
     private _fb : FormBuilder,
@@ -39,4 +42,20 @@ export class AuthComponent {
       })
     }
   }
+
+  ngOnInit(): void {
+    this.userSub = this._authService.$connectedUser.subscribe({
+      next : (value) => {
+        this.connectedUser = value;
+      },
+      error : (error) => {
+        console.error("Une erreur s'est produite lors de la souscription à l'observable $connectedUser :", error);
+      }
+    });
+  }
+
+  ngDestroy(): void {
+    this.userSub.unsubscribe();
+  }
+
 }

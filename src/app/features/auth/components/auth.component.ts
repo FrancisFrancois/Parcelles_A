@@ -23,8 +23,8 @@ export class AuthComponent {
     ) {
 
     this.loginForm = this._fb.group({
-      login: [null, [Validators.required, Validators.maxLength(45), Validators.pattern(/^[\D]*$/)]],
-      password: [null, [Validators.required, Validators.maxLength(150), Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/)]],
+      login: [null, [Validators.required, Validators.maxLength(45)]],
+      password: [null, [Validators.required, Validators.maxLength(150)]],
     });
   }
 

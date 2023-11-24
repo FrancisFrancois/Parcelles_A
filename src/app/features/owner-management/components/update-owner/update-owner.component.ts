@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OwnerManagementService } from '../../services/owner-management.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-update-owner',
@@ -16,9 +16,10 @@ export class UpdateOwnerComponent implements OnInit {
   constructor(
     private _fb: FormBuilder,
     private _ownerManagementService: OwnerManagementService,
-    private _router: Router
+    private _router: Router,
+    private  _activeRoute : ActivatedRoute
   ) {
-    
+    this.ownerID = this._activeRoute.snapshot.params["id"];
     this.registerForm = this._fb.group({
       lname: [null, [Validators.required, Validators.maxLength(100), Validators.pattern(/^[\D]*$/)]],
       fname: [null, [Validators.required, Validators.maxLength(100), Validators.pattern(/^[\D]*$/)]],
@@ -35,8 +36,7 @@ export class UpdateOwnerComponent implements OnInit {
       comment: [null, [Validators.required, Validators.maxLength(1)]],
       reunion: [null, [Validators.required, Validators.maxLength(1)]],
       manifeste: [null, [Validators.required, Validators.maxLength(1)]]
-    });
-    this.ownerID = +this
+    });    
   }
   ngOnInit(): void {
     this._ownerManagementService.getById(this.ownerID).subscribe({

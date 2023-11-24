@@ -24,9 +24,9 @@ export class AccountManagementService {
     return this._httpClient.post<RegisterAccount>(`${this._url}/create`, registerAccount);
   }
   update(id : number, registerAccount : UpdateAccount) : Observable<UpdateAccount> {
-    return this._httpClient.put<UpdateAccount>(`${this._url}/update${id}`, registerAccount);
+    return this._httpClient.put<UpdateAccount>(`${this._url}/update/${id}`, registerAccount);
   }
   delete(id : number) : Observable<RegisterAccount> {
-    return this._httpClient.delete<RegisterAccount>(`${this._url}/delete${id}`);
+    return this._httpClient.delete<RegisterAccount>(`${this._url}/delete/${id}`);
   }
 };

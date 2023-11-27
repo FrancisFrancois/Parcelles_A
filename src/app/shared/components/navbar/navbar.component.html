@@ -1,12 +1,12 @@
 <div class="navbar">
-    <img src="../../../../assets/images/celluleappui.png" alt="">
+    <img src="../../../../assets/images/Logo_Cellule_Quadri_new_FBW-vecto.png" alt="">
     <h1>{{ navbarText$ | async }}</h1>
     <div>
         <span *ngIf="connectedUser">{{ connectedUser.roles }} {{ connectedUser.firstname }}</span>
         <span *ngIf="!connectedUser"></span>
     </div>
     <div>
-        <a *ngIf="!connectedUser" class="btn btn-secondary btn-sm" routerLink="auth" (click)="onLinkClick('Login')">Login</a>
-        <a *ngIf="connectedUser" class="btn btn-secondary btn-sm" routerLink="auth" (click)="logout()">Logout</a>
+        <a *ngIf="!connectedUser" class="btn btn btn-sm" routerLink="auth" (click)="onLinkClick('Login')">Login</a>
+        <a *ngIf="connectedUser" class="btn btn btn-sm" routerLink="auth" (click)="logout()">Logout</a>
     </div>
 </div>

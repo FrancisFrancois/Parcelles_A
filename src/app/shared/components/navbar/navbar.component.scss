@@ -1,7 +1,7 @@
 .navbar {
   width: 100%;
-  background-color: grey;
-  margin-bottom: 1.2rem;
+  height: 8rem;
+  background-color: rgb(125, 149, 159);
 }
 
 .navbar a {
@@ -15,14 +15,18 @@
 }
 
 .navbar a:hover {
-  background-color: #000;
+  background-color: rgb(53, 96, 117);
 }
 
 .navbar img {
-  margin-left: 0.5em;
-  height: 6em;
+  margin-left: 2.5em;
+  height: 5.5em;
 }
 
 .active {
   background-color: #04AA6D;
+}
+
+.btn {
+  background-color: rgb(69, 103, 118);
 }

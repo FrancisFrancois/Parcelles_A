@@ -9,7 +9,7 @@ input[type=text], input[type=password] {
 }
 
 button {
-  background-color: #808080;
+  background-color: rgb(69, 103, 118);
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -19,7 +19,7 @@ button {
 }
 
 button:hover {
-  opacity: 0.8;
+  background-color: rgb(125, 149, 159);
 }
 
 .imgcontainer {

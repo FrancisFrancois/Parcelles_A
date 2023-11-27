@@ -8,7 +8,7 @@ import { AuthComponent } from './features/auth/components/auth.component';
 import { CreateAccountComponent } from './features/account-management/components/create-account/create-account.component';
 import { ReadAccountComponent } from './features/account-management/components/read-account/read-account.component';
 import { UpdateAccountComponent } from './features/account-management/components/update-account/update-account.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OwnerManagementComponent } from './features/owner-management/components/owner-management/owner-management.component';
 import {  HttpClientModule } from '@angular/common/http';
 import { ReadOwnerComponent } from './features/owner-management/components/read-owner/read-owner.component';
@@ -31,7 +31,8 @@ import { UpdateOwnerComponent } from './features/owner-management/components/upd
     AppRoutingModule,
     NgbModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

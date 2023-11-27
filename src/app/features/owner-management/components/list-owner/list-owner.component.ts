@@ -21,20 +21,20 @@ export class ListOwnerComponent implements OnInit {
   // afficher en priorité la liste de owners
 
   //voir si je peux supprimer :
-  // ngOnInit(): void {
-  //   this._ownerManagementService.getAll().subscribe({
-  //     next: (response) => {
-  //       this.owners = response;
-  //       console.log("Recuperation de la liste des propriétaires avec succès:", response);
-  //     },
-  //     error: (error) => {
-  //       console.error("Une erreur s'est produite lors de la recuperation de la liste des utilisateurs:", error);
-  //     },
-  //     complete: () => {
-  //       console.log("Recuperation de la liste des utilisateurs terminée.");
-  //     }
-  //   });
-  // }
+  ngOnInit(): void {
+    this._ownerManagementService.getAll().subscribe({
+      next: (response) => {
+        this.owners = response;
+        console.log("Recuperation de la liste des propriétaires avec succès:", response);
+      },
+      error: (error) => {
+        console.error("Une erreur s'est produite lors de la recuperation de la liste des utilisateurs:", error);
+      },
+      complete: () => {
+        console.log("Recuperation de la liste des utilisateurs terminée.");
+      }
+    });
+  }
   deleteOwner(id : number) {
     this._ownerManagementService.delete(id).subscribe({
       next: (response) => {
@@ -50,61 +50,30 @@ export class ListOwnerComponent implements OnInit {
     });
   }
 
-// Recherche du propriétaire
-  // Gérer les inputs null, sont acceptés
+  // Recherche du propriétaire
+  timeout :any;
+  fname : string = "";
+  lname : string = "";
+  zip : string = "";
+
+  total = this.fname + this.lname + this.zip
   
-  // 1) Gérer le input
-  InitialValue: string = '';
-  DebounceTime = 300
-  TextChange = new EventEmitter<string>();
+  SearchOwner():void{
+    clearTimeout(this.timeout);
+    this.timeout = null;
 
-  InputValue = new Subject<string>();
-  trigger = this.InputValue.pipe( // erreur du pipe de l'exemple : il fallait changer le intialValue par InputValue parce que faut le faire sur l'Obs 
-    debounceTime(this.DebounceTime),
-    distinctUntilChanged()
-  );
-  
-  subscriptions: Subscription[] = [];
-
-  ngOnInit() {
-    const subscription = this.trigger.subscribe((currentValue) => {
-      // Émission de la valeur courante vers l'événement 'TextChange'
-      this.TextChange.emit(currentValue);
-    });
-    // Ajout de l'abonnement au tableau subscriptions
-    this.subscriptions.push(subscription);
+    this.timeout = setTimeout(() => {
+      this._ownerManagementService.searchOwners(this.total).subscribe({
+        next: (response) => {
+          console.log(this.fname, this.lname, this.zip);
+          this.owners = response; // met à jour le tableau
+        },
+        error: (error) => {
+          console.error(error, "pbm lors de la récupération des données");
+        }
+      });      
+      clearTimeout(this.timeout);
+      this.timeout = null;
+    }, 1500);
   }
-
-  ngOnDestroy() {
-    // Désabonnement de toutes les souscriptions
-    this.subscriptions.forEach(sub => sub.unsubscribe());
-  }
-
-  // La fonction onInput est appelée à chaque fois qu'un utilisateur tape quelque chose
-  onInput(e: any) {
-  // On prend la valeur saisie par l'utilisateur et la transmet au sujet 'InputValue'.
-    this.InputValue.next(e.target.value);
-  }
-
-
-  // 2) Contacter API
-  
-  // onTextChange(changedText: string) {
-  //   this.cancelPendingRequests();
-  //   const OwnerSubscription = this._ownerManagementService
-  //     .searchOwners(changedText) //! Demande 3 arguments automatiquement
-  //     .subscribe(
-  //       response => {
-  //         this.results = response;
-  //       },
-  //       errorResponse => {
-  //         alert("oh no, there was an error when calling the star wars api");
-  //         console.error(errorResponse);
-  //       }
-  //     );
-  //   this.subscriptions.push(OwnerSubscription);
-  // }
-  // cancelPendingRequests() {
-  //   this.subscriptions.forEach(sub => sub.unsubscribe());
-  // }
 }

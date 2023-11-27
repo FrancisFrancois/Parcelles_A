@@ -2,48 +2,47 @@
   <div class="row border border-3">
     <!-- !!!!!!!!!!!!!!!!!! COLONNE 1 !!!!!!!!!!!!!!!!!! -->
     <div class="col border border-5">
-      <form [formGroup]="appointmentForm" (ngSubmit)="searchAppointment()">
         <div class="mb-3">
-          <!-- Doc datepicker https://ng-bootstrap.github.io/#/components/datepicker/overview 
-          https://ng-bootstrap.github.io/#/components/datepicker/api#NgbInputDatepicker-->
-          <label for="startDate" class="form-label">Date début</label>
+          <label for="dateRange" class="form-label">Choisissez les dates</label>
           <br>
-          <!-- <input id="startDate" formControlName="startDate" type="" class="form-control-sm" ngbDatepicker #dpStart="ngbDatepicker" placeholder="Date début" (focus)="dpStart.toggle()" (dateSelect)="dpStart.close()" required/> -->
-          <!-- <ngb-datepicker #dp (dateSelect)="onDateSelection($event)" [displayMonths]="2" outsideDays="hidden" /> -->
-          <!-- <ngb-datepicker [(ngModel)]="range" #dp (dateSelect)="onDateSelection($event)" [displayMonths]="2" outsideDays="hidden" /> -->
-          <ngb-date-range-picker formControlName="dateRange">Choisissez ddate</ngb-date-range-picker>
-
-          <br>
-
+          <!-- Explication code ci dessous     
+          ngb-datepicker: C'est le sélecteur de date de ng-bootstrap.
+          #dp: Une référence locale au date picker.
+          (dateSelect)="onDateSelection($event)": Un gestionnaire d'événements qui est appelé chaque fois qu'une date est sélectionnée, déclenchant la méthode onDateSelection.
+          [displayMonths]="2": Affiche deux mois à la fois dans le sélecteur de dates.
+          [dayTemplate]="t": Utilise un template personnalisé pour l'affichage des jours.
+          outsideDays="hidden": Cache les jours du mois précédent et du mois suivant qui apparaissent dans le calendrier actuel. 
+          -->
+          <ngb-datepicker id="dateRange" [dayTemplate]="t" #dp (dateSelect)="onDateSelection($event)" [displayMonths]="2" outsideDays="hidden"></ngb-datepicker>
+          
+          <ng-template #t let-date let-focused="focused">
+            <span class="custom-day" [class.focused]="focused" [class.range]="isRange(date)" [class.faded]="isHovered(date) || isInside(date)" (mouseenter)="hoveredDate = date" (mouseleave)="hoveredDate = null">
+              {{ date.day }}
+            </span>
+          </ng-template>
+          
+          <pre>From: {{ fromDate | json }} </pre>
+          <pre>To: {{ toDate | json }} </pre>
         </div>
+        
         <div class="mb-3">
-          <!-- Doc datepicker https://ng-bootstrap.github.io/#/components/datepicker/overview
-          https://ng-bootstrap.github.io/#/components/datepicker/api#NgbInputDatepicker -->
-          <label for="endDate" class="form-label">Date fin</label>
+          <label for="owner" [(ngModel)]="owner" class="form-label">Propriétaire</label>
           <br>
-          <!-- <input id="endDate" formControlName="endDate" type="" class="form-control-sm" ngbDatepicker #dpEnd="ngbDatepicker" placeholder="Date fin" (focus)="dpEnd.toggle()" (dateSelect)="dpEnd.close()" required/> -->
-          <br>
-        </div>
-        <div class="mb-3">
-          <label for="owner" class="form-label">Propriétaire</label>
-          <br>
-          <input id="owner" formControlName="owner" type="text" class="form-control-sm">
+          <input id="owner" type="text" class="form-control-sm">
           <br>
         </div>
         <div class="mb-3">
           <label for="user" class="form-label">Employé</label>
           <br>
-          <input id="user" formControlName="user" type="text" class="form-control-sm">
+          <input id="user" type="text" class="form-control-sm">
           <br>
         </div>
         <div class="mb-3">
           <label for="parcel" class="form-label">Parcelle</label>
           <br>
-          <input id="parcel" formControlName="parcel" type="text" class="form-control-sm">
+          <input id="parcel" type="text" class="form-control-sm">
           <br>
         </div> 
-        <button type="submit" class="btn btn-primary">Enregistrer</button>
-      </form>
     </div>
     <!-- !!!!!!!!!!!!!!!!!! COLONNE 1 !!!!!!!!!!!!!!!!!! -->
     <!-- !!!!!!!!!!!!!!!!!! COLONNE 2 HEADER !!!!!!!!!!!!!!!!!! -->

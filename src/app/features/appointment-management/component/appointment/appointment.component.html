@@ -26,21 +26,21 @@
         </div>
         
         <div class="mb-3">
-          <label for="owner" [(ngModel)]="owner" class="form-label">Propriétaire</label>
+          <label for="owner" class="form-label">Propriétaire</label>
           <br>
-          <input id="owner" type="text" class="form-control-sm">
+          <input id="owner" [(ngModel)]="owner" type="text" class="form-control-sm">
           <br>
         </div>
         <div class="mb-3">
           <label for="user" class="form-label">Employé</label>
           <br>
-          <input id="user" type="text" class="form-control-sm">
+          <input id="user" [(ngModel)]="user" type="text" class="form-control-sm">
           <br>
         </div>
         <div class="mb-3">
           <label for="parcel" class="form-label">Parcelle</label>
           <br>
-          <input id="parcel" type="text" class="form-control-sm">
+          <input id="parcel" [(ngModel)]="parcel" type="text" class="form-control-sm">
           <br>
         </div> 
     </div>
@@ -72,10 +72,10 @@
         <div class="container text-center">
           <div class="row">
             <div class="col-3">
-              <div *ngFor="let event of showedEventList">{{event.startDate | date:'dd/MM/yy, à HH:mm'}}</div>
+              <div *ngFor="let event of showedEventList">{{event.dateRange.fromDate | date:'dd/MM/yy, à HH:mm'}}</div>
             </div>
             <div class="col-3">
-              <div *ngFor="let event of showedEventList">{{event.endDate | date:'dd/MM/yy, à HH:mm'}}</div>
+              <div *ngFor="let event of showedEventList">{{event.dateRange.toDate | date:'dd/MM/yy, à HH:mm'}}</div>
             </div>
             <div class="col">
               <div *ngFor="let event of showedEventList">{{event.owner}}</div>

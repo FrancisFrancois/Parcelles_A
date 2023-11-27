@@ -21,23 +21,25 @@ export class AppointmentComponent {
   parcel?: [];
 
   showedEventList : EventList[] = [];
-  hiddenEventList : EventList[] = [
-    { 
-      dateRange : [],
-      startDate : new Date(2023,11,22),
-      endDate : new Date(2023,11,22),
-      owner : "Mime",
-      user : "Jean-Luc",
-      parcel : "1283"
+  hiddenEventList: EventList[] = [
+    {
+      dateRange: {
+        fromDate: new Date(2023, 11, 22),
+        toDate: new Date(2023, 11, 22)
+      },
+      owner: "Mime",
+      user: "Jean-Luc",
+      parcel: "1283"
     },
-    { 
-      dateRange : [],
-      startDate : new Date(2023,12,6),
-      endDate : new Date(2023,12,6),
-      owner : "John",
-      user : "Doe",
-      parcel : "986547"
-    },
+    {
+      dateRange: {
+        fromDate: new Date(2023, 12, 6),
+        toDate: new Date(2023, 12, 6)
+      },
+      owner: "John",
+      user: "Doe",
+      parcel: "986547"
+    }
   ];
 
   searchAppointment(){
@@ -46,24 +48,20 @@ export class AppointmentComponent {
 
   filterEvents() {
     if (!this.fromDate || !this.toDate) {
-      return; // Ne rien faire si les dates ne sont pas sélectionnées
+      return;
     }
   
     const selectedStartDate = new Date(this.fromDate.year, this.fromDate.month - 1, this.fromDate.day);
     const selectedEndDate = new Date(this.toDate.year, this.toDate.month - 1, this.toDate.day);
   
-    console.log(selectedStartDate);
-    console.log(selectedEndDate);
-    
     this.showedEventList = this.hiddenEventList.filter(event => {
-      const eventStartDate = new Date(event.startDate);
-      const eventEndDate = new Date(event.endDate);
+      const eventStartDate = event.dateRange.fromDate;
+      const eventEndDate = event.dateRange.toDate;
   
       return eventStartDate >= selectedStartDate && eventEndDate <= selectedEndDate;
     });
-  
-    console.log(this.showedEventList);
   }
+  
 
 
   //!!!!!!!!!!!! DateRangePicker:
@@ -81,6 +79,7 @@ export class AppointmentComponent {
 			this.toDate = null;
 			this.fromDate = date;
 		}
+    this.filterEvents()
     console.log(this.fromDate);
     console.log(this.toDate);
     

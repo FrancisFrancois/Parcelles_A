@@ -1,7 +1,7 @@
+import { DateRange } from "./date-range";
+
 export interface EventList {
-    dateRange : any;
-    startDate : Date;
-    endDate : Date;
+    dateRange : DateRange;
     owner : string;
     user : string;
     parcel : string;   

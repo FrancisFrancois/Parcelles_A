@@ -1,20 +1,22 @@
 /* The side navigation menu */
 .sidebar {
-    padding: 0;
     width: 14rem;
-    background-color: #555;
+    background-color: rgb(69, 103, 118);
     position: absolute;
     height: 100%;
+    border-top-right-radius: 5px;
     overflow: auto;
-    border-radius: 0.3em;
 }
 
 .sidebar a {
   display: block;
-  color: black;
-  padding: 10px;
+  color: white;
   text-decoration: none;
-  margin: 2em;
+  margin: 0.5em;
+  margin-left: 1.5em;
+  text-align: left;
+  font-weight: bold;
+  
 }
 
 .sidebar a.active {
@@ -23,7 +25,7 @@
 }
 
 .sidebar a:hover:not(.active) {
-  background-color: #555;
+  background-color: rgb(53, 96, 117);
   color: white;
 }
 
@@ -31,4 +33,17 @@ div.content {
   margin-left: 200px;
   padding: 1px 16px;
   height: 1000px;
+}
+
+.logo{
+  margin: 1rem;
+  width: 1.5rem;
+
+}
+
+.fbw {
+  margin-top: 2rem;
+  margin-left: 1.5em;
+  height: 90px;
+
 }

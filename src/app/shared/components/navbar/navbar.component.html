@@ -2,7 +2,7 @@
     <img src="../../../../assets/images/Logo_Cellule_Quadri_new_FBW-vecto.png" alt="">
     <h1>{{ navbarText$ | async }}</h1>
     <div>
-        <span *ngIf="connectedUser">{{ connectedUser.roles }} {{ connectedUser.firstname }}</span>
+        <span *ngIf="connectedUser">{{ connectedUser.roles }} {{ connectedUser.firstName }}</span>
         <span *ngIf="!connectedUser"></span>
     </div>
     <div>

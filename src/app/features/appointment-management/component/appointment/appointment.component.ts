@@ -51,8 +51,8 @@ export class AppointmentComponent {
       return;
     }
   
-    const selectedStartDate = new Date(this.fromDate.year, this.fromDate.month - 1, this.fromDate.day);
-    const selectedEndDate = new Date(this.toDate.year, this.toDate.month - 1, this.toDate.day);
+    const selectedStartDate = new Date(this.fromDate.year, this.fromDate.month, this.fromDate.day);
+    const selectedEndDate = new Date(this.toDate.year, this.toDate.month, this.toDate.day);
   
     this.showedEventList = this.hiddenEventList.filter(event => {
       const eventStartDate = event.dateRange.fromDate;
@@ -79,10 +79,7 @@ export class AppointmentComponent {
 			this.toDate = null;
 			this.fromDate = date;
 		}
-    this.filterEvents()
-    console.log(this.fromDate);
-    console.log(this.toDate);
-    
+    this.filterEvents()    
   }
 
   isHovered(date: NgbDate) {

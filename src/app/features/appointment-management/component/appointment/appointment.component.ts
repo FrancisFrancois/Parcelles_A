@@ -107,7 +107,7 @@ export class AppointmentComponent {
   // Recherche du propriétaire
   timeout :any;
 
-
+  
   // CODE A COMPLETER POUR LA RECHERHE AUTOMATIQUE
     // CODE A COMPLETER POUR LA RECHERHE AUTOMATIQUE
       // CODE A COMPLETER POUR LA RECHERHE AUTOMATIQUE

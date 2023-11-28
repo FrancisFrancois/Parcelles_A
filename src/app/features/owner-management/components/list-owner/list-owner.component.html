@@ -1,10 +1,19 @@
 <div class="container">
     <h2>Les propriétaires</h2>
     <br>
-    <!-- <input type="text" placeholder="Nom du propriétaire" value="intialvalue" (input)="onTextChange($event)">
-    <input type="text" placeholder="Prénom du propriétaire"value="intialvalue" (input)="onTextChange($event)">
-    <input type="text" placeholder="Code postal"value="intialvalue" (input)="onTextChange($event)">
-     -->
+
+    <!--Les inputs de la recherche du owner-->
+    <!--Nom-->
+    <label for="lname" class="form-label">Nom</label>
+    <input type="text" [(ngModel)]=lname (keyup)="SearchOwner()">
+
+    <!--Prénom-->
+    <label for="fname" class="form-label">Prénom</label>
+    <input type="text" [(ngModel)]=fname (keyup)="SearchOwner()">
+
+    <!--Zip-->
+    <label for="zip" class="form-label">Code Postal</label>
+    <input type="text" [(ngModel)]=zip (keyup)="SearchOwner()">
     
     <br>
     <br>

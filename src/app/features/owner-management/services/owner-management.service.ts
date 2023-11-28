@@ -39,7 +39,7 @@ export class OwnerManagementService {
   }
 
   // requête pour la recherche list-owner
-  searchOwners(firstName: string, lastName: string, postalCode: string): Observable<Owner[]> {
+  searchOwners(changeText: string): Observable<Owner[]> {
     let updateUrl: string = `${this._url}/voirBackend` //! Voir comment le backend l'a définit de son côté
     return this._httpClient.get<any>(updateUrl)
   }

@@ -30,7 +30,6 @@ export class AuthTokenInterceptor implements HttpInterceptor {
       return next.handle(requestClone);
     }
     
-
     return next.handle(request);
   }
 }

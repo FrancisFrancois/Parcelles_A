@@ -16,6 +16,7 @@ const routes: Routes = [
   { path : "list-account", component: ListAccountComponent },
   { path : "read-account", component: ReadAccountComponent },
   { path : "read-account/:id", component: ReadAccountComponent },
+  { path : "update-account", component: UpdateAccountComponent },
   { path : "update-account/:id", component: UpdateAccountComponent },
   { path : "owner-management", component: OwnerManagementComponent },
   { path : "read-owner/:id", component: ReadOwnerComponent },

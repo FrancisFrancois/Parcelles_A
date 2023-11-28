@@ -37,10 +37,12 @@ export class OwnerManagementService {
     return this._httpClient.delete<Owner>(updateUrl)
   }
 
-  // requête pour la recherche list-owner
+  /**
+   * requête pour la recherche list-owner
+   * @param changeText qui contient le texte à rechercher
+   */
   searchOwners(changeText: string): Observable<Owner[]> {
-    let updateUrl: string = `${this._url}/voirBackend` //! Voir comment le backend l'a définit de son côté
-    return this._httpClient.get<any>(updateUrl)
+    let updateUrl: string = `${this._url}/all/search`
+    return this._httpClient.get<Owner[]>(updateUrl)
   }
-
 }

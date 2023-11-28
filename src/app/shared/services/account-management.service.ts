@@ -27,6 +27,6 @@ export class AccountManagementService {
     return this._httpClient.put<UpdateAccount>(`${this._url}/${id}`, registerAccount);
   }
   delete(id : number) : Observable<RegisterAccount> {
-    return this._httpClient.delete<RegisterAccount>(`${this._url}/delete${id}`);
+    return this._httpClient.delete<RegisterAccount>(`${this._url}/${id}`);
   }
 };

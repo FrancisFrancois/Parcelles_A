@@ -29,12 +29,12 @@ export class OwnerManagementService {
     return this._httpClient.post<Owner>(updateUrl, Owner);
   }
   update(id: number, Owner: Owner): Observable<Owner>{
-    let updateUrl: string = `${this._url}/update/${id}`
+    let updateUrl: string = `${this._url}/${id}`
     return this._httpClient.put<Owner>(updateUrl, Owner)
   }
 
   delete(id: number): Observable<Owner>{
-    let updateUrl: string = `${this._url}/delete/${id}`
+    let updateUrl: string = `${this._url}/${id}`
     return this._httpClient.delete<Owner>(updateUrl)
   }
 }

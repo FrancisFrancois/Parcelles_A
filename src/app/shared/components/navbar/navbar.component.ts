@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NavbarService } from '../../services/navbar.service';
 import { Observable, Subscription } from 'rxjs';
 import { ReadAccount } from 'src/app/features/account-management/models/registerAccount';
 import { AuthService } from 'src/app/features/auth/services/auth.service';
@@ -17,12 +16,10 @@ export class NavbarComponent implements OnInit {
   userSub : Subscription = new Subscription();
 
   constructor(
-    private _navbarService: NavbarService,
     private _authService : AuthService
     ) {}
 
   ngOnInit(): void {
-    this.navbarText$ = this._navbarService.navbarText$;
     this.userSub = this._authService.$connectedUser.subscribe({
       next : (value) => {
         this.connectedUser = value;
@@ -35,10 +32,7 @@ export class NavbarComponent implements OnInit {
   ngOnDestroy(): void {
     this.userSub.unsubscribe();
   }
-  onLinkClick(linkText: string): void {
-    this._navbarService.updateNavbarText(linkText);
-  }
-  
+
   logout(): void {
     this._authService.logout();
   }

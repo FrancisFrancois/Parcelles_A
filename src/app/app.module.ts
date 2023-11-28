@@ -10,7 +10,6 @@ import { UpdateAccountComponent } from './features/account-management/components
 import { ReactiveFormsModule } from '@angular/forms';
 import { ListAccountComponent } from './features/account-management/components/list-account/list-account.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-
 import { ReadOwnerComponent } from './features/owner-management/components/read-owner/read-owner.component';
 import { ListOwnerComponent } from './features/owner-management/components/list-owner/list-owner.component';
 import { UpdateOwnerComponent } from './features/owner-management/components/update-owner/update-owner.component';

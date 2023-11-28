@@ -14,6 +14,7 @@ import { AuthComponent } from './features/auth/components/auth.component';
 const routes: Routes = [
   { path : "create-account", component: CreateAccountComponent },
   { path : "list-account", component: ListAccountComponent },
+  { path : "read-account", component: ReadAccountComponent },
   { path : "read-account/:id", component: ReadAccountComponent },
   { path : "update-account/:id", component: UpdateAccountComponent },
   { path : "owner-management", component: OwnerManagementComponent },

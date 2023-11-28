@@ -45,7 +45,9 @@ import { AppointmentComponent } from './features/appointment-management/componen
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    { provide : "urlBackend", useValue : "http://localhost:8081"},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

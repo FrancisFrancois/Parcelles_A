@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { EventList } from '../../models/event-list';
 import { NgbCalendar, NgbDate } from '@ng-bootstrap/ng-bootstrap';
+import { AppointmentService } from '../../services/appointment.service';
 
 
 @Component({
@@ -9,16 +10,17 @@ import { NgbCalendar, NgbDate } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./appointment.component.scss']
 })
 export class AppointmentComponent {
-  constructor(calendar: NgbCalendar){
+  constructor(calendar: NgbCalendar, private _appointmentService: AppointmentService) {
     // dateRange picker
     this.fromDate = calendar.getToday();
     this.toDate = calendar.getNext(this.fromDate, 'd', 10);
+    // Service
   }
   //Propriétés de recherche
   dateRange?: [];
-  owner?: [];
-  user?: [];
-  parcel?: [];
+  owner?: string;
+  user?: string;
+  parcel?: string;
 
   showedEventList : EventList[] = [];
   hiddenEventList: EventList[] = [
@@ -51,8 +53,8 @@ export class AppointmentComponent {
       return;
     }
   
-    const selectedStartDate = new Date(this.fromDate.year, this.fromDate.month, this.fromDate.day);
-    const selectedEndDate = new Date(this.toDate.year, this.toDate.month, this.toDate.day);
+    const selectedStartDate = new Date(this.fromDate.year, this.fromDate.month -1, this.fromDate.day);
+    const selectedEndDate = new Date(this.toDate.year, this.toDate.month -1, this.toDate.day);
   
     this.showedEventList = this.hiddenEventList.filter(event => {
       const eventStartDate = event.dateRange.fromDate;
@@ -100,6 +102,38 @@ export class AppointmentComponent {
 			this.isHovered(date)
 		);
 	}
+
+  // Fonction de recherche automatique (a mettre dans un service? Ca fait beaucoup la nn?)
+  // Recherche du propriétaire
+  timeout :any;
+
+
+  // CODE A COMPLETER POUR LA RECHERHE AUTOMATIQUE
+    // CODE A COMPLETER POUR LA RECHERHE AUTOMATIQUE
+      // CODE A COMPLETER POUR LA RECHERHE AUTOMATIQUE
+        // CODE A COMPLETER POUR LA RECHERHE AUTOMATIQUE
+
+  // total = this.owner + this.user + this.parcel
+  
+  // SearchOwner():void{
+  //   clearTimeout(this.timeout);
+  //   this.timeout = null;
+
+  //   this.timeout = setTimeout(() => {
+  //     this._appointmentService.searchOwners(this.total).subscribe({
+  //       next: (response) => {
+  //         console.log(this.fname, this.lname, this.zip);
+  //         this.owners = response; // met à jour le tableau
+  //       },
+  //       error: (error) => {
+  //         console.error(error, "pbm lors de la récupération des données");
+  //       }
+  //     });      
+  //     clearTimeout(this.timeout);
+  //     this.timeout = null;
+  //   }, 1500);
+  // }
+
 }
 
 

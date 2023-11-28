@@ -46,9 +46,6 @@ export class CreateAccountComponent {
 
   createUser() {
     if (this.registerForm.valid) {  
-      let registerAccount : RegisterAccount = this.registerForm.value;
-      registerAccount.roles = [this.registerForm.value.roles];
-
       this._accountManagementService.create(this.registerForm.value).subscribe({
         next: (response) => {
           console.log("Utilisateur créé avec succès:", response);

@@ -41,10 +41,7 @@ constructor(
   }
 
 updateUser(): void {
-  let accountUpadte : UpdateAccount = this.registerForm.value;
-  accountUpadte.roles = [this.registerForm.value.roles];
-
-  this._accountManagementService.update(this.accountId, accountUpadte).subscribe({
+  this._accountManagementService.update(this.accountId, this.registerForm.value).subscribe({
     next: () => {
       console.log('L\'utilisateur a été mis à jour');
       this._router.navigate(['/list-account']);

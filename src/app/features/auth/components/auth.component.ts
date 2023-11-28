@@ -16,8 +16,6 @@ export class AuthComponent {
 
   loginForm : FormGroup;
 
-  connectedUser : ReadAccount | undefined;
-  userSub : Subscription = new Subscription();
 
   constructor(
     private _fb : FormBuilder,
@@ -35,7 +33,6 @@ export class AuthComponent {
     if(this.loginForm.valid) {
       this._authService.login(this.loginForm.value).subscribe({
         next : (response) => {
-          //Action si ça se passe bien
           if(response != undefined){
             this.errorMessage = undefined;
             this._router.navigateByUrl('');
@@ -46,22 +43,12 @@ export class AuthComponent {
   }
 
   ngOnInit(): void {
-    this._authService.$errorConnection.subscribe({
       next : (errormessage) => {
         this.errorMessage = errormessage;
       }
     })
-    this.userSub = this._authService.$connectedUser.subscribe({
-      next : (value) => {
-        this.connectedUser = value;
-      },
-      error : (error) => {
-        console.error("Une erreur s'est produite lors de la souscription à l'observable $connectedUser :", error);
-      }
-    });
   }
 
   ngDestroy(): void {
-    this.userSub.unsubscribe();
   }
 }

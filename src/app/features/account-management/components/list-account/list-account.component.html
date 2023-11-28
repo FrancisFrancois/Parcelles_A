@@ -4,12 +4,6 @@
     <button class="btn btn-primary" routerLink="/create-account">Ajouter un Utilisateur</button>
     <br>
     <br>
-    <button class="btn btn-warning" routerLink="/update-account">Modifier un Utilisateur</button>
-    <br>
-    <br>
-    <button class="btn btn-secondary" routerLink="/read-account">Voir un Utilisateur</button>
-    <br>
-    <br>
     <form class="d-flex">
       <input class="form-control me-2 w-25" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success" type="submit">Search</button>
@@ -19,25 +13,19 @@
     <table class="table">
         <thead class="thead-dark">
           <tr>
-            <th scope="col">Login</th>
             <th scope="col">Prénom</th>
             <th scope="col">Nom</th>
             <th scope="col">Email</th>
-            <th scope="col">Téléphone</th>
             <th scope="col">Roles</th>
-            <th scope="col">Actif</th>
             <th scope="col">Actions</th>
           </tr>
         </thead>
         <tbody>
             <tr *ngFor="let listAccountRegister of listAccount">
-                    <td>{{ listAccountRegister.username }}</td>
-                    <td>{{ listAccountRegister.firstname }}</td>
-                    <td>{{ listAccountRegister.lastname }}</td>
+                    <td>{{ listAccountRegister.firstName }}</td>
+                    <td>{{ listAccountRegister.lastName }}</td>
                     <td>{{ listAccountRegister.email }}</td>
-                    <td>{{ listAccountRegister.phoneNumber }}</td>
-                    <td>{{ listAccountRegister.roles }}</td>
-                    <td>{{ listAccountRegister.blocked }}</td>
+                    <td>{{ listAccountRegister.roles}}</td>
                     <td>
                         <button class="btn btn-primary" routerLink="/read-account/{{listAccountRegister.id}}">🔎</button>
                         <button class="btn btn-primary" routerLink="/update-account/{{listAccountRegister.id}}">📝</button>

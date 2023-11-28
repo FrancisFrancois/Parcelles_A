@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { AccountManagementService } from '../../../../shared/services/account-management.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { UpdateAccount } from '../../models/registerAccount';
 
 @Component({
   selector: 'app-update-account',
@@ -22,8 +23,8 @@ constructor(
   this.accountId = +this._activeRoute.snapshot.params['id'];
 
   this.registerForm = this._fb.group({
-    lastname: [null, [Validators.required, Validators.maxLength(45), Validators.pattern(/^[\D]*$/)]],
-    firstname: [null, [Validators.required, Validators.maxLength(45), Validators.pattern(/^[\D]*$/)]],
+    lastName: [null, [Validators.required, Validators.maxLength(45), Validators.pattern(/^[\D]*$/)]],
+    firstName: [null, [Validators.required, Validators.maxLength(45), Validators.pattern(/^[\D]*$/)]],
     roles: [null, [Validators.required, Validators.maxLength(45)]],
     email: [null, [Validators.required, Validators.maxLength(250), Validators.email]],
     phoneNumber: [null, [Validators.required, Validators.maxLength(45)]],

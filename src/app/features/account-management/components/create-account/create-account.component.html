@@ -20,9 +20,11 @@
           <div class="mb-3">
             <label for="roles" class="form-label">Roles</label>
             <br>
-            <select id="roles" class="form-control-sm" required formControlName="roles">
-                <option value="admin">Admin</option>
-                <option value="invité">Invité</option>
+            <select id="roles" multiple class="form-control-sm" required formControlName="roles">
+                <option value="ADMIN">Admin</option>
+                <option value="SECRETAIRE">Secrétaire</option>
+                <option value="FORESTIER">Forestier</option>
+                <option value="EXTERNE">Externe</option>
             </select>
             <span class="text-danger" *ngIf="registerForm.get('roles')?.touched && registerForm.get('roles')?.errors?.['required']">Champs requis</span>
         </div>

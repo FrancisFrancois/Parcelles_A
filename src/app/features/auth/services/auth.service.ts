@@ -29,15 +29,15 @@ export class AuthService {
         let temp : ReadAccount = {
           id: response.id,
           username : response.login,
-          firstname:'',
-          lastname:'',
+          firstName:'',
+          lastName:'',
           email:'',
           phoneNumber: '',
           roles: [],
           blocked : false
         }
 
-        localStorage.setItem("parcelleUserId",temp.username);
+        localStorage.setItem("parcelleUserId",response.id);
         //Token
         localStorage.setItem("parcelleToken", response.token.replace('Bearer ',''));
 
@@ -63,5 +63,4 @@ export class AuthService {
     //clean l'objet user connecté
     this._$connectedUser.next(undefined);
   }
-  
 }

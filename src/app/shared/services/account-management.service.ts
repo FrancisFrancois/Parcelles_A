@@ -21,12 +21,12 @@ export class AccountManagementService {
     return this._httpClient.get<ReadAccount>(`${this._url}/${id}`);
   }
   create(registerAccount : RegisterAccount): Observable<RegisterAccount> {
-    return this._httpClient.post<RegisterAccount>(`${this._url}/create`, registerAccount);
+    return this._httpClient.post<RegisterAccount>(`${this._url}/register`, registerAccount);
   }
   update(id : number, registerAccount : UpdateAccount) : Observable<UpdateAccount> {
-    return this._httpClient.put<UpdateAccount>(`${this._url}/update/${id}`, registerAccount);
+    return this._httpClient.put<UpdateAccount>(`${this._url}/${id}`, registerAccount);
   }
   delete(id : number) : Observable<RegisterAccount> {
-    return this._httpClient.delete<RegisterAccount>(`${this._url}/delete/${id}`);
+    return this._httpClient.delete<RegisterAccount>(`${this._url}/${id}`);
   }
 };

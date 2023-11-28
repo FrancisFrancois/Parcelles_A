@@ -29,15 +29,15 @@ export class AuthService {
         let temp : ReadAccount = {
           id: response.id,
           username : response.login,
-          firstName:'temp',
-          lastName:'temp',
-          email:'temp@a.changer',
-          phoneNumber: 'nepasderanger',
-          roles: ['ADMIN'],
+          firstName:'',
+          lastName:'',
+          email:'',
+          phoneNumber: '',
+          roles: [],
           blocked : false
         }
 
-        localStorage.setItem("parcelleUserId",temp.username);
+        localStorage.setItem("parcelleUserId",response.id);
         //Token
         localStorage.setItem("parcelleToken", response.token.replace('Bearer ',''));
 

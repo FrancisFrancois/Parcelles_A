@@ -1,20 +1,31 @@
 <div class="container-fluid">
   <div class="row border border-3">
-    <!-- !!!!!!!!!!!!!!!!!! COLONNE 1 !!!!!!!!!!!!!!!!!! -->
-    <div class="col border border-5">
+
+
+<!-- !!!!!!!!!!!!!!!!!! COLONNE 1 !!!!!!!!!!!!!!!!!! -->
+    <div class="col-2 border border-5">
         <div class="mb-3">
-          <label for="dateRange" class="form-label">Choisissez les dates</label>
+          <label for="dateRange" class="form-label">
+            <span *ngIf="fromDate">{{ convertNgbDateToDate(fromDate) | date : 'dd/MM/yy' }}</span>
+            -
+            <span *ngIf="toDate">{{ convertNgbDateToDate(toDate) | date : 'dd/MM/yy' }}</span>
+          </label>
           <br>
-          <!-- Explication code ci dessous     
-          ngb-datepicker: C'est le sélecteur de date de ng-bootstrap.
-          #dp: Une référence locale au date picker.
-          (dateSelect)="onDateSelection($event)": Un gestionnaire d'événements qui est appelé chaque fois qu'une date est sélectionnée, déclenchant la méthode onDateSelection.
-          [displayMonths]="2": Affiche deux mois à la fois dans le sélecteur de dates.
-          [dayTemplate]="t": Utilise un template personnalisé pour l'affichage des jours.
-          outsideDays="hidden": Cache les jours du mois précédent et du mois suivant qui apparaissent dans le calendrier actuel. 
+          <!-- ngb-datepicker
+          https://ng-bootstrap.github.io/#/components/datepicker/examples 
+          [dayTemplate]="t"     -> lie le ngb-datepicker au ng-template en dessous
+          [displayMonths]="1"   -> Nombre de mois à afficher
+          outsideDays="hidden"  -> Cache les jours de la semaine non compris entre le '1' et le '31'
           -->
-          <ngb-datepicker id="dateRange" [dayTemplate]="t" #dp (dateSelect)="onDateSelection($event)" [displayMonths]="2" outsideDays="hidden"></ngb-datepicker>
-          
+          <ngb-datepicker id="dateRange" [dayTemplate]="t" #dp (dateSelect)="onDateSelection($event)" [displayMonths]="1" outsideDays="hidden"></ngb-datepicker>
+
+          <!-- ng-template pour personnaliser l'affichage des jours dans le datepicker 
+          let-date et let-focused                                                -> récupèrent la date courante et l'état de focus 
+          [class.focused]="focused"                                              -> applique une classe CSS si le jour est focalisé 
+          [class.range]="isRange(date)"                                          -> applique une classe CSS si le jour est dans la plage sélectionnée
+          [class.faded]="isHovered(date) || isInside(date)"                      -> applique une classe CSS si le jour est survolé ou à l'intérieur de la plage sélectionnée
+          (mouseenter)="hoveredDate = date" et (mouseleave)="hoveredDate = null" ->  gèrent les événements de survol 
+          -->
           <ng-template #t let-date let-focused="focused">
             <span class="custom-day" [class.focused]="focused" [class.range]="isRange(date)" [class.faded]="isHovered(date) || isInside(date)" (mouseenter)="hoveredDate = date" (mouseleave)="hoveredDate = null">
               {{ date.day }}
@@ -41,9 +52,11 @@
           <br>
         </div> 
     </div>
-    <!-- !!!!!!!!!!!!!!!!!! COLONNE 1 !!!!!!!!!!!!!!!!!! -->
-    <!-- !!!!!!!!!!!!!!!!!! COLONNE 2 HEADER !!!!!!!!!!!!!!!!!! -->
-    <div class="col border border-1 border-primary">
+<!-- !!!!!!!!!!!!!!!!!! COLONNE 1 !!!!!!!!!!!!!!!!!! -->
+
+
+<!-- !!!!!!!!!!!!!!!!!! COLONNE 2 HEADER !!!!!!!!!!!!!!!!!! -->
+    <div class="col-10 border border-1 border-primary">
       <div class="container">
         <div class="container text-center">
           <div class="row">
@@ -64,30 +77,29 @@
             </div>
           </div>
         </div>
-    <!-- !!!!!!!!!!!!!!!!!! COLONNE 2 HEADER !!!!!!!!!!!!!!!!!! -->
-    <!-- !!!!!!!!!!!!!!!!!! COLONNE 2 CONTENT !!!!!!!!!!!!!!!!!! -->
+<!-- !!!!!!!!!!!!!!!!!! COLONNE 2 HEADER !!!!!!!!!!!!!!!!!! -->
+
+
+<!-- !!!!!!!!!!!!!!!!!! COLONNE 2 CONTENT !!!!!!!!!!!!!!!!!! -->
         <div class="container text-center">
-          <div class="row">
-            <div class="col-3">
-              <div *ngFor="let event of showedEventList">{{event.dateRange.fromDate | date:'dd/MM/yy, à HH:mm'}}</div>
-            </div>
-            <div class="col-3">
-              <div *ngFor="let event of showedEventList">{{event.dateRange.toDate | date:'dd/MM/yy, à HH:mm'}}</div>
-            </div>
-            <div class="col">
-              <div *ngFor="let event of showedEventList">{{event.owner}}</div>
-            </div>
-            <div class="col">
-              <div *ngFor="let event of showedEventList">{{event.user}}</div>
-            </div>
-            <div class="col">
-              <div *ngFor="let event of showedEventList">{{event.parcel}}</div>
-            </div>
-          </div>
+          <ul class="list-group">
+            <li *ngFor="let event of showedEventList" class="list-group-item">
+              <div class="row">
+                <div class="col-3 isHovered:active">{{ event.dateRange.fromDate | date:'dd/MM/yy, à HH:mm' }}</div>
+                <div class="col-3">{{ event.dateRange.toDate | date:'dd/MM/yy, à HH:mm' }}</div>
+                <div class="col">{{ event.owner }}</div>
+                <div class="col">{{ event.user }}</div>
+                <div class="col">{{ event.parcel }}</div>
+              </div>
+            </li>
+          </ul>
         </div>
+
         
       </div>
     </div>
-    <!-- !!!!!!!!!!!!!!!!!! COLONNE 2 CONTENT !!!!!!!!!!!!!!!!!! -->
   </div>  
 </div>
+<!-- !!!!!!!!!!!!!!!!!! COLONNE 2 CONTENT !!!!!!!!!!!!!!!!!! -->
+
+

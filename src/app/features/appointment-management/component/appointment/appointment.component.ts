@@ -26,8 +26,8 @@ export class AppointmentComponent {
   hiddenEventList: EventList[] = [
     {
       dateRange: {
-        fromDate: new Date(2023, 11, 22),
-        toDate: new Date(2023, 11, 22)
+        fromDate: new Date(2023, 10, 22), // Attention en JS les mois commencent à 0 donc 10 est le mois de novembre
+        toDate: new Date(2023, 10, 22)
       },
       owner: "Mime",
       user: "Jean-Luc",
@@ -35,8 +35,8 @@ export class AppointmentComponent {
     },
     {
       dateRange: {
-        fromDate: new Date(2023, 12, 6),
-        toDate: new Date(2023, 12, 6)
+        fromDate: new Date(2023, 11, 6),
+        toDate: new Date(2023, 11, 6)
       },
       owner: "John",
       user: "Doe",
@@ -52,9 +52,9 @@ export class AppointmentComponent {
     if (!this.fromDate || !this.toDate) {
       return;
     }
-  
-    const selectedStartDate = new Date(this.fromDate.year, this.fromDate.month -1, this.fromDate.day);
-    const selectedEndDate = new Date(this.toDate.year, this.toDate.month -1, this.toDate.day);
+    
+    const selectedStartDate = new Date(this.fromDate.year, this.fromDate.month-1, this.fromDate.day);
+    const selectedEndDate = new Date(this.toDate.year, this.toDate.month-1, this.toDate.day);
   
     this.showedEventList = this.hiddenEventList.filter(event => {
       const eventStartDate = event.dateRange.fromDate;
@@ -102,6 +102,11 @@ export class AppointmentComponent {
 			this.isHovered(date)
 		);
 	}
+
+  // Conversion de la date affichée au dessus du calendrier de sélection de datesµ
+  convertNgbDateToDate(ngbDate: NgbDate): Date {
+    return new Date(ngbDate.year, ngbDate.month - 1, ngbDate.day);
+  }
 
   // Fonction de recherche automatique (a mettre dans un service? Ca fait beaucoup la nn?)
   // Recherche du propriétaire

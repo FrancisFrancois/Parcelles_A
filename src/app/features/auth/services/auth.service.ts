@@ -11,18 +11,28 @@ import { AccountManagementService } from 'src/app/shared/services/account-manage
 export class AuthService {
 
   private _urlUser : string = this._urlBase+'/auth/login'
+
   private _$connectedUser : BehaviorSubject<ReadAccount | undefined> = new BehaviorSubject<ReadAccount|undefined>(this.getUser());
   private _connectedUser : ReadAccount|undefined;
   $connectedUser : Observable< ReadAccount | undefined> = this._$connectedUser.asObservable();
-  
   private getUser(): ReadAccount|undefined{
     return this._connectedUser;
   }
+
+  private _$errorConnection :BehaviorSubject<string|undefined> = new BehaviorSubject<string|undefined>(undefined);
+  $errorConnection :Observable<string|undefined> = this._$errorConnection.asObservable();
+  
   constructor(@Inject('urlBackend') private _urlBase : string,
     private _httpClient: HttpClient,
     private _accountManagmentService :AccountManagementService) { }
 
   login(authForm : Auth) :Observable<ReadAccount | undefined>{
+    if(localStorage.getItem('parcelleToken'))
+    {
+      localStorage.removeItem('parcelleUserId');
+      localStorage.removeItem('parcelleToken');
+    }
+
     this._httpClient.post<any>(this._urlUser, authForm).subscribe({
       next : (response) => {
         //gestion de l'objet user reçu TODO A changer
@@ -45,10 +55,23 @@ export class AuthService {
           next : (response) => {
             temp = response;
             
-            //Envoit le changment d'information
+            //Envoit le changement d'information
             this._$connectedUser.next(temp);
+            this._$errorConnection.next(undefined);
           }
         })
+      },
+      error : (error) => {
+        switch(error.status){
+          case (401):{
+            this._$errorConnection.next("Le username ou le mot de passe est incorrect.");
+            break;
+          }
+          default:{
+            this._$errorConnection.next("Un problème de communication avec le serveur est survenu.\nRéessayez plus tard ou contactez un administrateur.");
+            break;
+          }
+        }
       }
     })
     //Revoit de l'observable

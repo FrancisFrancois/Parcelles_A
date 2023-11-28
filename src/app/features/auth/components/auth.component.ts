@@ -12,7 +12,10 @@ import { ReadAccount } from '../../account-management/models/registerAccount';
 })
 export class AuthComponent {
 
+  errorMessage :string|undefined;
+
   loginForm : FormGroup;
+
   connectedUser : ReadAccount | undefined;
   userSub : Subscription = new Subscription();
 
@@ -33,16 +36,21 @@ export class AuthComponent {
       this._authService.login(this.loginForm.value).subscribe({
         next : (response) => {
           //Action si ça se passe bien
-          this._router.navigateByUrl('');
-        },
-        error : (error) => {
-          //Action si erreur
+          if(response != undefined){
+            this.errorMessage = undefined;
+            this._router.navigateByUrl('');
+          }
         }
       })
     }
   }
 
   ngOnInit(): void {
+    this._authService.$errorConnection.subscribe({
+      next : (errormessage) => {
+        this.errorMessage = errormessage;
+      }
+    })
     this.userSub = this._authService.$connectedUser.subscribe({
       next : (value) => {
         this.connectedUser = value;
@@ -56,5 +64,4 @@ export class AuthComponent {
   ngDestroy(): void {
     this.userSub.unsubscribe();
   }
-
 }

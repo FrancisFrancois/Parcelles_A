@@ -1,8 +1,10 @@
 <form [formGroup]="loginForm" (ngSubmit)="login()">
     <div class="imgcontainer">
-      <img src="../../../../../assets/images/celluleappui.png" alt="Avatar" class="avatar">
+      <img src="../../../../../assets/images/Logo_Cellule_Quadri_new_FBW-vecto.png" alt="Avatar" class="avatar">
     </div>
     <div class="container">
+      <span class="text-danger" *ngIf="errorMessage">{{errorMessage}}</span>
+      <br>
       <label for="username"><b>Username</b></label>
       <br>
       <input type="text" placeholder="Enter Username" name="login" formControlName='login' required>

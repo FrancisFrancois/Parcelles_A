@@ -1,0 +1,92 @@
+<!-- si le propriétaire existe déjà, il faut donc retrouves ses infos et les afficher là -->
+<div class="container">
+    <h4>Propriétaire</h4>
+    <br>
+    <table>
+        <!--Les inputs de la recherche du owner-->
+        <!--Nom-->
+        <tr>
+            <label for="lname" class="form-label">Nom</label>
+            <input type="text" [(ngModel)]=lname (keyup)="SearchOwner()">
+        </tr>
+        <br>
+        <!--Prénom-->
+        <tr>
+            <label for="fname" class="form-label">Prénom</label>
+            <input type="text" [(ngModel)]=fname (keyup)="SearchOwner()">
+        </tr>
+        <br>
+        <!--Zip-->
+        <tr>
+            <label for="zip" class="form-label">Code Postal</label>
+            <input type="text" [(ngModel)]=zip (keyup)="SearchOwner()">
+        </tr>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- créer bouton pour aller au formulaire création propriétaire si trouve pas correspondance entre
+parcelle et propriétaire -->
+<p>si propriétaire introuvable :
+    <a href="http://localhost:4200/owner-management">
+        <button>Création du propriétaire</button>
+    </a>
+</p>
+
+
+
+
+
+<!-- création+ recherche parcelle -->

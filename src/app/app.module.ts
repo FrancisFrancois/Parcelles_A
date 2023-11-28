@@ -22,6 +22,7 @@ import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
 import { NotfoundComponent } from './shared/components/notfound/notfound.component';
 import { AuthTokenInterceptor } from './shared/interceptors/auth-token.interceptor';
+import { CreateParcelleComponent } from './features/parcelle-management/components/create-parcelle/create-parcelle.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { AuthTokenInterceptor } from './shared/interceptors/auth-token.intercept
     NavbarComponent,
     SidebarComponent,
     NotfoundComponent,
+    CreateParcelleComponent,
   ],
   imports: [
     BrowserModule,

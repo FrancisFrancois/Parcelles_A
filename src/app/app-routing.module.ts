@@ -10,6 +10,7 @@ import { ListOwnerComponent } from './features/owner-management/components/list-
 import { UpdateOwnerComponent } from './features/owner-management/components/update-owner/update-owner.component';
 import { NotfoundComponent } from './shared/components/notfound/notfound.component';
 import { AuthComponent } from './features/auth/components/auth.component';
+import { CreateParcelleComponent } from './features/parcelle-management/components/create-parcelle/create-parcelle.component';
 
 const routes: Routes = [
   { path : "create-account", component: CreateAccountComponent },
@@ -21,7 +22,8 @@ const routes: Routes = [
   { path : "list-owner", component: ListOwnerComponent },
   { path : "update-owner/:id", component: UpdateOwnerComponent },
   { path : "not-found", component: NotfoundComponent },
-  { path : "auth", component : AuthComponent}
+  { path: "auth", component: AuthComponent },
+  {path :"create-parcelle", component: CreateParcelleComponent}
 ];
 
 @NgModule({

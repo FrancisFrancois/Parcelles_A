@@ -5,27 +5,77 @@ import { HttpClient } from '@angular/common/http';
 import { Auth } from '../models/auth';
 import { AccountManagementService } from 'src/app/shared/services/account-management.service';
 
+/**
+ * Service central dans l'authentification des utilisateurs
+ */
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
+  /**
+   * url à "contacter" en backend pour réaliser l'authentification
+   */
   private _urlUser : string = this._urlBase+'/auth/login'
 
-  private _$connectedUser : BehaviorSubject<ReadAccount | undefined> = new BehaviorSubject<ReadAccount|undefined>(this.getUser());
+  /**
+   * Information centralisée de l'utilisateur connecté
+   */
   private _connectedUser : ReadAccount|undefined;
-  $connectedUser : Observable< ReadAccount | undefined> = this._$connectedUser.asObservable();
+  /**
+   * Getter pour otenir l'infoamtion de l'utilisateur
+   * 
+   * @returns l'utilisateur connecté
+   */
   private getUser(): ReadAccount|undefined{
     return this._connectedUser;
   }
-
+  /**
+   * BehaviorSubject permettant le contrôle sur la variable **connectedUser**
+   * 
+   * Peut déclencher l'envoie de nouvelle valeur pour cette varaible
+   */
+  private _$connectedUser : BehaviorSubject<ReadAccount | undefined> = new BehaviorSubject<ReadAccount|undefined>(this.getUser());
+  /**
+   * Observable sur lequel les composants et services s'abonne pour obtenir les changements de valeurs de 
+   * **connectedUser**
+   */
+  $connectedUser : Observable< ReadAccount | undefined> = this._$connectedUser.asObservable();
+  
+  /**
+   *  BehaviorSubject contrôlant l'envoi d'un message d'erreur 
+   */
   private _$errorConnection :BehaviorSubject<string|undefined> = new BehaviorSubject<string|undefined>(undefined);
+  /**
+   * Observable disposé pour les autres composants / services pour obtenir les éventuelles messages d'erreur lié à l'authneification
+   */
   $errorConnection :Observable<string|undefined> = this._$errorConnection.asObservable();
   
+  /**
+   * Constructeur du service
+   * 
+   * @param _urlBase injection d'une constante contenant l'adresse du site et le port à contacter
+   * @param _httpClient injection de dépendance d'un service utiliser pour créer les requête http
+   * @param _accountManagmentService injection de dépendance du service de gestion des utilisateurs
+   */
   constructor(@Inject('urlBackend') private _urlBase : string,
     private _httpClient: HttpClient,
     private _accountManagmentService :AccountManagementService) { }
 
+  /**
+   * Méthode pour s'authentifier
+   * 
+   * 1 S'assurer qu'un token ne génera pas la requête
+   * 
+   * 2 envoit du formulaire d'authentification
+   * 
+   * 3 gestion de la réponse
+   * 
+   * Stocke le token obtenu dans le localstorage
+   * 
+   * @param authForm formulaire d'authnetification
+   * @returns observable pouvant donner l'utilisateur authentifié
+   */
   login(authForm : Auth) :Observable<ReadAccount | undefined>{
     if(localStorage.getItem('parcelleToken'))
     {
@@ -78,6 +128,11 @@ export class AuthService {
     return this.$connectedUser;
   }
 
+  /**
+   * Méthode de déconnection
+   * 
+   * vide aussi le localstorage
+   */
   logout():void{
     //clean localstorage
     localStorage.removeItem('parcelleUserId');

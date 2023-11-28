@@ -8,17 +8,17 @@ import {
 import { Observable } from 'rxjs';
 
 /**
- * Inceptor used to add jwtToken in http request header
+ * L'intercepteur servant à rajouter un Json Web Token dans l'entête des requêtes http
  */
 @Injectable()
 export class AuthTokenInterceptor implements HttpInterceptor {
 
   /**
-   * Handles a given http request and check if there is a token to add in it
+   * Gére une requête http donné et vérifie s'il y a un token pour l'ajouter dans l'entête
    * 
-   * @param request the intercepted request
-   * @param next Action of requested is supposed to do after
-   * @returns The Observable linked to next
+   * @param request la requête interceptée
+   * @param next L'action que la requête devrait faire ensuite
+   * @returns L'oversable lié au next
    */
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     

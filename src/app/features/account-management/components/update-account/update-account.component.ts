@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { AccountManagementService } from '../../../../shared/services/account-management.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { UpdateAccount } from '../../models/registerAccount';
 
 @Component({
   selector: 'app-update-account',
@@ -14,10 +15,13 @@ export class UpdateAccountComponent {
   accountId : number;
 
 constructor(
+  private _activeRoute : ActivatedRoute,
   private _fb: FormBuilder,
   private _accountManagementService: AccountManagementService,
   private _router: Router
 ) {
+  this.accountId = +this._activeRoute.snapshot.params['id'];
+
   this.registerForm = this._fb.group({
     lastName: [null, [Validators.required, Validators.maxLength(45), Validators.pattern(/^[\D]*$/)]],
     firstName: [null, [Validators.required, Validators.maxLength(45), Validators.pattern(/^[\D]*$/)]],
@@ -26,8 +30,6 @@ constructor(
     phoneNumber: [null, [Validators.required, Validators.maxLength(45)]],
     blocked: [null, [Validators.required]]
   });
-
-  this.accountId = +this;
 }
 
   ngOnInit(): void {
@@ -39,7 +41,10 @@ constructor(
   }
 
 updateUser(): void {
-  this._accountManagementService.update(this.accountId, this.registerForm.value).subscribe({
+  let accountUpadte : UpdateAccount = this.registerForm.value;
+  accountUpadte.roles = [this.registerForm.value.roles];
+
+  this._accountManagementService.update(this.accountId, accountUpadte).subscribe({
     next: () => {
       console.log('L\'utilisateur a été mis à jour');
       this._router.navigate(['/list-account']);

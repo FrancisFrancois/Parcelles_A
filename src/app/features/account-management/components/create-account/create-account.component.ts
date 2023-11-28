@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { AccountManagementService } from '../../../../shared/services/account-management.service';
 import { Router } from '@angular/router';
+import { RegisterAccount } from '../../models/registerAccount';
 
 @Component({
   selector: 'app-create-account',
@@ -45,6 +46,9 @@ export class CreateAccountComponent {
 
   createUser() {
     if (this.registerForm.valid) {  
+      let registerAccount : RegisterAccount = this.registerForm.value;
+      registerAccount.roles = [this.registerForm.value.roles];
+
       this._accountManagementService.create(this.registerForm.value).subscribe({
         next: (response) => {
           console.log("Utilisateur créé avec succès:", response);

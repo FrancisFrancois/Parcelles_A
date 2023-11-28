@@ -1,0 +1,12 @@
+{
+    "folder-color.pathColors": [
+        {
+            "folderPath": "Parcelles-Frontend\\src\\app\\features\\account-management\\",
+            "color": "foldercolorizer.DarkViolet"
+        },
+        {
+            "folderPath": "Parcelles-Frontend\\src\\app\\features\\owner-management\\components\\list-owner\\",
+            "color": "foldercolorizer.LightBlue"
+        }
+    ]
+}

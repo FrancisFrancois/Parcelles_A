@@ -2,6 +2,7 @@ import { Inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ListAccount, ReadAccount, RegisterAccount, UpdateAccount } from '../../features/account-management/models/registerAccount';
+import { searchAccount } from 'src/app/features/account-management/Models/searchAccount';
 
 
 @Injectable({
@@ -28,5 +29,10 @@ export class AccountManagementService {
   }
   delete(id : number) : Observable<RegisterAccount> {
     return this._httpClient.delete<RegisterAccount>(`${this._url}/${id}`);
+  }
+  // requête pour la recherche list-owner
+  searchUsers(criteria : searchAccount): Observable<ListAccount[]> {
+    let updateUrl: string = `${this._url}/all/search`;
+    return this._httpClient.post<ListAccount[]>(updateUrl, criteria)
   }
 };

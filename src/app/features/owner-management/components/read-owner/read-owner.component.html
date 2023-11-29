@@ -1,20 +1,67 @@
 <div class="container">
     <div class="mb-3">
-        <p>Informations liées au propriétaire :</p>
-        <p> {{owner?.lname}} </p>
-        <p> {{owner?.fname}} </p>
-        <p> {{owner?.adress}} </p>
-        <p> {{owner?.zip}} </p>
-        <p> {{owner?.city}} </p>
-        <p> {{owner?.state}} </p>
-        <p> {{owner?.country}} </p>
-        <p> {{owner?.email}} </p>
-        <p> {{owner?.phone}} </p>
-        <p> {{owner?.fax}} </p>
-        <p> {{owner?.gsm}} </p>
-        <p> {{owner?.contact}} </p>
-        <p> {{owner?.comment}} </p>
-        <p> {{owner?.reunion}} </p>
-        <p> {{owner?.manifeste}} </p>
+        <h5 class="title">Informations liées au propriétaire :</h5>
+        <div class="formEncadrement">
+            <div class="owner-info-item">
+                <span>Nom :</span>
+                <p>{{owner?.lname}}</p>
+            </div>
+            <div class="owner-info-item">
+                <span>Prénom :</span>
+                <p>{{owner?.fname}}</p>
+            </div>
+            <div class="owner-info-item">
+                <span>Adresse :</span>
+                <p>{{owner?.adress}}</p>
+            </div>
+            <div class="owner-info-item">
+                <span>Code Postal :</span>
+                <p>{{owner?.zip}}</p>
+            </div>
+            <div class="owner-info-item">
+                <span>Ville :</span>
+                <p>{{owner?.city}}</p>
+            </div>
+            <div class="owner-info-item">
+                <span>Région/Province :</span>
+                <p>{{owner?.state}}</p>
+            </div>
+            <div class="owner-info-item">
+                <span>Pays :</span>
+                <p>{{owner?.country}}</p>
+            </div>
+            <div class="owner-info-item">
+                <span>Mail :</span>
+                <p>{{owner?.email}}</p>
+            </div>
+            <div class="owner-info-item">
+                <span>Numéro de téléphone :</span>
+                <p>{{owner?.phone}}</p>
+            </div>
+            <div class="owner-info-item">
+                <span>Fax :</span>
+                <p>{{owner?.fax}}</p>
+            </div>
+            <div class="owner-info-item">
+                <span>GSM :</span>
+                <p>{{owner?.gsm}}</p>
+            </div>
+            <div class="owner-info-item">
+                <span>Contact :</span>
+                <p>{{owner?.contact}}</p>
+            </div>
+            <div class="owner-info-item">
+                <span>Commentaire :</span>
+                <p>{{owner?.comment}}</p>
+            </div>
+            <div class="owner-info-item">
+                <span>Réunion :</span>
+                <p>{{owner?.reunion}}</p>
+            </div>
+            <div class="owner-info-item">
+                <span>Manifeste :</span>
+                <p>{{owner?.manifeste}}</p>
+            </div>
+        </div>
     </div>
 </div>

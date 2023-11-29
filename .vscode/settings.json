@@ -15,6 +15,26 @@
         {
             "folderPath": "Parcelles-Frontend\\src\\app\\features\\account-management\\components\\list-account\\",
             "color": "foldercolorizer.Purple"
+        },
+        {
+            "folderPath": "Parcelles-Frontend\\src\\app\\features\\account-management\\",
+            "color": "foldercolorizer.LightYellow"
+        },
+        {
+            "folderPath": "Parcelles-Frontend\\src\\app\\features\\owner-management\\components\\list-owner\\",
+            "color": "foldercolorizer.DarkViolet"
+        },
+        {
+            "folderPath": "Parcelles-Frontend\\src\\app\\features\\owner-management\\",
+            "color": "foldercolorizer.BlueViolet"
+        },
+        {
+            "folderPath": "Parcelles-Frontend\\src\\app\\features\\auth\\",
+            "color": "foldercolorizer.LightYellow"
+        },
+        {
+            "folderPath": "Parcelles-Frontend\\src\\app\\features\\parcelle-management\\",
+            "color": "foldercolorizer.DarkGreen"
         }
     ]
 }

@@ -8,16 +8,26 @@ import { OwnerManagementService } from '../../../../shared/services/owner-manage
   styleUrls: ['./owner-management.component.scss']
 })
 export class OwnerManagementComponent {
+  /*
+  le registerForm permet de valider les champs du formulaire avant de les envoyer
+  */
   registerForm: FormGroup;
 
   
   constructor(
+    /**
+     * @param _fb permet de valider les champs
+     * @param _ownerManagementService on appelle le service contenant la requête create Owner
+     * @param _router  afin de se rendre à une autre page après création du owner, destination  à déterminer :)
+     */
     private _fb : FormBuilder,
     private _ownerManagementService: OwnerManagementService,
     private _router: Router
   ) {
     
-    // Des contraintes sont appliquées aux champs
+    /** 
+     * les contraintes appliquées aux champs sont les suivantes :
+     */
     this.registerForm = this._fb.group({
       lname: [null, [Validators.required, Validators.maxLength(100), Validators.pattern(/^[\D]*$/)]],
       fname: [null, [Validators.required, Validators.maxLength(100), Validators.pattern(/^[\D]*$/)]],
@@ -37,7 +47,9 @@ export class OwnerManagementComponent {
     });
   }
 
-  //Création d'un propriétaire
+  /**
+   * @function createOwner permet de creer un owner via le service OwnerManagementService
+   */
   createOwner() {
     if (this.registerForm.valid) {  
       this._ownerManagementService.create(this.registerForm.value).subscribe({

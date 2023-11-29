@@ -23,7 +23,7 @@ export class AuthService {
    */
   private _connectedUser : ReadAccount|undefined;
   /**
-   * Getter pour otenir l'infoamtion de l'utilisateur
+   * Getter pour obtenir l'information de l'utilisateur
    * 
    * @returns l'utilisateur connecté
    */
@@ -33,11 +33,11 @@ export class AuthService {
   /**
    * BehaviorSubject permettant le contrôle sur la variable **connectedUser**
    * 
-   * Peut déclencher l'envoie de nouvelle valeur pour cette varaible
+   * Peut déclencher l'envoi de nouvelle valeur pour cette varaible
    */
   private _$connectedUser : BehaviorSubject<ReadAccount | undefined> = new BehaviorSubject<ReadAccount|undefined>(this.getUser());
   /**
-   * Observable sur lequel les composants et services s'abonne pour obtenir les changements de valeurs de 
+   * Observable sur lequel les composants et services s'abonnent pour obtenir les changements de valeurs de 
    * **connectedUser**
    */
   $connectedUser : Observable< ReadAccount | undefined> = this._$connectedUser.asObservable();
@@ -65,13 +65,13 @@ export class AuthService {
   /**
    * Méthode pour s'authentifier
    * 
-   * 1 S'assurer qu'un token ne génera pas la requête
+   * 1 S'assurer qu'un token ne gênera pas la requête
    * 
-   * 2 envoit du formulaire d'authentification
+   * 2 envoi du formulaire d'authentification
    * 
    * 3 gestion de la réponse
    * 
-   * Stocke le token obtenu dans le localstorage
+   * Stockage le token obtenu dans le localstorage
    * 
    * @param authForm formulaire d'authnetification
    * @returns observable pouvant donner l'utilisateur authentifié
@@ -85,7 +85,7 @@ export class AuthService {
 
     this._httpClient.post<any>(this._urlUser, authForm).subscribe({
       next : (response) => {
-        //gestion de l'objet user reçu TODO A changer
+        //preparation de l'objet user reçu
         let temp : ReadAccount = {
           id: response.id,
           username : response.login,
@@ -103,9 +103,10 @@ export class AuthService {
 
         this._accountManagmentService.getById(Number(temp.id)).subscribe({
           next : (response) => {
+            //complétion de l'objet user
             temp = response;
             
-            //Envoit le changement d'information
+            //Envoi du changement d'information
             this._$connectedUser.next(temp);
             this._$errorConnection.next(undefined);
           }
@@ -124,7 +125,7 @@ export class AuthService {
         }
       }
     })
-    //Revoit de l'observable
+    //Renvoit de l'observable
     return this.$connectedUser;
   }
 

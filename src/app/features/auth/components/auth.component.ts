@@ -36,7 +36,7 @@ export class AuthComponent {
    * 
    * @param _fb formbuilder créant une liaison avec le forumaire html
    * @param _authService injection de dépendance du service d'authentification
-   * @param _router injection de dépendance du service permet de les redirection
+   * @param _router injection de dépendance du service permettant de les redirection
    */
   constructor(
     private _fb : FormBuilder,
@@ -53,7 +53,7 @@ export class AuthComponent {
   /**
    * Méthode contactant le service d'authentification
    * 
-   * C'est qu'il redirection à lieu si tout se passe bien
+   * Une redirection se fait si tout se passe bien
    */
   login() : void {
     if(this.loginForm.valid) {

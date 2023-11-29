@@ -18,7 +18,7 @@ export class AuthTokenInterceptor implements HttpInterceptor {
    * 
    * @param request la requête interceptée
    * @param next L'action que la requête devrait faire ensuite
-   * @returns L'oversable lié au next
+   * @returns L'observable lié au next
    */
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     

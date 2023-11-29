@@ -59,8 +59,9 @@ export class ListOwnerComponent implements OnInit {
   timeout :any;
   fname : string = "";
   lname : string = "";
-  zip : string = "";
-  total = this.fname + this.lname + this.zip
+  zip: string = "";
+  email:string="";
+  total = this.fname + this.lname + this.zip+this.email;
   SearchOwner():void{
     clearTimeout(this.timeout);
     this.timeout = null;
@@ -68,7 +69,7 @@ export class ListOwnerComponent implements OnInit {
     this.timeout = setTimeout(() => {
       this._ownerManagementService.searchOwners(this.total).subscribe({
         next: (response) => {
-          console.log(this.fname, this.lname, this.zip);
+          console.log(this.fname, this.lname, this.zip,this.email);
           this.owners = response; // met à jour le tableau
         },
         error: (error) => {

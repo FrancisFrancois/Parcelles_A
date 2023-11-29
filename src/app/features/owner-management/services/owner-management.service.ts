@@ -13,7 +13,7 @@ export class OwnerManagementService {
   constructor(private _httpClient: HttpClient) { }
 
   getAll(): Observable<Owner[]>{
-    let updateUrl: string = `${this._url}/all`
+    let updateUrl: string = `${this._url}/all/actif`
     return this._httpClient.get<Owner[]>(updateUrl);
   }
   
@@ -29,7 +29,7 @@ export class OwnerManagementService {
   }
   update(id: number, Owner: Owner): Observable<Owner>{
     let updateUrl: string = `${this._url}/update/${id}`
-    return this._httpClient.put<Owner>(updateUrl, Owner)
+    return this._httpClient.post<Owner>(updateUrl, Owner)
   }
 
   delete(id: number): Observable<Owner>{
@@ -43,6 +43,6 @@ export class OwnerManagementService {
    */
   searchOwners(changeText: string): Observable<Owner[]> {
     let updateUrl: string = `${this._url}/all/search`
-    return this._httpClient.get<Owner[]>(updateUrl)
+    return this._httpClient.post<Owner[]>(updateUrl, { searchText: changeText });
   }
 }

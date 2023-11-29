@@ -1,7 +1,11 @@
 <!-- Ici le formulaire est divisé en 3 colonnes afin de ne pas avoir à scroller-->
 <div class="container">
-    <h3> Création du propriétaire</h3>
-    <form [formGroup]="registerForm" (ngSubmit)="createOwner()">
+    <h5 class="title"> Création du propriétaire</h5>
+    <br>
+    <br>
+    <form  [formGroup]="registerForm" (ngSubmit)="createOwner()">
+        <div class="formEncadrement">
+    
         <div class="row"> <!--permet de faire les colonnes-->
 
     <!--colonne 1-->
@@ -207,6 +211,8 @@
         </div>
         </div>
         </div>
-    <button type="submit" class="btn btn-primary">Enregistrer</button>
+    </div>
+    <br>
+    <button type="submit" class="btn btn">Enregistrer</button>
     </form>
 </div>

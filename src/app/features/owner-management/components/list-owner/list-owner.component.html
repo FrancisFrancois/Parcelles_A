@@ -1,23 +1,30 @@
 <div class="container">
-    <h3 class="title">Les propriétaires</h3>
+    <h5 class="title">Les propriétaires</h5>
     <br>
-
-    <!--Les inputs de la recherche du owner-->
-    <!--Nom-->
-    <label for="lname" class="form-label">Nom</label>
-    <input type="text" [(ngModel)]=lname (keyup)="SearchOwner()">
-
-    <!--Prénom-->
-    <label for="fname" class="form-label">Prénom</label>
-    <input type="text" [(ngModel)]=fname (keyup)="SearchOwner()">
-
-    <!--Zip-->
-    <label for="zip" class="form-label">Code Postal</label>
-    <input type="text" [(ngModel)]=zip (keyup)="SearchOwner()">
+    <br>
+    <!--on fait ligne + colonne pour afficher les inputs sur une seule ligne avec un espacement + agréable-->
+    <div class="row">
+        <div class="col">
+            <!--Les inputs de la recherche du owner-->
+            <!--Nom-->
+            <label for="lname" class="form-label p-2">Nom</label>
+            <input type="text" [(ngModel)]=lname (keyup)="SearchOwner()">
+        </div>
+        <div class="col">
+            <!--Prénom-->
+            <label for="fname" class="form-label p-2">Prénom</label>
+            <input type="text" [(ngModel)]=fname (keyup)="SearchOwner()">
+        </div>
+        <div class="col">
     
+            <!--Zip-->
+            <label for="zip" class="form-label p-2">Code Postal</label>
+            <input type="text" [(ngModel)]=zip (keyup)="SearchOwner()">
+        </div>
+    </div>
     <br>
     <br>
-    <button class="btn btn-primary" routerLink="/owner-management">Ajouter un propriétaire </button>
+    <button class="btn btn" routerLink="/owner-management">Ajouter un propriétaire </button>
     <table class="table">
         <thead class="thead-dark">
             <tr>
@@ -33,9 +40,9 @@
                 <td>{{ owner.fname }}</td>
                 <td>{{ owner.zip }}</td>
                 <td>
-                    <button class="btn btn-primary" routerLink="/read-owner/{{ owner.id }}">🔎</button>
-                    <button class="btn btn-primary" routerLink="/update-owner/{{ owner.id }}">📝</button>
-                    <button class="btn btn-danger" (click)="deleteOwner(owner.id)">❌</button>
+                    <button class="btn btn" routerLink="/read-owner/{{ owner.id }}" style="margin-right: 5px;">🔎</button>
+                    <button class="btn btn" routerLink="/update-owner/{{ owner.id }}"style="margin-right: 5px;">📝</button>
+                    <button class="btn btn" (click)="deleteOwner(owner.id)">❌</button>
                 </td>
             </tr>
         </tbody>

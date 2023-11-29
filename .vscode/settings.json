@@ -2,11 +2,23 @@
     "folder-color.pathColors": [
         {
             "folderPath": "Parcelles-Frontend\\src\\app\\features\\account-management\\",
-            "color": "foldercolorizer.DarkViolet"
+            "color": "foldercolorizer.LightYellow"
         },
         {
             "folderPath": "Parcelles-Frontend\\src\\app\\features\\owner-management\\components\\list-owner\\",
-            "color": "foldercolorizer.LightBlue"
+            "color": "foldercolorizer.DarkViolet"
+        },
+        {
+            "folderPath": "Parcelles-Frontend\\src\\app\\features\\owner-management\\",
+            "color": "foldercolorizer.BlueViolet"
+        },
+        {
+            "folderPath": "Parcelles-Frontend\\src\\app\\features\\auth\\",
+            "color": "foldercolorizer.LightYellow"
+        },
+        {
+            "folderPath": "Parcelles-Frontend\\src\\app\\features\\parcelle-management\\",
+            "color": "foldercolorizer.DarkGreen"
         }
     ]
 }

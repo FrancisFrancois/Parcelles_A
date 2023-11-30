@@ -32,7 +32,7 @@ export class CreateAccountComponent {
 
   passwordMatchValidator(group: FormGroup): ValidationErrors | null {
     const passwordControl = group.get('password');
-    const confirmPasswordControl = group.get('passwordVerified');
+    const confirmPasswordControl = group.get('passwordVerifiedd');
 
     if (!passwordControl || !confirmPasswordControl) {
       return null; 

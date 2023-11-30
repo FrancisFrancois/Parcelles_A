@@ -14,10 +14,6 @@
   font-size: 17px;
 }
 
-.navbar a:hover {
-  background-color: rgb(53, 96, 117);
-}
-
 .navbar img {
   margin-left: 2.5em;
   height: 5.5em;
@@ -28,7 +24,7 @@
 }
 
 .btn-login {
-  background-color: rgb(69, 103, 118);
+  background-color:rgb(240, 127, 60);
   color: white;
   padding: 10px;
   border: none;
@@ -40,6 +36,6 @@
 }
 
 .btn-login:hover {
-  background-color: rgb(125, 149, 159);
+  background-color: rgb(248, 140, 77);
   transform: scale(1.1);
 }

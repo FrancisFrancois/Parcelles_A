@@ -1,3 +1,4 @@
+
 .loading{
     filter: blur(4px);
 }
@@ -16,7 +17,7 @@
 }
 
 .btn-employe {
-    background-color: rgb(69, 103, 118);
+    background-color:rgb(240, 127, 60);
     color: white;
     padding: 10px;
     border: none;
@@ -28,14 +29,13 @@
   }
   
   .btn-employe:hover {
-    background-color: rgb(125, 149, 159);
+    background-color: rgb(248, 140, 77);
     transform: scale(1.1);
   }
   
 
 .btn-action {
-    background-color: rgb(69, 103, 118);
-    color: white;
+    background-color: rgb(240, 127, 60);
     padding: 10px;
     border: none;
     cursor: pointer;
@@ -46,10 +46,15 @@
   }
   
   .btn-action:hover {
-    background-color: rgb(125, 149, 159);
+    background-color: rgb(248, 140, 77);
     transform: scale(1.1);
   }
   
   .info-user {
     margin-top: 10px;
+  }
+
+  .text {
+    
+    text-decoration: underline;
   }

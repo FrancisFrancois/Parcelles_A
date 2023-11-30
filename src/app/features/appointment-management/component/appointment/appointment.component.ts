@@ -196,6 +196,34 @@ export class AppointmentComponent {
   //  }
 }
 
+// BLOC NOTE:
+// V - getByDate(startDate, endDate) -- Adapter l'url avec HTTParams
+
+// V - constructor appel du service.get.byDate
+
+// V -Récupère une liste dans le composant
+
+
+
+
+// getByOwner
+// getByParcel
+// getByUser
+
+// créer un objet avec les propriétés dateRange, owner, user, parcel. Comment l'instancié 
+
+// Modifier le filterEvent pour filter sur user,owner,parcel? Ou bien créer trois nouvelles fonctions? MIEUX: faire un filterDate, filterOwner, filterect... et faire un applyFilter en event binding sur les champs?
+
+// Voir la recherche automatique dans le champs
+
+
+
+// question: 
+
+// Mon filter event ne prend pas de paramètre. Ne faudrait il  pas lui passer le start date et enddate?
+// De cette facon
+// EventListSubscritpion doit etre assigné  à la showedList ?
+
 
 
 

@@ -45,7 +45,7 @@ import { AuthTokenInterceptor } from './shared/interceptors/auth-token.intercept
     FormsModule
   ],
   providers: [
-    { provide : "urlBackend", useValue : "http://localhost:8081"},
+    { provide : "urlBackend", useValue : "http://192.168.110.17:8080"},
     { provide : HTTP_INTERCEPTORS, useClass : AuthTokenInterceptor, multi : true },
   ],
   bootstrap: [AppComponent]

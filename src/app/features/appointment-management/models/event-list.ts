@@ -5,4 +5,5 @@ export interface EventList {
     owner : string;
     user : string;
     parcel : string;   
+    // id : number; A RAJOUTER
 }

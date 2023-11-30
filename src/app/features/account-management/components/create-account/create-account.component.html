@@ -1,6 +1,9 @@
 <div class="container">
     <h1 class="title">Employé</h1>
     <br>
+    <button class="btn-retour" routerLink="/list-account"><img class="img-retour" src="../../../../../assets/images/en-arriere.png" alt="retour"></button>
+    <br>
+    <br>
     <h2 class="text-decoration-underline">Ajouter un Utilisateur</h2>
     <br>
     <form [formGroup]="registerForm" (ngSubmit)="createUser()">
@@ -66,6 +69,6 @@
              <br>
              <span class="text-danger" *ngIf="registerForm.hasError('passwordMismatch') && registerForm.get('passwordVerified')?.touched">Les mots de passe ne correspondent pas</span>
          </div>
-        <button type="submit" class="btn btn-primary">Enregistrer</button>
+        <button type="submit" class="btn-enregistrer">Enregistrer</button>
     </form>
 </div>

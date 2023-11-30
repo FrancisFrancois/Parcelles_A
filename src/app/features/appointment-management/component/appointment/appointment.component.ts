@@ -158,7 +158,7 @@ export class AppointmentComponent {
   // Fonction de recherche automatique (a mettre dans un service? Ca fait beaucoup la nn?)
 
   // Recherche du propriétaire
-  // SearchUser():void{
+  // SearchEvent():void{
 
   //   let searchForm : searchAccount = {
   //     firstName : (this.firstName == "" || this.firstName.replaceAll(" ","") == "" ? null : this.firstName) ?? null,

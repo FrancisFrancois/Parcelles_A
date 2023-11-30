@@ -2,7 +2,7 @@ import { Inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ListAccount, ReadAccount, RegisterAccount, UpdateAccount } from '../../features/account-management/models/registerAccount';
-import { searchAccount } from 'src/app/features/account-management/Models/searchAccount';
+import { searchAccount } from 'src/app/features/account-management/models/searchAccount';
 
 
 @Injectable({

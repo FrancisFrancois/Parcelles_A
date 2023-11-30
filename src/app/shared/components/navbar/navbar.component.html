@@ -5,7 +5,7 @@
         <span *ngIf="!connectedUser"></span>
     </div>
     <div>
-        <a *ngIf="!connectedUser" class="btn btn btn-sm" routerLink="auth">Login</a>
-        <a *ngIf="connectedUser" class="btn btn btn-sm" routerLink="auth" (click)="logout()">Logout</a>
+        <a *ngIf="!connectedUser" class="btn-login " routerLink="auth">Login</a>
+        <a *ngIf="connectedUser" class="btn-login " routerLink="auth" (click)="logout()">Logout</a>
     </div>
 </div>

@@ -14,3 +14,42 @@
     box-shadow: none;
     -webkit-appearance: none;
 }
+
+.btn-employe {
+    background-color: rgb(69, 103, 118);
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: transform 0.6s;
+    font-weight: bold;
+    box-shadow: 5px 5px 5px 0px grey;
+  }
+  
+  .btn-employe:hover {
+    background-color: rgb(125, 149, 159);
+    transform: scale(1.1);
+  }
+  
+
+.btn-action {
+    background-color: rgb(69, 103, 118);
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    margin: 1px 10px;
+    transition: transform 0.5s;
+    box-shadow: 5px 5px 5px 0px grey;
+  }
+  
+  .btn-action:hover {
+    background-color: rgb(125, 149, 159);
+    transform: scale(1.1);
+  }
+  
+  .info-user {
+    margin-top: 10px;
+  }

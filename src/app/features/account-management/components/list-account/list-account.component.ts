@@ -3,7 +3,7 @@ import { ListAccount } from '../../models/registerAccount';
 import { AccountManagementService } from '../../../../shared/services/account-management.service';
 import { Router } from '@angular/router';
 import { Subject, Subscription } from 'rxjs';
-import { searchAccount } from '../../Models/searchAccount';
+import { searchAccount } from '../../models/searchAccount';
 
 @Component({
   selector: 'app-list-account',
@@ -13,18 +13,39 @@ import { searchAccount } from '../../Models/searchAccount';
 export class ListAccountComponent {
 
   listAccount : ListAccount[] = [];
-  
   private _userListSubscribe : Subscription = new Subscription();
 
   isLoading : boolean = false;
-
   timeout : any;
-
   firstName :string = "";
   lastName :string = "";
   email :string = "";
   blocked : boolean | null = null;
 
+  
+  simulatedUser1: ListAccount = {
+    id: 1,
+    username: 'john_doe',
+    firstName: 'John',
+    lastName: 'Doe',
+    email: 'john@example.com',
+    roles: ['user'],
+    phoneNumber: '1234567890',
+    blocked: false
+  };
+  
+  simulatedUser2: ListAccount = {
+    id: 2,
+    username: 'jane_smith',
+    firstName: 'Jane',
+    lastName: 'Smith',
+    email: 'jane@example.com',
+    roles: ['admin'],
+    phoneNumber: '9876543210',
+    blocked: false
+  };
+  
+  simulatedUsers: ListAccount[] = [this.simulatedUser1, this.simulatedUser2];
   constructor(
     private _accountManagementService : AccountManagementService,
     private _router : Router,
@@ -32,7 +53,8 @@ export class ListAccountComponent {
   }
 
   ngOnInit(): void {
-    this.isLoading = true;
+   // this.isLoading = true;
+    this.listAccount = this.simulatedUsers;
     this._userListSubscribe = this._accountManagementService.getAll().subscribe({
       next: (response) => {
         this.listAccount = response;

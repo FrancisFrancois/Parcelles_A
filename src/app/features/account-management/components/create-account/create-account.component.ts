@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { AccountManagementService } from '../../../../shared/services/account-management.service';
 import { Router } from '@angular/router';
-import { RegisterAccount } from '../../models/registerAccount';
 
 @Component({
   selector: 'app-create-account',

@@ -17,13 +17,13 @@
             <li class="list-group-item">Status : {{readAccount?.blocked}}</li>
         </ul>
         <div class="card-body">
-            <button class="btn btn-primary" routerLink="/update-account/{{readAccount?.id}}">Modifier Utilisateur</button>
+            <button class="btn-modifier" routerLink="/update-account/{{readAccount?.id}}">Modifier Utilisateur</button>
             <br>
             <br>
-            <button class="btn btn-danger" (click)="deleteUser(readAccount?.id ?? 0)">Supprimer l'utilisateur</button>
+            <button class="btn-supprimer" (click)="deleteUser(readAccount?.id ?? 0)">Supprimer l'utilisateur</button>
             <br>
             <br>
-            <button class="btn btn-warning" routerLink="">Reset Mot de passe</button>
+            <button class="btn-reset" routerLink="">Reset Mot de passe</button>
         </div>
     </div>
 </div>

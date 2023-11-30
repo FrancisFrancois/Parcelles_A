@@ -32,3 +32,50 @@
     height: 30px;
   }
   
+  .btn-modifier {
+    background-color: rgb(69, 103, 118);
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: transform 0.6s;
+    font-weight: bold;
+    box-shadow: 5px 5px 5px 0px grey;
+  }
+  
+  .btn-modifier:hover {
+    transform: scale(1.05);
+  }
+
+  .btn-supprimer {
+    background-color: #DC3545;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: transform 0.6s;
+    font-weight: bold;
+    box-shadow: 5px 5px 5px 0px grey;
+  }
+  
+  .btn-supprimer:hover {
+    transform: scale(1.05);
+  }
+
+  .btn-reset {
+    background-color: #FFC107;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: transform 0.6s;
+    font-weight: bold;
+    box-shadow: 5px 5px 5px 0px grey;
+  }
+  
+  .btn-reset:hover {
+    transform: scale(1.05);
+  }

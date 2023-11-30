@@ -29,7 +29,7 @@ export class AuthTokenInterceptor implements HttpInterceptor {
       let requestClone = request.clone({setHeaders:{'Authorization' : `Bearer ${token}`}});
       return next.handle(requestClone);
     }
-    
+  
     return next.handle(request);
   }
 }

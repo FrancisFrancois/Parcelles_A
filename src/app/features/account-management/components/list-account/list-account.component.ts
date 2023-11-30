@@ -25,10 +25,10 @@ export class ListAccountComponent {
   
   simulatedUser1: ListAccount = {
     id: 1,
-    username: 'john_doe',
-    firstName: 'John',
-    lastName: 'Doe',
-    email: 'john@example.com',
+    username: 'MichelPourMichel',
+    firstName: 'Michel',
+    lastName: 'Michel',
+    email: 'michelpourmichel@example.com',
     roles: ['user'],
     phoneNumber: '1234567890',
     blocked: false

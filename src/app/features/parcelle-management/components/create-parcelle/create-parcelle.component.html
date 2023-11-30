@@ -8,16 +8,19 @@
                 <h4>Propriétaire(s) lié(s)</h4>
                 <!--div image-->
                 <div class="left-div">
-                    <img class="imageAvatarProprietaire" src="../../../../../assets/images/homme-daffaire_VERT.png"
+                    <img class="imageAvatar" src="../../../../../assets/images/homme-daffaire_VERT.png"
                         alt="avatar propriétaire">
                 </div>
                 <!--div indivision-->
                 <div class="right-div">
+                    <p>Indivision</p>
                     <div class="indivisionMiniEncadrement">
                         <div class="alignement">
-                            <button><img class="indivisionBoutons" src="../../../../../assets/images/btn-minus.png" alt="bouton ajout"></button>
+                            <button><img class="indivisionBoutons" src="../../../../../assets/images/btn-minus.png"
+                                    alt="bouton ajout"></button>
                             <p>1/1, a modifier</p>
-                            <button><img class="indivisionBoutons" src="../../../../../assets/images/btn-add.png" alt="bouton ajout"></button>
+                            <button><img class="indivisionBoutons" src="../../../../../assets/images/btn-add.png"
+                                    alt="bouton ajout"></button>
                         </div>
                     </div>
                 </div>
@@ -68,24 +71,45 @@
         <!-- Deuxième conteneur (Parcelle) -->
         <div class="col-md-6 d-flex justify-content-center">
             <div class="formEncadrement">
-                <h4>Parcelle</h4>
+                <h4>Créer ou modifier une parcelle</h4>
                 <br>
+                <!--div image-->
+                <div class="left-div">
+                    <img class="imageAvatar" src="../../../../../assets/images/parcelle-creation.png"
+                        alt="avatar propriétaire">
+                </div>
+                <div class="right-div">
+
                 <div class="mb-3">
                     <!-- Les inputs de la recherche de la parcelle -->
                     <!-- Nom -->
-                    <label for="lname" class="form-label">Nom&nbsp;</label>
+                    <label for="??" class="form-label">Numéro&nbsp;</label>
                     <!-- <input type="text" [(ngModel)]=parcelleName (keyup)="SearchParcelle()"> -->
                 </div>
                 <!-- Prénom -->
                 <div class="mb-3">
-                    <label for="fname" class="form-label">Prénom&nbsp;</label>
+                    <label for="??" class="form-label">Capakey&nbsp;</label>
                     <!-- <input type="text" [(ngModel)]=parcelleFname (keyup)="SearchParcelle()"> -->
                 </div>
                 <!-- Code Postal -->
                 <div class="mb-3">
-                    <label for="zip" class="form-label">Code Postal&nbsp;</label>
+                    <label for="???" class="form-label">Adresse&nbsp;</label>
                     <!-- <input type="text" [(ngModel)]=parcelleZip (keyup)="SearchParcelle()"> -->
                 </div>
+                <div class="mb-3">
+                    <label for="???" class="form-label">Localité&nbsp;</label>
+                    <!-- <input type="text" [(ngModel)]=parcelleZip (keyup)="SearchParcelle()"> -->
+                </div>
+                <div class="mb-3">
+                    <label for="???" class="form-label">Code Postal&nbsp;</label>
+                    <!-- <input type="text" [(ngModel)]=parcelleZip (keyup)="SearchParcelle()"> -->
+                </div>
+                <div class="mb-3">
+                    <label for="???" class="form-label">Superficie&nbsp;</label>
+                    <!-- <input type="text" [(ngModel)]=parcelleZip (keyup)="SearchParcelle()"> -->
+                </div>
+            </div>
+
             </div>
         </div>
     </div>

@@ -1,33 +1,19 @@
 <div class="container">
     <h5 class="title">Les propriétaires</h5>
     <br>
+    <h2 class="sub-title">Liste des propriétaires</h2>
     <br>
-
-    <!-- ajouter mail -->
-
-    <!--on fait ligne + colonne pour afficher les inputs sur une seule ligne avec un espacement + agréable-->
+    <button class="btn-proprietaire btn" routerLink="/owner-management">Ajouter un propriétaire </button>
+    <br>
+    <br>
     <div class="row">
-        <div class="col-12 col-md-6 col-lg-3">            <!--Les inputs de la recherche du owner-->
-            <!--Nom-->
-            <label for="lname" class="form-label p-2 my-2">Nom</label>
-            <input type="text" [(ngModel)]=lname (keyup)="SearchOwner()">
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">            <!--Prénom-->
-            <label for="fname" class="form-label p-2 my-2">Prénom</label>
-            <input type="text" [(ngModel)]=fname (keyup)="SearchOwner()">
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">            <!--Zip-->
-            <label for="zip" class="form-label p-2 my-2">Code Postal</label>
-            <input type="text" [(ngModel)]=zip (keyup)="SearchOwner()">
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">            <!--mail-->
-            <label for="email" class="form-label p-2 my-2">Mail</label>
-            <input type="text" [(ngModel)]=email (keyup)="SearchOwner()">
-        </div>
+        <input class="form-control me-2 col search" type="text" placeholder="tous les prénoms" [(ngModel)]=fname (keyup)="SearchOwner()">
+        <input class="form-control me-2 col search" type="text" placeholder="tous les noms" [(ngModel)]=lname (keyup)="SearchOwner()">
+        <input class="form-control me-2 col search" type="text" placeholder="tous les codes postaux" [(ngModel)]=zip (keyup)="SearchOwner()">
+        <input class="form-control me-2 col search" type="text" placeholder="tous les emails" [(ngModel)]=email (keyup)="SearchOwner()">
     </div>
     <br>
     <br>
-    <button class="btn btn" routerLink="/owner-management">Ajouter un propriétaire </button>
     <table class="table">
         <thead class="thead-dark">
             <tr>
@@ -45,11 +31,9 @@
                 <td>{{ owner.zip }}</td>
                 <td>{{ owner.email }}</td>
                 <td>
-                    <button class="btn btn" routerLink="/read-owner/{{ owner.id }}"
-                        style="margin-right: 5px;">🔎</button>
-                    <button class="btn btn" routerLink="/update-owner/{{ owner.id }}"
-                        style="margin-right: 5px;">📝</button>
-                    <button class="btn btn" (click)="deleteOwner(owner.id)">❌</button>
+                    <button class="btn-action" routerLink="/read-owner/{{ owner.id }}">🔎</button>
+                    <button class="btn-action" routerLink="/update-owner/{{ owner.id }}">📝</button>
+                    <button class="btn-action" (click)="deleteOwner(owner.id)">❌</button>
                 </td>
             </tr>
         </tbody>

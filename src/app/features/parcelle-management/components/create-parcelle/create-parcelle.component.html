@@ -1,69 +1,95 @@
-<!-- si le propriétaire existe déjà, il faut donc retrouves ses infos et les afficher là -->
 <div class="container">
-    <h4>Propriétaire</h4>
-    <br>
-    <table>
-        <!--Les inputs de la recherche du owner-->
-        <!--Nom-->
-        <tr>
-            <label for="lname" class="form-label">Nom</label>
-            <input type="text" [(ngModel)]=lname (keyup)="SearchOwner()">
-        </tr>
-        <br>
-        <!--Prénom-->
-        <tr>
-            <label for="fname" class="form-label">Prénom</label>
-            <input type="text" [(ngModel)]=fname (keyup)="SearchOwner()">
-        </tr>
-        <br>
-        <!--Zip-->
-        <tr>
-            <label for="zip" class="form-label">Code Postal</label>
-            <input type="text" [(ngModel)]=zip (keyup)="SearchOwner()">
-        </tr>
-    </table>
+    <h5 class="title" style="margin-bottom: 30px;">Encodage parcelle</h5>
+    <!-- Création d'une rangée -->
+    <div class="row">
+        <!-- Premier conteneur (Propriétaire) -->
+        <div class="col-md-6 d-flex justify-content-center">
+            <div class="formEncadrement">
+                <h4>Propriétaire(s) lié(s)</h4>
+                <!--div image-->
+                <div class="left-div">
+                    <img class="imageAvatarProprietaire" src="../../../../../assets/images/homme-daffaire_VERT.png"
+                        alt="avatar propriétaire">
+                </div>
+                <!--div indivision-->
+                <div class="right-div">
+                    <div class="indivisionMiniEncadrement">
+                        <div class="alignement">
+                            <button><img class="indivisionBoutons" src="../../../../../assets/images/btn-minus.png" alt="bouton ajout"></button>
+                            <p>1/1, a modifier</p>
+                            <button><img class="indivisionBoutons" src="../../../../../assets/images/btn-add.png" alt="bouton ajout"></button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Les inputs de la recherche du propriétaire -->
+                <div class="mb-3">
+                    <!-- Nom -->
+                    <label for="lname" class="form-label">Nom&nbsp;</label>
+                    <!--&nbsp permet de mettre un espace en le label et l'input-->
+                    <input type="text" [(ngModel)]=lname (keyup)="SearchOwner()">
+                </div>
+                <!-- Prénom -->
+                <div class="mb-3">
+                    <label for="fname" class="form-label">Prénom&nbsp;</label>
+                    <input type="text" [(ngModel)]=fname (keyup)="SearchOwner()">
+                </div>
+                <!--Téléphone-->
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Téléphone&nbsp;</label>
+                    <!-- <input type="text" [(ngModel)]=phone (keyup)="SearchOwner()"> -->
+                </div>
+                <!-- GSM -->
+                <div class="mb-3">
+                    <label for="GSM" class="form-label">GSM&nbsp;</label>
+                    <!-- <input type="text" [(ngModel)]=gsm (keyup)="SearchOwner()"> -->
+                </div>
+                <!-- Mail -->
+                <div class="mb-3">
+                    <label for="email" class="form-label">Mail&nbsp;</label>
+                    <!-- <input type="text" [(ngModel)]=email (keyup)="SearchOwner()"> -->
+                </div>
+                <!-- Adresse -->
+                <div class="mb-3">
+                    <label for="adress" class="form-label">Adresse&nbsp;</label>
+                    <!-- <input type="text" [(ngModel)]=adress (keyup)="SearchOwner()"> -->
+                </div>
+                <!-- Ville -->
+                <div class="mb-3">
+                    <label for="city" class="form-label">Ville&nbsp;</label>
+                    <!-- <input type="text" [(ngModel)]=city (keyup)="SearchOwner()"> -->
+                </div>
+                <!-- Code Postal -->
+                <div class="mb-3">
+                    <label for="zip" class="form-label">Code Postal&nbsp;</label>
+                    <input type="text" [(ngModel)]=zip (keyup)="SearchOwner()">
+                </div>
+            </div>
+        </div>
+        <!-- Deuxième conteneur (Parcelle) -->
+        <div class="col-md-6 d-flex justify-content-center">
+            <div class="formEncadrement">
+                <h4>Parcelle</h4>
+                <br>
+                <div class="mb-3">
+                    <!-- Les inputs de la recherche de la parcelle -->
+                    <!-- Nom -->
+                    <label for="lname" class="form-label">Nom&nbsp;</label>
+                    <!-- <input type="text" [(ngModel)]=parcelleName (keyup)="SearchParcelle()"> -->
+                </div>
+                <!-- Prénom -->
+                <div class="mb-3">
+                    <label for="fname" class="form-label">Prénom&nbsp;</label>
+                    <!-- <input type="text" [(ngModel)]=parcelleFname (keyup)="SearchParcelle()"> -->
+                </div>
+                <!-- Code Postal -->
+                <div class="mb-3">
+                    <label for="zip" class="form-label">Code Postal&nbsp;</label>
+                    <!-- <input type="text" [(ngModel)]=parcelleZip (keyup)="SearchParcelle()"> -->
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -79,9 +105,9 @@
 
 <!-- créer bouton pour aller au formulaire création propriétaire si trouve pas correspondance entre
 parcelle et propriétaire -->
-<p>si propriétaire introuvable :
+<p>Si propriétaire introuvable :
     <a href="http://localhost:4200/owner-management">
-        <button>Création du propriétaire</button>
+        <button type="button" class="btn btn">Création du propriétaire</button>
     </a>
 </p>
 

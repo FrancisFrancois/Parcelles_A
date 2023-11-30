@@ -1,0 +1,60 @@
+.title {
+    margin-top: 3rem;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #858401
+}
+
+.formEncadrement {
+    border: 1px solid #b3b3b3;
+    border-radius: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+.formEncadrement input {
+    border: 1px solid #b3b3b3;
+    border-radius: 5px;
+}
+
+.btn {
+    background-color: #eee9e9;
+    color: #777575;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: #F6F3F3;
+}
+
+.imageAvatarProprietaire {
+    margin: 1rem;
+    width: 7rem;
+}
+
+.indivisionMiniEncadrement {
+    border: 1px solid #b3b3b3;
+    border-radius: 10px;
+    padding: 20px;
+}
+.left-div, .right-div {
+    display: inline-block;
+  }
+
+  .alignement {
+    display: flex;
+  }
+  .alignement button{
+    border: none;
+    background: none;
+    padding: 0;
+  }
+  .test button{
+    margin:10px
+  }
+  
+  .indivisionBoutons{
+    width: 2rem;
+  }

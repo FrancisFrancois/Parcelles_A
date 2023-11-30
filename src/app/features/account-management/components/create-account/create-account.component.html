@@ -1,7 +1,7 @@
 <div class="container">
     <h1 class="title">Employé</h1>
     <br>
-    <h2 class="text-decoration-underline">Ajouter un Utilisateur</h2>
+    <h2 class="text-decoration-underline">Ajouter un Employé</h2>
     <br>
     <form [formGroup]="registerForm" (ngSubmit)="createUser()">
         <div class="mb-3">
@@ -11,16 +11,16 @@
             <br>
             <span class="text-danger" *ngIf="registerForm.get('lastName')?.touched && registerForm.get('lastName')?.errors?.['required']">Champs requis</span>
             <span class="text-danger" *ngIf="registerForm.get('lastName')?.errors?.['maxlength']">Maximum 45 caractères</span>
-         </div>
-         <div class="mb-3">
-             <label for="firstName" class="form-label">Prénom</label>
-             <br>
-             <input id="firstName" type="text" class="form-control-sm" required formControlName="firstName">
-             <br>
-             <span class="text-danger" *ngIf="registerForm.get('firstName')?.touched && registerForm.get('firstName')?.errors?.['required']">Champs requis</span>
-             <span class="text-danger" *ngIf="registerForm.get('firstName')?.errors?.['maxlength']">Maximum 45 caractères</span>
-          </div>
-          <div class="mb-3">
+            </div>
+            <div class="mb-3">
+                <label for="firstName" class="form-label">Prénom</label>
+                <br>
+                <input id="firstName" type="text" class="form-control-sm" required formControlName="firstName">
+                <br>
+                <span class="text-danger" *ngIf="registerForm.get('firstName')?.touched && registerForm.get('firstName')?.errors?.['required']">Champs requis</span>
+                <span class="text-danger" *ngIf="registerForm.get('firstName')?.errors?.['maxlength']">Maximum 45 caractères</span>
+            </div>
+            <div class="mb-3">
             <label for="roles" class="form-label">Roles</label>
             <br>
             <select id="roles" multiple class="form-control-sm" required formControlName="roles">
@@ -31,41 +31,41 @@
             </select>
             <span class="text-danger" *ngIf="registerForm.get('roles')?.touched && registerForm.get('roles')?.errors?.['required']">Champs requis</span>
         </div>
-         <div class="mb-3">
-             <label for="email" class="form-label">Email</label>
-             <br>
-             <input id="email" type="email" class="form-control-sm"  required formControlName="email">
-             <br>
-             <span class="text-danger" *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.errors?.['required']">Champs requis</span>
-             <span class="text-danger" *ngIf="registerForm.get('email')?.errors?.['email']">Format de mail invalide</span>
-             <span class="text-danger" *ngIf="registerForm.get('email')?.errors?.['maxlength']">Maximum 250 caractères</span>
-         </div>
-         <div class="mb-3">
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <br>
+                <input id="email" type="email" class="form-control-sm"  required formControlName="email">
+                <br>
+                <span class="text-danger" *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.errors?.['required']">Champs requis</span>
+                <span class="text-danger" *ngIf="registerForm.get('email')?.errors?.['email']">Format de mail invalide</span>
+                <span class="text-danger" *ngIf="registerForm.get('email')?.errors?.['maxlength']">Maximum 250 caractères</span>
+            </div>
+            <div class="mb-3">
             <label for="phoneNumber" class="form-label">Téléphone</label>
             <br>
             <input id="phoneNumber" type="tel" class="form-control-sm" required formControlName="phoneNumber">
             <br>
             <span class="text-danger" *ngIf="registerForm.get('phoneNumber')?.touched && registerForm.get('phoneNumber')?.errors?.['required']">Champs requis</span>
             <span class="text-danger" *ngIf="registerForm.get('phoneNumber')?.errors?.['maxlength']">Maximum 45 caractères</span>
-         </div>
-         <div class="mb-3">
-             <label for="password" class="form-label">Mot de passe</label>
-             <br>
-             <input id="password" type="password" class="form-control-sm" required formControlName="password">
-             <br>
-             <span class="text-danger" *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.errors?.['required']">Champs requis</span>
-             <span class="text-danger" *ngIf="registerForm.get('password')?.errors?. ['pattern']">Votre mot de passe doit contenir au moins 8 caractères dont une minuscule, une majuscule et un chiffre</span>
-             <span class="text-danger" *ngIf="registerForm.get('password')?.errors?.['maxlength']">Maximum 150 caractères</span>
-         </div>
-         <div class="mb-3">
-             <label for="passwordVerified" class="form-label">Confirmer le mot de passe</label>
-             <br>
-             <input id="passwordVerified" type="password" class="form-control-sm" required formControlName="passwordVerified">
-             <br>
-             <span class="text-danger" *ngIf="registerForm.get('passwordVerified')?.touched && registerForm.get('passwordVerified')?.hasError('required')">Champ requis</span>
-             <br>
-             <span class="text-danger" *ngIf="registerForm.hasError('passwordMismatch') && registerForm.get('passwordVerified')?.touched">Les mots de passe ne correspondent pas</span>
-         </div>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Mot de passe</label>
+                <br>
+                <input id="password" type="password" class="form-control-sm" required formControlName="password">
+                <br>
+                <span class="text-danger" *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.errors?.['required']">Champs requis</span>
+                <span class="text-danger" *ngIf="registerForm.get('password')?.errors?. ['pattern']">Votre mot de passe doit contenir au moins 8 caractères dont une minuscule, une majuscule et un chiffre</span>
+                <span class="text-danger" *ngIf="registerForm.get('password')?.errors?.['maxlength']">Maximum 150 caractères</span>
+            </div>
+            <div class="mb-3">
+                <label for="passwordVerified" class="form-label">Confirmer le mot de passe</label>
+                <br>
+                <input id="passwordVerified" type="password" class="form-control-sm" required formControlName="passwordVerified">
+                <br>
+                <span class="text-danger" *ngIf="registerForm.get('passwordVerified')?.touched && registerForm.get('passwordVerified')?.hasError('required')">Champ requis</span>
+                <br>
+                <span class="text-danger" *ngIf="registerForm.hasError('passwordMismatch') && registerForm.get('passwordVerified')?.touched">Les mots de passe ne correspondent pas</span>
+            </div>
         <button type="submit" class="btn btn-primary">Enregistrer</button>
     </form>
 </div>

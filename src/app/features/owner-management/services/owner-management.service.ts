@@ -14,12 +14,12 @@ export class OwnerManagementService {
     @Inject('urlBackend') private _urlBase : string) { }
 
   getAll(): Observable<Owner[]>{
-    let updateUrl: string = `${this._url}/all`
+    let updateUrl: string = `${this._url}/all/actif`;
     return this._httpClient.get<Owner[]>(updateUrl);
   }
   
   getById(id: number): Observable<Owner> {
-    let updateUrl: string = `${this._url}/${id}`
+    let updateUrl: string = `${this._url}/${id}`;
     return this._httpClient.get<Owner>(updateUrl);
   }
 
@@ -29,19 +29,21 @@ export class OwnerManagementService {
     return this._httpClient.post<Owner>(updateUrl, Owner);
   }
   update(id: number, Owner: Owner): Observable<Owner>{
-    let updateUrl: string = `${this._url}/update/${id}`
-    return this._httpClient.put<Owner>(updateUrl, Owner)
+    let updateUrl: string = `${this._url}/${id}`;
+    return this._httpClient.put<Owner>(updateUrl, Owner);
   }
 
   delete(id: number): Observable<Owner>{
-    let updateUrl: string = `${this._url}/delete/${id}`
-    return this._httpClient.delete<Owner>(updateUrl)
+    let updateUrl: string = `${this._url}/${id}`;
+    return this._httpClient.delete<Owner>(updateUrl);
   }
 
-  // requête pour la recherche list-owner
+  /**
+   * requête pour la recherche list-owner
+   * @param changeText qui contient le texte à rechercher
+   */
   searchOwners(changeText: string): Observable<Owner[]> {
-    let updateUrl: string = `${this._url}/voirBackend` //! Voir comment le backend l'a définit de son côté
-    return this._httpClient.get<any>(updateUrl)
+    let updateUrl: string = `${this._url}/all/search`;
+    return this._httpClient.post<Owner[]>(updateUrl, { searchText: changeText });
   }
-
 }

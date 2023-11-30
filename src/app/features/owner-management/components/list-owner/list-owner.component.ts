@@ -1,8 +1,7 @@
-import { Component, EventEmitter, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { OwnerManagementService } from '../../services/owner-management.service';
 import { Owner } from '../../models/owner';
 import { Router } from '@angular/router';
-import { Subject, Subscription, debounceTime, distinct, distinctUntilChanged } from 'rxjs';
 
 @Component({
   selector: 'app-list-owner',
@@ -11,16 +10,19 @@ import { Subject, Subscription, debounceTime, distinct, distinctUntilChanged } f
 })
 export class ListOwnerComponent implements OnInit {
 
+  /** tableau des propriétaires basé sur le modèle Owner */
   owners: Owner[] = [];
   
-
+/**
+ * @param _ownerManagementService on appelle le service contenant la requête search Owner
+ * @param _router  afin de se rendre à une autre page après le deleteId, reste à déterminer vers quelle page
+ */
   constructor(private _ownerManagementService: OwnerManagementService,
     private _router : Router)
-  
   { }
-  // afficher en priorité la liste de owners
 
-  //voir si je peux supprimer :
+  /** On affiche dès le début la liste totale de owners
+  */
   ngOnInit(): void {
     this._ownerManagementService.getAll().subscribe({
       next: (response) => {
@@ -50,14 +52,16 @@ export class ListOwnerComponent implements OnInit {
     });
   }
 
-  // Recherche du propriétaire
+  /** 
+  Fonction de recherche dynamique du propriétaire via les input nom/prenom/zip toutes les 1.5s après touche relâchée.
+  Le tableau doit évoluer dynamiquement.
+  */
   timeout :any;
   fname : string = "";
   lname : string = "";
-  zip : string = "";
-
-  total = this.fname + this.lname + this.zip
-  
+  zip: string = "";
+  email:string="";
+  total = this.fname + this.lname + this.zip+this.email;
   SearchOwner():void{
     clearTimeout(this.timeout);
     this.timeout = null;
@@ -65,7 +69,7 @@ export class ListOwnerComponent implements OnInit {
     this.timeout = setTimeout(() => {
       this._ownerManagementService.searchOwners(this.total).subscribe({
         next: (response) => {
-          console.log(this.fname, this.lname, this.zip);
+          console.log(this.fname, this.lname, this.zip,this.email);
           this.owners = response; // met à jour le tableau
         },
         error: (error) => {

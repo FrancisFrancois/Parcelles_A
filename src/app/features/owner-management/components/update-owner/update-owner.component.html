@@ -1,7 +1,10 @@
 <!-- Ici le formulaire est divisé en 3 colonnes afin de ne pas avoir à scroller-->
 <div class="container">
-    <h3>update du propriétaire</h3>
+    <h5 class="title">Mise à jour du propriétaire</h5>
+    <br>
+    <br>
     <form [formGroup]="registerForm" (ngSubmit)="updateOwner()">
+        <div class="formEncadrement">
         <div class="row"> <!--permet de faire les colonnes-->
 
             <!--colonne 1-->
@@ -199,6 +202,8 @@
                 </div>
                 </div>
                 </div>
-                <button type="button" class="btn btn-primary" (click)="updateOwner()">Mettre à jour</button>
+            </div>
+<br>
+                <button type="button" class="btn btn" (click)="updateOwner()">Mettre à jour</button>
     </form>
 </div>

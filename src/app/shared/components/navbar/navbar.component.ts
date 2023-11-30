@@ -22,10 +22,8 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.userSub = this._authService.$connectedUser.subscribe({
       next : (value) => {
+        //if(value != undefined) 
         this.connectedUser = value;
-      },
-      error : (error) => {
-        console.error("Une erreur s'est produite lors de la souscription à l'observable $connectedUser :", error);
       }
     })
   }

@@ -1,8 +1,25 @@
 <div class="container">
-    <div class="mb-3">
-        <p> {{registerAccount?.lastName}} </p>
-        <p> {{registerAccount?.firstName}} </p>
-        <p> {{registerAccount?.username}} </p>
-        <p> {{registerAccount?.email}} </p>
+    <h1 class="title">Employé</h1>
+    <br>
+    <h2 class="text-decoration-underline">Détail Utilisateur</h2>
+    <div class="card">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Login : {{readAccount?.username}}</li>
+            <li class="list-group-item">Prénom : {{readAccount?.firstName}}</li>
+            <li class="list-group-item">Nom : {{readAccount?.lastName}}</li>
+            <li class="list-group-item">Email : {{readAccount?.email}}</li>
+            <li class="list-group-item">Roles : {{readAccount?.roles}}</li>
+            <li class="list-group-item">Téléphone : {{readAccount?.phoneNumber}}</li>
+            <li class="list-group-item">Status : {{readAccount?.blocked}}</li>
+        </ul>
+        <div class="card-body">
+            <button class="btn btn-primary" routerLink="/update-account/{{readAccount?.id}}">Modifier Utilisateur</button>
+            <br>
+            <br>
+            <button class="btn btn-danger" (click)="deleteUser(readAccount?.id ?? 0)">Supprimer l'utilisateur</button>
+            <br>
+            <br>
+            <button class="btn btn-warning" routerLink="">Reset Mot de passe</button>
+        </div>
     </div>
 </div>

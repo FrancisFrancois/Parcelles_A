@@ -10,13 +10,19 @@ import { Router } from '@angular/router';
 })
 export class ListOwnerComponent implements OnInit {
 
-  owners: Owner[]= [];
-
+  /** tableau des propriétaires basé sur le modèle Owner */
+  owners: Owner[] = [];
+  
+/**
+ * @param _ownerManagementService on appelle le service contenant la requête search Owner
+ * @param _router  afin de se rendre à une autre page après le deleteId, reste à déterminer vers quelle page
+ */
   constructor(private _ownerManagementService: OwnerManagementService,
     private _router : Router)
-  
   { }
-  // afficher en priorité la liste de owners
+
+  /** On affiche dès le début la liste totale de owners
+  */
   ngOnInit(): void {
     this._ownerManagementService.getAll().subscribe({
       next: (response) => {
@@ -44,5 +50,34 @@ export class ListOwnerComponent implements OnInit {
         console.log("Suppression de l'utilisateur terminée.");
       }
     });
+  }
+
+  /** 
+  Fonction de recherche dynamique du propriétaire via les input nom/prenom/zip toutes les 1.5s après touche relâchée.
+  Le tableau doit évoluer dynamiquement.
+  */
+  timeout :any;
+  fname : string = "";
+  lname : string = "";
+  zip: string = "";
+  email:string="";
+  total = this.fname + this.lname + this.zip+this.email;
+  SearchOwner():void{
+    clearTimeout(this.timeout);
+    this.timeout = null;
+
+    this.timeout = setTimeout(() => {
+      this._ownerManagementService.searchOwners(this.total).subscribe({
+        next: (response) => {
+          console.log(this.fname, this.lname, this.zip,this.email);
+          this.owners = response; // met à jour le tableau
+        },
+        error: (error) => {
+          console.error(error, "pbm lors de la récupération des données");
+        }
+      });      
+      clearTimeout(this.timeout);
+      this.timeout = null;
+    }, 1500);
   }
 }

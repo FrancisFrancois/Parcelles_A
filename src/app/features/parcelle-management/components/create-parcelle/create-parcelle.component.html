@@ -3,7 +3,7 @@
     <!-- Création d'une rangée -->
     <div class="row">
         <!-- Premier conteneur (Propriétaire) -->
-        <div class="col-md-6 d-flex justify-content-center">
+        <div class="col-md-6  justify-content-center">
             <div class="formEncadrement">
                 <h4>Propriétaire(s) lié(s)</h4>
                 <!--div image-->
@@ -18,7 +18,11 @@
                         <div class="alignement">
                             <button><img class="indivisionBoutons" src="../../../../../assets/images/btn-minus.png"
                                     alt="bouton ajout"></button>
-                            <p>1/1, a modifier</p>
+                            <p>ici s'affichera les propriétaire sélectionnés</p>
+                            <tr *ngFor="let owner of owners">
+                                <td>{{ owner.lname }}</td>
+                                <td>{{ owner.fname }}</td>
+                            </tr>
                             <button><img class="indivisionBoutons" src="../../../../../assets/images/btn-add.png"
                                     alt="bouton ajout"></button>
                         </div>
@@ -37,81 +41,103 @@
                     <input type="text" [(ngModel)]=fname (keyup)="SearchOwner()">
                 </div>
                 <!--Téléphone-->
-                <div class="mb-3">
-                    <label for="phone" class="form-label">Téléphone&nbsp;</label>
-                    <!-- <input type="text" [(ngModel)]=phone (keyup)="SearchOwner()"> -->
-                </div>
+                <!-- <div class="mb-3"> -->
+                <!-- <label for="phone" class="form-label">Téléphone&nbsp;</label> -->
+                <!-- <input type="text" [(ngModel)]=phone (keyup)="SearchOwner()"> -->
+                <!-- </div> -->
                 <!-- GSM -->
-                <div class="mb-3">
-                    <label for="GSM" class="form-label">GSM&nbsp;</label>
-                    <!-- <input type="text" [(ngModel)]=gsm (keyup)="SearchOwner()"> -->
-                </div>
+                <!-- <div class="mb-3"> -->
+                <!-- <label for="GSM" class="form-label">GSM&nbsp;</label> -->
+                <!-- <input type="text" [(ngModel)]=gsm (keyup)="SearchOwner()"> -->
+                <!-- </div> -->
                 <!-- Mail -->
                 <div class="mb-3">
                     <label for="email" class="form-label">Mail&nbsp;</label>
-                    <!-- <input type="text" [(ngModel)]=email (keyup)="SearchOwner()"> -->
+                    <input type="text" [(ngModel)]="email" (keyup)="SearchOwner()">
                 </div>
                 <!-- Adresse -->
-                <div class="mb-3">
-                    <label for="adress" class="form-label">Adresse&nbsp;</label>
-                    <!-- <input type="text" [(ngModel)]=adress (keyup)="SearchOwner()"> -->
-                </div>
+                <!-- <div class="mb-3"> -->
+                <!-- <label for="adress" class="form-label">Adresse&nbsp;</label> -->
+                <!-- <input type="text" [(ngModel)]=adress (keyup)="SearchOwner()"> -->
+                <!-- </div> -->
                 <!-- Ville -->
-                <div class="mb-3">
-                    <label for="city" class="form-label">Ville&nbsp;</label>
-                    <!-- <input type="text" [(ngModel)]=city (keyup)="SearchOwner()"> -->
-                </div>
+                <!-- <div class="mb-3"> -->
+                <!-- <label for="city" class="form-label">Ville&nbsp;</label> -->
+                <!-- <input type="text" [(ngModel)]=city (keyup)="SearchOwner()"> -->
+                <!-- </div> -->
                 <!-- Code Postal -->
                 <div class="mb-3">
                     <label for="zip" class="form-label">Code Postal&nbsp;</label>
                     <input type="text" [(ngModel)]=zip (keyup)="SearchOwner()">
                 </div>
             </div>
+            <p>afficher ici les propriétaires qui auront été cherché et validé par les inputs (input déroulant) au
+                dessus en mode outlook,
+                ainsi on évitera de refaire un form pour les propriétaires.
+
+                Pour faire le lien avec la parcelle on met dans un objet</p>
+
+
+
         </div>
+
+
+
+
+
+
         <!-- Deuxième conteneur (Parcelle) -->
-        <div class="col-md-6 d-flex justify-content-center">
+        <form class="col-md-6  justify-content-center">
             <div class="formEncadrement">
                 <h4>Créer ou modifier une parcelle</h4>
-                <br>
                 <!--div image-->
-                <div class="left-div">
-                    <img class="imageAvatar" src="../../../../../assets/images/parcelle-creation.png"
-                        alt="avatar propriétaire">
+                <div>
+                    <img class="imageParcelle" src="../../../../../assets/images/parcelle-creation.png"
+                        alt="avatar parcelle">
                 </div>
+                <!--div des inputs-->
                 <div class="right-div">
-
-                <div class="mb-3">
-                    <!-- Les inputs de la recherche de la parcelle -->
-                    <!-- Nom -->
-                    <label for="??" class="form-label">Numéro&nbsp;</label>
-                    <!-- <input type="text" [(ngModel)]=parcelleName (keyup)="SearchParcelle()"> -->
-                </div>
-                <!-- Prénom -->
-                <div class="mb-3">
-                    <label for="??" class="form-label">Capakey&nbsp;</label>
-                    <!-- <input type="text" [(ngModel)]=parcelleFname (keyup)="SearchParcelle()"> -->
-                </div>
-                <!-- Code Postal -->
-                <div class="mb-3">
-                    <label for="???" class="form-label">Adresse&nbsp;</label>
-                    <!-- <input type="text" [(ngModel)]=parcelleZip (keyup)="SearchParcelle()"> -->
-                </div>
-                <div class="mb-3">
-                    <label for="???" class="form-label">Localité&nbsp;</label>
-                    <!-- <input type="text" [(ngModel)]=parcelleZip (keyup)="SearchParcelle()"> -->
-                </div>
-                <div class="mb-3">
-                    <label for="???" class="form-label">Code Postal&nbsp;</label>
-                    <!-- <input type="text" [(ngModel)]=parcelleZip (keyup)="SearchParcelle()"> -->
-                </div>
-                <div class="mb-3">
-                    <label for="???" class="form-label">Superficie&nbsp;</label>
-                    <!-- <input type="text" [(ngModel)]=parcelleZip (keyup)="SearchParcelle()"> -->
+                    <div class="mb-3">
+                        <!-- Les inputs de la recherche de la parcelle -->
+                        <!-- Nom -->
+                        <label for="??" class="form-label">Numéro&nbsp;</label>
+                        <!-- <input type="text" [(ngModel)]=parcelleName (keyup)="SearchParcelle()"> -->
+                    </div>
+                    <!-- Prénom -->
+                    <div class="mb-3">
+                        <label for="??" class="form-label">Capakey&nbsp;</label>
+                        <!-- <input type="text" [(ngModel)]=parcelleFname (keyup)="SearchParcelle()"> -->
+                    </div>
+                    <!-- Code Postal -->
+                    <div class="mb-3">
+                        <label for="???" class="form-label">Adresse&nbsp;</label>
+                        <!-- <input type="text" [(ngModel)]=parcelleZip (keyup)="SearchParcelle()"> -->
+                    </div>
+                    <div class="mb-3">
+                        <label for="???" class="form-label">Localité&nbsp;</label>
+                        <!-- <input type="text" [(ngModel)]=parcelleZip (keyup)="SearchParcelle()"> -->
+                    </div>
+                    <div class="mb-3">
+                        <label for="???" class="form-label">Code Postal&nbsp;</label>
+                        <!-- <input type="text" [(ngModel)]=parcelleZip (keyup)="SearchParcelle()"> -->
+                    </div>
+                    <div class="mb-3">
+                        <label for="???" class="form-label">Superficie&nbsp;</label>
+                        <!-- <input type="text" [(ngModel)]=parcelleZip (keyup)="SearchParcelle()"> -->
+                    </div>
+                    <div class="mb-3">
+                        <a href="">
+                            <button type="button" class="btn btn">Parcelles liées</button>
+                        </a>
+                    </div>
+                    <div class="mb-3">
+                        <input id="note" type="text" placeholder="Note">
+                    </div>
                 </div>
             </div>
-
-            </div>
-        </div>
+            <br>
+            <button type="submit" class="btn btn">Sauver les données</button>
+        </form>
     </div>
 </div>
 

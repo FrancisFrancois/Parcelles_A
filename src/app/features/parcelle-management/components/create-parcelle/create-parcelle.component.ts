@@ -18,9 +18,10 @@ constructor(  private _ownerManagementService: OwnerManagementService
   timeout :any;
   fname : string = "";
   lname : string = "";
-  zip : string = "";
+  zip: string = "";
+  email:string="";
 
-  total = this.fname + this.lname + this.zip
+  total = this.fname + this.lname + this.zip +this.email
   
   SearchOwner():void{
     clearTimeout(this.timeout);
@@ -29,7 +30,7 @@ constructor(  private _ownerManagementService: OwnerManagementService
     this.timeout = setTimeout(() => {
       this._ownerManagementService.searchOwners(this.total).subscribe({
         next: (response) => {
-          console.log(this.fname, this.lname, this.zip);
+          console.log(this.fname, this.lname, this.zip,this.email);
           this.owners = response; // met à jour le tableau
         },
         error: (error) => {

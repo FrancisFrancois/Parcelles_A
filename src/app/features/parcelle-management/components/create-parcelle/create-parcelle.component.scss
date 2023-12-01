@@ -33,6 +33,11 @@
     margin: 1rem;
     width: 7rem;
 }
+.imageParcelle {
+  margin: 1rem;
+  width: 7rem;
+  float: left;
+}
 
 .indivisionMiniEncadrement {
     border: 1px solid #b3b3b3;
@@ -59,4 +64,7 @@
     width: 2rem;
   }
 
- 
+  #note {
+    height: 70px;  
+  }
+  

@@ -21,7 +21,7 @@ import { AuthComponent } from './features/auth/components/auth.component';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
 
-import { AppointmentComponent } from './features/appointment-management/component/appointment/appointment.component';
+import { ListAppointmentComponent } from './features/appointment-management/component/list-appointment/list-appointment.component';
 import { NotfoundComponent } from './shared/components/notfound/notfound.component';
 import { AuthTokenInterceptor } from './shared/interceptors/auth-token.interceptor';
 
@@ -39,7 +39,7 @@ import { AuthTokenInterceptor } from './shared/interceptors/auth-token.intercept
     UpdateOwnerComponent,
     NavbarComponent,
     SidebarComponent,
-    AppointmentComponent,
+    ListAppointmentComponent,
     NotfoundComponent
   ],
   imports: [

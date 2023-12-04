@@ -7,11 +7,11 @@ import { Subscription } from 'rxjs';
 
 
 @Component({
-  selector: 'app-appointment',
-  templateUrl: './appointment.component.html',
-  styleUrls: ['./appointment.component.scss']
+  selector: 'app-list-appointment',
+  templateUrl: './list-appointment.component.html',
+  styleUrls: ['./list-appointment.component.scss']
 })
-export class AppointmentComponent {
+export class ListAppointmentComponent {
   constructor(
   /**
    * @param calendar Instancie le calendrier pour le datepicker
@@ -139,6 +139,7 @@ export class AppointmentComponent {
     }, 1000);
   }
   
+
   //!!!!!!!!!!!! DateRangePicker:
   hoveredDate: NgbDate | null = null;
   fromDate: NgbDate | null = null;

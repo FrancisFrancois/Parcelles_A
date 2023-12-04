@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { AccountManagementService } from '../../../../shared/services/account-management.service';
 import { Router } from '@angular/router';
-import { RegisterAccount } from '../../models/registerAccount';
 
 @Component({
   selector: 'app-create-account',
@@ -33,7 +32,7 @@ export class CreateAccountComponent {
 
   passwordMatchValidator(group: FormGroup): ValidationErrors | null {
     const passwordControl = group.get('password');
-    const confirmPasswordControl = group.get('confirmpassword');
+    const confirmPasswordControl = group.get('passwordVerified');
 
     if (!passwordControl || !confirmPasswordControl) {
       return null; 

@@ -3,9 +3,27 @@
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
 
+
+body{
+    font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}
+
 .title {
     margin-top: 1rem;
     text-align: center;
-    font-size: 3rem;
-    font-weight: bold;
+    font-size: 3.5rem;
+    font-weight: 800;
+    color:  rgb(133, 132, 0)
 }
+
+.sub-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    font-style: italic;
+    border-style: solid;
+    border-color: rgb(125, 149, 159);
+    width: fit-content;
+    padding: 7px;
+    background-color:  rgb(69, 103, 118);
+    color : white;
+  }

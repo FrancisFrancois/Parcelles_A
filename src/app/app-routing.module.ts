@@ -19,8 +19,10 @@ const routes: Routes = [
   { path : "update-account", component: UpdateAccountComponent },
   { path : "update-account/:id", component: UpdateAccountComponent },
   { path : "owner-management", component: OwnerManagementComponent },
+  { path : "read-owner", component: ReadOwnerComponent },
   { path : "read-owner/:id", component: ReadOwnerComponent },
   { path : "list-owner", component: ListOwnerComponent },
+  { path : "update-owner", component: UpdateOwnerComponent },
   { path : "update-owner/:id", component: UpdateOwnerComponent },
   { path : "not-found", component: NotfoundComponent },
   { path : "auth", component : AuthComponent}

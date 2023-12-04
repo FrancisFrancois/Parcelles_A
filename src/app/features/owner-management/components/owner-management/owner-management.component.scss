@@ -1,21 +1,45 @@
-.title{
-    margin-top: 3rem;
-    text-align: center;
-    font-size: 3rem;
-    font-weight: bold;
-    color: #858401
-}
 
 .formEncadrement {
     border: 1px solid #b3b3b3;
     padding: 20px;
 }
-.btn{
-    background-color: #eee9e9;
-    color:#777575;
-    font-weight: bold;
-}
-.btn:hover{
-    background-color: #F6F3F3;
-}
 
+
+.btn-enregistrer {
+    background-color:rgb(240, 127, 60);
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: transform 0.6s;
+    font-weight: bold;
+    box-shadow: 5px 5px 5px 0px grey;
+  }
+  
+  .btn-enregistrer:hover {
+    background-color: rgb(0, 101, 46);
+    transform: scale(1.1);
+  }
+  
+  .btn-retour {
+    background-color:rgb(240, 127, 60);
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: transform 0.6s;
+    font-weight: bold;
+    box-shadow: 5px 5px 5px 0px grey;
+  }
+  
+  .btn-retour:hover {
+    background-color: rgb(248, 140, 77);
+    transform: scale(1.1);
+  }
+  
+  .img-retour {
+    width: 30px;
+    height: 30px;
+  }

@@ -2,17 +2,30 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { AccountManagementService } from '../../../../shared/services/account-management.service';
 import { Router } from '@angular/router';
-import { RegisterAccount } from '../../models/registerAccount';
 
+/**
+ * Composant responsable du formulaire de création d'utilisateur
+ */
 @Component({
   selector: 'app-create-account',
   templateUrl: './create-account.component.html',
   styleUrls: ['./create-account.component.scss']
 })
 export class CreateAccountComponent {
-
+  /**
+   * "formulaire" pour la création de l'utilisateur
+   */
   registerForm: FormGroup;
 
+  /**
+   * Constructeur du composant
+   * 
+   * C'est ici qu'est créé le formulaire avec tous ses champs et les validators associés
+   * 
+   * @param _fb Classe abstraite permeattant la 
+   * @param _accountManagementService injection de dépendant au service responsable de la gestion des utilisateurs
+   * @param _router injection de dépendance au service permettant les redirections
+   */
   constructor(
     private _fb : FormBuilder,
     private _accountManagementService: AccountManagementService,
@@ -31,9 +44,15 @@ export class CreateAccountComponent {
     });
   }
 
+  /**
+   * Méthode définissant le fonctionnement du Validator vérifiant que la confirmation de mot de passe à la même valeur que le mot de passe
+   * 
+   * @param group le formulaire contenant les champs concernés
+   * @returns Une ValidationErrors si la condition n'est respecté | null si tout se passe bien
+   */
   passwordMatchValidator(group: FormGroup): ValidationErrors | null {
     const passwordControl = group.get('password');
-    const confirmPasswordControl = group.get('confirmpassword');
+    const confirmPasswordControl = group.get('passwordVerified');
 
     if (!passwordControl || !confirmPasswordControl) {
       return null; 
@@ -44,6 +63,11 @@ export class CreateAccountComponent {
     return password === confirmPassword ? null : { 'passwordMismatch': true };
   }
 
+  /**
+   * Méthode lançant la demande de création d'un nouvel utilisateur au service
+   * 
+   * Se fait uniquement si le formulaire est correctment rempli
+   */
   createUser() {
     if (this.registerForm.valid) {  
       this._accountManagementService.create(this.registerForm.value).subscribe({

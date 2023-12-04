@@ -8,9 +8,51 @@
     border-color: #28a745; 
   }
 
-  .title {
-    margin-top: 1rem;
-    text-align: center;
-    font-size: 3rem;
-    font-weight: bold;
+.btn-enregistrer {
+  background-color:rgb(240, 127, 60);
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: transform 0.6s;
+  font-weight: bold;
+  box-shadow: 5px 5px 5px 0px grey;
+}
+
+.btn-enregistrer:hover {
+  background-color: rgb(0, 101, 46);
+  transform: scale(1.1);
+}
+
+.btn-retour {
+  background-color:rgb(240, 127, 60);
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: transform 0.6s;
+  font-weight: bold;
+  box-shadow: 5px 5px 5px 0px grey;
+}
+
+.btn-retour:hover {
+  background-color: rgb(248, 140, 77);
+  transform: scale(1.1);
+}
+
+.img-retour {
+  width: 30px;
+  height: 30px;
+}
+
+.formEncadrement {
+  border: 3px solid rgb(125, 149, 159);
+  border-radius: 4px;  
+  padding: 20px;
+}
+
+.form-control-sm {
+  width: 18rem;
 }

@@ -36,19 +36,19 @@
         <div class="mb-3">
           <label for="owner" class="form-label">Propriétaire</label>
           <br>
-          <input id="owner" [(ngModel)]="event.owner" type="text" class="form-control-sm">
+          <input id="owner" [(ngModel)]="searchedEvent.owner" type="text" class="form-control-sm">
           <br>
         </div>
         <div class="mb-3">
           <label for="user" class="form-label">Employé</label>
           <br>
-          <input id="user" [(ngModel)]="event.user" type="text" class="form-control-sm">
+          <input id="user" [(ngModel)]="searchedEvent.user" type="text" class="form-control-sm">
           <br>
         </div>
         <div class="mb-3">
           <label for="parcel" class="form-label">Parcelle</label>
           <br>
-          <input id="parcel" [(ngModel)]="event.parcel" type="text" class="form-control-sm">
+          <input id="parcel" [(ngModel)]="searchedEvent.parcel" type="text" class="form-control-sm">
           <br>
         </div> 
     </div>
@@ -94,8 +94,6 @@
             </li>
           </ul>
         </div>
-
-        
       </div>
     </div>
   </div>  

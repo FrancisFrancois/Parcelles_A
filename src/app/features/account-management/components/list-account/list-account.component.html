@@ -1,13 +1,12 @@
 <div class="container">
   <h1 class="title">Employé</h1>
   <br>
-  <h2 class="text-decoration-underline">Liste des employés</h2>
+  <h2 class="sub-title">Liste des employés</h2>
   <br>
-  <button class="btn btn-primary" routerLink="/create-account">Ajouter un employé</button>
+  <button class="btn-employe" routerLink="/create-account">Ajouter un employé</button>
   <br>
   <br>
   <!--form class="d-flex"-->
-  
   <div class="row">
     <input class="form-control me-2 col search" type="text" placeholder="tous les prénoms" [(ngModel)]=firstName (keyup)="SearchUser()">
     <input class="form-control me-2 col search" type="text" placeholder="tous les noms" [(ngModel)]=lastName (keyup)="SearchUser()">
@@ -38,9 +37,9 @@
           <td>{{ listAccountRegister.email }}</td>
           <td>{{ listAccountRegister.roles}}</td>
           <td>
-              <button class="btn btn-primary" routerLink="/read-account/{{listAccountRegister.id}}">🔎</button>
-              <button class="btn btn-primary" routerLink="/update-account/{{listAccountRegister.id}}">📝</button>
-              <button class="btn btn-primary" (click)="deleteUser(listAccountRegister.id ?? 0)">❌</button>
+              <button class="btn-action " routerLink="/read-account/{{listAccountRegister.id}}">🔎</button>
+              <button class="btn-action " routerLink="/update-account/{{listAccountRegister.id}}">📝</button>
+              <button class="btn-action " (click)="deleteUser(listAccountRegister.id ?? 0)">❌</button>
           </td>
       </tr>
     </tbody>

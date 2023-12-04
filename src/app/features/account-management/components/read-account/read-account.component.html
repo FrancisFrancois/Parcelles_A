@@ -1,25 +1,29 @@
 <div class="container">
     <h1 class="title">Employé</h1>
     <br>
-    <h2 class="text-decoration-underline">Détail Utilisateur</h2>
+    <button class="btn-retour" routerLink="/list-account"><img class="img-retour" src="../../../../../assets/images/en-arriere.png" alt="retour"></button>
+    <br>
+    <br>
+    <h2 class="sub-title">Détail Utilisateur</h2>
+    <br>
     <div class="card">
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">Login : {{readAccount?.username}}</li>
+            <li class="list-group-item">Username : {{readAccount?.username}}</li>
             <li class="list-group-item">Prénom : {{readAccount?.firstName}}</li>
             <li class="list-group-item">Nom : {{readAccount?.lastName}}</li>
             <li class="list-group-item">Email : {{readAccount?.email}}</li>
-            <li class="list-group-item">Roles : {{readAccount?.roles}}</li>
             <li class="list-group-item">Téléphone : {{readAccount?.phoneNumber}}</li>
-            <li class="list-group-item">Status : {{readAccount?.blocked}}</li>
+            <li class="list-group-item">Roles : {{readAccount?.roles}}</li>
+            <li class="list-group-item">Status : {{readAccount?.blocked==false?"actif":"désactivé"}}</li>
         </ul>
         <div class="card-body">
-            <button class="btn btn-primary" routerLink="/update-account/{{readAccount?.id}}">Modifier Utilisateur</button>
+            <button class="btn-modifier" *ngIf="displaySecretaryButton()" routerLink="/update-account/{{readAccount?.id}}">Modifier Utilisateur</button>
             <br>
             <br>
-            <button class="btn btn-danger" (click)="deleteUser(readAccount?.id ?? 0)">Supprimer l'utilisateur</button>
+            <button class="btn-supprimer" *ngIf="displaySecretaryButton()" (click)="deleteUser(readAccount?.id ?? 0)">Supprimer l'utilisateur</button>
             <br>
             <br>
-            <button class="btn btn-warning" routerLink="">Reset Mot de passe</button>
+            <button class="btn-reset" *ngIf="displayUserButton()">Reset Mot de passe</button>
         </div>
     </div>
 </div>

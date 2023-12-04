@@ -3,9 +3,15 @@
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
 
+@font-face{
+    font-family: 'Poppins';
+    src:
+        local('Poppins'),
+        url('./assets/fonts/Poppins/Poppins-Regular.ttf');
+}
 
 body{
-    font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Poppins';
 }
 
 .title {
@@ -21,9 +27,9 @@ body{
     font-weight: 700;
     font-style: italic;
     border-style: solid;
-    border-color: rgb(125, 149, 159);
+    border-color: rgb(198, 209, 214);
     width: fit-content;
     padding: 7px;
-    background-color:  rgb(69, 103, 118);
+    background-color: rgb(125, 149, 159);
     color : white;
   }

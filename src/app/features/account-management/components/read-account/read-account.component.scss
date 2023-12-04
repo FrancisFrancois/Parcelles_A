@@ -1,6 +1,12 @@
 
 .card {
-    width: 20rem;
+  width: 20rem;
+}
+
+.formEncadrement {
+  border: 3px solid rgb(125, 149, 159);
+  border-radius: 4px;  
+  padding: 20px;
 }
 
 .btn-retour {
@@ -26,7 +32,7 @@
   }
   
   .btn-modifier {
-    background-color: rgb(69, 103, 118);
+    background-color: rgb(125, 149, 159);
     color: white;
     padding: 10px;
     border: none;
@@ -72,3 +78,5 @@
   .btn-reset:hover {
     transform: scale(1.05);
   }
+
+  

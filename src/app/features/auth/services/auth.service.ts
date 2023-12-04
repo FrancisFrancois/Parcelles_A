@@ -31,6 +31,29 @@ export class AuthService {
     return this._connectedUser;
   }
   /**
+   * Function renvoyant un boolean si le username donné correspont à celui de l'utilisateur connecté
+   * 
+   * renvoit false si aucun utilisateur connecté ou si le username donné est vide
+   * 
+   * @returns boolean confirmant ou non la correspondance
+   */
+  isItUserConnected(usernameReceived : string | undefined) : boolean{
+    if(usernameReceived == undefined || this.getUser() == undefined) return false;
+    return usernameReceived == this.getUser()!.username;
+  }
+  /**
+   * boolean indiquant si l'utilisateur connecté à les droits secretaires
+   * 
+   * renvoit false si aucun utilisateur connecté
+   * 
+   * @returns vrai si l'utilisateur posséde le droit SECRETAIRE ou ADMIN
+   */
+  hasSecretaryRight() : boolean{
+    if(this.getUser() == undefined) return false;
+    if(!(this.getUser()?.roles.includes("SECRETAIRE") || this.getUser()?.roles.includes("ADMIN"))) return false;
+    return true;
+  }
+  /**
    * BehaviorSubject permettant le contrôle sur la variable **connectedUser**
    * 
    * Peut déclencher l'envoi de nouvelle valeur pour cette varaible
@@ -79,7 +102,6 @@ export class AuthService {
   login(authForm : Auth) :Observable<ReadAccount | undefined>{
     if(localStorage.getItem('parcelleToken'))
     {
-      localStorage.removeItem('parcelleUserId');
       localStorage.removeItem('parcelleToken');
     }
 
@@ -97,7 +119,6 @@ export class AuthService {
           blocked : false
         }
 
-        localStorage.setItem("parcelleUserId",response.id);
         //Token
         localStorage.setItem("parcelleToken", response.token.replace('Bearer ',''));
 
@@ -108,6 +129,7 @@ export class AuthService {
             
             //Envoi du changement d'information
             this._$connectedUser.next(temp);
+            this._connectedUser = temp;
             this._$errorConnection.next(undefined);
           }
         })
@@ -136,10 +158,11 @@ export class AuthService {
    */
   logout():void{
     //clean localstorage
-    localStorage.removeItem('parcelleUserId');
     localStorage.removeItem('parcelleToken');
 
     //clean l'objet user connecté
     this._$connectedUser.next(undefined);
+
+    this._connectedUser = undefined;
   }
 }

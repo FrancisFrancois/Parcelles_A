@@ -33,15 +33,15 @@ export class AppointmentComponent {
   }
 
   /**
+   * @param isLoading Booléan pour le timer de la recherche automatique
+   * @param timeout Compteur pour le timer de la recherche automatique 
    * @param eventListSubsciption Subscription pour la requête HTTP (https://rxjs.dev/guide/subscription)
    * @param showedEventList Liste des événements rempli par la requete http
-   * @param dateRange Tableau de selection de la date par le Ngbdatepicker
-   * 
-   * 
    * 
   */
-  
-  eventListSubsciption?: Subscription = new Subscription();
+  isLoading : boolean = false;
+  timeout : any;
+  private _eventListSubsciption?: Subscription = new Subscription();
   showedEventList?: Event[];
   event : Event = {
     startDate: '',
@@ -165,43 +165,43 @@ export class AppointmentComponent {
   // Fonction de recherche automatique (a mettre dans un service? Ca fait beaucoup la nn?)
 
   // Recherche du propriétaire
-  // SearchEvent():void{
+  SearchEvent():void{
 
-  //   let searchedEventList : event = {
-  //     startDate : (this.startDate == "" || this.startDate.replaceAll(" ","") == "" ? null : this.startDate) ?? null,
-  //     endDate : (this.endDate == "" || this.endDate.replaceAll(" ","") == "" ? null : this.endDate) ?? null,
-  //     owner : (this.owner == "" || this.owner.replaceAll(" ","") == "" ? null : this.owner) ?? null,
-  //     user : (this.user == "" || this.user.replaceAll(" ","") == "" ? null : this.user) ?? null,
-  //     parcel : (this.parcel == "" || this.parcel.replaceAll(" ","") == "" ? null : this.parcel) ?? null,
-  //   }
+    let searchedEventList : Event = {
+      startDate : this.event.startDate,
+      endDate : this.event.endDate,
+      owner : (this.event.owner == "" || this.event.owner?.replaceAll(" ","") == "" ? null : this.event.owner) ?? null,
+      user : (this.event.user == "" || this.event.user?.replaceAll(" ","") == "" ? null : this.event.user) ?? null,
+      parcel : (this.event.parcel == "" || this.event.parcel?.replaceAll(" ","") == "" ? null : this.event.parcel) ?? null,
+    }
 
-  //   clearTimeout(this.timeout);
-  //   this.timeout = undefined;
+    clearTimeout(this.timeout);
+    this.timeout = undefined;
 
-  //   this.timeout = setTimeout(() => {
+    this.timeout = setTimeout(() => {
 
-  //     this.isLoading = true;
+      this.isLoading = true;
 
-  //     this.showedEventList = this._appointmentService.searchUsers(searchedEventList).subscribe({
-  //       next: (response) => {
-  //         console.log(response);
-  //         this.listAccount = response;
-  //       },
-  //       error: (error) => {
-  //         console.error(error, "pbm lors de la récupération des données");
-  //       },
-  //       complete: () => {
-  //         this.isLoading = false;
-  //       }
-  //     });
+      this._eventListSubsciption = this._appointmentService.searchEvents(searchedEventList).subscribe({
+        next: (response) => {
+          console.log(response);
+          this.showedEventList = response;
+        },
+        error: (error) => {
+          console.error(error, "pbm lors de la récupération des données");
+        },
+        complete: () => {
+          this.isLoading = false;
+        }
+      });
 
-  //     clearTimeout(this.timeout);
-  //     this.timeout = undefined;
-  //   }, 1000);
-  // }
-  // ngOnDestroy() {
-  //   this._userListSubscribe.unsubscribe();
-  //  }
+      clearTimeout(this.timeout);
+      this.timeout = undefined;
+    }, 1000);
+  }
+  ngOnDestroy() {
+    this._eventListSubsciption.unsubscribe();
+   }
 }
 
 // BLOC NOTE:

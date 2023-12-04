@@ -52,7 +52,7 @@ export class AppointmentService {
 
  
   // requête pour la recherche list-owner
-  searchEvents(changeText: string): Observable<EventList[]> {
+  searchEvents(event: Event): Observable<EventList[]> {
     let updateUrl: string = `${this._url}/voirBackend` //! Voir comment le backend l'a définit de son côté
     return this._httpClient.get<any>(updateUrl)
   }

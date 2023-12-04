@@ -36,19 +36,19 @@
         <div class="mb-3">
           <label for="owner" class="form-label">Propriétaire</label>
           <br>
-          <input id="owner" [(ngModel)]="owner" type="text" class="form-control-sm">
+          <input id="owner" [(ngModel)]="event.owner" type="text" class="form-control-sm">
           <br>
         </div>
         <div class="mb-3">
           <label for="user" class="form-label">Employé</label>
           <br>
-          <input id="user" [(ngModel)]="user" type="text" class="form-control-sm">
+          <input id="user" [(ngModel)]="event.user" type="text" class="form-control-sm">
           <br>
         </div>
         <div class="mb-3">
           <label for="parcel" class="form-label">Parcelle</label>
           <br>
-          <input id="parcel" [(ngModel)]="parcel" type="text" class="form-control-sm">
+          <input id="parcel" [(ngModel)]="event.parcel" type="text" class="form-control-sm">
           <br>
         </div> 
     </div>
@@ -85,8 +85,8 @@
           <ul class="list-group">
             <li *ngFor="let event of showedEventList" class="list-group-item">
               <div class="row">
-                <div class="col-3 isHovered:active">{{ event.dateRange.fromDate | date:'dd/MM/yy, à HH:mm' }}</div>
-                <div class="col-3">{{ event.dateRange.toDate | date:'dd/MM/yy, à HH:mm' }}</div>
+                <div class="col-3 isHovered:active">{{ event.startDate | date:'dd/MM/yy, à HH:mm' }}</div>
+                <div class="col-3">{{ event.endDate| date:'dd/MM/yy, à HH:mm' }}</div>
                 <div class="col">{{ event.owner }}</div>
                 <div class="col">{{ event.user }}</div>
                 <div class="col">{{ event.parcel }}</div>

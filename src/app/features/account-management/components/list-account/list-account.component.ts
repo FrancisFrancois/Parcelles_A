@@ -3,7 +3,7 @@ import { ListAccount } from '../../models/registerAccount';
 import { AccountManagementService } from '../../../../shared/services/account-management.service';
 import { Router } from '@angular/router';
 import { Subject, Subscription } from 'rxjs';
-import { searchAccount } from '../../Models/searchAccount';
+import { searchAccount } from '../../models/searchAccount';
 
 /**
  * Composant responsable de l'affichage de la liste des utilisateurs
@@ -42,6 +42,7 @@ export class ListAccountComponent {
   /**
    * champ du prénom pour affiner la liste à afficher
    */
+
   firstName :string = "";
   /**
    * champ du nom pour affiner la liste à afficher
@@ -74,7 +75,7 @@ export class ListAccountComponent {
    * Cherche la liste compléte des utilisateurs
    */
   ngOnInit(): void {
-    this.isLoading = true;
+   // this.isLoading = true;
     this._userListSubscribe = this._accountManagementService.getAll().subscribe({
       next: (response) => {
         this.listAccount = response;

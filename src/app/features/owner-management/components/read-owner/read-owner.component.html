@@ -1,67 +1,35 @@
 <div class="container">
     <div class="mb-3">
-        <h5 class="title">Informations liées au propriétaire :</h5>
-        <div class="formEncadrement">
-            <div class="owner-info-item">
-                <span>Nom :</span>
-                <p>{{owner?.lname}}</p>
-            </div>
-            <div class="owner-info-item">
-                <span>Prénom :</span>
-                <p>{{owner?.fname}}</p>
-            </div>
-            <div class="owner-info-item">
-                <span>Adresse :</span>
-                <p>{{owner?.adress}}</p>
-            </div>
-            <div class="owner-info-item">
-                <span>Code Postal :</span>
-                <p>{{owner?.zip}}</p>
-            </div>
-            <div class="owner-info-item">
-                <span>Ville :</span>
-                <p>{{owner?.city}}</p>
-            </div>
-            <div class="owner-info-item">
-                <span>Région/Province :</span>
-                <p>{{owner?.state}}</p>
-            </div>
-            <div class="owner-info-item">
-                <span>Pays :</span>
-                <p>{{owner?.country}}</p>
-            </div>
-            <div class="owner-info-item">
-                <span>Mail :</span>
-                <p>{{owner?.email}}</p>
-            </div>
-            <div class="owner-info-item">
-                <span>Numéro de téléphone :</span>
-                <p>{{owner?.phone}}</p>
-            </div>
-            <div class="owner-info-item">
-                <span>Fax :</span>
-                <p>{{owner?.fax}}</p>
-            </div>
-            <div class="owner-info-item">
-                <span>GSM :</span>
-                <p>{{owner?.gsm}}</p>
-            </div>
-            <div class="owner-info-item">
-                <span>Contact :</span>
-                <p>{{owner?.contact}}</p>
-            </div>
-            <div class="owner-info-item">
-                <span>Commentaire :</span>
-                <p>{{owner?.comment}}</p>
-            </div>
-            <div class="owner-info-item">
-                <span>Réunion :</span>
-                <p>{{owner?.reunion}}</p>
-            </div>
-            <div class="owner-info-item">
-                <span>Manifeste :</span>
-                <p>{{owner?.manifeste}}</p>
+        <h1 class="title">Propriétaire</h1>
+        <br>
+        <button class="btn-retour" routerLink="/list-owner"><img class="img-retour" src="../../../../../assets/images/en-arriere.png" alt="retour"></button>
+        <br>
+        <br>
+        <h2 class="sub-title">Détail Propriétaire</h2>
+        <br>
+        <div class="card">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Nom : {{owner?.lname}}</li>
+                <li class="list-group-item">Prénom : {{owner?.fname}}</li>
+                <li class="list-group-item">Adresse : {{owner?.adress}}</li>
+                <li class="list-group-item">Code postale : {{owner?.zip}}</li>
+                <li class="list-group-item">Ville : {{owner?.city}}</li>
+                <li class="list-group-item">Région/Province</li>
+                <li class="list-group-item">Pays : {{owner?.country}}</li>
+                <li class="list-group-item">Email : {{owner?.email}}</li>
+                <li class="list-group-item">Numéro de téléphone : {{owner?.contact}}</li>
+                <li class="list-group-item">Fax : {{owner?.fax}}</li>
+                <li class="list-group-item">GSM : {{owner?.gsm}}</li>
+                <li class="list-group-item">Contact : {{owner?.contact}}</li>
+                <li class="list-group-item">Commentaire : {{owner?.comment}}</li>
+                <li class="list-group-item">Reunion : {{owner?.reunion}}</li>
+                <li class="list-group-item">Manifest : {{owner?.manifeste}}</li>
+            </ul>
+            <div class="card-body">
+                <button class="btn-modifier" routerLink="/update-owner/{{owner?.id}}">Modifier Propriétaire</button>
+                <br>
+                <br>
+                <button class="btn-supprimer">Supprimer Propriétaire</button>
             </div>
         </div>
-    </div>
 </div>

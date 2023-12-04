@@ -24,7 +24,7 @@ import { SidebarComponent } from './shared/components/sidebar/sidebar.component'
 import { ListAppointmentComponent } from './features/appointment-management/component/list-appointment/list-appointment.component';
 import { NotfoundComponent } from './shared/components/notfound/notfound.component';
 import { AuthTokenInterceptor } from './shared/interceptors/auth-token.interceptor';
-import { CreateAppointmentComponent } from './features/appointment-management/component/create-appointment/create-appointment/create-appointment.component';
+import { CreateAppointmentComponent } from './features/appointment-management/component/create-appointment/create-appointment.component';
 import { UpdateAppointmentComponent } from './features/appointment-management/component/update-appointment/update-appointment.component';
 
 @NgModule({

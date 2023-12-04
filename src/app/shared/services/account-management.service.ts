@@ -81,4 +81,6 @@ export class AccountManagementService {
     let updateUrl: string = `${this._url}/all/search`;
     return this._httpClient.post<ListAccount[]>(updateUrl, criteria)
   }
+
+
 };

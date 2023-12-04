@@ -11,8 +11,8 @@ export interface Owner {
     phone: string;
     fax: string;
     gsm: string;
-    contact: string;
+    contact: boolean;
     comment: string;
-    reunion: string;
-    manifeste: string;
+    reunion: boolean;
+    manifeste: boolean;
 }

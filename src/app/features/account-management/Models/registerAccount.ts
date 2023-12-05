@@ -138,4 +138,19 @@ export interface ReadAccount {
     blocked : boolean;
 }
 
-
+/**
+ * Modèle utilisé lors de la récupération d'un mot de passe
+ */
+export interface ResetPassword  {
+    /**
+     * mot de passe
+     */
+    password : string;
+    /**
+     * confirmation du mot de passe
+     */
+    passwordVerified : string;
+    /**
+     * email
+     */
+}

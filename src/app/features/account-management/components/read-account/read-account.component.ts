@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ReadAccount} from '../../models/registerAccount';
+import { ReadAccount, ResetPassword} from '../../models/registerAccount';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AccountManagementService } from '../../../../shared/services/account-management.service';
 import { AuthService } from 'src/app/features/auth/services/auth.service';
@@ -18,6 +18,12 @@ export class ReadAccountComponent {
    * Objet contenant les informations de l'utilisateur
    */
   readAccount : ReadAccount | undefined;
+
+    /**
+   * Objet contenant les informations pour le reset du password
+   */
+  resetPassword : ResetPassword  | undefined;
+
 
   /**
    * Constructeur du composant
@@ -62,6 +68,26 @@ export class ReadAccountComponent {
    */
   displayUserButton() : boolean {
     return this._authService.isItUserConnected(this.readAccount?.username) || this._authService.hasSecretaryRight();
+  }
+
+    /**
+   * Méthode pour reset le password de l'utilisateur.
+   *
+   * @param resetPassword l'objet contenant les informations
+   */
+  resetUserButton( resetPassword : ResetPassword) : void {
+    this._accountManagementService.resetPassword(resetPassword).subscribe({
+      next: (response) => {
+        console.log("Mot de passe mis à jour avec succès:", response);
+        this._router.navigateByUrl('/');
+      },
+      error: (error) => {
+        console.error("Une erreur s'est produite lors de la mise à jour du mot de passe:", error);
+      },
+      complete: () => {
+        console.log("Mise à jour du mot de passe terminée.");
+      }
+    })
   }
   
   /**

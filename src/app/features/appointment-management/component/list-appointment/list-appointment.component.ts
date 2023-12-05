@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { EventList } from '../../models/event-list';
+import { Event } from '../../models/event';
 import { NgbCalendar, NgbDate } from '@ng-bootstrap/ng-bootstrap';
 import { AppointmentService } from '../../services/appointment.service';
 import { Subscription } from 'rxjs';
 
 
 @Component({
-  selector: 'app-appointment',
-  templateUrl: './appointment.component.html',
-  styleUrls: ['./appointment.component.scss']
+  selector: 'app-list-appointment',
+  templateUrl: './list-appointment.component.html',
+  styleUrls: ['./list-appointment.component.scss']
 })
-export class AppointmentComponent {
+export class ListAppointmentComponent {
   constructor(
   /**
    * @param calendar Instancie le calendrier pour le datepicker
@@ -22,8 +22,6 @@ export class AppointmentComponent {
      * Permet de selectionner 10 jours automatiquement lors du chargement de la page en appelant le getByDate du appointmentService
      * @param fromDate Selectionne la date du jour lors du chargement de la page dans la variable this.fromDate
      * @param toDate Selectionne la date du jour + 10 jours lors du chargement de la page dans la variable this.toDate
-     * @param fromDateString Converti la date de this.fromDate en string pour l'envoyer dans l'url de la requête du getByDate(string,string) du appointmentService
-     * @param toDateString Converti la date de this.toDate en string pour l'envoyer dans l'url de la requête du getByDate(string,string) du appointmentService
      * Appelle filterEvents() pour initialiser la liste des événements à l'ouverture du composant avec une plage de dates par défaut.
     */
     this.fromDate = calendar.getToday();
@@ -32,19 +30,24 @@ export class AppointmentComponent {
   }
 
   /**
+   * @param isLoading Booléan pour le timer de la recherche automatique
+   * @param timeout Compteur pour le timer de la recherche automatique 
    * @param eventListSubsciption Subscription pour la requête HTTP (https://rxjs.dev/guide/subscription)
    * @param showedEventList Liste des événements rempli par la requete http
-   * @param dateRange Tableau de selection de la date par le Ngbdatepicker
-   * 
-   * 
-   * 
+   * @param searchedEvent Objet passé au service _appointmentService pour faire la recherche des évenements 
   */
-  eventListSubsciption?: Subscription = new Subscription();
-  showedEventList?: EventList[];
-  dateRange?: [];
-  owner?: string;
-  user?: string;
-  parcel?: string; 
+  isLoading : boolean = false;
+  timeout : any;
+  private _eventListSubsciption?: Subscription = new Subscription();
+  showedEventList?: Event[];
+  searchedEvent : Event = {
+    startDate: '',
+    endDate: '',
+    owner: '',
+    user: '',
+    parcel: '',    
+  }
+ 
 
   /**
  * Gère la sélection d'une date dans le datepicker.
@@ -53,18 +56,22 @@ export class AppointmentComponent {
  *
  * @param {NgbDate} date - La date sélectionnée dans le datepicker.
  */
+  // Est appelé lorque l'utilisateur selectionne des dates
   onDateSelection(date: NgbDate) {    
     if (!this.fromDate && !this.toDate) {
       this.fromDate = date;
     } else if (this.fromDate && !this.toDate && date.after(this.fromDate)) {
       this.toDate = date;
+      this.searchedEvent.endDate = this.convertNgbDateToDate(this.toDate).toString();
     } else {
       this.toDate = null;
       this.fromDate = date;
-    }
+      this.searchedEvent.startDate = this.convertNgbDateToDate(this.fromDate).toString();
+    }  
     this.filterEvents()    
   }
 
+  
   /**
  * Appelée par onDateSelection lorsque la plage de dates est modifiée via le datepicker.
  * Filtre les événements basés sur les dates sélectionnées en envoyant une requête au service AppointmentService.
@@ -73,16 +80,15 @@ export class AppointmentComponent {
  * Met à jour la liste `showedEventList` avec les événements récupérés.
  * Gère les cas de succès, d'erreur, et de complétion de la requête.
  */
+  // filterEvents est appelé par onDateSelection
   filterEvents() {
     if (!this.fromDate || !this.toDate) {
       return;
     }
-    
     const selectedStartDate = new Date(this.fromDate.year, this.fromDate.month-1, this.fromDate.day).toString();
     const selectedEndDate = new Date(this.toDate.year, this.toDate.month-1, this.toDate.day).toString();
-    console.log(selectedEndDate, selectedStartDate);
     
-    this.eventListSubsciption = this._appointmentService.getByDate(selectedStartDate, selectedEndDate).subscribe({
+    this._eventListSubsciption = this._appointmentService.getAll(this.searchedEvent).subscribe({
       next: (res) => {
         this.showedEventList = res;
         console.log("Recuperation de la liste des évènements avec succes:", res);
@@ -95,7 +101,44 @@ export class AppointmentComponent {
       }  
     })
   }
+
+  // Est appellé par la recherche sur un champ autre que les dates
+  getEventList():void{
+
+    let searchedEvent : Event = {
+      startDate : this.searchedEvent.startDate,
+      endDate : this.searchedEvent.endDate,
+      owner : (this.searchedEvent.owner == "" || this.searchedEvent.owner?.replaceAll(" ","") == "" ? null : this.searchedEvent.owner) ?? null,
+      user : (this.searchedEvent.user == "" || this.searchedEvent.user?.replaceAll(" ","") == "" ? null : this.searchedEvent.user) ?? null,
+      parcel : (this.searchedEvent.parcel == "" || this.searchedEvent.parcel?.replaceAll(" ","") == "" ? null : this.searchedEvent.parcel) ?? null,
+    }
+
+    clearTimeout(this.timeout);
+    this.timeout = undefined;
+
+    this.timeout = setTimeout(() => {
+
+      this.isLoading = true;
+
+      this._eventListSubsciption = this._appointmentService.searchEvents(searchedEvent).subscribe({
+        next: (response) => {
+          console.log(response);
+          this.showedEventList = response;
+        },
+        error: (error) => {
+          console.error(error, "pbm lors de la récupération des données");
+        },
+        complete: () => {
+          this.isLoading = false;
+        }
+      });
+
+      clearTimeout(this.timeout);
+      this.timeout = undefined;
+    }, 1000);
+  }
   
+
   //!!!!!!!!!!!! DateRangePicker:
   hoveredDate: NgbDate | null = null;
   fromDate: NgbDate | null = null;
@@ -152,80 +195,11 @@ export class AppointmentComponent {
   convertNgbDateToDate(ngbDate: NgbDate): Date {
     return new Date(ngbDate.year, ngbDate.month - 1, ngbDate.day);
   }
-
   
-
-  // Fonction de recherche automatique (a mettre dans un service? Ca fait beaucoup la nn?)
-
-  // Recherche du propriétaire
-  // SearchEvent():void{
-
-  //   let searchForm : searchAccount = {
-  //     firstName : (this.firstName == "" || this.firstName.replaceAll(" ","") == "" ? null : this.firstName) ?? null,
-  //     lastName : (this.lastName == "" || this.lastName.replaceAll(" ","") == "" ? null : this.lastName) ?? null,
-  //     email : (this.email == "" || this.email.replaceAll(" ","") == "" ? null : this.email) ?? null,
-  //     blocked : this.blocked ?? null 
-  //   }
-
-  //   clearTimeout(this.timeout);
-  //   this.timeout = undefined;
-
-  //   this.timeout = setTimeout(() => {
-
-  //     this.isLoading = true;
-
-  //     this._userListSubscribe = this._accountManagementService.searchUsers(searchForm).subscribe({
-  //       next: (response) => {
-  //         console.log(response);
-  //         this.listAccount = response;
-  //       },
-  //       error: (error) => {
-  //         console.error(error, "pbm lors de la récupération des données");
-  //       },
-  //       complete: () => {
-  //         this.isLoading = false;
-  //       }
-  //     });
-
-  //     clearTimeout(this.timeout);
-  //     this.timeout = undefined;
-  //   }, 1000);
-  // }
-  // ngOnDestroy() {
-  //   this._userListSubscribe.unsubscribe();
-  //  }
+  ngOnDestroy() {
+    this._eventListSubsciption?.unsubscribe();
+   }
 }
-
-
-// BLOC NOTE:
-// V - getByDate(startDate, endDate) -- Adapter l'url avec HTTParams
-
-// V - constructor appel du service.get.byDate
-
-// V -Récupère une liste dans le composant
-
-
-
-
-// getByOwner
-// getByParcel
-// getByUser
-
-// créer un objet avec les propriétés dateRange, owner, user, parcel. Comment l'instancié 
-
-// Modifier le filterEvent pour filter sur user,owner,parcel? Ou bien créer trois nouvelles fonctions? MIEUX: faire un filterDate, filterOwner, filterect... et faire un applyFilter en event binding sur les champs?
-
-// Voir la recherche automatique dans le champs
-
-
-
-// question: 
-
-// Mon filter event ne prend pas de paramètre. Ne faudrait il  pas lui passer le start date et enddate?
-// De cette facon
-// EventListSubscritpion doit etre assigné  à la showedList ?
-
-
 
 
 

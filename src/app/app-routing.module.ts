@@ -8,9 +8,10 @@ import { OwnerManagementComponent } from './features/owner-management/components
 import { ReadOwnerComponent } from './features/owner-management/components/read-owner/read-owner.component';
 import { ListOwnerComponent } from './features/owner-management/components/list-owner/list-owner.component';
 import { UpdateOwnerComponent } from './features/owner-management/components/update-owner/update-owner.component';
-import { AppointmentComponent } from './features/appointment-management/component/appointment/appointment.component';
+import { ListAppointmentComponent } from './features/appointment-management/component/list-appointment/list-appointment.component';
 import { NotfoundComponent } from './shared/components/notfound/notfound.component';
 import { AuthComponent } from './features/auth/components/auth.component';
+import { CreateAppointmentComponent } from './features/appointment-management/component/create-appointment/create-appointment.component';
 
 const routes: Routes = [
   { path : "create-account", component: CreateAccountComponent },
@@ -20,9 +21,11 @@ const routes: Routes = [
   { path : "update-account", component: UpdateAccountComponent },
   { path : "update-account/:id", component: UpdateAccountComponent },
   { path : "owner-management", component: OwnerManagementComponent },
+  { path : "read-owner", component: ReadOwnerComponent },
   { path : "read-owner/:id", component: ReadOwnerComponent },
   { path : "list-owner", component: ListOwnerComponent },
-  { path : "appointment", component: AppointmentComponent },
+  { path : "appointment", component: ListAppointmentComponent },
+  { path : "create-appointment", component: CreateAppointmentComponent },
   { path : "update-owner/:id", component: UpdateOwnerComponent },
   { path : "not-found", component: NotfoundComponent },
   { path : "auth", component : AuthComponent}

@@ -1,15 +1,15 @@
-<div class="container-fluid">
-  <div class="row border border-3">
-
-
+<div class="container-fluid mt-4">
+  <div class="row">
+    <div class="container d-flex flex-row justify-content-between">
+      <h1 class="title">Rendez-vous</h1>
+      <h2 class="sub-title">Liste des employés</h2>
+      <button type="button" class="btn btn-primary" routerLink="/create-appointment">Créer</button>
+    </div>
+    
 <!-- !!!!!!!!!!!!!!!!!! COLONNE 1 !!!!!!!!!!!!!!!!!! -->
-    <div class="col-2 border border-5">
+    <div class="col-2 formEncadrement">
         <div class="mb-3">
-          <label for="dateRange" class="form-label">
-            <span *ngIf="fromDate">{{ convertNgbDateToDate(fromDate) | date : 'dd/MM/yy' }}</span>
-            -
-            <span *ngIf="toDate">{{ convertNgbDateToDate(toDate) | date : 'dd/MM/yy' }}</span>
-          </label>
+          <label for="dateRange" class="form-label"></label>
           <br>
           <!-- ngb-datepicker
           https://ng-bootstrap.github.io/#/components/datepicker/examples 
@@ -31,24 +31,27 @@
               {{ date.day }}
             </span>
           </ng-template>
+          <span *ngIf="fromDate">{{ convertNgbDateToDate(fromDate) | date : 'dd/MM/yy' }}</span>
+            -
+          <span *ngIf="toDate">{{ convertNgbDateToDate(toDate) | date : 'dd/MM/yy' }}</span>
         </div>
         
         <div class="mb-3">
           <label for="owner" class="form-label">Propriétaire</label>
           <br>
-          <input id="owner" [(ngModel)]="owner" type="text" class="form-control-sm">
+          <input id="owner" [(ngModel)]="searchedEvent.owner" (keyup)="getEventList" type="text" class="input-sm form-control">
           <br>
         </div>
         <div class="mb-3">
           <label for="user" class="form-label">Employé</label>
           <br>
-          <input id="user" [(ngModel)]="user" type="text" class="form-control-sm">
+          <input id="user" [(ngModel)]="searchedEvent.user" (keyup)="getEventList" type="text" class="input-sm form-control">
           <br>
         </div>
         <div class="mb-3">
           <label for="parcel" class="form-label">Parcelle</label>
           <br>
-          <input id="parcel" [(ngModel)]="parcel" type="text" class="form-control-sm">
+          <input id="parcel" [(ngModel)]="searchedEvent.parcel" (keyup)="getEventList" type="text" class="input-sm form-control">
           <br>
         </div> 
     </div>
@@ -56,7 +59,7 @@
 
 
 <!-- !!!!!!!!!!!!!!!!!! COLONNE 2 HEADER !!!!!!!!!!!!!!!!!! -->
-    <div class="col-10 border border-1 border-primary">
+    <div class="col-10 formEncadrement">
       <div class="container">
         <div class="container text-center">
           <div class="row">
@@ -84,9 +87,9 @@
         <div class="container text-center">
           <ul class="list-group">
             <li *ngFor="let event of showedEventList" class="list-group-item">
-              <div class="row">
-                <div class="col-3 isHovered:active">{{ event.dateRange.fromDate | date:'dd/MM/yy, à HH:mm' }}</div>
-                <div class="col-3">{{ event.dateRange.toDate | date:'dd/MM/yy, à HH:mm' }}</div>
+              <div class="row" (click)="getEventList">
+                <div class="col-3 isHovered:active">{{ event.startDate | date:'dd/MM/yy, à HH:mm' }}</div>
+                <div class="col-3">{{ event.endDate | date:'dd/MM/yy, à HH:mm' }}</div>
                 <div class="col">{{ event.owner }}</div>
                 <div class="col">{{ event.user }}</div>
                 <div class="col">{{ event.parcel }}</div>
@@ -94,11 +97,9 @@
             </li>
           </ul>
         </div>
-
-        
       </div>
     </div>
-  </div>  
+  </div>
 </div>
 <!-- !!!!!!!!!!!!!!!!!! COLONNE 2 CONTENT !!!!!!!!!!!!!!!!!! -->
 

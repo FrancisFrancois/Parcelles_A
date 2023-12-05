@@ -9,10 +9,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./create-appointment.component.scss']
 })
 export class CreateAppointmentComponent {
+
+
+
+
  /**
    * "formulaire" pour la création de l'utilisateur
    */
- registerForm: FormGroup;
+ createAppointmentForm: FormGroup;
 
  /**
   * Constructeur du composant
@@ -28,62 +32,44 @@ export class CreateAppointmentComponent {
    private _appointmentService: AppointmentService,
    private _router: Router
    ) {
-   this.registerForm = this._fb.group({
-     lastName: [null, [Validators.required, Validators.maxLength(45), Validators.pattern(/^[\D]*$/)]],
-     firstName: [null, [Validators.required, Validators.maxLength(45), Validators.pattern(/^[\D]*$/)]],
-     roles : [null, [Validators.required, Validators.maxLength(45)]],
-     password: [null, [Validators.required, Validators.maxLength(150), Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/)]],
-     passwordVerified: [null, [Validators.required]],
-     email: [null, [Validators.required,Validators.maxLength(250), Validators.email]],
-     phoneNumber: [null, [Validators.required,Validators.maxLength(45)]],
-   }, {
-     validators: this.passwordMatchValidator
+   this.createAppointmentForm = this._fb.group({
+     date_visite: [null, [Validators.required, Validators.maxLength(45), Validators.pattern(/^[\D]*$/)]],
+     heure_visite: [null, [Validators.required, Validators.maxLength(45), Validators.pattern(/^[\D]*$/)]],
+     locality : [null, [Validators.required, Validators.maxLength(45)]],
+     meeting_place: [null, [Validators.required, Validators.maxLength(150), Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/)]],
+     person: [null, [Validators.required, Validators.maxLength(45)]],
+     isOwner: [null, [Validators.required]],
+     phone: [null, [Validators.required]],
+     user: [null, [Validators.required,Validators.maxLength(250), Validators.email]],
+     parcel: [null, [Validators.required,Validators.maxLength(45)]],
+     massif_visit: [null, [Validators.required,Validators.maxLength(45)]],
+     massif_name: [null, [Validators.required,Validators.maxLength(45)]],
    });
  }
-
- /**
-  * Méthode définissant le fonctionnement du Validator vérifiant que la confirmation de mot de passe à la même valeur que le mot de passe
-  * 
-  * @param group le formulaire contenant les champs concernés
-  * @returns Une ValidationErrors si la condition n'est respecté | null si tout se passe bien
-  */
- passwordMatchValidator(group: FormGroup): ValidationErrors | null {
-   const passwordControl = group.get('password');
-   const confirmPasswordControl = group.get('passwordVerified');
-
-   if (!passwordControl || !confirmPasswordControl) {
-     return null; 
-   }
-   const password = passwordControl.value;
-   const confirmPassword = confirmPasswordControl.value;
-
-   return password === confirmPassword ? null : { 'passwordMismatch': true };
- }
-
  /**
   * Méthode lançant la demande de création d'un nouvel utilisateur au service
   * 
   * Se fait uniquement si le formulaire est correctment rempli
   */
-//  createUser() {
-//    if (this.registerForm.valid) {  
-//      this._appointmentService.create(this.registerForm.value).subscribe({
-//        next: (response) => {
-//          console.log("Utilisateur créé avec succès:", response);
-//          this._router.navigateByUrl('/list-account');
-//        },
-//        error: (error) => {
-//          console.error("Une erreur s'est produite lors de la création de l'utilisateur:", error);
-//        },
-//        complete: () => {
-//          console.log("Création de l'utilisateur terminée.");
-//        }
-//      });
-//      console.log(this.registerForm.value); 
-//      console.log("FORMULAIRE VALIDE");
-//    } else {
-//      this.registerForm.markAllAsTouched();
-//      console.log("FORMULAIRE INVALIDE");
-//    }
-//  }
+ createAppointment() {
+   if (this.createAppointmentForm.valid) {  
+     this._appointmentService.createEvents(this.createAppointmentForm.value).subscribe({
+       next: (response) => {
+         console.log("Utilisateur créé avec succès:", response);
+         this._router.navigateByUrl('/list-account');
+       },
+       error: (error) => {
+         console.error("Une erreur s'est produite lors de la création de l'utilisateur:", error);
+       },
+       complete: () => {
+         console.log("Création de l'utilisateur terminée.");
+       }
+     });
+     console.log(this.createAppointmentForm.value); 
+     console.log("FORMULAIRE VALIDE");
+   } else {
+     this.createAppointmentForm.markAllAsTouched();
+     console.log("FORMULAIRE INVALIDE");
+   }
+ }
 }

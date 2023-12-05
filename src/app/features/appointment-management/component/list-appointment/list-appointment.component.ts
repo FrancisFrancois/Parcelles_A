@@ -4,6 +4,12 @@ import { NgbCalendar, NgbDate } from '@ng-bootstrap/ng-bootstrap';
 import { AppointmentService } from '../../services/appointment.service';
 import { Subscription } from 'rxjs';
 
+//// ATTENTION : FAIRE UNE PAGINATION !!!!!!!!
+//// ATTENTION : FAIRE UNE PAGINATION !!!!!!!!
+//// ATTENTION : FAIRE UNE PAGINATION !!!!!!!!
+//// ATTENTION : FAIRE UNE PAGINATION !!!!!!!!
+//// ATTENTION : FAIRE UNE PAGINATION !!!!!!!!
+
 /**
  * Composant pour la liste des rendez-vous.
  * Gère l'affichage, la sélection, et le filtrage des rendez-vous.
@@ -55,13 +61,13 @@ export class ListAppointmentComponent {
  
 
   /**
+ * Est appelé lorque l'utilisateur selectionne des dates
  * Gère la sélection d'une date dans le datepicker.
  * Met à jour `fromDate` et `toDate` en fonction de la date sélectionnée.
  * Déclenche `filterEvents` pour filtrer les événements après la sélection.
  *
  * @param {NgbDate} date - La date sélectionnée dans le datepicker.
  */
-  // Est appelé lorque l'utilisateur selectionne des dates
   onDateSelection(date: NgbDate) {    
     if (!this.fromDate && !this.toDate) {
       this.fromDate = date;

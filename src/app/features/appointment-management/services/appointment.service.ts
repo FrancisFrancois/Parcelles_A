@@ -39,4 +39,12 @@ export class AppointmentService {
     let updateUrl: string = `${this._url}/voirBackend` //! Voir comment le backend l'a définit de son côté
     return this._httpClient.get<any>(updateUrl)
   }
+  /** Méthode permettant la création d'un rendez-vous
+   * 
+   * @param registerAccount objet contenant les données du rendez-vous
+   * @returns l'observable de la requête
+   */
+  createEvents(event: Event):Observable<Event>{
+    return this._httpClient.post<Event>(`${this._url}/create`, event);
+  }
 }

@@ -1,104 +1,121 @@
 <div class="container">
     <h1 class="title">Encoder un rendez-vous</h1>
     <br>
-    <button class="btn-retour" routerLink="/list-appointment">
-        <img class="img-retour" src="../../../../../assets/images/en-arriere.png" alt="retour">
-    </button>
     <br>
     <br>
-    <h2 class="sub-title">Ajouter un Employé</h2>
     <br>
     <!-- RAJOUTER CI DESSOUS (ngSubmit)="createUser() -->
-    <form [formGroup]="registerForm">
+    <form [formGroup]="createAppointmentForm">
         <div class="formEncadrement">
             <div class="row">
                 <div class="col-md-6">
-                    <div class="mb-3">
-                        <label for="lastName" class="form-label">Date</label>
-                        <br>
-                        <input id="lastName" type="text" class="form-control-sm" required formControlName="lastName">
-                        <br>
-                        <span class="text-danger" *ngIf="registerForm.get('lastName')?.touched && registerForm.get('lastName')?.errors?.['required']">Champs requis</span>
-                        <span class="text-danger" *ngIf="registerForm.get('lastName')?.errors?.['maxlength']">Maximum 45 caractères</span>
+                    <div class="mb-3 d-flex flex-row">
+                        <div class="d-flex flex-column">
+                            <label for="date_visite" class="form-label">Date</label>
+                            <input id="date_visite" type="date" class="form-control-sm" required formControlName="date_visite">
+                        </div>
+                        <div class="align-bottom">
+                            <span class="text-danger" *ngIf="createAppointmentForm.get('date_visite')?.touched && createAppointmentForm.get('date_visite')?.errors?.['required']">Champs requis</span>
+                            <span class="text-danger" *ngIf="createAppointmentForm.get('date_visite')?.errors?.['maxlength']">Maximum 45 caractères</span>
+                        </div>
                     </div>
                     <div class="mb-3">
-                        <label for="firstName" class="form-label">Heure</label>
+                        <label for="heure_visite" class="form-label">Heure</label>
                         <br>
-                        <input id="firstName" type="text" class="form-control-sm" required formControlName="firstName">
+                        <input id="heure_visite" type="time" class="form-control-sm" required formControlName="heure_visite">
                         <br>
-                        <span class="text-danger" *ngIf="registerForm.get('firstName')?.touched && registerForm.get('firstName')?.errors?.['required']">Champs requis</span>
-                        <span class="text-danger" *ngIf="registerForm.get('firstName')?.errors?.['maxlength']">Maximum 45 caractères</span>
+                        <span class="text-danger" *ngIf="createAppointmentForm.get('heure_visite')?.touched && createAppointmentForm.get('heure_visite')?.errors?.['required']">Champs requis</span>
+                        <span class="text-danger" *ngIf="createAppointmentForm.get('heure_visite')?.errors?.['maxlength']">Maximum 45 caractères</span>
                     </div>
                     <div class="mb-3">
-                        <label for="phoneNumber" class="form-label">Localité</label>
+                        <label for="locality" class="form-label">Localité</label>
                         <br>
-                        <input id="phoneNumber" type="tel" class="form-control-sm" required formControlName="phoneNumber">
+                        <input id="locality" type="tel" class="form-control-sm" required formControlName="locality">
                         <br>
-                        <span class="text-danger" *ngIf="registerForm.get('phoneNumber')?.touched && registerForm.get('phoneNumber')?.errors?.['required']">Champs requis</span>
-                        <span class="text-danger" *ngIf="registerForm.get('phoneNumber')?.errors?.['maxlength']">Maximum 45 caractères</span>
+                        <span class="text-danger" *ngIf="createAppointmentForm.get('locality')?.touched && createAppointmentForm.get('locality')?.errors?.['required']">Champs requis</span>
+                        <span class="text-danger" *ngIf="createAppointmentForm.get('locality')?.errors?.['maxlength']">Maximum 45 caractères</span>
                     </div>
                     <div class="mb-3">
-                        <label for="email" class="form-label">Lieu</label>
+                        <label for="meeting_place" class="form-label">Lieu</label>
                         <br>
-                        <input id="email" type="email" class="form-control-sm"  required formControlName="email">
+                        <input id="meeting_place" type="meeting_place" class="form-control-sm"  required formControlName="meeting_place">
                         <br>
-                        <span class="text-danger" *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.errors?.['required']">Champs requis</span>
-                        <span class="text-danger" *ngIf="registerForm.get('email')?.errors?.['email']">Format de mail invalide</span>
-                        <span class="text-danger" *ngIf="registerForm.get('email')?.errors?.['maxlength']">Maximum 250 caractères</span>
+                        <span class="text-danger" *ngIf="createAppointmentForm.get('meeting_place')?.touched && createAppointmentForm.get('meeting_place')?.errors?.['required']">Champs requis</span>
+                        <span class="text-danger" *ngIf="createAppointmentForm.get('meeting_place')?.errors?.['meeting_place']">Format de mail invalide</span>
+                        <span class="text-danger" *ngIf="createAppointmentForm.get('meeting_place')?.errors?.['maxlength']">Maximum 250 caractères</span>
                     </div>
                     <div class="mb-3">
-                        <label for="email" class="form-label">Personne présente</label>
+                        <label for="person" class="form-label">Personne présente</label>
                         <br>
-                        <input id="email" type="email" class="form-control-sm"  required formControlName="email">
+                        <input id="person" type="person" class="form-control-sm"  required formControlName="person">
                         <br>
-                        <span class="text-danger" *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.errors?.['required']">Champs requis</span>
-                        <span class="text-danger" *ngIf="registerForm.get('email')?.errors?.['email']">Format de mail invalide</span>
-                        <span class="text-danger" *ngIf="registerForm.get('email')?.errors?.['maxlength']">Maximum 250 caractères</span>
+                        <span class="text-danger" *ngIf="createAppointmentForm.get('person')?.touched && createAppointmentForm.get('person')?.errors?.['required']">Champs requis</span>
+                        <span class="text-danger" *ngIf="createAppointmentForm.get('person')?.errors?.['person']">Format de mail invalide</span>
+                        <span class="text-danger" *ngIf="createAppointmentForm.get('person')?.errors?.['maxlength']">Maximum 250 caractères</span>
                     </div>
                 </div>
                 <div class="col-md-6">
                    
                     <div class="mb-3">
-                        <label for="password" class="form-label">Est propriétaire</label>
+                        <label for="isOwner" class="form-label">Est propriétaire</label>
                         <br>
-                        <input id="password" type="password" class="form-control-sm" required formControlName="password">
+                        <input id="isOwner" type="isOwner" class="form-control-sm" required formControlName="isOwner">
                         <br>
-                        <span class="text-danger" *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.errors?.['required']">Champs requis</span>
-                        <span class="text-danger" *ngIf="registerForm.get('password')?.errors?. ['pattern']">Votre mot de passe doit contenir au moins 8 caractères dont une minuscule, une majuscule et un chiffre</span>
-                        <span class="text-danger" *ngIf="registerForm.get('password')?.errors?.['maxlength']">Maximum 150 caractères</span>
+                        <span class="text-danger" *ngIf="createAppointmentForm.get('isOwner')?.touched && createAppointmentForm.get('isOwner')?.errors?.['required']">Champs requis</span>
+                        <span class="text-danger" *ngIf="createAppointmentForm.get('isOwner')?.errors?. ['pattern']">Votre mot de passe doit contenir au moins 8 caractères dont une minuscule, une majuscule et un chiffre</span>
+                        <span class="text-danger" *ngIf="createAppointmentForm.get('isOwner')?.errors?.['maxlength']">Maximum 150 caractères</span>
                     </div>
                     <div class="mb-3">
-                        <label for="passwordVerified" class="form-label">Téléphone</label>
+                        <label for="phone" class="form-label">Téléphone</label>
                         <br>
-                        <input id="passwordVerified" type="password" class="form-control-sm" required formControlName="passwordVerified">
+                        <input id="phone" type="password" class="form-control-sm" required formControlName="phone">
                         <br>
-                        <span class="text-danger" *ngIf="registerForm.get('passwordVerified')?.touched && registerForm.get('passwordVerified')?.hasError('required')">Champ requis</span>
-                        <br>
-                        <span class="text-danger" *ngIf="registerForm.hasError('passwordMismatch') && registerForm.get('passwordVerified')?.touched">Les mots de passe ne correspondent pas</span>
+                        <span class="text-danger" *ngIf="createAppointmentForm.get('phone')?.touched && createAppointmentForm.get('phone')?.hasError('required')">Champ requis</span>
+                        <span class="text-danger" *ngIf="createAppointmentForm.hasError('passwordMismatch') && createAppointmentForm.get('phone')?.touched">Les mots de passe ne correspondent pas</span>
                     </div>
                     <div class="mb-3">
-                        <label for="passwordVerified" class="form-label">Téléphone</label>
+                        <label for="user" class="form-label">Agent</label>
                         <br>
-                        <input id="passwordVerified" type="password" class="form-control-sm" required formControlName="passwordVerified">
+                        <input id="user" type="password" class="form-control-sm" required formControlName="user">
                         <br>
-                        <span class="text-danger" *ngIf="registerForm.get('passwordVerified')?.touched && registerForm.get('passwordVerified')?.hasError('required')">Champ requis</span>
-                        <br>
-                        <span class="text-danger" *ngIf="registerForm.hasError('passwordMismatch') && registerForm.get('passwordVerified')?.touched">Les mots de passe ne correspondent pas</span>
+                        <span class="text-danger" *ngIf="createAppointmentForm.get('user')?.touched && createAppointmentForm.get('user')?.hasError('required')">Champ requis</span>
+                        <span class="text-danger" *ngIf="createAppointmentForm.hasError('passwordMismatch') && createAppointmentForm.get('user')?.touched">Les mots de passe ne correspondent pas</span>
                     </div>
                     <div class="mb-3">
-                        <label for="passwordVerified" class="form-label">Téléphone</label>
+                        <label for="parcel" class="form-label">Parcelle</label>
                         <br>
-                        <input id="passwordVerified" type="password" class="form-control-sm" required formControlName="passwordVerified">
+                        <input id="parcel" type="password" class="form-control-sm" required formControlName="parcel">
                         <br>
-                        <span class="text-danger" *ngIf="registerForm.get('passwordVerified')?.touched && registerForm.get('passwordVerified')?.hasError('required')">Champ requis</span>
+                        <span class="text-danger" *ngIf="createAppointmentForm.get('parcel')?.touched && createAppointmentForm.get('parcel')?.hasError('required')">Champ requis</span>
+                        <span class="text-danger" *ngIf="createAppointmentForm.hasError('passwordMismatch') && createAppointmentForm.get('parcel')?.touched">Les mots de passe ne correspondent pas</span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="massif_visit" class="form-label">Visite massif</label>
                         <br>
-                        <span class="text-danger" *ngIf="registerForm.hasError('passwordMismatch') && registerForm.get('passwordVerified')?.touched">Les mots de passe ne correspondent pas</span>
+                        <input id="massif_visit" type="password" class="form-control-sm" required formControlName="massif_visit">
+                        <br>
+                        <span class="text-danger" *ngIf="createAppointmentForm.get('massif_visit')?.touched && createAppointmentForm.get('massif_visit')?.hasError('required')">Champ requis</span>
+                        <span class="text-danger" *ngIf="createAppointmentForm.hasError('passwordMismatch') && createAppointmentForm.get('massif_visit')?.touched">Les mots de passe ne correspondent pas</span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="massif_name" class="form-label">Nom massif</label>
+                        <br>
+                        <input id="massif_name" type="password" class="form-control-sm" required formControlName="massif_name">
+                        <br>
+                        <span class="text-danger" *ngIf="createAppointmentForm.get('massif_name')?.touched && createAppointmentForm.get('massif_name')?.hasError('required')">Champ requis</span>
+                        <span class="text-danger" *ngIf="createAppointmentForm.hasError('passwordMismatch') && createAppointmentForm.get('massif_name')?.touched">Les mots de passe ne correspondent pas</span>
                     </div>
                 </div>
             </div>
         </div>
         <br>
-        <button type="submit" class="btn-enregistrer">Enregistrer</button>
+        <div>
+            <button class="btn-retour m-3" routerLink="/list-appointment">
+                <img class="img-retour" src="../../../../../assets/images/en-arriere.png" alt="retour">
+            </button>
+            <button type="submit" class="btn-enregistrer m-3">Enregistrer</button>
+        </div>
+
     </form>
 </div>
 

@@ -23,7 +23,7 @@
             <button class="btn-supprimer" *ngIf="displaySecretaryButton()" (click)="deleteUser(readAccount?.id ?? 0)">Supprimer l'utilisateur</button>
             <br>
             <br>
-            <button class="btn-reset" *ngIf="displayUserButton()">Reset Mot de passe</button>
+            <button class="btn-reset" *ngIf="displayUserButton()" (click)="resetPasswordRequestButton(resetPasswordRequest!)">Reset Mot de passe</button>
         </div>
-    </div>
+        </div>
 </div>

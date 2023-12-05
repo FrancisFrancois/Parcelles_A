@@ -15,11 +15,11 @@ import { accessSimpleGuard, accessSecretaryGuard } from './access.guard';
 const routes: Routes = [
   { path : "create-account", component: CreateAccountComponent, canActivate: [accessSecretaryGuard] },
   { path : "list-account", component: ListAccountComponent, canActivate: [accessSecretaryGuard] },
-  { path : "read-account/:id", component: ReadAccountComponent, canActivate: [accessSecretaryGuard] },
-  { path : "update-account/:id", component: UpdateAccountComponent, canActivate: [accessSecretaryGuard] },
+  { path : "read-account/:id", component: ReadAccountComponent, canActivate: [accessSimpleGuard] },
+  { path : "update-account/:id", component: UpdateAccountComponent, canActivate: [accessSimpleGuard] },
   { path : "owner-management", component: OwnerManagementComponent, canActivate: [accessSecretaryGuard] },
-  { path : "read-owner/:id", component: ReadOwnerComponent, canActivate: [accessSimpleGuard] },
-  { path : "list-owner", component: ListOwnerComponent, canActivate: [accessSimpleGuard] },
+  { path : "read-owner/:id", component: ReadOwnerComponent, canActivate: [accessSecretaryGuard] },
+  { path : "list-owner", component: ListOwnerComponent, canActivate: [accessSecretaryGuard] },
   { path : "update-owner/:id", component: UpdateOwnerComponent, canActivate: [accessSecretaryGuard] },
   { path : "not-found", component: NotfoundComponent },
   { path : "auth", component : AuthComponent}

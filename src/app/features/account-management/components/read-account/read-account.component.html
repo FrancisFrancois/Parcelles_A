@@ -17,12 +17,12 @@
             <li class="list-group-item">Status : {{readAccount?.blocked==false?"actif":"désactivé"}}</li>
         </ul>
         <div class="card-body">
-            <button class="btn-modifier" *ngIf="displaySecretaryButton()" routerLink="/update-account/{{readAccount?.id}}">Modifier Utilisateur</button>
-            <br>
-            <br>
+            <button class="btn-modifier" *ngIf="displayUserButton()" routerLink="/update-account/{{readAccount?.id}}">Modifier Utilisateur</button>
+            <br *ngIf="displayUserButton()">
+            <br *ngIf="displayUserButton()">
             <button class="btn-supprimer" *ngIf="displaySecretaryButton()" (click)="deleteUser(readAccount?.id ?? 0)">Supprimer l'utilisateur</button>
-            <br>
-            <br>
+            <br *ngIf="displaySecretaryButton()">
+            <br *ngIf="displaySecretaryButton()">
             <button class="btn-reset" *ngIf="displayUserButton()">Reset Mot de passe</button>
         </div>
     </div>

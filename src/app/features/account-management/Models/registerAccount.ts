@@ -141,6 +141,17 @@ export interface ReadAccount {
 /**
  * Modèle utilisé lors de la récupération d'un mot de passe
  */
+export interface ResetPasswordRequest  {
+     /**
+     * le login de l'utilisateur
+     */
+    login : string;
+    /**
+     * email
+     */
+    email : string;
+}
+
 export interface ResetPassword  {
     /**
      * mot de passe
@@ -150,7 +161,4 @@ export interface ResetPassword  {
      * confirmation du mot de passe
      */
     passwordVerified : string;
-    /**
-     * email
-     */
 }

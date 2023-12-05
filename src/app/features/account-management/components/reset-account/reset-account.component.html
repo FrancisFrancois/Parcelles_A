@@ -1,0 +1,19 @@
+<form [formGroup]="resetPasswordForm">
+    <div class="container">
+      <div class="imgcontainer">
+        <img src="../../../../../assets/images/Logo_Cellule_Quadri_new_FBW-vecto.png" alt="Avatar" class="avatar">
+      </div>
+      <span class="text-danger" *ngIf="errorMessage">{{errorMessage}}</span>
+      <br>
+      <label for="password"><b>Nouveau Mot de Passe</b></label>
+      <br>
+      <input type="text" placeholder="Entrer le Nouveau Mot de Passe" name="login" formControlName='login' required>
+      <br>
+      <label for="passwordVerified"><b>Confirmer le Mot de Passe</b></label>
+      <br>
+      <input type="passwordVerified" placeholder="Entrer le Nouveau Mot de Passe" name="password" formControlName='password' required>
+      <br>
+      <button class="btn-auth" type="submit">Changer le Mot de Passe</button>
+      <br>
+    </div>
+  </form>

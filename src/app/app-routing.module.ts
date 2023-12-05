@@ -10,6 +10,7 @@ import { ListOwnerComponent } from './features/owner-management/components/list-
 import { UpdateOwnerComponent } from './features/owner-management/components/update-owner/update-owner.component';
 import { NotfoundComponent } from './shared/components/notfound/notfound.component';
 import { AuthComponent } from './features/auth/components/auth.component';
+import { ResetAccountComponent } from './features/account-management/components/reset-account/reset-account.component';
 
 const routes: Routes = [
   { path : "create-account", component: CreateAccountComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path : "read-account/:id", component: ReadAccountComponent },
   { path : "update-account", component: UpdateAccountComponent },
   { path : "update-account/:id", component: UpdateAccountComponent },
+  { path : "reset-account", component: ResetAccountComponent},
   { path : "owner-management", component: OwnerManagementComponent },
   { path : "read-owner", component: ReadOwnerComponent },
   { path : "read-owner/:id", component: ReadOwnerComponent },

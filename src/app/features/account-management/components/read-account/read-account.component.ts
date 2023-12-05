@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ReadAccount, ResetPassword} from '../../models/registerAccount';
+import { ReadAccount, ResetPassword, ResetPasswordRequest} from '../../models/registerAccount';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AccountManagementService } from '../../../../shared/services/account-management.service';
 import { AuthService } from 'src/app/features/auth/services/auth.service';
@@ -22,8 +22,7 @@ export class ReadAccountComponent {
     /**
    * Objet contenant les informations pour le reset du password
    */
-  resetPassword : ResetPassword  | undefined;
-
+  resetPasswordRequest : ResetPasswordRequest  | undefined;
 
   /**
    * Constructeur du composant
@@ -71,21 +70,21 @@ export class ReadAccountComponent {
   }
 
     /**
-   * Méthode pour reset le password de l'utilisateur.
+   * Méthode pour envoyer une requête de reset du mot de passe
    *
-   * @param resetPassword l'objet contenant les informations
+   * @param resetPasswordRequest l'objet contenant les informations
    */
-  resetUserButton( resetPassword : ResetPassword) : void {
-    this._accountManagementService.resetPassword(resetPassword).subscribe({
+  resetPasswordRequestButton( resetPasswordRequest : ResetPasswordRequest) : void {
+    this._accountManagementService.resetPasswordRequest(resetPasswordRequest).subscribe({
       next: (response) => {
-        console.log("Mot de passe mis à jour avec succès:", response);
+        console.log("Requete mot de passe envoyée avec succès:", response);
         this._router.navigateByUrl('/');
       },
       error: (error) => {
-        console.error("Une erreur s'est produite lors de la mise à jour du mot de passe:", error);
+        console.error("Une erreur s'est produite lors de la requête", error);
       },
       complete: () => {
-        console.log("Mise à jour du mot de passe terminée.");
+        console.log("Requete terminée.");
       }
     })
   }

@@ -1,0 +1,42 @@
+
+input[type=text], input[type=password],  input[type=passwordVerified] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  .btn-auth {
+    background-color:rgb(240, 127, 60);
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    font-weight: bold;
+    box-shadow: 5px 5px 5px 0px grey;
+    width: 100%;
+  }
+  
+  .btn-auth:hover {
+    background-color: rgb(248, 140, 77);
+  }
+  
+  .imgcontainer {
+    text-align: center;
+    margin-top: 6rem;
+    margin-right: 10rem;
+  }
+  
+  img.avatar {
+    width: 200%;
+    margin-bottom: 3rem;
+  }
+  
+  .container {
+    padding: 50px;
+    width: 25rem;
+  }
+  

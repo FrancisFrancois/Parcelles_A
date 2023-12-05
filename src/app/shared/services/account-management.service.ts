@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { ListAccount, ReadAccount, RegisterAccount, ResetPassword, UpdateAccount } from '../../features/account-management/models/registerAccount';
+import { ListAccount, ReadAccount, RegisterAccount, ResetPassword, ResetRequest, UpdateAccount } from '../../features/account-management/models/registerAccount';
 import { searchAccount } from 'src/app/features/account-management/models/searchAccount';
 
 /**
@@ -89,5 +89,9 @@ export class AccountManagementService {
    */
   resetPassword(resetPassword : ResetPassword) : Observable<ResetPassword> {
     return this._httpClient.post<ResetPassword>(`${this._url}/resetpassword`, resetPassword)
+  }
+  resetRequest(resetRequest : ResetRequest) : Observable<any>{
+
+    return this._httpClient.post<any>(`${this._url}/resetpasswordrequest`, resetRequest);
   }
 };

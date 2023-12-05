@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ReadAccount, ResetPassword} from '../../models/registerAccount';
+import { ReadAccount, ResetPassword, ResetRequest} from '../../models/registerAccount';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AccountManagementService } from '../../../../shared/services/account-management.service';
 import { AuthService } from 'src/app/features/auth/services/auth.service';
@@ -70,7 +70,24 @@ export class ReadAccountComponent {
     return this._authService.isItUserConnected(this.readAccount?.username) || this._authService.hasSecretaryRight();
   }
 
-    /**
+  /**
+   * Méthode pour faire la requête d'envoi d'un mail pour reset son mot de passe
+   */
+  resetRequestButton() : void {
+    if(this.readAccount != undefined)
+    {
+      let resetRequest : ResetRequest = {
+        login : this.readAccount!.username,
+        email : this.readAccount!.email
+      }
+
+      this._accountManagementService.resetRequest(resetRequest).subscribe({
+        next : (value) => {},
+        error : (value) => {}
+      })
+    }
+  }
+  /**
    * Méthode pour reset le password de l'utilisateur.
    *
    * @param resetPassword l'objet contenant les informations

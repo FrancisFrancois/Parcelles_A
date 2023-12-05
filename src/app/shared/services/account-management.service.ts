@@ -26,7 +26,7 @@ export class AccountManagementService {
     @Inject('urlBackend') private _urlBase : string) { }
 
   /**
-   * Méthode de récupération d'une liste brute d'utilisateur
+   * Fonction de récupération d'une liste brute d'utilisateur
    * 
    * @returns l'observalbe de la requête
    */
@@ -34,7 +34,7 @@ export class AccountManagementService {
     return this._httpClient.get<ListAccount[]>(`${this._url}/all`);	
   }
   /**
-   * Méthode de récupération des informations détaillées d'un utilisateur spécifique
+   * Fonction de récupération des informations détaillées d'un utilisateur spécifique
    * 
    * @param id identifiant de l'utilisateur
    * @returns l'observalbe de la requête
@@ -43,7 +43,7 @@ export class AccountManagementService {
     return this._httpClient.get<ReadAccount>(`${this._url}/${id}`);
   }
   /**
-   * Méthode permettant la création d'un utilisateur
+   * Fonction permettant la création d'un utilisateur
    * 
    * @param registerAccount objet contenant les données du nouvel utilisateur
    * @returns l'observalbe de la requête
@@ -52,7 +52,7 @@ export class AccountManagementService {
     return this._httpClient.post<RegisterAccount>(`${this._url}/register`, registerAccount);
   }
     /**
-   * Méthode permettant la mise à jour des informations d'un utilisateur
+   * Fonction permettant la mise à jour des informations d'un utilisateur
    * 
    * @param registerAccount objet contenant les données du nouvel utilisateur
    * @returns l'observalbe de la requête
@@ -61,7 +61,7 @@ export class AccountManagementService {
     return this._httpClient.put<UpdateAccount>(`${this._url}/${id}`, registerAccount);
   }
   /**
-   * Méthode permettant la "suppression" d'un utilisateur
+   * Fonction permettant la "suppression" d'un utilisateur
    * 
    * L'utilisateur sera surtout marqué en bloqué
    * 
@@ -72,7 +72,7 @@ export class AccountManagementService {
     return this._httpClient.delete<RegisterAccount>(`${this._url}/${id}`);
   }
   /**
-   * Méthode permettant d'afiner la liste des utilisateurs selon certains critères
+   * Fonction permettant d'afiner la liste des utilisateurs selon certains critères
    * 
    * @param criteria un objet contenant les critères de recherches
    * @returns l'observalbe de la requête
@@ -81,8 +81,8 @@ export class AccountManagementService {
     let updateUrl: string = `${this._url}/all/search`;
     return this._httpClient.post<ListAccount[]>(updateUrl, criteria)
   }
-    /**
-   * Méthode permettant la récupération d'un mot de passe oublié
+  /**
+   * Fonction permettant la récupération d'un mot de passe oublié
    * 
    * @param resetPassword objet contenant les données du nouveau mot de passe
    * @returns l'observalbe de la requête
@@ -90,6 +90,12 @@ export class AccountManagementService {
   resetPassword(resetPassword : ResetPassword) : Observable<ResetPassword> {
     return this._httpClient.post<ResetPassword>(`${this._url}/resetpassword`, resetPassword)
   }
+  /**
+   * Fonction de demande d'envoi d'un mail pour reset le password
+   * 
+   * @param resetRequest informations nécessaire pour l'envoi
+   * @returns l'observable de la requête
+   */
   resetRequest(resetRequest : ResetRequest) : Observable<any>{
 
     return this._httpClient.post<any>(`${this._url}/resetpasswordrequest`, resetRequest);

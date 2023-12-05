@@ -196,6 +196,7 @@ export class AppointmentComponent {
   //  }
 }
 
+
 // BLOC NOTE:
 // V - getByDate(startDate, endDate) -- Adapter l'url avec HTTParams
 

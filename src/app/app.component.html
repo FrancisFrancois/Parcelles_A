@@ -5,9 +5,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-2">
-            <app-sidebar></app-sidebar>
-        </div>
+        <app-sidebar [ngClass]="sidebarVisility==true?'col-sm-2':'hidden'" (onVisibilityChange)="receiveVisibility($event)"></app-sidebar>
         <div class="col">
             <router-outlet></router-outlet>
         </div>

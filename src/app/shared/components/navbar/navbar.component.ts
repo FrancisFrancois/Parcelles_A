@@ -22,8 +22,13 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.userSub = this._authService.$connectedUser.subscribe({
       next : (value) => {
-        //if(value != undefined) 
         this.connectedUser = value;
+        
+        if(value == undefined && localStorage.getItem('parcelleToken')) {
+          // option temporaire de déconnection en cas de refresh de la page et que le token est toujours présent
+          // pourra être remplacé par un processus de reconnexion (nécessite un travail en Backend)
+          this._authService.logout();
+        }
       }
     })
   }

@@ -97,6 +97,6 @@ export class AccountManagementService {
    * @returns l'observalbe de la requête
    */
   resetPassword(resetPassword : ResetPassword) : Observable<ResetPassword> {
-    return this._httpClient.post<ResetPassword>(`${this._url}/resetpassword`, resetPassword)
+    return this._httpClient.put<ResetPassword>(`${this._url}/resetpassword`, resetPassword)
   }
 };

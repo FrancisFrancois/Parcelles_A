@@ -26,8 +26,7 @@ constructor(
     firstName: [null, [Validators.required, Validators.maxLength(45), Validators.pattern(/^[\D]*$/)]],
     roles: [null, [Validators.required, Validators.maxLength(45)]],
     email: [null, [Validators.required, Validators.maxLength(250), Validators.email]],
-    phoneNumber: [null, [Validators.required, Validators.maxLength(45)]],
-    blocked: [null, [Validators.required]]
+    phoneNumber: [null, [Validators.required, Validators.maxLength(45)]]
   });
 
 }

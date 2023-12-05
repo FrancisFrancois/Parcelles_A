@@ -56,11 +56,6 @@
                         </select>
                         <span class="text-danger" *ngIf="registerForm.get('roles')?.touched && registerForm.get('roles')?.errors?.['required']">Champs requis</span>
                     </div>
-                    <br>
-                    <div class="form-check form-switch">
-                       <label for="blocked" class="form-check-label" >Actif</label>
-                       <input id="blocked" type="checkbox" class="form-check-input" checked required formControlName="blocked">
-                     </div>
                 </div>
             </div>
         </div>

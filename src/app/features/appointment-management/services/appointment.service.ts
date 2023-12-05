@@ -1,57 +1,40 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { EventList } from '../models/event-list';
-import { DateRange } from '../models/date-range';
 import { Event } from '../models/event';
 
+/**
+ * Service pour gérer les requêtes HTTP liées aux rendez-vous.
+ * Fournit une méthode searchEvents() pour la recherche des rendez-vous basé sur un objet Event.
+ * 
+ * @Injectable - Indique que ce service peut être injecté dans d'autres classes.
+ * @param {HttpClient} _httpClient - Le client HTTP utilisé pour les requêtes.
+ * @param {string} _urlBase - L'URL de base du backend, disponible dans le app.module.ts et injectée lors de la création du service.
+ */
 @Injectable({
   providedIn: 'root'
 })
+
 export class AppointmentService {
-
-  constructor(private _httpClient: HttpClient, @Inject('urlBackend') private _urlBase : string) { }
-
-  // VOIR AVEC LE BACK L'URL DE L'API et les chemins à partir de /appointment (/all, /date/:date, /create, /delete/:id, /update/:id)
-  private _url: string = this._urlBase+'/appointment';
-
-
-
   /**
- * Récupère une liste d'évenement sur base des dates selectionnée * 
- * @param {startDate, endDate} string - Le range de date sur lequel on filtre les evenements qui doivent faire l'objet de la requete. La date doit être au format 'YYYY-MM-DD' pour pouvoir être assignée à un HttpParams
- * @return {Observable<EventList[]>} - Retourne un observable qui contient une liste d'évenement
- */
-  // getByDate(startDate: string, endDate: string): Observable<EventList[]>{
-  //   HttpParams permet de passer les dates de recherche dans l'url de la requete
-  //   let params = new HttpParams()
-  //   params.set('fromDate', startDate)
-  //   params.set('endDate', endDate);
-
-  //   let updateUrl: string = `${this._url}/date`
-  //   return this._httpClient.get<EventList[]>(updateUrl, {params});
-  // }
-
-  getAll(event : Event): Observable<Event[]>{
-    //HttpParams permet de passer les dates de recherche dans l'url de la requete
-    let params = new HttpParams()
-    params.set('fromDate', event.startDate);
-    params.set('endDate', event.endDate);
-    if (event.owner){
-      params.set('owner', event.owner);
-    }
-    else if (event.user){
-      params.set('user', event.user);
-    }
-    else if (event.parcel){
-      params.set('parcel', event.parcel);
-    }
-    let updateUrl: string = `${this._url}/appointment`
-    return this._httpClient.get<Event[]>(updateUrl, {params});
-  }
-
+   * Constructeur du service.
+   * @param {HttpClient} _httpClient - Le client HTTP pour effectuer des requêtes.
+   * @param {string} _urlBase - L'URL de base du backend.
+   */
+  constructor(private _httpClient: HttpClient, @Inject('urlBackend') private _urlBase : string) { }
+  /**
+   * URL de base pour les requêtes relatives aux rendez-vous.
+   * Construite à partir de l'URL de base du backend.
+   */
+  private _url: string = this._urlBase+'/appointment';
  
-  // requête pour la recherche list-owner
+   /**
+   * Recherche des événements correspondant au critère fourni par (event: Event).
+   * Envoie une requête HTTP GET à l'URL définie pour récupérer les événements.
+   *
+   * @param {Event} event - L'événement à rechercher.
+   * @returns {Observable<Event[]>} Un Observable qui émet un tableau d'événements correspondants.
+   */
   searchEvents(event: Event): Observable<Event[]> {
     let updateUrl: string = `${this._url}/voirBackend` //! Voir comment le backend l'a définit de son côté
     return this._httpClient.get<any>(updateUrl)

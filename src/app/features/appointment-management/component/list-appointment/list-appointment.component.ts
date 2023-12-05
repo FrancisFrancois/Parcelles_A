@@ -4,12 +4,17 @@ import { NgbCalendar, NgbDate } from '@ng-bootstrap/ng-bootstrap';
 import { AppointmentService } from '../../services/appointment.service';
 import { Subscription } from 'rxjs';
 
-
+/**
+ * Composant pour la liste des rendez-vous.
+ * Gère l'affichage, la sélection, et le filtrage des rendez-vous.
+ * Utilise le service `AppointmentService` pour les opérations liées aux rendez-vous.
+ */
 @Component({
   selector: 'app-list-appointment',
   templateUrl: './list-appointment.component.html',
   styleUrls: ['./list-appointment.component.scss']
 })
+
 export class ListAppointmentComponent {
   constructor(
   /**
@@ -26,7 +31,7 @@ export class ListAppointmentComponent {
     */
     this.fromDate = calendar.getToday();
     this.toDate = calendar.getNext(this.fromDate, 'd', 10);
-    this.filterEvents()
+    this.getEventList();
   }
 
   /**
@@ -68,41 +73,14 @@ export class ListAppointmentComponent {
       this.fromDate = date;
       this.searchedEvent.startDate = this.convertNgbDateToDate(this.fromDate).toString();
     }  
-    this.filterEvents()    
+    this.getEventList()    
   }
 
-  
-  /**
- * Appelée par onDateSelection lorsque la plage de dates est modifiée via le datepicker.
- * Filtre les événements basés sur les dates sélectionnées en envoyant une requête au service AppointmentService.
- * Ne procède au filtrage que si les propriétés `fromDate` et `toDate` sont définies.
- * Utilise les méthodes `getByDate` du service AppointmentService pour récupérer les événements correspondant aux critères de date.
- * Met à jour la liste `showedEventList` avec les événements récupérés.
- * Gère les cas de succès, d'erreur, et de complétion de la requête.
+/**
+ * Déclenche la recherche d'événements basée sur l'objet searchedEnvent en envoyant une requête au service AppointmentService.
+ * Utilise un délai avant d'envoyer la requête pour éviter les requêtes excessives.
+ * Met à jour `showedEventList` avec les résultats de la recherche.
  */
-  // filterEvents est appelé par onDateSelection
-  filterEvents() {
-    if (!this.fromDate || !this.toDate) {
-      return;
-    }
-    const selectedStartDate = new Date(this.fromDate.year, this.fromDate.month-1, this.fromDate.day).toString();
-    const selectedEndDate = new Date(this.toDate.year, this.toDate.month-1, this.toDate.day).toString();
-    
-    this._eventListSubsciption = this._appointmentService.getAll(this.searchedEvent).subscribe({
-      next: (res) => {
-        this.showedEventList = res;
-        console.log("Recuperation de la liste des évènements avec succes:", res);
-      },
-      error: (error) => {
-        console.error("Une erreur s'est produite lors de la recuperation de la liste des évènements:", error);
-      },
-      complete: () => {
-        console.log("Recuperation de la liste des évènements terminée.");    
-      }  
-    })
-  }
-
-  // Est appellé par la recherche sur un champ autre que les dates
   getEventList():void{
 
     let searchedEvent : Event = {
@@ -139,7 +117,12 @@ export class ListAppointmentComponent {
   }
   
 
-  //!!!!!!!!!!!! DateRangePicker:
+  /**
+ * Propriétés pour le contrôle du datepicker:
+ * hoveredDate - Date actuellement survolée par la souris.
+ * fromDate - Date de début de la plage sélectionnée.
+ * toDate - Date de fin de la plage sélectionnée.
+ */
   hoveredDate: NgbDate | null = null;
   fromDate: NgbDate | null = null;
   toDate: NgbDate | null = null;
@@ -195,7 +178,10 @@ export class ListAppointmentComponent {
   convertNgbDateToDate(ngbDate: NgbDate): Date {
     return new Date(ngbDate.year, ngbDate.month - 1, ngbDate.day);
   }
-  
+  /**
+ * Méthode de nettoyage lors de la destruction du composant.
+ * Désabonne `_eventListSubscription` pour éviter les fuites de mémoire.
+ */
   ngOnDestroy() {
     this._eventListSubsciption?.unsubscribe();
    }

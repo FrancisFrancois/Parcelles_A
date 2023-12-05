@@ -61,7 +61,7 @@ export class ReadAccountComponent {
    * @returns vrai si admin ou secrétaire ou utilisateur connecté | false
    */
   displayUserButton() : boolean {
-    return this._authService.isItUserConnected(this.readAccount?.username) || this._authService.hasSecretaryRight();
+    return this._authService.isUserLookForHimself(this.readAccount?.username) || this._authService.hasSecretaryRight();
   }
   
   /**

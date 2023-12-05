@@ -31,13 +31,22 @@ export class AuthService {
     return this._connectedUser;
   }
   /**
+   * Fonction indiquant si un utilisateur est connecté
+   * 
+   * @returns true si quelqu'un est connecté | false si undefined
+   */
+  isUserConnected() : boolean {
+    if(this._connectedUser) return true;
+    return false;
+  }
+  /**
    * Function renvoyant un boolean si le username donné correspont à celui de l'utilisateur connecté
    * 
    * renvoit false si aucun utilisateur connecté ou si le username donné est vide
    * 
    * @returns boolean confirmant ou non la correspondance
    */
-  isItUserConnected(usernameReceived : string | undefined) : boolean{
+  isUserLookForHimself(usernameReceived : string | undefined) : boolean{
     if(usernameReceived == undefined || this.getUser() == undefined) return false;
     return usernameReceived == this.getUser()!.username;
   }

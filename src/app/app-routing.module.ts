@@ -10,20 +10,17 @@ import { ListOwnerComponent } from './features/owner-management/components/list-
 import { UpdateOwnerComponent } from './features/owner-management/components/update-owner/update-owner.component';
 import { NotfoundComponent } from './shared/components/notfound/notfound.component';
 import { AuthComponent } from './features/auth/components/auth.component';
+import { accessSimpleGuard, accessSecretaryGuard } from './access.guard';
 
 const routes: Routes = [
-  { path : "create-account", component: CreateAccountComponent },
-  { path : "list-account", component: ListAccountComponent },
-  { path : "read-account", component: ReadAccountComponent },
-  { path : "read-account/:id", component: ReadAccountComponent },
-  { path : "update-account", component: UpdateAccountComponent },
-  { path : "update-account/:id", component: UpdateAccountComponent },
-  { path : "owner-management", component: OwnerManagementComponent },
-  { path : "read-owner", component: ReadOwnerComponent },
-  { path : "read-owner/:id", component: ReadOwnerComponent },
-  { path : "list-owner", component: ListOwnerComponent },
-  { path : "update-owner", component: UpdateOwnerComponent },
-  { path : "update-owner/:id", component: UpdateOwnerComponent },
+  { path : "create-account", component: CreateAccountComponent, canActivate: [accessSecretaryGuard] },
+  { path : "list-account", component: ListAccountComponent, canActivate: [accessSecretaryGuard] },
+  { path : "read-account/:id", component: ReadAccountComponent, canActivate: [accessSecretaryGuard] },
+  { path : "update-account/:id", component: UpdateAccountComponent, canActivate: [accessSecretaryGuard] },
+  { path : "owner-management", component: OwnerManagementComponent, canActivate: [accessSecretaryGuard] },
+  { path : "read-owner/:id", component: ReadOwnerComponent, canActivate: [accessSimpleGuard] },
+  { path : "list-owner", component: ListOwnerComponent, canActivate: [accessSimpleGuard] },
+  { path : "update-owner/:id", component: UpdateOwnerComponent, canActivate: [accessSecretaryGuard] },
   { path : "not-found", component: NotfoundComponent },
   { path : "auth", component : AuthComponent}
 ];

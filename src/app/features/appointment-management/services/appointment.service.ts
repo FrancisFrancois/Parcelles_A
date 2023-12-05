@@ -26,7 +26,7 @@ export class AppointmentService {
    * URL de base pour les requêtes relatives aux rendez-vous.
    * Construite à partir de l'URL de base du backend.
    */
-  private _url: string = this._urlBase+'/appointment';
+  private _url: string = this._urlBase+'/visite';
  
    /**
    * Recherche des événements correspondant au critère fourni par (event: Event).
@@ -36,7 +36,7 @@ export class AppointmentService {
    * @returns {Observable<Event[]>} Un Observable qui émet un tableau d'événements correspondants.
    */
   searchEvents(event: Event): Observable<Event[]> {
-    let updateUrl: string = `${this._url}/voirBackend` //! Voir comment le backend l'a définit de son côté
+    let updateUrl: string = `${this._url}/all` //! Voir comment le backend l'a définit de son côté
     return this._httpClient.get<any>(updateUrl)
   }
   /** Méthode permettant la création d'un rendez-vous

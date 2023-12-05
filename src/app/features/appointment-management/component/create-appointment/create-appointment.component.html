@@ -5,7 +5,7 @@
     <br>
     <br>
     <!-- RAJOUTER CI DESSOUS (ngSubmit)="createUser() -->
-    <form [formGroup]="createAppointmentForm">
+    <form [formGroup]="createAppointmentForm" (ngSubmit)="createAppointment">
         <div class="formEncadrement">
             <div class="row">
                 <div class="col-md-6">
@@ -16,7 +16,6 @@
                         </div>
                         <div class="align-bottom">
                             <span class="text-danger" *ngIf="createAppointmentForm.get('date_visite')?.touched && createAppointmentForm.get('date_visite')?.errors?.['required']">Champs requis</span>
-                            <span class="text-danger" *ngIf="createAppointmentForm.get('date_visite')?.errors?.['maxlength']">Maximum 45 caractères</span>
                         </div>
                     </div>
                     <div class="mb-3">
@@ -25,33 +24,29 @@
                         <input id="heure_visite" type="time" class="form-control-sm" required formControlName="heure_visite">
                         <br>
                         <span class="text-danger" *ngIf="createAppointmentForm.get('heure_visite')?.touched && createAppointmentForm.get('heure_visite')?.errors?.['required']">Champs requis</span>
-                        <span class="text-danger" *ngIf="createAppointmentForm.get('heure_visite')?.errors?.['maxlength']">Maximum 45 caractères</span>
                     </div>
                     <div class="mb-3">
                         <label for="locality" class="form-label">Localité</label>
                         <br>
-                        <input id="locality" type="tel" class="form-control-sm" required formControlName="locality">
+                        <input id="locality" type="text" class="form-control-sm" required formControlName="locality">
                         <br>
-                        <span class="text-danger" *ngIf="createAppointmentForm.get('locality')?.touched && createAppointmentForm.get('locality')?.errors?.['required']">Champs requis</span>
-                        <span class="text-danger" *ngIf="createAppointmentForm.get('locality')?.errors?.['maxlength']">Maximum 45 caractères</span>
+                        <span class="text-danger" *ngIf="createAppointmentForm.get('locality')?.errors?.['maxlength']">Maximum 150 caractères</span>
                     </div>
                     <div class="mb-3">
-                        <label for="meeting_place" class="form-label">Lieu</label>
+                        <label for="meeting_place" class="form-label">Lieu de rendez-vous</label>
                         <br>
-                        <input id="meeting_place" type="meeting_place" class="form-control-sm"  required formControlName="meeting_place">
+                        <input id="meeting_place" type="text" class="form-control-sm"  required formControlName="meeting_place">
                         <br>
                         <span class="text-danger" *ngIf="createAppointmentForm.get('meeting_place')?.touched && createAppointmentForm.get('meeting_place')?.errors?.['required']">Champs requis</span>
-                        <span class="text-danger" *ngIf="createAppointmentForm.get('meeting_place')?.errors?.['meeting_place']">Format de mail invalide</span>
-                        <span class="text-danger" *ngIf="createAppointmentForm.get('meeting_place')?.errors?.['maxlength']">Maximum 250 caractères</span>
+                        <span class="text-danger" *ngIf="createAppointmentForm.get('meeting_place')?.errors?.['maxlength']">Maximum 150 caractères</span>
                     </div>
                     <div class="mb-3">
                         <label for="person" class="form-label">Personne présente</label>
                         <br>
-                        <input id="person" type="person" class="form-control-sm"  required formControlName="person">
+                        <input id="person" type="text" class="form-control-sm"  required formControlName="person">
                         <br>
                         <span class="text-danger" *ngIf="createAppointmentForm.get('person')?.touched && createAppointmentForm.get('person')?.errors?.['required']">Champs requis</span>
-                        <span class="text-danger" *ngIf="createAppointmentForm.get('person')?.errors?.['person']">Format de mail invalide</span>
-                        <span class="text-danger" *ngIf="createAppointmentForm.get('person')?.errors?.['maxlength']">Maximum 250 caractères</span>
+                        <span class="text-danger" *ngIf="createAppointmentForm.get('person')?.errors?.['maxlength']">Maximum 50 caractères</span>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -59,58 +54,47 @@
                     <div class="mb-3">
                         <label for="isOwner" class="form-label">Est propriétaire</label>
                         <br>
-                        <input id="isOwner" type="isOwner" class="form-control-sm" required formControlName="isOwner">
+                        <input id="isOwner" type="checkbox" class="form-control-sm" required formControlName="isOwner">
                         <br>
-                        <span class="text-danger" *ngIf="createAppointmentForm.get('isOwner')?.touched && createAppointmentForm.get('isOwner')?.errors?.['required']">Champs requis</span>
-                        <span class="text-danger" *ngIf="createAppointmentForm.get('isOwner')?.errors?. ['pattern']">Votre mot de passe doit contenir au moins 8 caractères dont une minuscule, une majuscule et un chiffre</span>
-                        <span class="text-danger" *ngIf="createAppointmentForm.get('isOwner')?.errors?.['maxlength']">Maximum 150 caractères</span>
                     </div>
                     <div class="mb-3">
                         <label for="phone" class="form-label">Téléphone</label>
                         <br>
-                        <input id="phone" type="password" class="form-control-sm" required formControlName="phone">
+                        <input id="phone" type="tel" class="form-control-sm" required formControlName="phone">
                         <br>
-                        <span class="text-danger" *ngIf="createAppointmentForm.get('phone')?.touched && createAppointmentForm.get('phone')?.hasError('required')">Champ requis</span>
-                        <span class="text-danger" *ngIf="createAppointmentForm.hasError('passwordMismatch') && createAppointmentForm.get('phone')?.touched">Les mots de passe ne correspondent pas</span>
                     </div>
                     <div class="mb-3">
                         <label for="user" class="form-label">Agent</label>
                         <br>
-                        <input id="user" type="password" class="form-control-sm" required formControlName="user">
+                        <input id="user" type="search" class="form-control-sm" required formControlName="user">
                         <br>
-                        <span class="text-danger" *ngIf="createAppointmentForm.get('user')?.touched && createAppointmentForm.get('user')?.hasError('required')">Champ requis</span>
-                        <span class="text-danger" *ngIf="createAppointmentForm.hasError('passwordMismatch') && createAppointmentForm.get('user')?.touched">Les mots de passe ne correspondent pas</span>
+                        <span class="text-danger" *ngIf="createAppointmentForm.get('user')?.touched && createAppointmentForm.get('user')?.errors?.['required']">Champs requis</span>
                     </div>
                     <div class="mb-3">
                         <label for="parcel" class="form-label">Parcelle</label>
                         <br>
-                        <input id="parcel" type="password" class="form-control-sm" required formControlName="parcel">
+                        <input id="parcel" type="search" class="form-control-sm" required formControlName="parcel">
                         <br>
                         <span class="text-danger" *ngIf="createAppointmentForm.get('parcel')?.touched && createAppointmentForm.get('parcel')?.hasError('required')">Champ requis</span>
-                        <span class="text-danger" *ngIf="createAppointmentForm.hasError('passwordMismatch') && createAppointmentForm.get('parcel')?.touched">Les mots de passe ne correspondent pas</span>
                     </div>
                     <div class="mb-3">
                         <label for="massif_visit" class="form-label">Visite massif</label>
                         <br>
-                        <input id="massif_visit" type="password" class="form-control-sm" required formControlName="massif_visit">
+                        <input id="massif_visit" type="text" class="form-control-sm" required formControlName="massif_visit">
                         <br>
-                        <span class="text-danger" *ngIf="createAppointmentForm.get('massif_visit')?.touched && createAppointmentForm.get('massif_visit')?.hasError('required')">Champ requis</span>
-                        <span class="text-danger" *ngIf="createAppointmentForm.hasError('passwordMismatch') && createAppointmentForm.get('massif_visit')?.touched">Les mots de passe ne correspondent pas</span>
                     </div>
                     <div class="mb-3">
                         <label for="massif_name" class="form-label">Nom massif</label>
                         <br>
-                        <input id="massif_name" type="password" class="form-control-sm" required formControlName="massif_name">
+                        <input id="massif_name" type="search" class="form-control-sm" required formControlName="massif_name">
                         <br>
-                        <span class="text-danger" *ngIf="createAppointmentForm.get('massif_name')?.touched && createAppointmentForm.get('massif_name')?.hasError('required')">Champ requis</span>
-                        <span class="text-danger" *ngIf="createAppointmentForm.hasError('passwordMismatch') && createAppointmentForm.get('massif_name')?.touched">Les mots de passe ne correspondent pas</span>
                     </div>
                 </div>
             </div>
         </div>
         <br>
         <div>
-            <button class="btn-retour m-3" routerLink="/list-appointment">
+            <button class="btn-retour m-3" routerLink="/appointment">
                 <img class="img-retour" src="../../../../../assets/images/en-arriere.png" alt="retour">
             </button>
             <button type="submit" class="btn-enregistrer m-3">Enregistrer</button>

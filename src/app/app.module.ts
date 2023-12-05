@@ -19,6 +19,7 @@ import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
 import { NotfoundComponent } from './shared/components/notfound/notfound.component';
 import { AuthTokenInterceptor } from './shared/interceptors/auth-token.interceptor';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,7 @@ import { AuthTokenInterceptor } from './shared/interceptors/auth-token.intercept
     FormsModule
   ],
   providers: [
-    { provide : "urlBackend", useValue : "http://192.168.110.17:8080"},
+    { provide : "urlBackend", useValue : environment.apiUrl+":"+environment.apiPort},
     { provide : HTTP_INTERCEPTORS, useClass : AuthTokenInterceptor, multi : true },
   ],
   bootstrap: [AppComponent]

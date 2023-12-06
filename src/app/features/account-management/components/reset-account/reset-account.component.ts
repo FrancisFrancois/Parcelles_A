@@ -10,14 +10,7 @@ import { AccountManagementService } from 'src/app/shared/services/account-manage
 })
 export class ResetAccountComponent {
    /**
-   * Variable qui contient les éventuelles messages d'erreur
-   * 
-   * il est **undefined** lorsqu'il est vide
-   */
-   errorMessage :string|undefined;
-
-   /**
-    * Formulaire de login
+    * Formulaire de modification de mot de passe
     */
    resetPasswordForm : FormGroup;
  

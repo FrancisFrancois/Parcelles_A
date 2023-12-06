@@ -15,19 +15,21 @@
                 <div class="right-div">
                     <p>Indivision</p>
                     <div class="indivisionMiniEncadrement">
-                        <div class="alignement">
-                            <button><img class="indivisionBoutons" src="../../../../../assets/images/btn-minus.png"
-                                    alt="bouton ajout"></button>
-                            <p>ici s'affichera les propriétaire sélectionnés</p>
-                            <tr *ngFor="let owner of owners">
-                                <!-- <td>{{ owner.lname }}</td> -->
-                                <td>{{ owner.lname }}</td>
-                            </tr>
-                            <button><img class="indivisionBoutons" src="../../../../../assets/images/btn-add.png"
-                                    alt="bouton ajout"></button>
-                        </div>
+                      <div class="alignement">
+                        <button>
+                          <img class="indivisionBoutons" src="../../../../../assets/images/btn-minus.png" alt="bouton ajout">
+                        </button>
+                        <p>ici s'afficheront les propriétaires sélectionnés</p>
+                        <ul>
+                          <li *ngFor="let owner of owners">{{ owner.lname }}</li>
+                        </ul>
+                        <button>
+                          <img class="indivisionBoutons" src="../../../../../assets/images/btn-add.png" alt="bouton ajout" (click)="addOwnerToParcel()">
+                        </button>
+                      </div>
                     </div>
-                </div>
+                  </div>
+                  
                 <!-- Les inputs de la recherche du propriétaire -->
                 <div class="mb-3">
                     <!-- Nom -->
@@ -35,16 +37,14 @@
                     <!--&nbsp permet de mettre un espace en le label et l'input-->
                     <input type="text" [(ngModel)]=lname (keyup)="SearchOwner()">
                       <!-- Afficher les résultats sous l'input lname -->
-<div *ngIf="owners.length > 0">
-    <ul>
-        <li *ngFor="let owner of owners" (click)="selectOwner(owner)">
-            {{ owner.lname }}
-        </li>
-    </ul>
-</div>
-</div>
-                    
-               
+                <div *ngIf="owners.length > 0">
+                    <ul>
+                        <li *ngFor="let owner of owners" (click)="selectOwner(owner)">
+                            {{ owner.lname }}
+                        </li>
+                    </ul>
+                </div>
+                </div>
                 <!-- Prénom -->
                 <div class="mb-3">
                     <label for="fname" class="form-label">Prénom&nbsp;</label>
@@ -59,6 +59,13 @@
                 <div class="mb-3">
                     <label for="email" class="form-label">Mail&nbsp;</label>
                     <input type="text" [(ngModel)]="email" (keyup)="SearchOwner()">
+                    <div *ngIf="owners.length > 0">
+                        <ul>
+                            <li *ngFor="let owner of owners" (click)="selectOwner(owner)">
+                                {{ owner.email }}
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 <!-- Code Postal -->
                 <div class="mb-3">

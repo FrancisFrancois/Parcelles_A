@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ListAccount, ReadAccount, RegisterAccount, ResetPassword, ResetPasswordRequest, UpdateAccount } from '../../features/account-management/models/registerAccount';
 import { searchAccount } from 'src/app/features/account-management/models/searchAccount';
-import { HttpHeaders } from '@angular/common/http';
 
 /**
  * Service utilisé pour réalisé des requêtes http aux backend concernant les objets utilisateurs
@@ -98,7 +97,6 @@ export class AccountManagementService {
    * @returns l'observalbe de la requête
    */
   resetPassword(resetPassword : ResetPassword, token : string) : Observable<ResetPassword> {
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    return this._httpClient.put<ResetPassword>(`${this._url}/resetpassword`, resetPassword, {headers})
+    return this._httpClient.put<ResetPassword>(`${this._url}/resetpassword?token=${token}`, resetPassword)
   }
 };

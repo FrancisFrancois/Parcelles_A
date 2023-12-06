@@ -10,11 +10,10 @@ import { HttpHeaders } from '@angular/common/http';
   styleUrls: ['./reset-account.component.scss']
 })
 export class ResetAccountComponent {
-
     /**
-    * Variable pour stocker le JWT récupéré du lien URL
+    * Variable pour stocker le token récupéré du lien URL
     */
-  jwtToken : string | null = null;
+  token : string | null = null;
    /**
     * Formulaire de modification de mot de passe
     */
@@ -64,7 +63,7 @@ export class ResetAccountComponent {
   ngOnInit(): void {
     this._activedRoute.params.subscribe({
       next: (params) => {
-        this.jwtToken = params['token'] || null;
+        this.token = params['token'] || null;
       },
       error: (error) => {
         console.log('Une erreur s\'est produite lors de la récupération du token :', error);
@@ -76,10 +75,8 @@ export class ResetAccountComponent {
   }
 
   resetPassword() : void {
-    if(this.jwtToken && this.resetPasswordForm.valid){
-      const headers = new HttpHeaders().set('Authorization', `Bearer ${this.jwtToken}`);
- 
-        this._accountManagementService.resetPassword(this.resetPasswordForm.value, headers.toString()).subscribe({
+    if(this.token && this.resetPasswordForm.valid){
+        this._accountManagementService.resetPassword(this.resetPasswordForm.value, this.token).subscribe({
           next: (response) => {
             console.log('Mot de passe reset avec succès', response);
             this._router.navigateByUrl('/auth');

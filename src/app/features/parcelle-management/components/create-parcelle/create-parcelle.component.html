@@ -20,8 +20,8 @@
                                     alt="bouton ajout"></button>
                             <p>ici s'affichera les propriétaire sélectionnés</p>
                             <tr *ngFor="let owner of owners">
+                                <!-- <td>{{ owner.lname }}</td> -->
                                 <td>{{ owner.lname }}</td>
-                                <td>{{ owner.fname }}</td>
                             </tr>
                             <button><img class="indivisionBoutons" src="../../../../../assets/images/btn-add.png"
                                     alt="bouton ajout"></button>
@@ -34,37 +34,32 @@
                     <label for="lname" class="form-label">Nom&nbsp;</label>
                     <!--&nbsp permet de mettre un espace en le label et l'input-->
                     <input type="text" [(ngModel)]=lname (keyup)="SearchOwner()">
-                </div>
+                      <!-- Afficher les résultats sous l'input lname -->
+<div *ngIf="owners.length > 0">
+    <ul>
+        <li *ngFor="let owner of owners" (click)="selectOwner(owner)">
+            {{ owner.lname }}
+        </li>
+    </ul>
+</div>
+</div>
+                    
+               
                 <!-- Prénom -->
                 <div class="mb-3">
                     <label for="fname" class="form-label">Prénom&nbsp;</label>
                     <input type="text" [(ngModel)]=fname (keyup)="SearchOwner()">
+                    <select *ngIf="SearchOwner.length>0">
+                        <option *ngFor="let owner of owners" [value]="owner.fname"> <!--source: https://stackoverflow.com/questions/54106560/dynamic-select-option-using-objects-in-angular-->
+                        {{owner.fname}}
+                        </option>
+                    </select>
                 </div>
-                <!--Téléphone-->
-                <!-- <div class="mb-3"> -->
-                <!-- <label for="phone" class="form-label">Téléphone&nbsp;</label> -->
-                <!-- <input type="text" [(ngModel)]=phone (keyup)="SearchOwner()"> -->
-                <!-- </div> -->
-                <!-- GSM -->
-                <!-- <div class="mb-3"> -->
-                <!-- <label for="GSM" class="form-label">GSM&nbsp;</label> -->
-                <!-- <input type="text" [(ngModel)]=gsm (keyup)="SearchOwner()"> -->
-                <!-- </div> -->
                 <!-- Mail -->
                 <div class="mb-3">
                     <label for="email" class="form-label">Mail&nbsp;</label>
                     <input type="text" [(ngModel)]="email" (keyup)="SearchOwner()">
                 </div>
-                <!-- Adresse -->
-                <!-- <div class="mb-3"> -->
-                <!-- <label for="adress" class="form-label">Adresse&nbsp;</label> -->
-                <!-- <input type="text" [(ngModel)]=adress (keyup)="SearchOwner()"> -->
-                <!-- </div> -->
-                <!-- Ville -->
-                <!-- <div class="mb-3"> -->
-                <!-- <label for="city" class="form-label">Ville&nbsp;</label> -->
-                <!-- <input type="text" [(ngModel)]=city (keyup)="SearchOwner()"> -->
-                <!-- </div> -->
                 <!-- Code Postal -->
                 <div class="mb-3">
                     <label for="zip" class="form-label">Code Postal&nbsp;</label>

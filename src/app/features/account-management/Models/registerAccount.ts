@@ -152,6 +152,9 @@ export interface ResetPasswordRequest  {
     email : string;
 }
 
+/**
+ * Modèle utilisé lors du changement de mot de passe
+ */
 export interface ResetPassword  {
     /**
      * mot de passe

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AccountManagementService } from 'src/app/shared/services/account-management.service';
 
 @Component({
@@ -9,6 +9,11 @@ import { AccountManagementService } from 'src/app/shared/services/account-manage
   styleUrls: ['./reset-account.component.scss']
 })
 export class ResetAccountComponent {
+
+    /**
+    * Variable pour stocker le JWT récupéré du lien URL
+    */
+  jwtToken : string | null = null;
    /**
     * Formulaire de modification de mot de passe
     */
@@ -24,7 +29,8 @@ export class ResetAccountComponent {
    constructor(
      private _fb : FormBuilder,
      private _accountManagementService : AccountManagementService,
-     private _router : Router
+     private _router : Router,
+     private _activedRoute : ActivatedRoute
      ) {
  
      this.resetPasswordForm = this._fb.group({
@@ -54,8 +60,22 @@ export class ResetAccountComponent {
     return password === confirmPassword ? null : { 'passwordMismatch': true };
   }
 
+  ngOnInit(): void {
+    this._activedRoute.params.subscribe({
+      next: (params) => {
+        this.jwtToken = params['token'] || null;
+      },
+      error: (error) => {
+        console.log('Une erreur s\'est produite lors de la récupération du token :', error);
+      },
+      complete: () => {
+        console.log('Le token a bien été récupéré.');
+      }
+    })
+  }
+
   resetPassword() : void {
-    if(this.resetPasswordForm.valid){
+    if(this.jwtToken && this.resetPasswordForm.valid){
         this._accountManagementService.resetPassword(this.resetPasswordForm.value).subscribe({
           next: (response) => {
             console.log('Mot de passe reset avec succès', response);
@@ -70,6 +90,7 @@ export class ResetAccountComponent {
         });
     } else {
     this.resetPasswordForm.markAllAsTouched();
+    console.error('Aucun token disponible pour la réinitialisation du mot de passe ou formulaire invalide');
   }
 }
 }

@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { ReadAccount } from '../../account-management/models/registerAccount';
 
 /**
  * Composant gérant la page de connexion

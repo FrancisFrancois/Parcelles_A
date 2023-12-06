@@ -69,8 +69,25 @@ export class ReadAccountComponent {
     return this._authService.isUserLookForHimself(this.readAccount?.username) || this._authService.hasSecretaryRight();
   }
 
-    /**
-   * Méthode pour envoyer une requête de reset du mot de passe
+  /**
+   * Méthode pour faire la requête d'envoi d'un mail pour reset son mot de passe
+   */
+  resetRequestButton() : void {
+    if(this.readAccount != undefined)
+    {
+      let resetRequest : ResetPasswordRequest = {
+        login : this.readAccount!.username,
+        email : this.readAccount!.email
+      }
+
+      this._accountManagementService.resetPasswordRequest(resetRequest).subscribe({
+        next : (value) => {},
+        error : (value) => {}
+      })
+    }
+  }
+  /**
+   * Méthode pour reset le password de l'utilisateur.
    *
    * @param resetPasswordRequest l'objet contenant les informations
    */

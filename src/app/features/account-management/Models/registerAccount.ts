@@ -165,3 +165,19 @@ export interface ResetPassword  {
      */
     passwordVerified : string;
 }
+
+/**
+ * Modèle pour la requête de reset de mot de passe
+ */
+export interface ResetRequest {
+    /**
+     * Username de l'utilisateur
+     */
+    login : string,
+    /**
+     * Mail de l'utilisateur
+     * 
+     * Mail qui servira pour l'étape suivante
+     */
+    email : string
+}

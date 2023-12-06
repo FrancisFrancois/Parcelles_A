@@ -2,7 +2,7 @@ import { Inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ListAccount, ReadAccount, RegisterAccount, ResetPassword, ResetPasswordRequest, UpdateAccount } from '../../features/account-management/models/registerAccount';
-import { searchAccount } from 'src/app/features/account-management/models/searchAccount';
+import { searchAccount } from '../../features/account-management/models/searchAccount';
 
 /**
  * Service utilisé pour réalisé des requêtes http aux backend concernant les objets utilisateurs
@@ -26,7 +26,7 @@ export class AccountManagementService {
     @Inject('urlBackend') private _urlBase : string) { }
 
   /**
-   * Méthode de récupération d'une liste brute d'utilisateur
+   * Fonction de récupération d'une liste brute d'utilisateur
    * 
    * @returns l'observalbe de la requête
    */
@@ -34,7 +34,7 @@ export class AccountManagementService {
     return this._httpClient.get<ListAccount[]>(`${this._url}/all`);	
   }
   /**
-   * Méthode de récupération des informations détaillées d'un utilisateur spécifique
+   * Fonction de récupération des informations détaillées d'un utilisateur spécifique
    * 
    * @param id identifiant de l'utilisateur
    * @returns l'observalbe de la requête
@@ -43,7 +43,7 @@ export class AccountManagementService {
     return this._httpClient.get<ReadAccount>(`${this._url}/${id}`);
   }
   /**
-   * Méthode permettant la création d'un utilisateur
+   * Fonction permettant la création d'un utilisateur
    * 
    * @param registerAccount objet contenant les données du nouvel utilisateur
    * @returns l'observalbe de la requête
@@ -52,7 +52,7 @@ export class AccountManagementService {
     return this._httpClient.post<RegisterAccount>(`${this._url}/register`, registerAccount);
   }
     /**
-   * Méthode permettant la mise à jour des informations d'un utilisateur
+   * Fonction permettant la mise à jour des informations d'un utilisateur
    * 
    * @param registerAccount objet contenant les données du nouvel utilisateur
    * @returns l'observalbe de la requête
@@ -61,7 +61,7 @@ export class AccountManagementService {
     return this._httpClient.put<UpdateAccount>(`${this._url}/${id}`, registerAccount);
   }
   /**
-   * Méthode permettant la "suppression" d'un utilisateur
+   * Fonction permettant la "suppression" d'un utilisateur
    * 
    * L'utilisateur sera surtout marqué en bloqué
    * 
@@ -72,7 +72,7 @@ export class AccountManagementService {
     return this._httpClient.delete<RegisterAccount>(`${this._url}/${id}`);
   }
   /**
-   * Méthode permettant d'afiner la liste des utilisateurs selon certains critères
+   * Fonction permettant d'afiner la liste des utilisateurs selon certains critères
    * 
    * @param criteria un objet contenant les critères de recherches
    * @returns l'observalbe de la requête
@@ -81,8 +81,9 @@ export class AccountManagementService {
     let updateUrl: string = `${this._url}/all/search`;
     return this._httpClient.post<ListAccount[]>(updateUrl, criteria)
   }
-    /**
-   * Méthode permettant d'envoyer une requête de récupération du mot de passe
+
+  /**
+   * Fonction permettant d'envoyer une requête de récupération du mot de passe
    * 
    * @param resetPasswordRequest objet contenant les données de l'utilisateur
    * @returns l'observalbe de la requête
@@ -90,8 +91,8 @@ export class AccountManagementService {
   resetPasswordRequest(resetPasswordRequest : ResetPasswordRequest) : Observable<ResetPasswordRequest> {
     return this._httpClient.post<ResetPasswordRequest>(`${this._url}/resetpasswordrequest`, resetPasswordRequest)
   }
-    /**
-   * Méthode permettant de reset le mot de passe
+  /**
+   * Fonction permettant la récupération d'un mot de passe oublié
    * 
    * @param resetPassword objet contenant les données du nouveau mot de passe
    * @returns l'observalbe de la requête

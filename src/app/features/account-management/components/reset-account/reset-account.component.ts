@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AccountManagementService } from 'src/app/shared/services/account-management.service';
+import { HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-reset-account',
@@ -76,7 +77,9 @@ export class ResetAccountComponent {
 
   resetPassword() : void {
     if(this.jwtToken && this.resetPasswordForm.valid){
-        this._accountManagementService.resetPassword(this.resetPasswordForm.value).subscribe({
+      const headers = new HttpHeaders().set('Authorization', `Bearer ${this.jwtToken}`);
+ 
+        this._accountManagementService.resetPassword(this.resetPasswordForm.value, headers.toString()).subscribe({
           next: (response) => {
             console.log('Mot de passe reset avec succès', response);
             this._router.navigateByUrl('/auth');

@@ -23,7 +23,8 @@ const routes: Routes = [
   { path : "list-owner", component: ListOwnerComponent, canActivate: [accessSecretaryGuard] },
   { path : "update-owner/:id", component: UpdateOwnerComponent, canActivate: [accessSecretaryGuard] },
   { path : "not-found", component: NotfoundComponent },
-  { path : "auth", component : AuthComponent}
+  { path : "auth", component : AuthComponent},
+  { path : "reset-account", component: ResetAccountComponent}
 ];
 
 @NgModule({

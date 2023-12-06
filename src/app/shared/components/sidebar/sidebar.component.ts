@@ -26,7 +26,6 @@ export class SidebarComponent implements OnInit {
     this._userSub = this._authService.$connectedUser.subscribe({
       next : (value) => {
         this._connectedUser = value;
-        console.log(value);
         this.onVisibilityChange.emit(this.isUserConnected());
       }
     })

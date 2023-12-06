@@ -12,7 +12,6 @@ export class AppComponent {
 
   receiveVisibility(visiblity : boolean) : void{
     this.sidebarVisility = visiblity;
-    console.log(visiblity, this.receiveVisibility);
   }
 }
 

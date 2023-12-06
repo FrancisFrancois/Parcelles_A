@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ReadAccount } from 'src/app/features/account-management/models/registerAccount';
 import { AuthService } from 'src/app/features/auth/services/auth.service';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -32,6 +33,8 @@ export class SidebarComponent implements OnInit {
   }
 
   isUserConnected() : boolean {
+    // TODO A retirer dans la version definitve
+    if(!environment.production) return true;
     return this._connectedUser != undefined;
   } 
 

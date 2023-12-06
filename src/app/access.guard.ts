@@ -6,6 +6,7 @@ import { AuthService } from './features/auth/services/auth.service';
 
 export const accessSimpleGuard: CanActivateFn = (route, state) => {
   // désactive les guard en dev si la ligne suivante est laissé
+  // TODO A retirer dans la version definitve
   if(!environment.production) return true;
 
   const authService: AuthService = inject(AuthService);
@@ -21,6 +22,7 @@ export const accessSimpleGuard: CanActivateFn = (route, state) => {
 };
 export const accessSecretaryGuard: CanActivateFn = (route, state) => {
   // désactive les guard en dev si la ligne suivante est laissé
+  // TODO A retirer dans la version definitve
   if(!environment.production) return true;
 
   const authService: AuthService = inject(AuthService);

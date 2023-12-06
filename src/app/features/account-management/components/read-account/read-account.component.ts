@@ -95,7 +95,6 @@ export class ReadAccountComponent {
     this._accountManagementService.resetPasswordRequest(resetPasswordRequest).subscribe({
       next: (response) => {
         console.log("Requete mot de passe envoyée avec succès:", response);
-        this._router.navigateByUrl('/');
       },
       error: (error) => {
         console.error("Une erreur s'est produite lors de la requête", error);

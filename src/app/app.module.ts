@@ -20,6 +20,7 @@ import { SidebarComponent } from './shared/components/sidebar/sidebar.component'
 import { NotfoundComponent } from './shared/components/notfound/notfound.component';
 import { AuthTokenInterceptor } from './shared/interceptors/auth-token.interceptor';
 import { environment } from 'src/environments/environment';
+import { ResetAccountComponent } from './features/account-management/components/reset-account/reset-account.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { environment } from 'src/environments/environment';
     NavbarComponent,
     SidebarComponent,
     NotfoundComponent,
+    ResetAccountComponent,
   ],
   imports: [
     BrowserModule,

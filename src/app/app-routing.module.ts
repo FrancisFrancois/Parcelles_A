@@ -11,6 +11,7 @@ import { UpdateOwnerComponent } from './features/owner-management/components/upd
 import { NotfoundComponent } from './shared/components/notfound/notfound.component';
 import { AuthComponent } from './features/auth/components/auth.component';
 import { accessSimpleGuard, accessSecretaryGuard } from './access.guard';
+import { ResetAccountComponent } from './features/account-management/components/reset-account/reset-account.component';
 
 const routes: Routes = [
   { path : "create-account", component: CreateAccountComponent, canActivate: [accessSecretaryGuard] },

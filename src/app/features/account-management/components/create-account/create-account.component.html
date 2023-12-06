@@ -23,7 +23,7 @@
                     <div class="mb-3">
                         <label for="firstName" class="form-label">Prénom</label>
                         <br>
-                        <input id="firstName" type="text" class="form-control-sm" required formControlName="firstName">
+                        <input id="firstName" type="text" class="form-control-sm " required formControlName="firstName">
                         <br>
                         <span class="text-danger" *ngIf="registerForm.get('firstName')?.touched && registerForm.get('firstName')?.errors?.['required']">Champs requis</span>
                         <span class="text-danger" *ngIf="registerForm.get('firstName')?.errors?.['maxlength']">Maximum 45 caractères</span>

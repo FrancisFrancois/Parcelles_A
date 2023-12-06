@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { ListAccount, ReadAccount, RegisterAccount, UpdateAccount } from '../../features/account-management/models/registerAccount';
+import { ListAccount, ReadAccount, RegisterAccount, ResetPassword, ResetPasswordRequest, UpdateAccount } from '../../features/account-management/models/registerAccount';
 import { searchAccount } from 'src/app/features/account-management/models/searchAccount';
 
 /**
@@ -80,5 +80,23 @@ export class AccountManagementService {
   searchUsers(criteria : searchAccount): Observable<ListAccount[]> {
     let updateUrl: string = `${this._url}/all/search`;
     return this._httpClient.post<ListAccount[]>(updateUrl, criteria)
+  }
+    /**
+   * Méthode permettant d'envoyer une requête de récupération du mot de passe
+   * 
+   * @param resetPasswordRequest objet contenant les données de l'utilisateur
+   * @returns l'observalbe de la requête
+   */
+  resetPasswordRequest(resetPasswordRequest : ResetPasswordRequest) : Observable<ResetPasswordRequest> {
+    return this._httpClient.post<ResetPasswordRequest>(`${this._url}/resetpasswordrequest`, resetPasswordRequest)
+  }
+    /**
+   * Méthode permettant de reset le mot de passe
+   * 
+   * @param resetPassword objet contenant les données du nouveau mot de passe
+   * @returns l'observalbe de la requête
+   */
+  resetPassword(resetPassword : ResetPassword, token : string) : Observable<ResetPassword> {
+    return this._httpClient.put<ResetPassword>(`${this._url}/resetpassword?token=${token}`, resetPassword)
   }
 };

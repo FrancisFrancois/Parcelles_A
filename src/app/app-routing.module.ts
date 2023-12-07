@@ -27,6 +27,7 @@ const routes: Routes = [
   { path : "auth", component : AuthComponent},
   { path : "dashboard", component : DashboardMainComponent, canActivate : [accessSimpleGuard]},
   { path : "reset-account", component : ResetAccountComponent},
+  { path : "reset-account/:token", component: ResetAccountComponent},
   { path : "", redirectTo : '/auth', pathMatch : 'full'}
 ];
 

@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit } from '@angular/core';
+import { EventType, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ReadAccount } from 'src/app/features/account-management/models/registerAccount';
 import { AuthService } from 'src/app/features/auth/services/auth.service';
@@ -18,6 +19,8 @@ export class SidebarComponent implements OnInit {
 
   onVisibilityChange : EventEmitter<boolean>;
 
+  isLoading : boolean = false;
+
   constructor(private _authService : AuthService) {
     this.onVisibilityChange = new EventEmitter<boolean>();
   }
@@ -26,9 +29,15 @@ export class SidebarComponent implements OnInit {
     this._userSub = this._authService.$connectedUser.subscribe({
       next : (value) => {
         this._connectedUser = value;
-        this.onVisibilityChange.emit(this.isUserConnected());
+
+        if(value != undefined) this.isLoading = true;
+        this.setSideBarVisibilty();
       }
-    })
+    });
+  }
+
+  setSideBarVisibilty() : void {
+    this.onVisibilityChange.emit(this.isUserConnected() && this.isLoading);
   }
 
   isUserConnected() : boolean {
@@ -45,7 +54,13 @@ export class SidebarComponent implements OnInit {
     return this._connectedUser!.id!;
   }
 
-  ngOnDestroy(): void {
+  finishLoading() : void{
+    this.isLoading = true;
+
+    setTimeout(()=>{this.setSideBarVisibilty();},50);
+  }
+
+  ngOnDestroy() : void {
     this._userSub.unsubscribe();
   }
 

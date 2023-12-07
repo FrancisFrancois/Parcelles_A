@@ -13,6 +13,8 @@ import { ReadOwnerComponent } from './features/owner-management/components/read-
 import { ListOwnerComponent } from './features/owner-management/components/list-owner/list-owner.component';
 import { UpdateOwnerComponent } from './features/owner-management/components/update-owner/update-owner.component';
 import { OwnerManagementComponent } from './features/owner-management/components/owner-management/owner-management.component';
+import { ResetAccountComponent } from './features/account-management/components/reset-account/reset-account.component';
+import { DashboardMainComponent } from './features/dashboard/components/dashboard-main/dashboard-main.component';
 
 import { AuthComponent } from './features/auth/components/auth.component';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
@@ -20,7 +22,6 @@ import { SidebarComponent } from './shared/components/sidebar/sidebar.component'
 import { NotfoundComponent } from './shared/components/notfound/notfound.component';
 import { AuthTokenInterceptor } from './shared/interceptors/auth-token.interceptor';
 import { environment } from 'src/environments/environment';
-import { ResetAccountComponent } from './features/account-management/components/reset-account/reset-account.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { ResetAccountComponent } from './features/account-management/components/
     SidebarComponent,
     NotfoundComponent,
     ResetAccountComponent,
+    DashboardMainComponent,
   ],
   imports: [
     BrowserModule,

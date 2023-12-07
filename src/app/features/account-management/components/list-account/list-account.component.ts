@@ -146,7 +146,6 @@ export class ListAccountComponent {
     this._accountManagementService.delete(id).subscribe({
       next: (response) => {
         console.log("Utilisateur supprimé avec succès:", response);
-        this._router.navigateByUrl('/');
       },
       error: (error) => {
         console.error("Une erreur s'est produite lors de la suppression de l'utilisateur:", error);

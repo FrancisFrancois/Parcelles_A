@@ -76,7 +76,12 @@ export class CreateParcelleComponent {
   lname: string = "";
   zip: string = "";
   email: string = "";
-  selectedOwner: any;
+  selectedOwner: any[] = [];
+  totalselectedOwner:any[]=[];
+
+  /**
+   * fonction de recherche du owner
+   */
   SearchOwner(): void {
     clearTimeout(this.timeout);
     this.timeout = null;
@@ -101,16 +106,14 @@ export class CreateParcelleComponent {
       } else {
         this.owners = []; // Si lname est vide, pas de résultats
       }
-    
-
-      console.log(this.owners);
-
       clearTimeout(this.timeout);
       this.timeout = null;
     }, 500);
   }
 
-
+/** sélection du owner
+ * @param owner 
+ */
   selectOwner(owner: any): void {
     this.selectedOwner = owner;
     this.fname = owner.fname;
@@ -119,40 +122,36 @@ export class CreateParcelleComponent {
     this.email = owner.email;
 
     this.owners = []; // pour enlever les suggestions après avoir cliquer sur le owner choisi
+    console.log(this.selectOwner)
+      console.log(owner);
+      ;
+    
   }
 
 
-  // Partie indiivision pour ajouter un propriétaire à une parcelle
+  // Le selectOwner est ajouter lorqu'on appuie sur le bouton +
   addOwnerToParcel(): void {
-    // Vérifiez si les champs requis sont remplis
+    // vérification  si tous les champs sont remplis
     if (this.fname && this.lname && this.zip && this.email) {
-      // Ajoutez le propriétaire aux propriétaires existants
-      const newOwner = {
-        fname: this.fname,
-        lname: this.lname,
-        zip: this.zip,
-        email: this.email
-      };
-  
-      this.owners.push(newOwner);
-  
-      // Réinitialisez les champs d'entrée
+      // ajout du owner dans la sélection
+      this.totalselectedOwner.push(this.selectedOwner); // Push the selectOwner object directly into the owners array
+   // push objet owner sélectionné dans le tableau Owners
+      // Reset des inputs
       this.fname = "";
       this.lname = "";
       this.zip = "";
       this.email = "";
   
-      // Affichez le nouveau propriétaire dans la liste
-      console.log("Propriétaire ajouté à la parcelle :", newOwner);
+      console.log("Owners added to the parcel:", this.owners);
     } else {
-      // Gérez le cas où les champs requis ne sont pas remplis (vous pouvez afficher un message d'erreur, par exemple)
-      console.log("Veuillez remplir tous les champs requis.");
+      console.log("Please fill in all required fields.");
     }
   }
   
+  
 
+  // reste à faire :
   removeOwnerFromParcel(): void {
-    // Ajoutez votre logique pour supprimer un propriétaire de la liste (si nécessaire)
     console.log("Propriétaire supprimé de la parcelle");
   }
   

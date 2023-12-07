@@ -21,7 +21,7 @@
                         </button>
                         <p>ici s'afficheront les propriétaires sélectionnés</p>
                         <ul>
-                          <li *ngFor="let owner of owners">{{ owner.lname }}</li>
+                          <li *ngFor="let owner of totalselectedOwner">{{ owner.lname }}</li>
                         </ul>
                         <button>
                           <img class="indivisionBoutons" src="../../../../../assets/images/btn-add.png" alt="bouton ajout" (click)="addOwnerToParcel()">

@@ -34,7 +34,10 @@ export const accessSecretaryGuard: CanActivateFn = (route, state) => {
     return false
   }
 
-  if(!authService.hasSecretaryRight()) return false;
+  if(!authService.hasSecretaryRight()){
+    router.navigateByUrl('dashboard');
+    return false;
+  }
 
   return true;
 };

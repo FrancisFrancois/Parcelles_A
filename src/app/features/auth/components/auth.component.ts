@@ -63,7 +63,7 @@ export class AuthComponent {
           if(response != undefined){
             this.errorMessage = undefined;
 
-            this._router.navigateByUrl('');
+            this._router.navigateByUrl('dashboard');
           }
         }
       })

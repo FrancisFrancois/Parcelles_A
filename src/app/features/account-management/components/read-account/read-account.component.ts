@@ -73,7 +73,7 @@ export class ReadAccountComponent {
     this._accountManagementService.delete(id).subscribe({
       next: (response) => {
         console.log("Utilisateur supprimé avec succès:", response);
-        this._router.navigateByUrl('/');
+        this._router.navigateByUrl('dashboard');
       },
       error: (error) => {
         console.error("Une erreur s'est produite lors de la suppression de l'utilisateur:", error);

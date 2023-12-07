@@ -11,18 +11,21 @@ import { UpdateOwnerComponent } from './features/owner-management/components/upd
 import { NotfoundComponent } from './shared/components/notfound/notfound.component';
 import { AuthComponent } from './features/auth/components/auth.component';
 import { accessSimpleGuard, accessSecretaryGuard } from './access.guard';
+import { DashboardMainComponent } from './features/dashboard/components/dashboard-main/dashboard-main.component';
 
 const routes: Routes = [
-  { path : "create-account", component: CreateAccountComponent, canActivate: [accessSecretaryGuard] },
-  { path : "list-account", component: ListAccountComponent, canActivate: [accessSecretaryGuard] },
-  { path : "read-account/:id", component: ReadAccountComponent, canActivate: [accessSimpleGuard] },
-  { path : "update-account/:id", component: UpdateAccountComponent, canActivate: [accessSimpleGuard] },
-  { path : "owner-management", component: OwnerManagementComponent, canActivate: [accessSecretaryGuard] },
-  { path : "read-owner/:id", component: ReadOwnerComponent, canActivate: [accessSecretaryGuard] },
-  { path : "list-owner", component: ListOwnerComponent, canActivate: [accessSecretaryGuard] },
-  { path : "update-owner/:id", component: UpdateOwnerComponent, canActivate: [accessSecretaryGuard] },
-  { path : "not-found", component: NotfoundComponent },
-  { path : "auth", component : AuthComponent}
+  { path : "create-account", component : CreateAccountComponent, canActivate : [accessSecretaryGuard] },
+  { path : "list-account", component : ListAccountComponent, canActivate : [accessSecretaryGuard] },
+  { path : "read-account/:id", component : ReadAccountComponent, canActivate : [accessSimpleGuard] },
+  { path : "update-account/:id", component : UpdateAccountComponent, canActivate : [accessSimpleGuard] },
+  { path : "owner-management", component : OwnerManagementComponent, canActivate : [accessSecretaryGuard] },
+  { path : "read-owner/:id", component : ReadOwnerComponent, canActivate : [accessSecretaryGuard] },
+  { path : "list-owner", component : ListOwnerComponent, canActivate : [accessSecretaryGuard] },
+  { path : "update-owner/:id", component : UpdateOwnerComponent, canActivate : [accessSecretaryGuard] },
+  { path : "not-found", component : NotfoundComponent },
+  { path : "auth", component : AuthComponent},
+  { path : "dashboard", component : DashboardMainComponent, canActivate : [accessSimpleGuard]},
+  { path : "", redirectTo: '/auth', pathMatch: 'full'}
 ];
 
 @NgModule({

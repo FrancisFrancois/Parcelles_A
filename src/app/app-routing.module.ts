@@ -19,7 +19,7 @@ const routes: Routes = [
   { path : "read-account/:id", component: ReadAccountComponent },
   { path : "update-account", component: UpdateAccountComponent },
   { path : "update-account/:id", component: UpdateAccountComponent },
-  { path : "reset-account", component: ResetAccountComponent},
+  { path : "reset-account/:token", component: ResetAccountComponent},
   { path : "owner-management", component: OwnerManagementComponent },
   { path : "read-owner", component: ReadOwnerComponent },
   { path : "read-owner/:id", component: ReadOwnerComponent },

@@ -24,7 +24,7 @@ export class ResetAccountComponent {
     * 
     * @param _fb formbuilder créant une liaison avec le forumaire html
     * @param _accountManagementService injection de dépendance du service account management
-    * @param _router injection de dépendance du service permettant de les redirection
+    * @param _router injection de dépendance du service permettant de les redirectionr
     */
    constructor(
      private _fb : FormBuilder,

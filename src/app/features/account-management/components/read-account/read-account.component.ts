@@ -68,7 +68,7 @@ export class ReadAccountComponent {
   displayUserButton() : boolean {
     return this._authService.isUserLookForHimself(this.readAccount?.username) || this._authService.hasSecretaryRight();
   }
-
+  
   /**
    * Méthode pour faire la requête d'envoi d'un mail pour reset son mot de passe
    */
@@ -86,25 +86,7 @@ export class ReadAccountComponent {
       })
     }
   }
-  /**
-   * Méthode pour reset le password de l'utilisateur.
-   *
-   * @param resetPasswordRequest l'objet contenant les informations
-   */
-  resetPasswordRequestButton( resetPasswordRequest : ResetPasswordRequest) : void {
-    this._accountManagementService.resetPasswordRequest(resetPasswordRequest).subscribe({
-      next: (response) => {
-        console.log("Requete mot de passe envoyée avec succès:", response);
-      },
-      error: (error) => {
-        console.error("Une erreur s'est produite lors de la requête", error);
-      },
-      complete: () => {
-        console.log("Requete terminée.");
-      }
-    })
-  }
-  
+
   /**
    * Méthode de démande de désactivation de l'utilisateur
    * 

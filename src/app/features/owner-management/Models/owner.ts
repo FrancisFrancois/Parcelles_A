@@ -15,4 +15,5 @@ export interface Owner {
     comment: string;
     reunion: boolean;
     manifeste: boolean;
+    parcelsId: [0];
 }

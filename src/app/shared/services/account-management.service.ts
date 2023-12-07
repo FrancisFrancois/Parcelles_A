@@ -92,7 +92,7 @@ export class AccountManagementService {
     return this._httpClient.post<ResetPasswordRequest>(`${this._url}/resetpasswordrequest`, resetPasswordRequest)
   }
   /**
-   * Fonction permettant la récupération d'un mot de passe oublié
+   * Fonction permettant le reset d'un mot de passe oublié
    * 
    * @param resetPassword objet contenant les données du nouveau mot de passe
    * @returns l'observalbe de la requête

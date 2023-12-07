@@ -61,7 +61,7 @@ export class ResetAccountComponent {
   }
 
   ngOnInit(): void {
-    this._activedRoute.params.subscribe({
+    this._activedRoute.queryParams.subscribe({
       next: (params) => {
         this.token = params['token'] || null;
       },

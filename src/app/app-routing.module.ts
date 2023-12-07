@@ -22,6 +22,8 @@ const routes: Routes = [
   { path : "read-owner/:id", component: ReadOwnerComponent, canActivate: [accessSecretaryGuard] },
   { path : "list-owner", component: ListOwnerComponent, canActivate: [accessSecretaryGuard] },
   { path : "update-owner/:id", component: UpdateOwnerComponent, canActivate: [accessSecretaryGuard] },
+  { path : "reset-account", component: ResetAccountComponent},
+  { path : "reset-account/:token", component: ResetAccountComponent},
   { path : "not-found", component: NotfoundComponent },
   { path : "auth", component : AuthComponent},
   { path : "reset-account", component: ResetAccountComponent}

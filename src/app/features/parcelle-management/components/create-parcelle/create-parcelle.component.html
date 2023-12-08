@@ -19,7 +19,6 @@
                         <button>
                           <img class="indivisionBoutons" src="../../../../../assets/images/btn-minus.png" alt="bouton ajout">
                         </button>
-                        <p>ici s'afficheront les propriétaires sélectionnés</p>
                         <ul>
                           <li *ngFor="let owner of totalselectedOwner">{{ owner.lname }}</li>
                         </ul>
@@ -73,20 +72,7 @@
                     <input type="text" [(ngModel)]=zip (keyup)="SearchOwner()">
                 </div>
             </div>
-            <p>afficher ici les propriétaires qui auront été cherché et validé par les inputs (input déroulant) au
-                dessus en mode outlook,
-                ainsi on évitera de refaire un form pour les propriétaires.
-
-                Pour faire le lien avec la parcelle on met dans un objet</p>
-
-
-
         </div>
-
-
-
-
-
 
         <!-- Deuxième conteneur (Parcelle) -->
         <form class="col-md-6  justify-content-center">
@@ -144,17 +130,6 @@
 </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- créer bouton pour aller au formulaire création propriétaire si trouve pas correspondance entre
 parcelle et propriétaire -->
 <p>Si propriétaire introuvable :
@@ -162,9 +137,6 @@ parcelle et propriétaire -->
         <button type="button" class="btn btn">Création du propriétaire</button>
     </a>
 </p>
-
-
-
 
 
 <!-- création+ recherche parcelle -->

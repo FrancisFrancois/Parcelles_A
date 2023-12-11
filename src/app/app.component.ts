@@ -5,10 +5,10 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent{
   title = 'Parcelles-Frontend';
 
-  sidebarVisility : boolean = true;
+  sidebarVisility : boolean = false;
 
   receiveVisibility(visiblity : boolean) : void{
     this.sidebarVisility = visiblity;

@@ -32,8 +32,7 @@ export class ResetAccountComponent {
      private _router : Router,
      private _activedRoute : ActivatedRoute
      ) {
- 
-     this.resetPasswordForm = this._fb.group({
+      this.resetPasswordForm = this._fb.group({
       password: [null, [Validators.required, Validators.maxLength(150), Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/)]],
       passwordVerified: [null, [Validators.required]],
      }, {
@@ -61,7 +60,7 @@ export class ResetAccountComponent {
   }
 
   ngOnInit(): void {
-    this._activedRoute.params.subscribe({
+    this._activedRoute.queryParams.subscribe({
       next: (params) => {
         this.token = params['token'] || null;
       },

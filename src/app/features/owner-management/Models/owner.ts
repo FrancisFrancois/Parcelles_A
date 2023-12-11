@@ -1,5 +1,4 @@
 export interface Owner {
-    id : number;
     lname : string;
     fname : string;
     adress: string;
@@ -15,4 +14,16 @@ export interface Owner {
     comment: string;
     reunion: boolean;
     manifeste: boolean;
+    parcelsId : number[];
+}
+
+export interface OwnerGet {
+    id : number;
+    lname : string;
+    fname : string;
+    city: string;
+    email: string;
+    phone: string;
+    gsm: string;
+    parcelsId: number[];
 }

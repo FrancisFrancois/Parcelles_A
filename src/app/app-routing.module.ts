@@ -21,6 +21,7 @@ const routes: Routes = [
   { path : "owner-management", component: OwnerManagementComponent, canActivate: [accessSecretaryGuard] },
   { path : "read-owner/:id", component: ReadOwnerComponent, canActivate: [accessSecretaryGuard] },
   { path : "list-owner", component: ListOwnerComponent, canActivate: [accessSecretaryGuard] },
+  { path : "update-owner", component: UpdateOwnerComponent, canActivate: [accessSecretaryGuard] },
   { path : "update-owner/:id", component: UpdateOwnerComponent, canActivate: [accessSecretaryGuard] },
   { path : "not-found", component: NotfoundComponent },
   { path : "auth", component : AuthComponent},

@@ -35,8 +35,8 @@ constructor(
     this._accountManagementService.getById(this.accountId).subscribe({
       next : (account) => {
         this.registerForm.patchValue(account);
-      }
-    })
+      },
+    });
   }
 
 updateUser(): void {

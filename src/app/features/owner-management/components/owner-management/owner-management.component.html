@@ -20,6 +20,7 @@
             <br>
             <!--On vérifie la longueur du champs et s'il est laissé vide -->
             <input id="lname" type="text" class="form-control-sm" required formControlName="lname">
+            <br>
             <span class="text-danger" *ngIf="registerForm.get('lname')?.touched && 
                (registerForm.get('lname')?.errors?.['required'] || 
                 registerForm.get('lname')?.errors?.['maxlength'])">
@@ -32,6 +33,7 @@
             <label for="fname" class="form-label">Prénom</label>
             <br>
             <input id="fname" type="text" class="form-control-sm" required formControlName="fname">
+            <br>
             <span class="text-danger" *ngIf="registerForm.get('fname')?.touched && 
                     (registerForm.get('fname')?.errors?.['required'] || 
                      registerForm.get('fname')?.errors?.['maxlength'])">
@@ -44,6 +46,7 @@
             <label for="adress" class="form-label">Adresse</label>
             <br>
             <input type="text" class="form-control-sm" required formControlName="adress">
+            <br>
             <span class="text-danger" *ngIf="registerForm.get('adress')?.touched && 
                     (registerForm.get('adress')?.errors?.['required'] || 
                      registerForm.get('adress')?.errors?.['maxlength'])">
@@ -111,6 +114,7 @@
             <label for="email" class="form-label">Email</label>
             <br>
             <input type="email" class="form-control-sm" required formControlName="email">
+            <br>
             <span class="text-danger"
                 *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.errors?.['required']">Champs
                 requis</span>

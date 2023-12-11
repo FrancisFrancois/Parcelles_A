@@ -77,7 +77,7 @@ export class UpdateOwnerComponent implements OnInit {
       .subscribe({
         next: () => {
           console.log("L'utilisateur a été mis à jour");
-          this._router.navigate(['/']);
+          this._router.navigate(['/list-owner']);
         },
         error: (error) => {
           console.error(

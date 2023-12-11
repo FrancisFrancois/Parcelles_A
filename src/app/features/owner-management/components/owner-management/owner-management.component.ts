@@ -55,7 +55,7 @@ export class OwnerManagementComponent {
     if (this.registerForm.valid) {  
       this._ownerManagementService.create(this.registerForm.value).subscribe({
         complete: () => {
-          this._router.navigateByUrl('/'); 
+          this._router.navigateByUrl('/list-owner'); 
         }
       });
       console.log(this.registerForm.value); 

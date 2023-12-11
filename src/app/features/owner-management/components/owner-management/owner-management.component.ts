@@ -38,12 +38,12 @@ export class OwnerManagementComponent {
       country: [null, [Validators.required, Validators.maxLength(45)]],
       email: [null, [Validators.required, Validators.email]],
       phone: [null, [Validators.required, Validators.maxLength(45)]],
-      fax: [null, [Validators.required, Validators.maxLength(45)]],
-      gsm: [null, [Validators.required, Validators.maxLength(45)]],
-      contact: [null, [Validators.required, Validators.maxLength(1)]],
-      comment: [null, [Validators.required, Validators.maxLength(250)]],
-      reunion: [null, [Validators.required, Validators.maxLength(1)]],
-      manifeste: [null, [Validators.required, Validators.maxLength(1)]]
+      fax: [null, [Validators.maxLength(45)]],
+      gsm: [null, [Validators.maxLength(45)]],
+      contact: [null, [Validators.maxLength(1)]],
+      comment: [null, [Validators.maxLength(250)]],
+      reunion: [null, [Validators.maxLength(1)]],
+      manifeste: [null, [Validators.maxLength(1)]]
     });
   }
 

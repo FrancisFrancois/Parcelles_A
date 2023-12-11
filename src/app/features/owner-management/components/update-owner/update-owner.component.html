@@ -129,9 +129,6 @@
                     <input type="text" class="form-control-sm" required formControlName="fax">
                     <br>
                     <span class="text-danger"
-                        *ngIf="registerForm.get('fax')?.touched && registerForm.get('fax')?.hasError('required')">Champ
-                        requis</span>
-                    <span class="text-danger"
                         *ngIf="registerForm.hasError('fax') && registerForm.get('fax')?.touched"></span>
                 </div>
         </div>
@@ -145,9 +142,6 @@
                     <input type="text" class="form-control-sm" required formControlName="gsm">
                     <br>
                     <span class="text-danger"
-                        *ngIf="registerForm.get('gsm')?.touched && registerForm.get('gsm')?.hasError('required')">Champ
-                        requis</span>
-                    <span class="text-danger"
                         *ngIf="registerForm.hasError('gsm') && registerForm.get('gsm')?.touched"></span>
                 </div>
 
@@ -157,9 +151,6 @@
                     <br>
                     <input type="text" class="form-control-sm" required formControlName="contact">
                     <br>
-                    <span class="text-danger"
-                        *ngIf="registerForm.get('contact')?.touched && registerForm.get('contact')?.hasError('required')">Champ
-                        requis</span>
                     <span class="text-danger"
                         *ngIf="registerForm.hasError('contact') && registerForm.get('contact')?.touched"></span>
                 </div>
@@ -172,9 +163,6 @@
                     <input type="text" class="form-control-sm" required formControlName="comment">
                     <br>
                     <span class="text-danger"
-                        *ngIf="registerForm.get('comment')?.touched && registerForm.get('comment')?.hasError('required')">Champ
-                        requis</span>
-                    <span class="text-danger"
                         *ngIf="registerForm.hasError('comment') && registerForm.get('comment')?.touched"></span>
                 </div>
 
@@ -184,9 +172,6 @@
                     <br>
                     <input type="text" class="form-control-sm" required formControlName="reunion">
                     <br>
-                    <span class="text-danger"
-                        *ngIf="registerForm.get('reunion')?.touched && registerForm.get('reunion')?.hasError('required')">Champ
-                        requis</span>
                     <span class="text-danger"
                         *ngIf="registerForm.hasError('reunion') && registerForm.get('reunion')?.touched"></span>
                 </div>
@@ -198,9 +183,6 @@
                     <br>
                     <input type="text" class="form-control-sm" required formControlName="manifeste">
                     <br>
-                    <span class="text-danger"
-                        *ngIf="registerForm.get('manifeste')?.touched && registerForm.get('manifeste')?.hasError('required')">Champ
-                        requis</span>
                     <span class="text-danger"
                         *ngIf="registerForm.hasError('manifeste') && registerForm.get('manifeste')?.touched"></span>
                 </div>

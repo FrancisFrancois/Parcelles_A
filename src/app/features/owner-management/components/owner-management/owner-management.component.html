@@ -138,10 +138,7 @@
             <input type="text" class="form-control-sm" required formControlName="fax">
             <br>
             <span class="text-danger" *ngIf="registerForm.get('fax')?.touched && 
-                    (registerForm.get('fax')?.errors?.['required'] || 
-                     registerForm.get('fax')?.errors?.['maxlength'])">
-                {{ registerForm.get('fax')?.errors?.['required'] ? 'Champs requis' : 'Longueur maximale atteinte' }}
-            </span>
+                    (registerForm.get('fax')?.errors?.['maxlength'])">'Longueur maximale atteinte'</span>
         </div>
         </div>
 
@@ -154,10 +151,7 @@
             <input type="text" class="form-control-sm" required formControlName="gsm">
             <br>
             <span class="text-danger" *ngIf="registerForm.get('gsm')?.touched && 
-                (registerForm.get('gsm')?.errors?.['required'] || 
-                 registerForm.get('gsm')?.errors?.['maxlength'])">
-                {{ registerForm.get('gsm')?.errors?.['required'] ? 'Champs requis' : 'Longueur maximale atteinte' }}
-            </span>
+                (registerForm.get('gsm')?.errors?.['maxlength'])">Longueur maximale atteinte</span>
         </div>
 
         <!--contact-->
@@ -167,10 +161,7 @@
             <input type="text" class="form-control-sm" required formControlName="contact">
             <br>
             <span class="text-danger" *ngIf="registerForm.get('contact')?.touched && 
-                (registerForm.get('contact')?.errors?.['required'] || 
-                 registerForm.get('contact')?.errors?.['maxlength'])">
-                {{ registerForm.get('contact')?.errors?.['required'] ? 'Champs requis' : 'Longueur maximale atteinte' }}
-            </span>
+                (registerForm.get('contact')?.errors?.['maxlength'])">Longueur maximale atteinte</span>
         </div>
 
         <!--comment-->
@@ -180,10 +171,7 @@
             <input type="text" class="form-control-sm" required formControlName="comment">
             <br>
             <span class="text-danger" *ngIf="registerForm.get('comment')?.touched && 
-                (registerForm.get('comment')?.errors?.['required'] || 
-                 registerForm.get('comment')?.errors?.['maxlength'])">
-                {{ registerForm.get('comment')?.errors?.['required'] ? 'Champs requis' : 'Longueur maximale atteinte' }}
-            </span>
+                (registerForm.get('comment')?.errors?.['maxlength'])">Longueur maximale atteinte</span>
         </div>
 
         <!--reunion-->
@@ -193,10 +181,7 @@
             <input type="text" class="form-control-sm" required formControlName="reunion">
             <br>
             <span class="text-danger" *ngIf="registerForm.get('reunion')?.touched && 
-                (registerForm.get('reunion')?.errors?.['required'] || 
-                 registerForm.get('reunion')?.errors?.['maxlength'])">
-                {{ registerForm.get('reunion')?.errors?.['required'] ? 'Champs requis' : 'Longueur maximale atteinte' }}
-            </span>
+                (  registerForm.get('reunion')?.errors?.['maxlength'])">Longueur maximale atteinte</span>
         </div>
 
 
@@ -207,11 +192,7 @@
             <input type="text" class="form-control-sm" required formControlName="manifeste">
             <br>
             <span class="text-danger" *ngIf="registerForm.get('manifeste')?.touched && 
-                        (registerForm.get('manifeste')?.errors?.['required'] || 
-                         registerForm.get('manifeste')?.errors?.['maxlength'])">
-                {{ registerForm.get('manifeste')?.errors?.['required'] ? 'Champs requis' : 'Longueur maximale atteinte'
-                }}
-            </span>
+                        (registerForm.get('manifeste')?.errors?.['maxlength'])">Longueur maximale atteinte</span>
         </div>
         </div>
         </div>

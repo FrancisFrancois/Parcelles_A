@@ -14,7 +14,7 @@ export class OwnerManagementService {
     @Inject('urlBackend') private _urlBase : string) { }
 
   getAll(): Observable<OwnerGet[]>{
-    let updateUrl: string = `${this._url}/all/actif`;
+    let updateUrl: string = `${this._url}/all`;
     return this._httpClient.get<OwnerGet[]>(updateUrl);
   }
   
@@ -28,7 +28,7 @@ export class OwnerManagementService {
     return this._httpClient.post<Owner>(updateUrl, Owner);
   }
   update(id: number, Owner: Owner): Observable<Owner>{
-    let updateUrl: string = `${this._url}/${id}`;
+    let updateUrl: string = `${this._url}/update/${id}`;
     return this._httpClient.put<Owner>(updateUrl, Owner);
   }
 

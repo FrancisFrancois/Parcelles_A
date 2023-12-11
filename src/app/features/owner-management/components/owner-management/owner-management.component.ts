@@ -60,7 +60,7 @@ export class OwnerManagementComponent {
 
       this._ownerManagementService.create(ownerToCreate).subscribe({
         next : (response) => {
-          this._router.navigateByUrl('dashboard'); 
+          this._router.navigateByUrl('/list-owner'); 
         }
       });
       console.log(this.registerForm.value); 

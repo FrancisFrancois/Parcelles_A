@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Owner } from '../../models/owner';
+import { OwnerGet } from '../../models/owner';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OwnerManagementService } from '../../services/owner-management.service';
 
@@ -12,7 +12,7 @@ export class ReadOwnerComponent {
   /**
    * On récupère l'owner à afficher, il peut être undefined si l'owner n'existe pas
    */
-  owner: Owner | undefined;
+  owner: OwnerGet | undefined;
 
   /**
    * @param _activeRoute permet de récupérer l'ID de l'owner à afficher à l'aide de l'url

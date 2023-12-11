@@ -54,14 +54,20 @@ export class OwnerManagementComponent {
   createOwner() {
     if (this.registerForm.valid) {  
       this._ownerManagementService.create(this.registerForm.value).subscribe({
-        complete: () => {
+        next: (response) => {
+          console.log("Propriétaire créé avec succès:", response);
           this._router.navigateByUrl('/list-owner'); 
+        },
+        error: (error) => {
+          console.error("Une erreur s'est produite lors de la création du propriétaire:", error);
+        },
+        complete: () => {
+          console.log("Création du propriétaire terminée");
         }
       });
       console.log(this.registerForm.value); 
       console.log("FORMULAIRE VALIDE");
     } else {
-
       this.registerForm.markAllAsTouched();
       console.log("FORMULAIRE INVALIDE");
     }

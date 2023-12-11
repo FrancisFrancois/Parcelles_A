@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { OwnerManagementService } from '../../services/owner-management.service';
+import { Owner } from '../../models/owner';
 @Component({
   selector: 'app-owner-management',
   templateUrl: './owner-management.component.html',
@@ -29,8 +30,8 @@ export class OwnerManagementComponent {
      * les contraintes appliquées aux champs sont les suivantes :
      */
     this.registerForm = this._fb.group({
-      lname: [null, [Validators.required, Validators.maxLength(100), Validators.pattern(/^[\D]*$/)]],
-      fname: [null, [Validators.required, Validators.maxLength(100), Validators.pattern(/^[\D]*$/)]],
+      lname: [null, [Validators.required, Validators.maxLength(100)]],
+      fname: [null, [Validators.required, Validators.maxLength(100)]],
       adress: [null, [Validators.required, Validators.maxLength(200)]],
       zip: [null, [Validators.required,Validators.maxLength(10)]],
       city: [null, [Validators.required, Validators.maxLength(100)]],
@@ -40,10 +41,10 @@ export class OwnerManagementComponent {
       phone: [null, [Validators.required, Validators.maxLength(45)]],
       fax: [null, [Validators.maxLength(45)]],
       gsm: [null, [Validators.maxLength(45)]],
-      contact: [null, [Validators.maxLength(1)]],
+      contact: [false, []],
       comment: [null, [Validators.maxLength(250)]],
-      reunion: [null, [Validators.maxLength(1)]],
-      manifeste: [null, [Validators.maxLength(1)]]
+      reunion: [false, []],
+      manifeste: [false, []]
     });
   }
 
@@ -52,7 +53,12 @@ export class OwnerManagementComponent {
    */
   createOwner() {
     if (this.registerForm.valid) {  
-      this._ownerManagementService.create(this.registerForm.value).subscribe({
+      let ownerToCreate : Owner = this.registerForm.value;
+      //ownerToCreate.contact = this.registerForm.controls["contact"] ? '1' : '0';
+      //ownerToCreate.manifeste = this.registerForm.controls["manifeste"] ? '1' : '0';
+      //ownerToCreate.reunion = this.registerForm.controls["reunion"] ? '1' : '0';
+
+      this._ownerManagementService.create(ownerToCreate).subscribe({
         next : (response) => {
           this._router.navigateByUrl('dashboard'); 
         }

@@ -16,9 +16,11 @@ import { ResetAccountComponent } from './features/account-management/components/
 const routes: Routes = [
   { path : "create-account", component: CreateAccountComponent, canActivate: [accessSecretaryGuard] },
   { path : "list-account", component: ListAccountComponent, canActivate: [accessSecretaryGuard] },
+  { path : "read-account", component: ReadAccountComponent, canActivate: [accessSimpleGuard] },
   { path : "read-account/:id", component: ReadAccountComponent, canActivate: [accessSimpleGuard] },
   { path : "update-account/:id", component: UpdateAccountComponent, canActivate: [accessSimpleGuard] },
   { path : "owner-management", component: OwnerManagementComponent, canActivate: [accessSecretaryGuard] },
+  { path : "read-owner", component: ReadOwnerComponent, canActivate: [accessSecretaryGuard] },
   { path : "read-owner/:id", component: ReadOwnerComponent, canActivate: [accessSecretaryGuard] },
   { path : "list-owner", component: ListOwnerComponent, canActivate: [accessSecretaryGuard] },
   { path : "update-owner", component: UpdateOwnerComponent, canActivate: [accessSecretaryGuard] },

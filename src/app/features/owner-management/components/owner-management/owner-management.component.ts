@@ -53,12 +53,7 @@ export class OwnerManagementComponent {
    */
   createOwner() {
     if (this.registerForm.valid) {  
-      let ownerToCreate : Owner = this.registerForm.value;
-      //ownerToCreate.contact = this.registerForm.controls["contact"] ? '1' : '0';
-      //ownerToCreate.manifeste = this.registerForm.controls["manifeste"] ? '1' : '0';
-      //ownerToCreate.reunion = this.registerForm.controls["reunion"] ? '1' : '0';
-
-      this._ownerManagementService.create(ownerToCreate).subscribe({
+      this._ownerManagementService.create(this.registerForm.value).subscribe({
         next : (response) => {
           this._router.navigateByUrl('/list-owner'); 
         }

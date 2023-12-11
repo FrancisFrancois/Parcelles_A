@@ -1,7 +1,7 @@
 <div class="navbar">
     <img src="../../../../assets/images/Logo_Cellule_Quadri_new_FBW-vecto.png" alt="">
-    <div>
-        <span *ngIf="isConnected()">{{userDisplay()}}</span>
+    <div
+        <span class="userDisplay" *ngIf="isConnected()">{{userDisplay()}}</span>
         <span *ngIf="!isConnected()"></span>
     </div>
     <div>

@@ -11,19 +11,10 @@
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">Nom : {{owner?.lname}}</li>
                 <li class="list-group-item">Prénom : {{owner?.fname}}</li>
-                <li class="list-group-item">Adresse : {{owner?.adress}}</li>
-                <li class="list-group-item">Code postale : {{owner?.zip}}</li>
                 <li class="list-group-item">Ville : {{owner?.city}}</li>
                 <li class="list-group-item">Région/Province</li>
-                <li class="list-group-item">Pays : {{owner?.country}}</li>
                 <li class="list-group-item">Email : {{owner?.email}}</li>
-                <li class="list-group-item">Numéro de téléphone : {{owner?.contact}}</li>
-                <li class="list-group-item">Fax : {{owner?.fax}}</li>
                 <li class="list-group-item">GSM : {{owner?.gsm}}</li>
-                <li class="list-group-item">Contact : {{owner?.contact}}</li>
-                <li class="list-group-item">Commentaire : {{owner?.comment}}</li>
-                <li class="list-group-item">Reunion : {{owner?.reunion}}</li>
-                <li class="list-group-item">Manifest : {{owner?.manifeste}}</li>
             </ul>
             <div class="card-body">
                 <button class="btn-modifier" routerLink="/update-owner/{{owner?.id}}">Modifier Propriétaire</button>

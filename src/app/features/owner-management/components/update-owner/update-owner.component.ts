@@ -57,6 +57,8 @@ export class UpdateOwnerComponent implements OnInit {
       comment: [null, [Validators.required, Validators.maxLength(1)]],
       reunion: [null, [Validators.required, Validators.maxLength(1)]],
       manifeste: [null, [Validators.required, Validators.maxLength(1)]],
+      parcelsId: [null, [Validators.maxLength(1)]],
+
     });
   }
   /* permet de reprendre l'id pour afficher le propriétaire dès le chargement de la page*/

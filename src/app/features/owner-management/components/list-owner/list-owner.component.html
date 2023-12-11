@@ -19,8 +19,11 @@
             <tr>
                 <th scope="col">Nom</th>
                 <th scope="col">Prénom</th>
-                <th scope="col">Zip</th>
-                <th scope="col">Mail</th>
+                <th scope="col">Email</th>
+                <th scope="col">Ville</th>
+                <th scope="col">Téléphone</th>
+                <th scope="col">Gsm</th>
+                <th scope="col">Parcel ID</th>
                 <th scope="col">Actions</th>
             </tr>
         </thead>
@@ -28,8 +31,12 @@
             <tr *ngFor="let owner of owners">
                 <td>{{ owner.lname }}</td>
                 <td>{{ owner.fname }}</td>
-                <td>{{ owner.zip }}</td>
                 <td>{{ owner.email }}</td>
+                <td>{{ owner.city }}</td>
+                <td>{{ owner.phone }}</td>
+                <td>{{ owner.gsm }}</td>
+                <td>{{ owner.parcelsId }}</td>
+                
                 <td>
                     <button class="btn-action" routerLink="/read-owner/{{ owner.id }}">🔎</button>
                     <button class="btn-action" routerLink="/update-owner/{{ owner.id }}">📝</button>

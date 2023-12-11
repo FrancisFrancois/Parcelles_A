@@ -43,7 +43,8 @@ export class OwnerManagementComponent {
       contact: [null, [Validators.required, Validators.maxLength(1)]],
       comment: [null, [Validators.required, Validators.maxLength(250)]],
       reunion: [null, [Validators.required, Validators.maxLength(1)]],
-      manifeste: [null, [Validators.required, Validators.maxLength(1)]]
+      manifeste: [null, [Validators.required, Validators.maxLength(1)]],
+      parcelsId: [null, [Validators.maxLength(1)]],
     });
   }
 

@@ -204,6 +204,14 @@
                     <span class="text-danger"
                         *ngIf="registerForm.hasError('manifeste') && registerForm.get('manifeste')?.touched"></span>
                 </div>
+                
+                 <!--parcelsId-->
+                <div class="mb-3">
+                    <label for="parcelsId" class="form-label">Parcel ID</label>
+                    <br>
+                    <input type="text" class="form-control-sm" required formControlName="parcelsId">
+                    <br>
+                </div>
                 </div>
                 </div>
             </div>

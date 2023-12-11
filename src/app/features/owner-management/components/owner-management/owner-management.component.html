@@ -202,8 +202,6 @@
                 {{ registerForm.get('reunion')?.errors?.['required'] ? 'Champs requis' : 'Longueur maximale atteinte' }}
             </span>
         </div>
-
-
         <!--manifeste-->
         <div class="mb-3">
             <label for="manifeste" class="form-label">Manifeste</label>
@@ -216,6 +214,13 @@
                 {{ registerForm.get('manifeste')?.errors?.['required'] ? 'Champs requis' : 'Longueur maximale atteinte'
                 }}
             </span>
+        </div>
+        <!--parcelsId-->
+        <div class="mb-3">
+            <label for="parcelsId" class="form-label">Parcel ID</label>
+            <br>
+            <input type="text" class="form-control-sm" required formControlName="parcelsId">
+            <br>
         </div>
         </div>
         </div>

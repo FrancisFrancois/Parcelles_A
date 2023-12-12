@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { OwnerManagementService } from '../../services/owner-management.service';
 import { OwnerGet } from '../../models/owner';
 import { Router } from '@angular/router';
+import { searchOwner } from '../../Models/searchOwner';
 
 @Component({
   selector: 'app-list-owner',
@@ -58,15 +59,23 @@ export class ListOwnerComponent implements OnInit {
   timeout :any;
   fname : string = "";
   lname : string = "";
+  zip : string = "";
   city: string = "";
   email:string="";
-  total = this.fname + this.lname + this.city+this.email;
   SearchOwner():void{
+    let searchForm : searchOwner = {
+      fname : (this.fname == "" || this.fname.replaceAll(" ","") == "" ? null : this.fname) ?? null,
+      lname : (this.lname == "" || this.lname.replaceAll(" ","") == "" ? null : this.lname) ?? null,
+      zip : (this.zip == "" || this.zip.replaceAll(" ","") == "" ? null : this.zip) ?? null,
+      city : (this.city == "" || this.city.replaceAll(" ","") == "" ? null : this.city) ?? null,
+      email : (this.email == "" || this.email.replaceAll(" ","") == "" ? null : this.email) ?? null
+    }
+
     clearTimeout(this.timeout);
     this.timeout = null;
 
     this.timeout = setTimeout(() => {
-      this._ownerManagementService.searchOwners(this.total).subscribe({
+      this._ownerManagementService.searchOwners(searchForm).subscribe({
         next: (response) => {
           console.log(this.fname,this.lname, this.city,this.email);
           this.owners = response; // met à jour le tableau

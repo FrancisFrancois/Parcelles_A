@@ -7,10 +7,11 @@
     <br>
     <br>
     <div class="row">
-        <input class="form-control me-2 col search" type="text" placeholder="tous les prénoms" [(ngModel)]=fname (keyup)="SearchOwner()">
         <input class="form-control me-2 col search" type="text" placeholder="tous les noms" [(ngModel)]=lname (keyup)="SearchOwner()">
-        <input class="form-control me-2 col search" type="text" placeholder="tous les villes" [(ngModel)]=city (keyup)="SearchOwner()">
+        <input class="form-control me-2 col search" type="text" placeholder="tous les prénoms" [(ngModel)]=fname (keyup)="SearchOwner()">
         <input class="form-control me-2 col search" type="text" placeholder="tous les emails" [(ngModel)]=email (keyup)="SearchOwner()">
+        <input class="form-control me-2 col search" type="text" placeholder="tous les villes" [(ngModel)]=city (keyup)="SearchOwner()">
+        <input class="form-control me-2 col search" type="text" placeholder="tous les code postaux" [(ngModel)]=zip (keyup)="SearchOwner()">
     </div>
     <br>
     <br>
@@ -21,9 +22,7 @@
                 <th scope="col">Prénom</th>
                 <th scope="col">Email</th>
                 <th scope="col">Ville</th>
-                <th scope="col">Téléphone</th>
-                <th scope="col">Gsm</th>
-                <th scope="col">Parcel ID</th>
+                <th scope="col">Code Postal</th>
                 <th scope="col">Actions</th>
             </tr>
         </thead>
@@ -33,9 +32,7 @@
                 <td>{{ owner.fname }}</td>
                 <td>{{ owner.email }}</td>
                 <td>{{ owner.city }}</td>
-                <td>{{ owner.phone }}</td>
-                <td>{{ owner.gsm }}</td>
-                <td>{{ owner.parcelsId }}</td>
+                <td>{{ owner.zip }}</td>
                 
                 <td>
                     <button class="btn-action" routerLink="/read-owner/{{ owner.id }}">🔎</button>

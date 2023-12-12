@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Owner, OwnerGet } from '../models/owner';
+import { searchOwner } from '../Models/searchOwner';
 
 @Injectable({
   providedIn: 'root'
@@ -39,10 +40,10 @@ export class OwnerManagementService {
 
   /**
    * requête pour la recherche list-owner
-   * @param changeText qui contient le texte à rechercher
+   * @param searchOwner qui contient un formulaire avec les valeurs pour affiner la liste
    */
-  searchOwners(changeText: string): Observable<OwnerGet[]> {
+  searchOwners(searchOwner : searchOwner): Observable<OwnerGet[]> {
     let updateUrl: string = `${this._url}/all/search`;
-    return this._httpClient.post<OwnerGet[]>(updateUrl, { searchText: changeText });
+    return this._httpClient.post<OwnerGet[]>(updateUrl, searchOwner);
   }
 }

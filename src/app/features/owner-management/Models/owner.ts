@@ -24,6 +24,7 @@ export interface OwnerGet {
     city: string;
     email: string;
     phone: string;
+    zip:string;
     gsm: string;
     parcelsId: number[];
 }
